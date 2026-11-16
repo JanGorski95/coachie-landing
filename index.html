@@ -229,61 +229,105 @@ h1 em { font-style: normal; color: var(--accent); }
   border-radius: 999px;
   background: var(--border);
 }
-.phone .screen { flex: 1; display: flex; flex-direction: column; gap: 9px; margin-top: 8px; }
-.mock-bar { height: 9px; border-radius: 5px; background: var(--border); }
-.mock-bar.w60 { width: 60%; }
-.mock-bar.w40 { width: 40%; }
+.phone .screen { flex: 1; display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
 .mock-bubble {
   background: var(--accent-soft);
   color: var(--accent);
   border-radius: 12px 12px 12px 4px;
-  padding: 8px 10px;
-  font-size: 0.68rem;
-  font-weight: 600;
-  max-width: 80%;
+  padding: 9px 11px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  max-width: 85%;
 }
-.mock-bubble.alt { align-self: flex-end; background: var(--bg-sunken); color: var(--fg-muted); border-radius: 12px 12px 4px 12px; }
-.mock-pill {
-  align-self: flex-start;
+.mock-bubble.alt { align-self: flex-end; background: var(--fg); color: var(--bg); border-radius: 12px 12px 4px 12px; }
+.mock-day-card {
   background: var(--accent);
   color: var(--accent-fg);
-  font-size: 0.68rem;
-  font-weight: 700;
-  border-radius: 999px;
-  padding: 7px 14px;
-  margin-top: auto;
-}
-.mock-card {
-  background: var(--bg-sunken);
   border-radius: 14px;
-  padding: 10px;
+  padding: 12px;
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  justify-content: flex-end;
+  justify-content: center;
+  gap: 4px;
 }
+.mock-day-card .emoji { font-size: 1.4rem; }
+.mock-day-card .title { font-size: 0.82rem; font-weight: 800; }
+.mock-day-card .meta { font-size: 0.68rem; font-weight: 600; opacity: 0.9; }
+.mock-pill {
+  align-self: stretch;
+  text-align: center;
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 0.72rem;
+  font-weight: 800;
+  border-radius: 999px;
+  padding: 10px 14px;
+}
+
+/* swipe mockup */
 .mock-swipe-stack { position: relative; flex: 1; }
 .mock-swipe-card {
   position: absolute;
   inset: 0;
-  background: var(--bg-sunken);
+  background: var(--bg-raised);
   border-radius: 16px;
-  border: 1px solid var(--border);
+  border: 2px solid var(--border);
+  overflow: hidden;
 }
-.mock-swipe-card.back { transform: scale(0.94) translateY(8px); opacity: 0.6; }
-.mock-swipe-card.front { display: flex; flex-direction: column; justify-content: flex-end; padding: 10px; gap: 6px; }
-.mock-ring {
-  width: 72px; height: 72px;
+.mock-swipe-card.back { transform: scale(0.93) translateY(10px); border-color: var(--border); }
+.mock-swipe-card.front {
+  display: flex;
+  flex-direction: column;
+  border-color: var(--accent);
+  box-shadow: 0 10px 20px -12px rgba(0,0,0,0.35);
+}
+.mock-swipe-photo {
+  flex: 1;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-soft) 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.mock-swipe-photo .initials { font-size: 2.1rem; font-weight: 800; color: var(--accent-fg); }
+.mock-swipe-info { padding: 10px 12px 12px; background: var(--bg-raised); }
+.mock-swipe-info .name { font-size: 0.86rem; font-weight: 800; color: var(--fg); }
+.mock-swipe-info .meta { font-size: 0.68rem; font-weight: 600; color: var(--fg-muted); margin-top: 1px; }
+.mock-swipe-actions { display: flex; gap: 10px; justify-content: center; margin-top: 8px; }
+.mock-swipe-actions .mbtn {
+  width: 34px; height: 34px;
   border-radius: 50%;
-  margin: 10px auto 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+.mock-swipe-actions .mbtn.pass { background: var(--bg-sunken); color: var(--fg-muted); border: 2px solid var(--border); }
+.mock-swipe-actions .mbtn.like { background: var(--accent); color: var(--accent-fg); }
+
+/* progress mockup */
+.mock-ring {
+  width: 76px; height: 76px;
+  border-radius: 50%;
+  margin: 4px auto 0;
   background: conic-gradient(var(--accent) 0deg 252deg, var(--border) 252deg 360deg);
   display: flex; align-items: center; justify-content: center;
 }
-.mock-ring::after { content: '70%'; width: 52px; height: 52px; border-radius: 50%; background: var(--bg-raised); display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; }
-.mock-flame { font-size: 1.3rem; text-align: center; }
-.preview-caption { text-align: center; font-size: 0.78rem; color: var(--fg-muted); margin-top: 6px; }
-.preview-note { text-align: center; font-size: 0.78rem; color: var(--fg-muted); margin-top: 18px; }
+.mock-ring::after { content: '70%'; width: 56px; height: 56px; border-radius: 50%; background: var(--bg-raised); display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 800; color: var(--fg); }
+.mock-flame { font-size: 0.92rem; font-weight: 700; text-align: center; color: var(--fg); }
+.mock-chart {
+  flex: 1;
+  background: var(--bg-sunken);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: flex-end;
+  gap: 7px;
+}
+.mock-chart .bar {
+  flex: 1;
+  border-radius: 5px 5px 2px 2px;
+  background: var(--border);
+}
+.mock-chart .bar.hit { background: var(--accent); }
+.preview-caption { text-align: center; font-size: 0.78rem; color: var(--fg-muted); margin-top: 8px; font-weight: 600; }
 
 /* ---------- trainers section ---------- */
 .trainers-panel {
@@ -381,9 +425,9 @@ footer a { color: var(--fg-muted); }
     <span class="eyebrow">Już wkrótce</span>
     <h1>Trenuj z AI. <em>Albo</em> znajdź prawdziwego trenera.</h1>
     <p class="sub">
-      Coachie App to Twój osobisty trener AI, dostępny od pierwszej minuty —
+      Coachie App to Twój osobisty trener AI, dostępny od pierwszej minuty,
       i sieć prawdziwych trenerów personalnych, gdy zechcesz żywego wsparcia. Plany treningowe,
-      jadłospisy, śledzenie postępów i czat — w jednej aplikacji.
+      jadłospisy, śledzenie postępów i czat w jednej aplikacji.
     </p>
     <div class="hero-ctas">
       <a href="#signup-section" class="btn btn-primary">Zapisz się na start</a>
@@ -396,17 +440,17 @@ footer a { color: var(--fg-muted); }
       <div class="card">
         <div class="num">01</div>
         <h3>Coachie, Twój trener AI</h3>
-        <p>Spersonalizowany plan treningowy i jadłospis generowany przez AI — gotowy, zanim znajdziesz trenera, i wystarczający, jeśli nigdy go nie potrzebujesz.</p>
+        <p>Spersonalizowany plan treningowy i jadłospis generowany przez AI. Gotowy, zanim znajdziesz trenera, i wystarczający, jeśli nigdy go nie potrzebujesz.</p>
       </div>
       <div class="card">
         <div class="num">02</div>
         <h3>Prawdziwi trenerzy</h3>
-        <p>Gdy będziesz gotów/a, przełącz się na trenera personalnego — rezerwacja sesji, czat i Twoja historia zostają bez zmian.</p>
+        <p>Gdy będziesz gotów/a, przełącz się na trenera personalnego: rezerwacja sesji, czat i Twoja historia zostają bez zmian.</p>
       </div>
       <div class="card">
         <div class="num">03</div>
         <h3>Postępy pod kontrolą</h3>
-        <p>Zdjęcia sylwetki, pomiary, kalorie i makroskładniki, passy i odznaki — wszystko w jednym miejscu, nie w pięciu różnych appkach.</p>
+        <p>Zdjęcia sylwetki, pomiary, kalorie i makroskładniki, passy i odznaki: wszystko w jednym miejscu, nie w pięciu różnych appkach.</p>
       </div>
     </div>
   </section>
@@ -420,12 +464,12 @@ footer a { color: var(--fg-muted); }
       <div class="feature">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a5 5 0 0 0-5 5v1.6A4 4 0 0 0 5 13v2a4 4 0 0 0 2.3 3.6c.2 1.3 1.3 2.4 2.7 2.4h4c1.4 0 2.5-1.1 2.7-2.4A4 4 0 0 0 19 15v-2a4 4 0 0 0-2-3.4V8a5 5 0 0 0-5-5Z"/><path d="M9 11h.01M15 11h.01"/></svg></div>
         <h3>Plan generowany przez AI</h3>
-        <p>Trening i jadłospis dopasowane do celu, poziomu i preferencji — gotowe w kilkadziesiąt sekund.</p>
+        <p>Trening i jadłospis dopasowane do celu, poziomu i preferencji, gotowe w kilkadziesiąt sekund.</p>
       </div>
       <div class="feature">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="10" height="15" rx="2" transform="rotate(-8 5 4)"/><rect x="8" y="5" width="11" height="15" rx="2"/></svg></div>
         <h3>Dopasowanie do trenera</h3>
-        <p>Przesuwaj profile trenerów w pobliżu, jak w aplikacji randkowej — tylko że chodzi o Twój trening.</p>
+        <p>Przesuwaj profile trenerów w pobliżu, jak w aplikacji randkowej. Tylko że chodzi o Twój trening.</p>
       </div>
       <div class="feature">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
@@ -435,17 +479,17 @@ footer a { color: var(--fg-muted); }
       <div class="feature">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></div>
         <h3>Czat</h3>
-        <p>Pisz z trenerem albo z Coachie, wysyłaj zdjęcia i pliki — jedna rozmowa, zawsze pod ręką.</p>
+        <p>Pisz z trenerem albo z Coachie, wysyłaj zdjęcia i pliki. Jedna rozmowa, zawsze pod ręką.</p>
       </div>
       <div class="feature">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
         <h3>Śledzenie postępów</h3>
-        <p>Zdjęcia sylwetki, pomiary ciała i wykresy w czasie — widzisz realną zmianę, nie tylko liczbę na wadze.</p>
+        <p>Zdjęcia sylwetki, pomiary ciała i wykresy w czasie. Widzisz realną zmianę, nie tylko liczbę na wadze.</p>
       </div>
       <div class="feature">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="1"/><path d="M7 7v10M11 7v10M15 7v3M15 14v3M18 7v10"/></svg></div>
         <h3>Kalorie i makra</h3>
-        <p>Skanuj kod kreskowy produktu albo wpisz posiłek ręcznie — dziennik żywienia liczy się sam.</p>
+        <p>Skanuj kod kreskowy produktu albo wpisz posiłek ręcznie, dziennik żywienia liczy się sam.</p>
       </div>
       <div class="feature">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-9.3-9.2C1.4 8.6 3 5 6.6 5c2 0 3.2 1 4.4 2.6C12.2 6 13.4 5 15.4 5 19 5 20.6 8.6 19.3 11.8 17 16.4 12 21 12 21Z"/></svg></div>
@@ -455,7 +499,7 @@ footer a { color: var(--fg-muted); }
       <div class="feature">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 9l5 3-5 3Z"/></svg></div>
         <h3>Biblioteka ćwiczeń</h3>
-        <p>Każde ćwiczenie z krótkim instruktażem wideo — bez zgadywania, jak wygląda poprawna technika.</p>
+        <p>Każde ćwiczenie z krótkim instruktażem wideo, bez zgadywania, jak wygląda poprawna technika.</p>
       </div>
     </div>
   </section>
@@ -463,19 +507,20 @@ footer a { color: var(--fg-muted); }
   <section id="preview">
     <div class="section-head">
       <h2>Zobacz, jak to wygląda</h2>
-      <p>Podgląd koncepcyjny interfejsu aplikacji — prawdziwe zrzuty ekranu pojawią się tu, gdy appka trafi do sklepów.</p>
+      <p>Podgląd koncepcyjny interfejsu aplikacji. Prawdziwe zrzuty ekranu pojawią się tu, gdy appka trafi do sklepów.</p>
     </div>
     <div class="preview-row">
       <div>
         <div class="phone">
           <div class="screen">
-            <div class="mock-bubble">Cel: budowa masy, 4 dni/tydz.</div>
-            <div class="mock-bubble alt">Oto Twój plan na ten tydzień ↓</div>
-            <div class="mock-card">
-              <div class="mock-bar w60"></div>
-              <div class="mock-bar w40"></div>
+            <div class="mock-bubble">Cel: budowa masy, 4 dni w tygodniu</div>
+            <div class="mock-bubble alt">Twój plan jest gotowy</div>
+            <div class="mock-day-card">
+              <div class="emoji">💪</div>
+              <div class="title">Dzień 1: Push</div>
+              <div class="meta">5 ćwiczeń · 45 min</div>
             </div>
-            <div class="mock-pill">Generuj plan</div>
+            <div class="mock-pill">Generuj kolejny dzień</div>
           </div>
         </div>
         <p class="preview-caption">Coachie generuje plan</p>
@@ -485,8 +530,15 @@ footer a { color: var(--fg-muted); }
           <div class="screen mock-swipe-stack">
             <div class="mock-swipe-card back"></div>
             <div class="mock-swipe-card front">
-              <div class="mock-bar w60"></div>
-              <div class="mock-bar w40"></div>
+              <div class="mock-swipe-photo"><span class="initials">KM</span></div>
+              <div class="mock-swipe-info">
+                <div class="name">Kasia M.</div>
+                <div class="meta">Trener personalny · 2.3 km · ★ 4.9</div>
+                <div class="mock-swipe-actions">
+                  <span class="mbtn pass">✕</span>
+                  <span class="mbtn like">♥</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -496,10 +548,15 @@ footer a { color: var(--fg-muted); }
         <div class="phone">
           <div class="screen">
             <div class="mock-ring"></div>
-            <div class="mock-flame">🔥 12 dni z rzędu</div>
-            <div class="mock-card">
-              <div class="mock-bar w60"></div>
-              <div class="mock-bar w40"></div>
+            <div class="mock-flame">🔥 Passa: 12 dni z rzędu</div>
+            <div class="mock-chart">
+              <div class="bar hit" style="height:40%"></div>
+              <div class="bar hit" style="height:65%"></div>
+              <div class="bar" style="height:30%"></div>
+              <div class="bar hit" style="height:80%"></div>
+              <div class="bar hit" style="height:55%"></div>
+              <div class="bar hit" style="height:70%"></div>
+              <div class="bar hit" style="height:45%"></div>
             </div>
           </div>
         </div>
@@ -533,7 +590,7 @@ footer a { color: var(--fg-muted); }
       <button type="submit" class="submit" id="submit-btn">Zapisz mnie</button>
     </form>
     <div class="status" id="status" role="status" aria-live="polite"></div>
-    <p class="fine">Żadnego spamu — tylko jedna wiadomość, gdy appka wystartuje.</p>
+    <p class="fine">Żadnego spamu. Tylko jedna wiadomość, gdy appka wystartuje.</p>
   </section>
 
   <footer>
@@ -591,10 +648,10 @@ footer a { color: var(--fg-muted); }
         setStatus('Dzięki! Jesteś na liście.', 'ok');
         form.reset();
       } else {
-        setStatus('Coś poszło nie tak — spróbuj ponownie.', 'err');
+        setStatus('Coś poszło nie tak. Spróbuj ponownie.', 'err');
       }
     } catch (err) {
-      setStatus('Coś poszło nie tak — spróbuj ponownie.', 'err');
+      setStatus('Coś poszło nie tak. Spróbuj ponownie.', 'err');
     } finally {
       btn.disabled = false;
     }
