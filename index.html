@@ -200,7 +200,16 @@ h1 em { font-style: normal; color: var(--accent); }
 .feature h3 { font-size: 0.94rem; margin: 0 0 5px; }
 .feature p { font-size: 0.84rem; color: var(--fg-muted); line-height: 1.5; margin: 0; }
 
-/* ---------- phone mockups ---------- */
+/* ---------- phone mockups (real app colors - the app itself is always
+   dark regardless of system theme, so these are hardcoded, not tied to
+   this page's own light/dark --tokens) ---------- */
+.preview-panel {
+  background: #0B0D10;
+  border-radius: 28px;
+  padding: 40px 20px 34px;
+}
+.preview-panel .section-head h2 { color: #F4F6F8; }
+.preview-panel .section-head p { color: #8E97A3; }
 .preview-row {
   display: flex;
   gap: 22px;
@@ -210,124 +219,87 @@ h1 em { font-style: normal; color: var(--accent); }
 }
 .phone {
   width: 208px;
-  height: 416px;
-  background: var(--bg-raised);
-  border: 1px solid var(--border);
+  height: 424px;
+  background: #15181C;
+  border: 1px solid #1F242B;
   border-radius: 34px;
-  padding: 16px 13px;
-  box-shadow: 0 12px 28px -14px rgba(0,0,0,0.28);
+  padding: 14px 11px;
+  box-shadow: 0 16px 34px -16px rgba(0,0,0,0.65);
   display: flex;
   flex-direction: column;
-  gap: 10px;
   position: relative;
 }
 .phone::before {
   content: '';
   position: absolute;
-  top: 9px; left: 50%; transform: translateX(-50%);
+  top: 8px; left: 50%; transform: translateX(-50%);
   width: 46px; height: 5px;
   border-radius: 999px;
-  background: var(--border);
+  background: #1F242B;
 }
-.phone .screen { flex: 1; display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
-.mock-bubble {
-  background: var(--accent-soft);
-  color: var(--accent);
-  border-radius: 12px 12px 12px 4px;
-  padding: 9px 11px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  max-width: 85%;
-}
-.mock-bubble.alt { align-self: flex-end; background: var(--fg); color: var(--bg); border-radius: 12px 12px 4px 12px; }
-.mock-day-card {
-  background: var(--accent);
-  color: var(--accent-fg);
-  border-radius: 14px;
-  padding: 12px;
+.phone .screen {
   flex: 1;
+  background: #0B0D10;
+  border-radius: 24px;
+  padding: 16px 13px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-}
-.mock-day-card .emoji { font-size: 1.4rem; }
-.mock-day-card .title { font-size: 0.82rem; font-weight: 800; }
-.mock-day-card .meta { font-size: 0.68rem; font-weight: 600; opacity: 0.9; }
-.mock-pill {
-  align-self: stretch;
-  text-align: center;
-  background: var(--fg);
-  color: var(--bg);
-  font-size: 0.72rem;
-  font-weight: 800;
-  border-radius: 999px;
-  padding: 10px 14px;
-}
-
-/* swipe mockup */
-.mock-swipe-stack { position: relative; flex: 1; }
-.mock-swipe-card {
-  position: absolute;
-  inset: 0;
-  background: var(--bg-raised);
-  border-radius: 16px;
-  border: 2px solid var(--border);
+  gap: 12px;
+  margin-top: 8px;
   overflow: hidden;
 }
-.mock-swipe-card.back { transform: scale(0.93) translateY(10px); border-color: var(--border); }
-.mock-swipe-card.front {
-  display: flex;
-  flex-direction: column;
-  border-color: var(--accent);
-  box-shadow: 0 10px 20px -12px rgba(0,0,0,0.35);
-}
-.mock-swipe-photo {
-  flex: 1;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-soft) 100%);
-  display: flex; align-items: center; justify-content: center;
-}
-.mock-swipe-photo .initials { font-size: 2.1rem; font-weight: 800; color: var(--accent-fg); }
-.mock-swipe-info { padding: 10px 12px 12px; background: var(--bg-raised); }
-.mock-swipe-info .name { font-size: 0.86rem; font-weight: 800; color: var(--fg); }
-.mock-swipe-info .meta { font-size: 0.68rem; font-weight: 600; color: var(--fg-muted); margin-top: 1px; }
-.mock-swipe-actions { display: flex; gap: 10px; justify-content: center; margin-top: 8px; }
-.mock-swipe-actions .mbtn {
-  width: 34px; height: 34px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.95rem;
-  font-weight: 800;
-}
-.mock-swipe-actions .mbtn.pass { background: var(--bg-sunken); color: var(--fg-muted); border: 2px solid var(--border); }
-.mock-swipe-actions .mbtn.like { background: var(--accent); color: var(--accent-fg); }
+.app-label { font-size: 0.66rem; font-weight: 700; color: #8E97A3; text-transform: uppercase; letter-spacing: 0.06em; }
 
-/* progress mockup */
-.mock-ring {
-  width: 76px; height: 76px;
+/* streak mockup */
+.streak-row { display: flex; align-items: center; gap: 10px; }
+.streak-icon { font-size: 1.3rem; line-height: 1; }
+.streak-title { font-size: 0.82rem; font-weight: 800; color: #F4F6F8; }
+.streak-days { font-size: 0.68rem; font-weight: 700; color: #35D483; margin-top: 1px; }
+.week-dots { display: flex; gap: 5px; }
+.week-dots .dot { flex: 1; height: 16px; border-radius: 5px; background: #1F242B; }
+.week-dots .dot.done { background: #35D483; }
+.streak-divider { height: 1px; background: #1F242B; margin: 2px 0; }
+
+/* swipe mockup */
+.swipe-card { flex: 1; position: relative; border-radius: 20px; overflow: hidden; margin-bottom: -20px; z-index: 1; }
+.swipe-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.swipe-gradient { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.25) 48%, transparent 72%); }
+.swipe-info { position: absolute; left: 13px; right: 13px; bottom: 12px; color: #fff; }
+.swipe-name { font-size: 0.92rem; font-weight: 800; display: flex; align-items: center; gap: 5px; }
+.swipe-verified { color: #3EC6FF; font-size: 0.78rem; }
+.swipe-meta { font-size: 0.68rem; font-weight: 600; opacity: 0.85; margin-top: 2px; }
+.swipe-stars { font-size: 0.7rem; color: #FFB020; margin-top: 4px; letter-spacing: 1px; }
+.swipe-actions-row { position: relative; z-index: 2; display: flex; justify-content: center; gap: 16px; }
+.mbtn {
+  width: 38px; height: 38px;
   border-radius: 50%;
-  margin: 4px auto 0;
-  background: conic-gradient(var(--accent) 0deg 252deg, var(--border) 252deg 360deg);
   display: flex; align-items: center; justify-content: center;
+  font-size: 1.05rem;
+  font-weight: 800;
+  box-shadow: 0 6px 16px -4px rgba(0,0,0,0.6);
 }
-.mock-ring::after { content: '70%'; width: 56px; height: 56px; border-radius: 50%; background: var(--bg-raised); display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 800; color: var(--fg); }
-.mock-flame { font-size: 0.92rem; font-weight: 700; text-align: center; color: var(--fg); }
-.mock-chart {
-  flex: 1;
-  background: var(--bg-sunken);
-  border-radius: 14px;
-  padding: 12px 14px;
-  display: flex;
-  align-items: flex-end;
-  gap: 7px;
+.mbtn.pass { background: #15181C; color: #8E97A3; border: 2px solid #1F242B; }
+.mbtn.like { background: #FF4D8D; color: #fff; }
+
+/* booking mockup */
+.booking-card { display: flex; align-items: center; gap: 11px; background: #15181C; border-radius: 14px; padding: 11px; }
+.booking-icon { font-size: 1.15rem; line-height: 1; }
+.booking-title { font-size: 0.78rem; font-weight: 800; color: #F4F6F8; }
+.booking-meta { font-size: 0.65rem; font-weight: 600; color: #8E97A3; margin-top: 2px; }
+.mock-pill {
+  margin-top: auto;
+  text-align: center;
+  background: #3EC6FF;
+  color: #0B0D10;
+  font-size: 0.74rem;
+  font-weight: 800;
+  border-radius: 999px;
+  padding: 11px 14px;
 }
-.mock-chart .bar {
-  flex: 1;
-  border-radius: 5px 5px 2px 2px;
-  background: var(--border);
-}
-.mock-chart .bar.hit { background: var(--accent); }
-.preview-caption { text-align: center; font-size: 0.78rem; color: var(--fg-muted); margin-top: 8px; font-weight: 600; }
+
+.preview-caption { text-align: center; font-size: 0.78rem; color: #8E97A3; margin-top: 10px; font-weight: 600; }
+.photo-credit { text-align: center; font-size: 0.68rem; color: #5A6168; margin-top: 2px; }
+.preview-footnote { text-align: center; font-size: 0.76rem; color: #5A6168; margin-top: 22px; }
 
 /* ---------- trainers section ---------- */
 .trainers-panel {
@@ -505,63 +477,89 @@ footer a { color: var(--fg-muted); }
   </section>
 
   <section id="preview">
-    <div class="section-head">
-      <h2>Zobacz, jak to wygląda</h2>
-      <p>Podgląd koncepcyjny interfejsu aplikacji. Prawdziwe zrzuty ekranu pojawią się tu, gdy appka trafi do sklepów.</p>
-    </div>
-    <div class="preview-row">
-      <div>
-        <div class="phone">
-          <div class="screen">
-            <div class="mock-bubble">Cel: budowa masy, 4 dni w tygodniu</div>
-            <div class="mock-bubble alt">Twój plan jest gotowy</div>
-            <div class="mock-day-card">
-              <div class="emoji">💪</div>
-              <div class="title">Dzień 1: Push</div>
-              <div class="meta">5 ćwiczeń · 45 min</div>
-            </div>
-            <div class="mock-pill">Generuj kolejny dzień</div>
-          </div>
-        </div>
-        <p class="preview-caption">Coachie generuje plan</p>
+    <div class="preview-panel">
+      <div class="section-head">
+        <h2>Zobacz, jak to wygląda</h2>
+        <p>Appka jest zawsze w ciemnym interfejsie, niezależnie od ustawień telefonu. To realne kolory i układy z Coachie App.</p>
       </div>
-      <div>
-        <div class="phone">
-          <div class="screen mock-swipe-stack">
-            <div class="mock-swipe-card back"></div>
-            <div class="mock-swipe-card front">
-              <div class="mock-swipe-photo"><span class="initials">KM</span></div>
-              <div class="mock-swipe-info">
-                <div class="name">Kasia M.</div>
-                <div class="meta">Trener personalny · 2.3 km · ★ 4.9</div>
-                <div class="mock-swipe-actions">
-                  <span class="mbtn pass">✕</span>
-                  <span class="mbtn like">♥</span>
+      <div class="preview-row">
+        <div>
+          <div class="phone">
+            <div class="screen">
+              <div class="app-label">Passy</div>
+              <div class="streak-row">
+                <div class="streak-icon">🔥</div>
+                <div>
+                  <div class="streak-title">Trening</div>
+                  <div class="streak-days">12 dni z rzędu</div>
                 </div>
+              </div>
+              <div class="week-dots">
+                <div class="dot done"></div><div class="dot done"></div><div class="dot done"></div>
+                <div class="dot done"></div><div class="dot done"></div><div class="dot"></div><div class="dot done"></div>
+              </div>
+              <div class="streak-divider"></div>
+              <div class="streak-row">
+                <div class="streak-icon">🍽️</div>
+                <div>
+                  <div class="streak-title">Posiłki</div>
+                  <div class="streak-days">8 dni z rzędu</div>
+                </div>
+              </div>
+              <div class="week-dots">
+                <div class="dot done"></div><div class="dot done"></div><div class="dot"></div>
+                <div class="dot done"></div><div class="dot done"></div><div class="dot done"></div><div class="dot done"></div>
               </div>
             </div>
           </div>
+          <p class="preview-caption">Passa treningowa i posiłkowa</p>
         </div>
-        <p class="preview-caption">Przesuń, żeby dopasować trenera</p>
-      </div>
-      <div>
-        <div class="phone">
-          <div class="screen">
-            <div class="mock-ring"></div>
-            <div class="mock-flame">🔥 Passa: 12 dni z rzędu</div>
-            <div class="mock-chart">
-              <div class="bar hit" style="height:40%"></div>
-              <div class="bar hit" style="height:65%"></div>
-              <div class="bar" style="height:30%"></div>
-              <div class="bar hit" style="height:80%"></div>
-              <div class="bar hit" style="height:55%"></div>
-              <div class="bar hit" style="height:70%"></div>
-              <div class="bar hit" style="height:45%"></div>
+        <div>
+          <div class="phone">
+            <div class="screen" style="padding: 12px;">
+              <div class="swipe-card">
+                <img src="https://images.unsplash.com/photo-1704223523169-52feeed90365?w=400&h=500&fit=crop&auto=format&q=80" alt="Trener personalny" loading="lazy">
+                <div class="swipe-gradient"></div>
+                <div class="swipe-info">
+                  <div class="swipe-name">Marek K. <span class="swipe-verified">✓</span></div>
+                  <div class="swipe-meta">Trener personalny · 1.8 km</div>
+                  <div class="swipe-stars">★★★★★ 4.9</div>
+                </div>
+              </div>
+              <div class="swipe-actions-row">
+                <span class="mbtn pass">✕</span>
+                <span class="mbtn like">♥</span>
+              </div>
             </div>
           </div>
+          <p class="preview-caption">Przesuń, żeby dopasować trenera</p>
+          <p class="photo-credit">Zdjęcie: Samuel Girven / Unsplash</p>
         </div>
-        <p class="preview-caption">Postępy i passa na jednym ekranie</p>
+        <div>
+          <div class="phone">
+            <div class="screen">
+              <div class="app-label">Rezerwacje</div>
+              <div class="booking-card">
+                <div class="booking-icon">📹</div>
+                <div>
+                  <div class="booking-title">Sesja online</div>
+                  <div class="booking-meta">Wtorek, 14:00 · Google Meet</div>
+                </div>
+              </div>
+              <div class="booking-card">
+                <div class="booking-icon">📍</div>
+                <div>
+                  <div class="booking-title">Siłownia FitZone</div>
+                  <div class="booking-meta">Czwartek, 18:00</div>
+                </div>
+              </div>
+              <div class="mock-pill">Zarezerwuj termin</div>
+            </div>
+          </div>
+          <p class="preview-caption">Rezerwuj sesje online i na siłowni</p>
+        </div>
       </div>
+      <p class="preview-footnote">Podgląd koncepcyjny. Prawdziwe zrzuty ekranu pojawią się tu, gdy appka trafi do sklepów.</p>
     </div>
   </section>
 
