@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Coachie App — Polityka prywatności i Regulamin</title>
+<style>
+:root {
+  --bg: #FAF8F4;
+  --bg-raised: #FFFFFF;
+  --fg: #211C17;
+  --fg-muted: #6B6358;
+  --accent: #B5471F;
+  --accent-soft: #F2E4DB;
+  --border: #E6DFD3;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #181511;
+    --bg-raised: #221D18;
+    --fg: #F3EEE5;
+    --fg-muted: #B3A99A;
+    --accent: #E8865A;
+    --accent-soft: #3A2A20;
+    --border: #3A332A;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html, body { background: var(--bg); margin: 0; padding: 0; }
+body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  color: var(--fg);
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.shell {
+  display: flex;
+  gap: 40px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding-block: 28px 64px;
+  align-items: flex-start;
+}
+.tabs {
+  position: sticky;
+  top: 0;
+  flex: 0 0 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 8px;
+}
+.tabs a {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--fg-muted);
+  text-decoration: none;
+  padding: 9px 14px;
+  border-radius: 10px;
+}
+.tabs a.active { color: var(--accent); background: var(--accent-soft); }
+.tabs a.back { margin-top: 10px; color: var(--fg-muted); font-weight: 500; }
+.meta-note {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  color: var(--fg-muted);
+  margin-top: 18px;
+  line-height: 1.5;
+  padding: 0 14px;
+}
+.doc { flex: 1; min-width: 0; }
+.doc h1 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 1.7rem;
+  letter-spacing: -0.01em;
+  margin: 0 0 4px;
+}
+.updated { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--fg-muted); margin: 0 0 28px; }
+.doc h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 2.2em 0 0.6em;
+  padding-top: 0.6em;
+  border-top: 1px solid var(--border);
+}
+.doc h2:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+.doc p, .doc li { font-size: 0.98rem; line-height: 1.68; max-width: 68ch; }
+.doc ul { padding-left: 1.3em; }
+.doc li { margin-bottom: 0.4em; }
+.doc strong { font-weight: 600; }
+.callout {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  background: var(--accent-soft);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin: 1.6em 0;
+  line-height: 1.55;
+}
+.callout strong { color: var(--accent); }
+table.data-table { width: 100%; border-collapse: collapse; font-family: 'Inter', sans-serif; font-size: 0.85rem; margin: 1em 0 1.8em; }
+table.data-table th, table.data-table td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+table.data-table th { color: var(--fg-muted); font-weight: 600; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.03em; }
+@media (max-width: 720px) {
+  .shell { flex-direction: column; gap: 18px; }
+  .tabs { position: static; flex-direction: row; width: 100%; overflow-x: auto; padding-top: 0; }
+  .meta-note { display: none; }
+}
+[hidden] { display: none !important; }
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=Inter:wght@400;500;600;700&display=swap">
+</head>
+<body>
+
+<div class="shell">
+  <nav class="tabs">
+    <a href="#privacy" data-tab="privacy">Polityka prywatności</a>
+    <a href="#terms" data-tab="terms">Regulamin</a>
+    <a href="/" class="back">&larr; Strona główna</a>
+    <div class="meta-note">
+      Ten dokument wygenerował AI (Claude) na podstawie informacji podanych przez właściciela usługi. Przed publicznym udostępnieniem zalecana jest weryfikacja przez prawnika.
+    </div>
+  </nav>
+
+  <main class="doc">
+    <section id="view-privacy">
+      <h1>Polityka prywatności</h1>
+      <p class="updated">Obowiązuje od 9 listopada 2026</p>
+
+      <h2>1. Kto administruje Twoimi danymi</h2>
+      <p>Administratorem danych osobowych przetwarzanych w aplikacji Coachie App jest Jan Gorski, prowadzący jednoosobową działalność gospodarczą (dalej: „Administrator", „my"). Kontakt w sprawach związanych z ochroną danych: <strong>jan.gorski95@icloud.com</strong>.</p>
+
+      <h2>2. Jakie dane zbieramy</h2>
+      <p>Zakres danych zależy od tego, czy jesteś klientem, czy trenerem, oraz z których funkcji korzystasz.</p>
+      <table class="data-table">
+        <tr><th>Kategoria</th><th>Przykłady</th></tr>
+        <tr><td>Dane konta</td><td>imię i nazwisko, adres e-mail, numer telefonu (opcjonalnie)</td></tr>
+        <tr><td>Dane profilu</td><td>wiek, płeć, cele treningowe, poziom zaawansowania, kontuzje/uwagi zdrowotne, które sam/a wpiszesz</td></tr>
+        <tr><td>Dane lokalizacyjne</td><td>miasto oraz przybliżona/ostatnia znana lokalizacja — używane wyłącznie do dopasowania i sortowania trenerów w pobliżu</td></tr>
+        <tr><td>Dane treningowe i żywieniowe</td><td>plany treningowe i jadłospisy, logi ćwiczeń i posiłków, pomiary ciała, zdjęcia sylwetki</td></tr>
+        <tr><td>Komunikacja</td><td>wiadomości czatu z trenerem/klientem, załączniki (zdjęcia, dokumenty)</td></tr>
+        <tr><td>Dane techniczne</td><td>identyfikator urządzenia do powiadomień push, dzienniki błędów aplikacji</td></tr>
+      </table>
+
+      <h2>3. W jakim celu i na jakiej podstawie prawnej</h2>
+      <ul>
+        <li><strong>Świadczenie usługi</strong> (art. 6 ust. 1 lit. b RODO) — założenie konta, dopasowanie do trenera, generowanie planów przez AI, rezerwacje sesji, czat.</li>
+        <li><strong>Twoja zgoda</strong> (art. 6 ust. 1 lit. a RODO) — dane lokalizacyjne, powiadomienia push, dane zdrowotne które dobrowolnie wprowadzasz.</li>
+        <li><strong>Nasz prawnie uzasadniony interes</strong> (art. 6 ust. 1 lit. f RODO) — bezpieczeństwo aplikacji, zapobieganie nadużyciom, ulepszanie usługi.</li>
+      </ul>
+
+      <h2>4. Komu przekazujemy dane</h2>
+      <p>Dane są przetwarzane przez podmioty, które dostarczają infrastrukturę techniczną aplikacji, działające jako nasi procesorzy danych:</p>
+      <ul>
+        <li><strong>Supabase</strong> — baza danych i uwierzytelnianie</li>
+        <li><strong>Cloudinary</strong> — przechowywanie zdjęć, wideo i dokumentów</li>
+        <li><strong>Google</strong> — geokodowanie lokalizacji, integracja z Kalendarzem Google (tylko za Twoją zgodą, dla rezerwacji sesji)</li>
+        <li><strong>Anthropic (Claude)</strong> — generowanie planów treningowych/żywieniowych i funkcja AI Coach; przekazujemy wyłącznie dane niezbędne do wygenerowania planu (np. cele, poziom zaawansowania), nigdy danych kontaktowych</li>
+        <li><strong>Expo</strong> — dostarczanie powiadomień push</li>
+      </ul>
+      <p>Nie sprzedajemy Twoich danych osobowych. Dane mogą być przekazywane poza Europejski Obszar Gospodarczy w zakresie, w jakim robią to powyższe podmioty — w takim wypadku opieramy się na standardowych klauzulach umownych lub innych mechanizmach zgodnych z RODO stosowanych przez te podmioty.</p>
+
+      <h2>5. Jak długo przechowujemy dane</h2>
+      <p>Dane konta i powiązane z nim treści (plany, logi, wiadomości, zdjęcia) przechowujemy tak długo, jak długo masz aktywne konto. Po usunięciu konta dane są usuwane trwale i niezwłocznie — zobacz sekcję 7.</p>
+
+      <h2>6. Twoje prawa</h2>
+      <p>Zgodnie z RODO przysługuje Ci prawo do: dostępu do danych, sprostowania, usunięcia, ograniczenia przetwarzania, przenoszenia danych, sprzeciwu wobec przetwarzania oraz cofnięcia zgody w dowolnym momencie (bez wpływu na zgodność z prawem przetwarzania dokonanego przed cofnięciem). Przysługuje Ci również prawo wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych (UODO).</p>
+
+      <h2>7. Usunięcie konta</h2>
+      <p>Możesz samodzielnie i trwale usunąć swoje konto bezpośrednio w aplikacji, w zakładce Profil → „Usuń moje konto". Usunięcie jest natychmiastowe i nieodwracalne — usuwa wszystkie Twoje dane, w tym plany, logi, zdjęcia i wiadomości.</p>
+
+      <h2>8. Dzieci</h2>
+      <p>Usługa jest przeznaczona dla osób, które ukończyły 16 lat. Nie zbieramy świadomie danych osób poniżej tego wieku.</p>
+
+      <h2>9. Zmiany polityki</h2>
+      <p>O istotnych zmianach niniejszej polityki poinformujemy Cię w aplikacji. Data na górze tego dokumentu zawsze wskazuje datę ostatniej aktualizacji.</p>
+    </section>
+
+    <section id="view-terms" hidden>
+      <h1>Regulamin</h1>
+      <p class="updated">Obowiązuje od 9 listopada 2026</p>
+
+      <div class="callout"><strong>Zastrzeżenie dotyczące zdrowia.</strong> Coachie App nie jest serwisem medycznym. Plany treningowe i żywieniowe, w tym generowane przez AI, mają charakter wyłącznie informacyjny i nie zastępują konsultacji z lekarzem, dietetykiem ani fizjoterapeutą. Przed rozpoczęciem jakiegokolwiek programu treningowego skonsultuj się z lekarzem, zwłaszcza jeśli masz istniejące schorzenia. Korzystasz z aplikacji i wykonujesz ćwiczenia na własną odpowiedzialność.</div>
+
+      <h2>1. Usługodawca</h2>
+      <p>Usługę Coachie App świadczy Jan Gorski, prowadzący jednoosobową działalność gospodarczą. Kontakt: <strong>jan.gorski95@icloud.com</strong>.</p>
+
+      <h2>2. Czym jest Coachie App</h2>
+      <p>Coachie App to aplikacja mobilna łącząca klientów z trenerami personalnymi oraz oferująca Coachie — trenera opartego o sztuczną inteligencję, z którego można korzystać samodzielnie, bez trenera-człowieka. Usługa obejmuje generowanie planów treningowych i żywieniowych, śledzenie postępów, czat, rezerwację sesji oraz powiadomienia.</p>
+
+      <h2>3. Konto i uprawnienia</h2>
+      <ul>
+        <li>Do założenia konta wymagany jest prawdziwy adres e-mail i ukończone 16 lat.</li>
+        <li>Odpowiadasz za zachowanie poufności swojego hasła oraz za wszystkie działania wykonane z Twojego konta.</li>
+        <li>Konto trenera wymaga zatwierdzenia przez Administratora przed pojawieniem się w wynikach wyszukiwania dla klientów.</li>
+      </ul>
+
+      <h2>4. Trenerzy personalni</h2>
+      <p>Trenerzy dostępni w aplikacji są niezależnymi usługodawcami, a nie pracownikami ani przedstawicielami Coachie App. Nie gwarantujemy jakości, dostępności ani rezultatów usług świadczonych przez trenerów. Spory dotyczące usług świadczonych bezpośrednio przez trenera rozwiązywane są między Tobą a danym trenerem.</p>
+
+      <h2>5. Funkcja AI (Coachie)</h2>
+      <p>Plany generowane przez sztuczną inteligencję są tworzone automatycznie na podstawie podanych przez Ciebie informacji i mogą zawierać błędy lub nie uwzględniać wszystkich istotnych okoliczności zdrowotnych. Nie stanowią porady medycznej. Używasz ich na własną odpowiedzialność.</p>
+
+      <h2>6. Płatności</h2>
+      <p>Na obecnym etapie dostęp do aplikacji jest przyznawany ręcznie przez Administratora (okres testowy/beta) i nie obejmuje automatycznych płatności. Jeśli w przyszłości wprowadzimy odpłatne subskrypcje, warunki płatności zostaną jasno przedstawione przed ich uruchomieniem, a niniejszy regulamin zostanie odpowiednio zaktualizowany.</p>
+
+      <h2>7. Treści użytkownika</h2>
+      <p>Zachowujesz prawa do treści, które przesyłasz (zdjęcia, wiadomości, dane treningowe). Udzielasz nam niewyłącznej licencji na przechowywanie i przetwarzanie tych treści wyłącznie w celu świadczenia usługi. Zabronione jest przesyłanie treści niezgodnych z prawem, naruszających prawa osób trzecich lub treści o charakterze obraźliwym.</p>
+
+      <h2>8. Zawieszenie i usunięcie konta</h2>
+      <p>Możesz usunąć swoje konto w dowolnym momencie bezpośrednio w aplikacji. Zastrzegamy sobie prawo do zawieszenia lub usunięcia konta, które narusza niniejszy regulamin, w szczególności w przypadku nadużyć, naruszenia bezpieczeństwa innych użytkowników lub działań niezgodnych z prawem.</p>
+
+      <h2>9. Ograniczenie odpowiedzialności</h2>
+      <p>Usługa jest dostarczana w stanie „tak jak jest" (as-is), w okresie beta/testowym, bez gwarancji nieprzerwanego i bezbłędnego działania. W najszerszym zakresie dozwolonym przez prawo, Administrator nie ponosi odpowiedzialności za szkody pośrednie wynikające z korzystania z aplikacji, w tym za kontuzje powstałe w wyniku wykonywania ćwiczeń zasugerowanych w aplikacji — patrz zastrzeżenie dotyczące zdrowia powyżej.</p>
+
+      <h2>10. Prawo właściwe</h2>
+      <p>Niniejszy regulamin podlega prawu polskiemu. Spory będą rozstrzygane przez sąd właściwy dla siedziby Administratora, z zastrzeżeniem bezwzględnie obowiązujących przepisów chroniących konsumentów.</p>
+
+      <h2>11. Zmiany regulaminu</h2>
+      <p>O istotnych zmianach regulaminu poinformujemy Cię w aplikacji z odpowiednim wyprzedzeniem przed ich wejściem w życie.</p>
+    </section>
+  </main>
+</div>
+
+<script>
+(function () {
+  var tabs = document.querySelectorAll('.tabs a[data-tab]');
+  var views = { privacy: document.getElementById('view-privacy'), terms: document.getElementById('view-terms') };
+
+  function show(name) {
+    if (!views[name]) name = 'privacy';
+    Object.keys(views).forEach(function (k) { views[k].hidden = k !== name; });
+    tabs.forEach(function (t) { t.classList.toggle('active', t.dataset.tab === name); });
+    window.scrollTo(0, 0);
+  }
+
+  function fromHash() {
+    var h = (location.hash || '').replace('#', '');
+    show(h === 'terms' ? 'terms' : 'privacy');
+  }
+
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
+
+</body>
+</html>

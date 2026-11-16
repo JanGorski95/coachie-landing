@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Coachie App</title>
+<style>
+:root {
+  --bg: #F7F4EF;
+  --bg-raised: #FFFFFF;
+  --fg: #211C17;
+  --fg-muted: #6B6358;
+  --accent: #E05A2B;
+  --accent-fg: #FFFFFF;
+  --border: #E6DFD3;
+  --success: #2E7D4F;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1B1713;
+    --bg-raised: #252019;
+    --fg: #F3EEE5;
+    --fg-muted: #B3A99A;
+    --accent: #F17A4E;
+    --accent-fg: #1B1713;
+    --border: #3A332A;
+    --success: #5FB380;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html, body { background: var(--bg); margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--fg);
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 {
+  font-family: 'Bricolage Grotesque', 'Inter', sans-serif;
+  text-wrap: balance;
+  letter-spacing: -0.01em;
+}
+.wrap { max-width: 760px; margin: 0 auto; }
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 20px;
+}
+.wordmark { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 1.15rem; letter-spacing: -0.02em; }
+.wordmark span { color: var(--accent); }
+
+.hero {
+  padding-block: 48px 36px;
+  text-align: center;
+}
+.eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border-radius: 999px;
+  padding: 6px 14px;
+  margin-bottom: 20px;
+}
+h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 700;
+  line-height: 1.08;
+  margin: 0 0 16px;
+}
+h1 em { font-style: normal; color: var(--accent); }
+.sub {
+  font-size: 1.05rem;
+  color: var(--fg-muted);
+  max-width: 46ch;
+  margin: 0 auto;
+  line-height: 1.55;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  padding-block: 28px 8px;
+}
+@media (max-width: 620px) {
+  .cards { grid-template-columns: 1fr; }
+}
+.card {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px 20px;
+}
+.card .num {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.card h3 { font-size: 1.02rem; margin: 0 0 8px; }
+.card p { font-size: 0.9rem; color: var(--fg-muted); line-height: 1.5; margin: 0; }
+
+.signup {
+  margin-block: 36px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 32px 26px;
+  text-align: center;
+}
+.signup h2 { font-size: 1.4rem; margin: 0 0 8px; }
+.signup p.lead { color: var(--fg-muted); font-size: 0.92rem; margin: 0 0 22px; }
+
+form.signup-form {
+  display: flex;
+  gap: 10px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+@media (max-width: 480px) {
+  form.signup-form { flex-direction: column; }
+}
+input[type="email"] {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.95rem;
+  padding: 13px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--fg);
+  font-family: inherit;
+}
+input[type="email"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+button.submit {
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-fg);
+  background: var(--accent);
+  border: none;
+  border-radius: 12px;
+  padding: 13px 22px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+button.submit:disabled { opacity: 0.6; cursor: default; }
+button.submit:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+
+.status { min-height: 20px; margin-top: 14px; font-size: 0.88rem; }
+.status.ok { color: var(--success); }
+.status.err { color: var(--accent); }
+.fine { font-size: 0.78rem; color: var(--fg-muted); margin-top: 14px; }
+
+footer {
+  text-align: center;
+  padding-block: 28px 40px;
+  font-size: 0.8rem;
+  color: var(--fg-muted);
+}
+footer a { color: var(--fg-muted); text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap">
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="nav">
+    <div class="wordmark">Coachie<span> App</span></div>
+  </nav>
+
+  <section class="hero">
+    <span class="eyebrow">Już wkrótce</span>
+    <h1>Trenuj z AI. <em>Albo</em> znajdź prawdziwego trenera.</h1>
+    <p class="sub">
+      Coachie App to Twój osobisty trener AI, dostępny od pierwszej minuty —
+      i sieć prawdziwych trenerów personalnych, gdy zechcesz żywego wsparcia. Plany treningowe,
+      jadłospisy, śledzenie postępów i czat — w jednej aplikacji.
+    </p>
+  </section>
+
+  <section class="cards">
+    <div class="card">
+      <div class="num">01</div>
+      <h3>Coachie, Twój trener AI</h3>
+      <p>Spersonalizowany plan treningowy i jadłospis generowany przez AI — gotowy, zanim znajdziesz trenera, i wystarczający, jeśli nigdy go nie potrzebujesz.</p>
+    </div>
+    <div class="card">
+      <div class="num">02</div>
+      <h3>Prawdziwi trenerzy</h3>
+      <p>Gdy będziesz gotów/a, przełącz się na trenera personalnego — rezerwacja sesji, czat i Twoja historia zostają bez zmian.</p>
+    </div>
+    <div class="card">
+      <div class="num">03</div>
+      <h3>Postępy pod kontrolą</h3>
+      <p>Zdjęcia sylwetki, pomiary, kalorie i makroskładniki, passy i odznaki — wszystko w jednym miejscu, nie w pięciu różnych appkach.</p>
+    </div>
+  </section>
+
+  <section class="signup" id="signup-section">
+    <h2>Zapisz się na start</h2>
+    <p class="lead">Damy znać, gdy Coachie App będzie dostępna do pobrania.</p>
+    <form class="signup-form" id="signup-form">
+      <input type="email" id="email-input" placeholder="twoj@email.pl" autocomplete="email" required>
+      <button type="submit" class="submit" id="submit-btn">Zapisz mnie</button>
+    </form>
+    <div class="status" id="status" role="status" aria-live="polite"></div>
+    <p class="fine">Żadnego spamu — tylko jedna wiadomość, gdy appka wystartuje.</p>
+  </section>
+
+  <footer>
+    Coachie App &middot; Kraków, Polska &middot; <a href="/legal/">Polityka prywatności i Regulamin</a>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var SUPABASE_URL = 'https://grqzbmrxfllywmyugqlb.supabase.co';
+  var SUPABASE_ANON_KEY = 'sb_publishable_xMJNZcyh0Cv1kP9SDPpJuw_6fIjy_Y3';
+
+  var form = document.getElementById('signup-form');
+  var input = document.getElementById('email-input');
+  var btn = document.getElementById('submit-btn');
+  var status = document.getElementById('status');
+
+  function setStatus(text, kind) {
+    status.textContent = text;
+    status.className = 'status' + (kind ? ' ' + kind : '');
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var email = input.value.trim();
+    if (!email) return;
+
+    btn.disabled = true;
+    setStatus('Zapisuję...', '');
+
+    try {
+      var res = await fetch(SUPABASE_URL + '/rest/v1/landing_page_signups', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: 'Bearer ' + SUPABASE_ANON_KEY,
+          Prefer: 'return=minimal',
+        },
+        body: JSON.stringify({ email: email }),
+      });
+
+      // 409 = unique email constraint already hit - treat as success, not an error.
+      if (res.ok || res.status === 409) {
+        setStatus('Dzięki! Jesteś na liście.', 'ok');
+        form.reset();
+      } else {
+        setStatus('Coś poszło nie tak — spróbuj ponownie.', 'err');
+      }
+    } catch (err) {
+      setStatus('Coś poszło nie tak — spróbuj ponownie.', 'err');
+    } finally {
+      btn.disabled = false;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
