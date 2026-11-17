@@ -429,6 +429,22 @@ h1 em { font-style: normal; color: var(--accent); }
 .photo-credit { text-align: center; font-size: 0.68rem; color: #5A6168; margin-top: 2px; }
 .preview-footnote { text-align: center; font-size: 0.76rem; color: #5A6168; margin-top: 22px; }
 
+/* real app screenshot mockups */
+.phone .screen.shot {
+  position: relative;
+  padding: 0;
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+.shot-overlay { position: absolute; color: #F4F6F8; font-weight: 800; white-space: nowrap; }
+.shot-overlay.shot-name { left: 14px; top: 18px; font-size: 13px; }
+.shot-overlay.shot-address {
+  left: 8px; top: 108px; right: 8px;
+  font-weight: 600; font-size: 11px; line-height: 1.4;
+  color: #8E97A3; white-space: normal; text-align: center;
+}
+
 /* ---------- trainers section ---------- */
 .trainers-panel {
   background: var(--bg-raised);
@@ -769,31 +785,8 @@ footer a { color: var(--fg-muted); }
       <div class="preview-row reveal-group">
         <div data-parallax="0.03">
           <div class="phone reveal" style="--i:0">
-            <div class="screen">
-              <div class="app-label" data-i18n="preview.phone1.appLabel">Passy</div>
-              <div class="streak-row">
-                <div class="streak-icon">🔥</div>
-                <div>
-                  <div class="streak-title" data-i18n="preview.phone1.trainingTitle">Trening</div>
-                  <div class="streak-days" data-i18n="preview.phone1.trainingDays">12 dni z rzędu</div>
-                </div>
-              </div>
-              <div class="week-dots">
-                <div class="dot done" style="--d:0"></div><div class="dot done" style="--d:1"></div><div class="dot done" style="--d:2"></div>
-                <div class="dot done" style="--d:3"></div><div class="dot done" style="--d:4"></div><div class="dot" style="--d:5"></div><div class="dot done" style="--d:6"></div>
-              </div>
-              <div class="streak-divider"></div>
-              <div class="streak-row">
-                <div class="streak-icon">🍽️</div>
-                <div>
-                  <div class="streak-title" data-i18n="preview.phone1.mealsTitle">Posiłki</div>
-                  <div class="streak-days" data-i18n="preview.phone1.mealsDays">8 dni z rzędu</div>
-                </div>
-              </div>
-              <div class="week-dots">
-                <div class="dot done" style="--d:0"></div><div class="dot done" style="--d:1"></div><div class="dot" style="--d:2"></div>
-                <div class="dot done" style="--d:3"></div><div class="dot done" style="--d:4"></div><div class="dot done" style="--d:5"></div><div class="dot done" style="--d:6"></div>
-              </div>
+            <div class="screen shot" style="background-image: url('assets/mock-streak.png')">
+              <div class="shot-overlay shot-name">Alex</div>
             </div>
           </div>
           <p class="preview-caption" data-i18n="preview.caption1">Passa treningowa i posiłkowa</p>
@@ -821,29 +814,20 @@ footer a { color: var(--fg-muted); }
         </div>
         <div data-parallax="0.04">
           <div class="phone reveal" style="--i:2">
-            <div class="screen">
-              <div class="app-label" data-i18n="preview.phone3.appLabel">Rezerwacje</div>
-              <div class="booking-card">
-                <div class="booking-icon">📹</div>
-                <div>
-                  <div class="booking-title" data-i18n="preview.phone3.onlineTitle">Sesja online</div>
-                  <div class="booking-meta" data-i18n="preview.phone3.onlineMeta">Wtorek, 14:00 · Google Meet</div>
-                </div>
-              </div>
-              <div class="booking-card">
-                <div class="booking-icon">📍</div>
-                <div>
-                  <div class="booking-title" data-i18n="preview.phone3.gymTitle">Siłownia FitZone</div>
-                  <div class="booking-meta" data-i18n="preview.phone3.gymMeta">Czwartek, 18:00</div>
-                </div>
-              </div>
-              <div class="mock-pill" data-i18n="preview.phone3.pill">Zarezerwuj termin</div>
+            <div class="screen shot" style="background-image: url('assets/mock-bookings.png')">
+              <div class="shot-overlay shot-address">Warszawa Fitness Club - ul. Puławska 42, 02-512 Warszawa</div>
             </div>
           </div>
-          <p class="preview-caption" data-i18n="preview.caption3">Rezerwuj sesje online i na siłowni</p>
+          <p class="preview-caption" data-i18n="preview.caption3">Rezerwacje online i na siłowni, zawsze pod ręką</p>
+        </div>
+        <div data-parallax="0.05">
+          <div class="phone reveal" style="--i:3">
+            <div class="screen shot" style="background-image: url('assets/mock-macro.png')"></div>
+          </div>
+          <p class="preview-caption" data-i18n="preview.caption4">Kalorie i makra pod kontrolą</p>
         </div>
       </div>
-      <p class="preview-footnote" data-i18n="preview.footnote">Podgląd koncepcyjny. Prawdziwe zrzuty ekranu pojawią się tu, gdy appka trafi do sklepów.</p>
+      <p class="preview-footnote" data-i18n="preview.footnote">Prawdziwe zrzuty ekranu z aplikacji Coachie App. Widok dopasowania trenera to wizualizacja koncepcyjna.</p>
     </div>
   </section>
 
@@ -1024,22 +1008,12 @@ footer a { color: var(--fg-muted); }
       'compare.after.5': 'Postępy, passy i zdjęcia zawsze pod ręką',
       'preview.title': 'Zobacz, jak to wygląda',
       'preview.sub': 'Appka jest zawsze w ciemnym interfejsie, niezależnie od ustawień telefonu. To realne kolory i układy z Coachie App.',
-      'preview.phone1.appLabel': 'Passy',
-      'preview.phone1.trainingTitle': 'Trening',
-      'preview.phone1.trainingDays': '12 dni z rzędu',
-      'preview.phone1.mealsTitle': 'Posiłki',
-      'preview.phone1.mealsDays': '8 dni z rzędu',
       'preview.caption1': 'Passa treningowa i posiłkowa',
       'preview.phone2.meta': 'Trener personalny · 1.8 km',
       'preview.caption2': 'Przesuń, żeby dopasować trenera',
-      'preview.phone3.appLabel': 'Rezerwacje',
-      'preview.phone3.onlineTitle': 'Sesja online',
-      'preview.phone3.onlineMeta': 'Wtorek, 14:00 · Google Meet',
-      'preview.phone3.gymTitle': 'Siłownia FitZone',
-      'preview.phone3.gymMeta': 'Czwartek, 18:00',
-      'preview.phone3.pill': 'Zarezerwuj termin',
-      'preview.caption3': 'Rezerwuj sesje online i na siłowni',
-      'preview.footnote': 'Podgląd koncepcyjny. Prawdziwe zrzuty ekranu pojawią się tu, gdy appka trafi do sklepów.',
+      'preview.caption3': 'Rezerwacje online i na siłowni, zawsze pod ręką',
+      'preview.caption4': 'Kalorie i makra pod kontrolą',
+      'preview.footnote': 'Prawdziwe zrzuty ekranu z aplikacji Coachie App. Widok dopasowania trenera to wizualizacja koncepcyjna.',
       'trainers.title': 'Jesteś trenerem personalnym?',
       'trainers.body': 'Tworzenie i wysyłanie planów treningowych klientom ręcznie zajmuje mnóstwo czasu. Dołącz do Coachie App jako jeden z pierwszych trenerów i miej to wszystko w jednym miejscu, bez własnej strony, systemu rezerwacji czy aplikacji do kontaktu.',
       'trainers.item1': 'Wczesny dostęp za darmo, status „Founding Trainer"',
@@ -1142,22 +1116,12 @@ footer a { color: var(--fg-muted); }
       'compare.after.5': 'Progress, streaks and photos always at hand',
       'preview.title': 'See what it looks like',
       'preview.sub': "The app is always dark, regardless of your phone's settings. These are real colors and layouts from Coachie App.",
-      'preview.phone1.appLabel': 'Streaks',
-      'preview.phone1.trainingTitle': 'Workout',
-      'preview.phone1.trainingDays': '12 days in a row',
-      'preview.phone1.mealsTitle': 'Meals',
-      'preview.phone1.mealsDays': '8 days in a row',
       'preview.caption1': 'Workout and meal streaks',
       'preview.phone2.meta': 'Personal trainer · 1.8 km',
       'preview.caption2': 'Swipe to match with a trainer',
-      'preview.phone3.appLabel': 'Bookings',
-      'preview.phone3.onlineTitle': 'Online session',
-      'preview.phone3.onlineMeta': 'Tuesday, 2:00 PM · Google Meet',
-      'preview.phone3.gymTitle': 'FitZone Gym',
-      'preview.phone3.gymMeta': 'Thursday, 6:00 PM',
-      'preview.phone3.pill': 'Book a slot',
-      'preview.caption3': 'Book sessions online and at the gym',
-      'preview.footnote': 'Conceptual preview. Real screenshots will appear here once the app reaches the app stores.',
+      'preview.caption3': 'Online and gym bookings, always at hand',
+      'preview.caption4': 'Calories and macros under control',
+      'preview.footnote': 'Real screenshots from the Coachie App. The trainer-matching view is a conceptual visualization.',
       'trainers.title': 'Are you a personal trainer?',
       'trainers.body': 'Creating and sending workout plans to clients by hand takes a huge amount of time. Join Coachie App as one of the first trainers and have it all in one place, without your own website, booking system or messaging app.',
       'trainers.item1': 'Free early access, "Founding Trainer" status',
