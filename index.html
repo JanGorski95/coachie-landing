@@ -135,6 +135,21 @@ section[id] { scroll-margin-top: 76px; }
   transition: color 0.15s ease, background 0.15s ease;
 }
 .nav-links a:hover { color: var(--fg); background: var(--bg-sunken); }
+.nav-right { display: flex; align-items: center; gap: 10px; flex: 0 0 auto; }
+.lang-switch { display: flex; gap: 3px; background: var(--bg-sunken); border-radius: 999px; padding: 3px; }
+.lang-switch button {
+  font-family: inherit;
+  font-size: 0.74rem;
+  font-weight: 700;
+  border: none;
+  background: transparent;
+  color: var(--fg-muted);
+  padding: 5px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.lang-switch button.active { background: var(--bg-raised); color: var(--fg); box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
 .nav-cta {
   flex: 0 0 auto;
   font-family: inherit;
@@ -555,29 +570,35 @@ footer a { color: var(--fg-muted); }
   <nav class="nav" id="nav">
     <div class="wordmark">Coachie<span> App</span></div>
     <div class="nav-links">
-      <a href="#features">Funkcje</a>
-      <a href="#preview">Podgląd</a>
-      <a href="#trainers">Dla trenerów</a>
-      <a href="#faq">FAQ</a>
-      <a href="/legal/">Polityka i Regulamin</a>
+      <a href="#features" data-i18n="nav.features">Funkcje</a>
+      <a href="#preview" data-i18n="nav.preview">Podgląd</a>
+      <a href="#trainers" data-i18n="nav.trainers">Dla trenerów</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      <a href="/legal/" data-i18n="nav.legal">Polityka i Regulamin</a>
     </div>
-    <a href="#signup-section" class="nav-cta">Zapisz się</a>
+    <div class="nav-right">
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" data-lang="pl">PL</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <a href="#signup-section" class="nav-cta" data-i18n="nav.cta">Zapisz się</a>
+    </div>
   </nav>
 
   <section class="hero narrow">
     <div class="hero-glow-wrap" data-parallax="0.08"><div class="hero-glow a"></div></div>
     <div class="hero-glow-wrap" data-parallax="0.05"><div class="hero-glow b"></div></div>
     <div class="reveal-group">
-      <span class="eyebrow reveal blur-in" style="--i:0"><span class="flame">🔥</span> Już wkrótce</span>
-      <h1 class="reveal blur-in" style="--i:1">Trenuj z AI. <em>Albo</em> znajdź prawdziwego trenera.</h1>
-      <p class="sub reveal blur-in" style="--i:2">
+      <span class="eyebrow reveal blur-in" style="--i:0" data-i18n="hero.eyebrow"><span class="flame">🔥</span> Już wkrótce</span>
+      <h1 class="reveal blur-in" style="--i:1" data-i18n="hero.title">Trenuj z AI. <em>Albo</em> znajdź prawdziwego trenera.</h1>
+      <p class="sub reveal blur-in" style="--i:2" data-i18n="hero.sub">
         Coachie App to Twój osobisty trener AI, dostępny od pierwszej minuty,
         i sieć prawdziwych trenerów personalnych, gdy zechcesz żywego wsparcia. Plany treningowe,
         jadłospisy, śledzenie postępów i czat w jednej aplikacji.
       </p>
       <div class="hero-ctas reveal" style="--i:3">
-        <a href="#signup-section" class="btn btn-primary">Zapisz się na start</a>
-        <a href="#features" class="btn btn-ghost">Zobacz co potrafi</a>
+        <a href="#signup-section" class="btn btn-primary" data-i18n="hero.ctaPrimary">Zapisz się na start</a>
+        <a href="#features" class="btn btn-ghost" data-i18n="hero.ctaGhost">Zobacz co potrafi</a>
       </div>
     </div>
   </section>
@@ -586,95 +607,95 @@ footer a { color: var(--fg-muted); }
     <div class="cards reveal-group">
       <div class="card reveal" style="--i:0">
         <div class="num">01</div>
-        <h3>Coachie, Twój trener AI</h3>
-        <p>Spersonalizowany plan treningowy i jadłospis generowany przez AI. Gotowy, zanim znajdziesz trenera, i wystarczający, jeśli nigdy go nie potrzebujesz.</p>
+        <h3 data-i18n="cards.1.title">Coachie, Twój trener AI</h3>
+        <p data-i18n="cards.1.desc">Spersonalizowany plan treningowy i jadłospis generowany przez AI. Gotowy, zanim znajdziesz trenera, i wystarczający, jeśli nigdy go nie potrzebujesz.</p>
       </div>
       <div class="card reveal" style="--i:1">
         <div class="num">02</div>
-        <h3>Prawdziwi trenerzy</h3>
-        <p>Gdy będziesz gotów/a, przełącz się na trenera personalnego: rezerwacja sesji, czat i Twoja historia zostają bez zmian.</p>
+        <h3 data-i18n="cards.2.title">Prawdziwi trenerzy</h3>
+        <p data-i18n="cards.2.desc">Gdy będziesz gotów/a, przełącz się na trenera personalnego: rezerwacja sesji, czat i Twoja historia zostają bez zmian.</p>
       </div>
       <div class="card reveal" style="--i:2">
         <div class="num">03</div>
-        <h3>Postępy pod kontrolą</h3>
-        <p>Zdjęcia sylwetki, pomiary, kalorie i makroskładniki, passy i odznaki: wszystko w jednym miejscu, nie w pięciu różnych appkach.</p>
+        <h3 data-i18n="cards.3.title">Postępy pod kontrolą</h3>
+        <p data-i18n="cards.3.desc">Zdjęcia sylwetki, pomiary, kalorie i makroskładniki, passy i odznaki: wszystko w jednym miejscu, nie w pięciu różnych appkach.</p>
       </div>
     </div>
   </section>
 
   <section id="features">
     <div class="section-head reveal">
-      <h2>Wszystko, czego potrzebujesz do treningu</h2>
-      <p>Jedna aplikacja zamiast pięciu. Oto co dostajesz od pierwszego dnia.</p>
+      <h2 data-i18n="features.title">Wszystko, czego potrzebujesz do treningu</h2>
+      <p data-i18n="features.sub">Jedna aplikacja zamiast pięciu. Oto co dostajesz od pierwszego dnia.</p>
     </div>
     <div class="feature-grid reveal-group">
       <div class="feature reveal" style="--i:0">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a5 5 0 0 0-5 5v1.6A4 4 0 0 0 5 13v2a4 4 0 0 0 2.3 3.6c.2 1.3 1.3 2.4 2.7 2.4h4c1.4 0 2.5-1.1 2.7-2.4A4 4 0 0 0 19 15v-2a4 4 0 0 0-2-3.4V8a5 5 0 0 0-5-5Z"/><path d="M9 11h.01M15 11h.01"/></svg></div>
-        <h3>Plan generowany przez AI</h3>
-        <p>Coachie buduje Twój plan treningowy i jadłospis na podstawie celu, poziomu, dostępnego sprzętu i historii treningów, gotowy w kilkadziesiąt sekund.</p>
+        <h3 data-i18n="features.1.title">Plan generowany przez AI</h3>
+        <p data-i18n="features.1.desc">Coachie buduje Twój plan treningowy i jadłospis na podstawie celu, poziomu, dostępnego sprzętu i historii treningów, gotowy w kilkadziesiąt sekund.</p>
       </div>
       <div class="feature reveal" style="--i:1">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="10" height="15" rx="2" transform="rotate(-8 5 4)"/><rect x="8" y="5" width="11" height="15" rx="2"/></svg></div>
-        <h3>Dopasowanie do trenera</h3>
-        <p>Przesuwaj profile trenerów w pobliżu, jak w aplikacji randkowej. Widzisz oceny, specjalizację i odległość, zanim napiszesz pierwszą wiadomość.</p>
+        <h3 data-i18n="features.2.title">Dopasowanie do trenera</h3>
+        <p data-i18n="features.2.desc">Przesuwaj profile trenerów w pobliżu, jak w aplikacji randkowej. Widzisz oceny, specjalizację i odległość, zanim napiszesz pierwszą wiadomość.</p>
       </div>
       <div class="feature reveal" style="--i:2">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
-        <h3>Rezerwacje sesji</h3>
-        <p>Umawiaj się z trenerem online, z automatycznym linkiem do Google Meet, albo stacjonarnie na siłowni, bez przerzucania się między aplikacjami.</p>
+        <h3 data-i18n="features.3.title">Rezerwacje sesji</h3>
+        <p data-i18n="features.3.desc">Umawiaj się z trenerem online, z automatycznym linkiem do Google Meet, albo stacjonarnie na siłowni, bez przerzucania się między aplikacjami.</p>
       </div>
       <div class="feature reveal" style="--i:3">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></div>
-        <h3>Czat</h3>
-        <p>Pisz z trenerem albo z Coachie, wysyłaj zdjęcia i dokumenty. Jedna rozmowa, zawsze pod ręką, z pełną historią w jednym miejscu.</p>
+        <h3 data-i18n="features.4.title">Czat</h3>
+        <p data-i18n="features.4.desc">Pisz z trenerem albo z Coachie, wysyłaj zdjęcia i dokumenty. Jedna rozmowa, zawsze pod ręką, z pełną historią w jednym miejscu.</p>
       </div>
       <div class="feature reveal" style="--i:4">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-        <h3>Śledzenie postępów</h3>
-        <p>Zdjęcia sylwetki, pomiary ciała i wykresy w czasie. Widzisz realną zmianę sylwetki, nie tylko liczbę na wadze.</p>
+        <h3 data-i18n="features.5.title">Śledzenie postępów</h3>
+        <p data-i18n="features.5.desc">Zdjęcia sylwetki, pomiary ciała i wykresy w czasie. Widzisz realną zmianę sylwetki, nie tylko liczbę na wadze.</p>
       </div>
       <div class="feature reveal" style="--i:5">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="1"/><path d="M7 7v10M11 7v10M15 7v3M15 14v3M18 7v10"/></svg></div>
-        <h3>Kalorie i makra</h3>
-        <p>Skanuj kod kreskowy produktu albo wpisz posiłek ręcznie. Dziennik żywienia liczy kalorie i makroskładniki na bieżąco, sam.</p>
+        <h3 data-i18n="features.6.title">Kalorie i makra</h3>
+        <p data-i18n="features.6.desc">Skanuj kod kreskowy produktu albo wpisz posiłek ręcznie. Dziennik żywienia liczy kalorie i makroskładniki na bieżąco, sam.</p>
       </div>
       <div class="feature reveal" style="--i:6">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-9.3-9.2C1.4 8.6 3 5 6.6 5c2 0 3.2 1 4.4 2.6C12.2 6 13.4 5 15.4 5 19 5 20.6 8.6 19.3 11.8 17 16.4 12 21 12 21Z"/></svg></div>
-        <h3>Passy i odznaki</h3>
-        <p>Licznik serii treningowej i posiłkowej, odznaki za konsekwencję i przypomnienie, zanim stracisz passę.</p>
+        <h3 data-i18n="features.7.title">Passy i odznaki</h3>
+        <p data-i18n="features.7.desc">Licznik serii treningowej i posiłkowej, odznaki za konsekwencję i przypomnienie, zanim stracisz passę.</p>
       </div>
       <div class="feature reveal" style="--i:7">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 9l5 3-5 3Z"/></svg></div>
-        <h3>Biblioteka ćwiczeń</h3>
-        <p>Każde ćwiczenie z krótkim instruktażem wideo, bez zgadywania, jak wygląda poprawna technika wykonania.</p>
+        <h3 data-i18n="features.8.title">Biblioteka ćwiczeń</h3>
+        <p data-i18n="features.8.desc">Każde ćwiczenie z krótkim instruktażem wideo, bez zgadywania, jak wygląda poprawna technika wykonania.</p>
       </div>
     </div>
   </section>
 
   <section id="compare">
     <div class="section-head reveal">
-      <h2>Dlaczego nie 5 osobnych appek</h2>
-      <p>Typowy zestaw do treningu wygląda tak dziś. Coachie App zamyka to w jednym miejscu.</p>
+      <h2 data-i18n="compare.title">Dlaczego nie 5 osobnych appek</h2>
+      <p data-i18n="compare.sub">Typowy zestaw do treningu wygląda tak dziś. Coachie App zamyka to w jednym miejscu.</p>
     </div>
     <div class="compare-grid reveal-group">
       <div class="compare-col before reveal" style="--i:0">
-        <h3>Dziś</h3>
+        <h3 data-i18n="compare.before.title">Dziś</h3>
         <ul>
-          <li><span class="compare-mark">-</span> Apka do planu treningowego</li>
-          <li><span class="compare-mark">-</span> Druga apka do liczenia kalorii</li>
-          <li><span class="compare-mark">-</span> Kalendarz do umawiania sesji</li>
-          <li><span class="compare-mark">-</span> Komunikator do kontaktu z trenerem</li>
-          <li><span class="compare-mark">-</span> Notatnik albo arkusz do śledzenia postępów</li>
+          <li><span class="compare-mark">-</span> <span data-i18n="compare.before.1">Apka do planu treningowego</span></li>
+          <li><span class="compare-mark">-</span> <span data-i18n="compare.before.2">Druga apka do liczenia kalorii</span></li>
+          <li><span class="compare-mark">-</span> <span data-i18n="compare.before.3">Kalendarz do umawiania sesji</span></li>
+          <li><span class="compare-mark">-</span> <span data-i18n="compare.before.4">Komunikator do kontaktu z trenerem</span></li>
+          <li><span class="compare-mark">-</span> <span data-i18n="compare.before.5">Notatnik albo arkusz do śledzenia postępów</span></li>
         </ul>
       </div>
       <div class="compare-col after reveal" style="--i:1">
-        <h3>Z Coachie App</h3>
+        <h3 data-i18n="compare.after.title">Z Coachie App</h3>
         <ul>
-          <li><span class="compare-mark">✓</span> Jedna aplikacja, jedno logowanie</li>
-          <li><span class="compare-mark">✓</span> Plan treningowy i jadłospis w tym samym miejscu</li>
-          <li><span class="compare-mark">✓</span> Rezerwacje wbudowane, z linkiem do spotkania</li>
-          <li><span class="compare-mark">✓</span> Czat z trenerem bez wychodzenia z appki</li>
-          <li><span class="compare-mark">✓</span> Postępy, passy i zdjęcia zawsze pod ręką</li>
+          <li><span class="compare-mark">✓</span> <span data-i18n="compare.after.1">Jedna aplikacja, jedno logowanie</span></li>
+          <li><span class="compare-mark">✓</span> <span data-i18n="compare.after.2">Plan treningowy i jadłospis w tym samym miejscu</span></li>
+          <li><span class="compare-mark">✓</span> <span data-i18n="compare.after.3">Rezerwacje wbudowane, z linkiem do spotkania</span></li>
+          <li><span class="compare-mark">✓</span> <span data-i18n="compare.after.4">Czat z trenerem bez wychodzenia z appki</span></li>
+          <li><span class="compare-mark">✓</span> <span data-i18n="compare.after.5">Postępy, passy i zdjęcia zawsze pod ręką</span></li>
         </ul>
       </div>
     </div>
@@ -683,19 +704,19 @@ footer a { color: var(--fg-muted); }
   <section id="preview">
     <div class="preview-panel">
       <div class="section-head reveal">
-        <h2>Zobacz, jak to wygląda</h2>
-        <p>Appka jest zawsze w ciemnym interfejsie, niezależnie od ustawień telefonu. To realne kolory i układy z Coachie App.</p>
+        <h2 data-i18n="preview.title">Zobacz, jak to wygląda</h2>
+        <p data-i18n="preview.sub">Appka jest zawsze w ciemnym interfejsie, niezależnie od ustawień telefonu. To realne kolory i układy z Coachie App.</p>
       </div>
       <div class="preview-row reveal-group">
         <div data-parallax="0.03">
           <div class="phone reveal" style="--i:0">
             <div class="screen">
-              <div class="app-label">Passy</div>
+              <div class="app-label" data-i18n="preview.phone1.appLabel">Passy</div>
               <div class="streak-row">
                 <div class="streak-icon">🔥</div>
                 <div>
-                  <div class="streak-title">Trening</div>
-                  <div class="streak-days">12 dni z rzędu</div>
+                  <div class="streak-title" data-i18n="preview.phone1.trainingTitle">Trening</div>
+                  <div class="streak-days" data-i18n="preview.phone1.trainingDays">12 dni z rzędu</div>
                 </div>
               </div>
               <div class="week-dots">
@@ -706,8 +727,8 @@ footer a { color: var(--fg-muted); }
               <div class="streak-row">
                 <div class="streak-icon">🍽️</div>
                 <div>
-                  <div class="streak-title">Posiłki</div>
-                  <div class="streak-days">8 dni z rzędu</div>
+                  <div class="streak-title" data-i18n="preview.phone1.mealsTitle">Posiłki</div>
+                  <div class="streak-days" data-i18n="preview.phone1.mealsDays">8 dni z rzędu</div>
                 </div>
               </div>
               <div class="week-dots">
@@ -716,7 +737,7 @@ footer a { color: var(--fg-muted); }
               </div>
             </div>
           </div>
-          <p class="preview-caption">Passa treningowa i posiłkowa</p>
+          <p class="preview-caption" data-i18n="preview.caption1">Passa treningowa i posiłkowa</p>
         </div>
         <div data-parallax="0.07">
           <div class="phone reveal" style="--i:1">
@@ -726,7 +747,7 @@ footer a { color: var(--fg-muted); }
                 <div class="swipe-gradient"></div>
                 <div class="swipe-info">
                   <div class="swipe-name">Marek K. <span class="swipe-verified">✓</span></div>
-                  <div class="swipe-meta">Trener personalny · 1.8 km</div>
+                  <div class="swipe-meta" data-i18n="preview.phone2.meta">Trener personalny · 1.8 km</div>
                   <div class="swipe-stars">★★★★★ 4.9</div>
                 </div>
               </div>
@@ -736,129 +757,129 @@ footer a { color: var(--fg-muted); }
               </div>
             </div>
           </div>
-          <p class="preview-caption">Przesuń, żeby dopasować trenera</p>
+          <p class="preview-caption" data-i18n="preview.caption2">Przesuń, żeby dopasować trenera</p>
           <p class="photo-credit">Zdjęcie: Samuel Girven / Unsplash</p>
         </div>
         <div data-parallax="0.04">
           <div class="phone reveal" style="--i:2">
             <div class="screen">
-              <div class="app-label">Rezerwacje</div>
+              <div class="app-label" data-i18n="preview.phone3.appLabel">Rezerwacje</div>
               <div class="booking-card">
                 <div class="booking-icon">📹</div>
                 <div>
-                  <div class="booking-title">Sesja online</div>
-                  <div class="booking-meta">Wtorek, 14:00 · Google Meet</div>
+                  <div class="booking-title" data-i18n="preview.phone3.onlineTitle">Sesja online</div>
+                  <div class="booking-meta" data-i18n="preview.phone3.onlineMeta">Wtorek, 14:00 · Google Meet</div>
                 </div>
               </div>
               <div class="booking-card">
                 <div class="booking-icon">📍</div>
                 <div>
-                  <div class="booking-title">Siłownia FitZone</div>
-                  <div class="booking-meta">Czwartek, 18:00</div>
+                  <div class="booking-title" data-i18n="preview.phone3.gymTitle">Siłownia FitZone</div>
+                  <div class="booking-meta" data-i18n="preview.phone3.gymMeta">Czwartek, 18:00</div>
                 </div>
               </div>
-              <div class="mock-pill">Zarezerwuj termin</div>
+              <div class="mock-pill" data-i18n="preview.phone3.pill">Zarezerwuj termin</div>
             </div>
           </div>
-          <p class="preview-caption">Rezerwuj sesje online i na siłowni</p>
+          <p class="preview-caption" data-i18n="preview.caption3">Rezerwuj sesje online i na siłowni</p>
         </div>
       </div>
-      <p class="preview-footnote">Podgląd koncepcyjny. Prawdziwe zrzuty ekranu pojawią się tu, gdy appka trafi do sklepów.</p>
+      <p class="preview-footnote" data-i18n="preview.footnote">Podgląd koncepcyjny. Prawdziwe zrzuty ekranu pojawią się tu, gdy appka trafi do sklepów.</p>
     </div>
   </section>
 
   <section id="trainers">
     <div class="trainers-panel reveal">
       <div class="copy">
-        <h2>Jesteś trenerem personalnym?</h2>
-        <p>Dołącz do Coachie App jako jeden z pierwszych trenerów i zbuduj swoją bazę klientów bez własnej strony, systemu rezerwacji czy aplikacji do kontaktu.</p>
+        <h2 data-i18n="trainers.title">Jesteś trenerem personalnym?</h2>
+        <p data-i18n="trainers.body">Dołącz do Coachie App jako jeden z pierwszych trenerów i zbuduj swoją bazę klientów bez własnej strony, systemu rezerwacji czy aplikacji do kontaktu.</p>
         <ul>
-          <li>Wczesny dostęp za darmo, status „Founding Trainer"</li>
-          <li>Rezerwacje, czat i płatności w jednym miejscu</li>
-          <li>Realny wpływ na to, co budujemy dalej</li>
+          <li data-i18n="trainers.item1">Wczesny dostęp za darmo, status „Founding Trainer"</li>
+          <li data-i18n="trainers.item2">Rezerwacje, czat i płatności w jednym miejscu</li>
+          <li data-i18n="trainers.item3">Realny wpływ na to, co budujemy dalej</li>
         </ul>
       </div>
       <div class="cta">
-        <a href="mailto:jan.gorski95@icloud.com?subject=Coachie%20App%20-%20Founding%20Trainer" class="btn btn-primary">Napisz do nas</a>
+        <a href="mailto:jan.gorski95@icloud.com?subject=Coachie%20App%20-%20Founding%20Trainer" class="btn btn-primary" data-i18n="trainers.cta">Napisz do nas</a>
       </div>
     </div>
   </section>
 
   <section id="faq">
     <div class="section-head reveal">
-      <h2>Pytania i odpowiedzi</h2>
-      <p>Jeśli czegoś tu brakuje, po prostu napisz do nas.</p>
+      <h2 data-i18n="faq.title">Pytania i odpowiedzi</h2>
+      <p data-i18n="faq.sub">Jeśli czegoś tu brakuje, po prostu napisz do nas.</p>
     </div>
     <div class="faq-list reveal-group" id="faq-list">
       <details class="faq-item reveal" style="--i:0">
-        <summary>Czy muszę mieć trenera, żeby korzystać z appki?</summary>
-        <p>Nie. Coachie, wbudowany trener AI, jest dostępny od pierwszej minuty i wystarcza, jeśli nigdy nie będziesz potrzebować trenera-człowieka. Prawdziwego trenera dobierasz tylko wtedy, gdy sam/a zechcesz.</p>
+        <summary data-i18n="faq.1.q">Czy muszę mieć trenera, żeby korzystać z appki?</summary>
+        <p data-i18n="faq.1.a">Nie. Coachie, wbudowany trener AI, jest dostępny od pierwszej minuty i wystarcza, jeśli nigdy nie będziesz potrzebować trenera-człowieka. Prawdziwego trenera dobierasz tylko wtedy, gdy sam/a zechcesz.</p>
       </details>
       <details class="faq-item reveal" style="--i:1">
-        <summary>Ile to kosztuje?</summary>
-        <p>Dla osób, które zapiszą się na liście oczekujących już teraz, dostęp do Coachie App będzie darmowy na zawsze. Cennik dla osób, które dołączą po pełnym starcie, jeszcze nie jest ustalony.</p>
+        <summary data-i18n="faq.2.q">Ile to kosztuje?</summary>
+        <p data-i18n="faq.2.a">Dla osób, które zapiszą się na liście oczekujących już teraz, dostęp do Coachie App będzie darmowy na zawsze. Cennik dla osób, które dołączą po pełnym starcie, jeszcze nie jest ustalony.</p>
       </details>
       <details class="faq-item reveal" style="--i:2">
-        <summary>Na jakie platformy wyjdzie appka i kiedy?</summary>
-        <p>iOS i Android razem, premiera planowana na grudzień.</p>
+        <summary data-i18n="faq.3.q">Na jakie platformy wyjdzie appka i kiedy?</summary>
+        <p data-i18n="faq.3.a">iOS i Android razem, premiera planowana na grudzień.</p>
       </details>
       <details class="faq-item reveal" style="--i:3">
-        <summary>Czy moje dane są bezpieczne?</summary>
-        <p>Tak. Pełne informacje o tym, jakie dane zbieramy i dlaczego, znajdziesz w naszej <a href="/legal/">Polityce prywatności</a>.</p>
+        <summary data-i18n="faq.4.q">Czy moje dane są bezpieczne?</summary>
+        <p data-i18n="faq.4.a">Tak. Pełne informacje o tym, jakie dane zbieramy i dlaczego, znajdziesz w naszej <a href="/legal/">Polityce prywatności</a>.</p>
       </details>
       <details class="faq-item reveal" style="--i:4">
-        <summary>Czy mogę zostać trenerem w appce?</summary>
-        <p>Tak, szukamy pierwszych trenerów. Zobacz sekcję „Dla trenerów" powyżej albo napisz do nas bezpośrednio.</p>
+        <summary data-i18n="faq.5.q">Czy mogę zostać trenerem w appce?</summary>
+        <p data-i18n="faq.5.a">Tak, szukamy pierwszych trenerów. Zobacz sekcję „Dla trenerów" powyżej albo napisz do nas bezpośrednio.</p>
       </details>
       <details class="faq-item reveal" style="--i:5">
-        <summary>Jak dokładnie działa generowanie planu przez AI?</summary>
-        <p>Podajesz cel, poziom zaawansowania, dostępny sprzęt i ewentualne kontuzje, a Coachie układa z tego konkretny plan treningowy i jadłospis, który możesz dowolnie edytować.</p>
+        <summary data-i18n="faq.6.q">Jak dokładnie działa generowanie planu przez AI?</summary>
+        <p data-i18n="faq.6.a">Podajesz cel, poziom zaawansowania, dostępny sprzęt i ewentualne kontuzje, a Coachie układa z tego konkretny plan treningowy i jadłospis, który możesz dowolnie edytować.</p>
       </details>
       <details class="faq-item reveal" style="--i:6">
-        <summary>Czy mogę później przejść z Coachie na prawdziwego trenera?</summary>
-        <p>Tak, w dowolnym momencie. Twoja historia, postępy i czat zostają bez zmian.</p>
+        <summary data-i18n="faq.7.q">Czy mogę później przejść z Coachie na prawdziwego trenera?</summary>
+        <p data-i18n="faq.7.a">Tak, w dowolnym momencie. Twoja historia, postępy i czat zostają bez zmian.</p>
       </details>
       <details class="faq-item reveal" style="--i:7">
-        <summary>Czy appka jest po polsku?</summary>
-        <p>Tak, appka i Coachie mówią po polsku. Dostępny jest też angielski.</p>
+        <summary data-i18n="faq.8.q">Czy appka jest po polsku?</summary>
+        <p data-i18n="faq.8.a">Tak, appka i Coachie mówią po polsku. Dostępny jest też angielski.</p>
       </details>
     </div>
   </section>
 
   <section id="founder">
     <div class="founder-note reveal">
-      <p>Zacząłem budować Coachie App, bo sam szukałem aplikacji, która łączy AI-trenera z realnym wsparciem trenera personalnego, zamiast zmuszać do wyboru jednego albo drugiego, i nie mogłem jej znaleźć. Im więcej o tym rozmawiałem z innymi, tym jaśniej widziałem, że to nie tylko mój problem. Buduję to sam, w pełni jawnie, krok po kroku, więc jeśli chcesz śledzić postępy albo masz pomysł, czego appce brakuje, po prostu napisz.</p>
-      <div class="sign">Jan, twórca Coachie App</div>
+      <p data-i18n="founder.body">Zacząłem budować Coachie App, bo sam szukałem aplikacji, która łączy AI-trenera z realnym wsparciem trenera personalnego, zamiast zmuszać do wyboru jednego albo drugiego, i nie mogłem jej znaleźć. Im więcej o tym rozmawiałem z innymi, tym jaśniej widziałem, że to nie tylko mój problem. Buduję to sam, w pełni jawnie, krok po kroku, więc jeśli chcesz śledzić postępy albo masz pomysł, czego appce brakuje, po prostu napisz.</p>
+      <div class="sign" data-i18n="founder.sign">Jan, twórca Coachie App</div>
     </div>
   </section>
 
   <section class="signup narrow" id="signup-section">
     <div class="store-strip reveal">
-      <div class="label">Wkrótce do pobrania</div>
+      <div class="label" data-i18n="store.label">Wkrótce do pobrania</div>
       <div class="store-badges">
         <span class="store-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 2h-11A2.5 2.5 0 0 0 4 4.5v15A2.5 2.5 0 0 0 6.5 22h11a2.5 2.5 0 0 0 2.5-2.5v-15A2.5 2.5 0 0 0 17.5 2ZM12 20.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM17 17H7V5h10Z"/></svg> App Store</span>
         <span class="store-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.5a1 1 0 0 0-.6.9v17.2a1 1 0 0 0 .6.9l9.9-9.5Zm11.2 9.5-2.6-2.6L4.5 2l10.9 6.3 2.1 1.3Zm1.4 1.4 2.9-1.7a1 1 0 0 0 0-1.7l-2.9-1.7L13.2 12Zm-1.4 1.4L4.5 22l7.7-7.1 2.6-2.5Z"/></svg> Google Play</span>
       </div>
     </div>
-    <div class="signup-counter reveal" id="signup-counter" hidden>🔥 <span id="counter-number">0</span> osób już czeka na start</div>
-    <h2 class="reveal">Zapisz się na start</h2>
-    <p class="lead reveal">Damy znać, gdy Coachie App będzie dostępna do pobrania.</p>
+    <div class="signup-counter reveal" id="signup-counter" hidden>🔥 <span id="counter-number">0</span> <span id="counter-label" data-i18n="counter.suffix">osób już czeka na start</span></div>
+    <h2 class="reveal" data-i18n="signup.title">Zapisz się na start</h2>
+    <p class="lead reveal" data-i18n="signup.lead">Damy znać, gdy Coachie App będzie dostępna do pobrania.</p>
     <form class="signup-form reveal" id="signup-form">
-      <input type="email" id="email-input" placeholder="twoj@email.pl" autocomplete="email" required>
-      <button type="submit" class="submit" id="submit-btn">Zapisz mnie</button>
+      <input type="email" id="email-input" data-i18n-placeholder="signup.placeholder" placeholder="twoj@email.pl" autocomplete="email" required>
+      <button type="submit" class="submit" id="submit-btn" data-i18n="signup.button">Zapisz mnie</button>
     </form>
     <div class="status" id="status" role="status" aria-live="polite"></div>
-    <p class="fine">Żadnego spamu. Tylko jedna wiadomość, gdy appka wystartuje.</p>
+    <p class="fine" data-i18n="signup.fine">Żadnego spamu. Tylko jedna wiadomość, gdy appka wystartuje.</p>
   </section>
 
   <footer>
     <div class="flinks">
-      <a href="#features">Funkcje</a>
-      <a href="#trainers">Dla trenerów</a>
-      <a href="#faq">FAQ</a>
-      <a href="/legal/">Polityka prywatności i Regulamin</a>
+      <a href="#features" data-i18n="nav.features">Funkcje</a>
+      <a href="#trainers" data-i18n="nav.trainers">Dla trenerów</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      <a href="/legal/" data-i18n="footer.legal">Polityka prywatności i Regulamin</a>
     </div>
-    Coachie App &middot; Kraków, Polska
+    <span data-i18n="footer.tagline">Coachie App &middot; Kraków, Polska</span>
   </footer>
 </div>
 
@@ -868,6 +889,274 @@ footer a { color: var(--fg-muted); }
   var SUPABASE_ANON_KEY = 'sb_publishable_xMJNZcyh0Cv1kP9SDPpJuw_6fIjy_Y3';
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hoverCapable = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  // ============================================================
+  // i18n: PL (default) + EN, auto-detected from navigator.language
+  // (same convention as the mobile app: exact "en" match -> English,
+  // everything else -> Polish), overridable via the nav switcher and
+  // remembered per-visitor in localStorage.
+  // ============================================================
+  var TRANSLATIONS = {
+    pl: {
+      'nav.features': 'Funkcje',
+      'nav.preview': 'Podgląd',
+      'nav.trainers': 'Dla trenerów',
+      'nav.faq': 'FAQ',
+      'nav.legal': 'Polityka i Regulamin',
+      'nav.cta': 'Zapisz się',
+      'hero.eyebrow': '<span class="flame">🔥</span> Już wkrótce',
+      'hero.title': 'Znajdź trenera. <em>Albo</em> zadbaj o siebie z Coachie.',
+      'hero.sub': 'Coachie App to prawdziwi trenerzy personalni, bez czasochłonnego tworzenia i ręcznego wysyłania planów. A jeśli nie masz jeszcze trenera, Coachie, Twój trener AI, zadba o Ciebie od pierwszej minuty.',
+      'hero.ctaPrimary': 'Zapisz się na start',
+      'hero.ctaGhost': 'Zobacz co potrafi',
+      'cards.1.title': 'Prawdziwi trenerzy',
+      'cards.1.desc': 'Trener personalny prowadzi Cię krok po kroku, a tworzenie i wysyłanie planów zajmuje mu teraz minuty, nie godziny.',
+      'cards.2.title': 'Coachie, Twój trener AI',
+      'cards.2.desc': 'Nie masz jeszcze trenera? Coachie wygeneruje Ci plan treningowy i jadłospis, żebyś mógł/mogła zadbać o siebie już dziś.',
+      'cards.3.title': 'Postępy pod kontrolą',
+      'cards.3.desc': 'Zdjęcia sylwetki, pomiary, kalorie i makroskładniki, passy i odznaki: wszystko w jednym miejscu, nie w pięciu różnych appkach.',
+      'features.title': 'Wszystko, czego potrzebujesz do treningu',
+      'features.sub': 'Jedna aplikacja zamiast pięciu. Oto co dostajesz od pierwszego dnia.',
+      'features.1.title': 'Plan generowany przez AI',
+      'features.1.desc': 'Coachie buduje Twój plan treningowy i jadłospis na podstawie celu, poziomu, dostępnego sprzętu i historii treningów, gotowy w kilkadziesiąt sekund.',
+      'features.2.title': 'Dopasowanie do trenera',
+      'features.2.desc': 'Przesuwaj profile trenerów w pobliżu, jak w aplikacji randkowej. Widzisz oceny, specjalizację i odległość, zanim napiszesz pierwszą wiadomość.',
+      'features.3.title': 'Rezerwacje sesji',
+      'features.3.desc': 'Umawiaj się z trenerem online, z automatycznym linkiem do Google Meet, albo stacjonarnie na siłowni, bez przerzucania się między aplikacjami.',
+      'features.4.title': 'Czat',
+      'features.4.desc': 'Pisz z trenerem albo z Coachie, wysyłaj zdjęcia i dokumenty. Jedna rozmowa, zawsze pod ręką, z pełną historią w jednym miejscu.',
+      'features.5.title': 'Śledzenie postępów',
+      'features.5.desc': 'Zdjęcia sylwetki, pomiary ciała i wykresy w czasie. Widzisz realną zmianę sylwetki, nie tylko liczbę na wadze.',
+      'features.6.title': 'Kalorie i makra',
+      'features.6.desc': 'Skanuj kod kreskowy produktu albo wpisz posiłek ręcznie. Dziennik żywienia liczy kalorie i makroskładniki na bieżąco, sam.',
+      'features.7.title': 'Passy i odznaki',
+      'features.7.desc': 'Licznik serii treningowej i posiłkowej, odznaki za konsekwencję i przypomnienie, zanim stracisz passę.',
+      'features.8.title': 'Biblioteka ćwiczeń',
+      'features.8.desc': 'Każde ćwiczenie z krótkim instruktażem wideo, bez zgadywania, jak wygląda poprawna technika wykonania.',
+      'compare.title': 'Dlaczego nie 5 osobnych appek',
+      'compare.sub': 'Typowy zestaw do treningu wygląda tak dziś. Coachie App zamyka to w jednym miejscu.',
+      'compare.before.title': 'Dziś',
+      'compare.before.1': 'Apka do planu treningowego',
+      'compare.before.2': 'Druga apka do liczenia kalorii',
+      'compare.before.3': 'Kalendarz do umawiania sesji',
+      'compare.before.4': 'Komunikator do kontaktu z trenerem',
+      'compare.before.5': 'Notatnik albo arkusz do śledzenia postępów',
+      'compare.after.title': 'Z Coachie App',
+      'compare.after.1': 'Jedna aplikacja, jedno logowanie',
+      'compare.after.2': 'Plan treningowy i jadłospis w tym samym miejscu',
+      'compare.after.3': 'Rezerwacje wbudowane, z linkiem do spotkania',
+      'compare.after.4': 'Czat z trenerem bez wychodzenia z appki',
+      'compare.after.5': 'Postępy, passy i zdjęcia zawsze pod ręką',
+      'preview.title': 'Zobacz, jak to wygląda',
+      'preview.sub': 'Appka jest zawsze w ciemnym interfejsie, niezależnie od ustawień telefonu. To realne kolory i układy z Coachie App.',
+      'preview.phone1.appLabel': 'Passy',
+      'preview.phone1.trainingTitle': 'Trening',
+      'preview.phone1.trainingDays': '12 dni z rzędu',
+      'preview.phone1.mealsTitle': 'Posiłki',
+      'preview.phone1.mealsDays': '8 dni z rzędu',
+      'preview.caption1': 'Passa treningowa i posiłkowa',
+      'preview.phone2.meta': 'Trener personalny · 1.8 km',
+      'preview.caption2': 'Przesuń, żeby dopasować trenera',
+      'preview.phone3.appLabel': 'Rezerwacje',
+      'preview.phone3.onlineTitle': 'Sesja online',
+      'preview.phone3.onlineMeta': 'Wtorek, 14:00 · Google Meet',
+      'preview.phone3.gymTitle': 'Siłownia FitZone',
+      'preview.phone3.gymMeta': 'Czwartek, 18:00',
+      'preview.phone3.pill': 'Zarezerwuj termin',
+      'preview.caption3': 'Rezerwuj sesje online i na siłowni',
+      'preview.footnote': 'Podgląd koncepcyjny. Prawdziwe zrzuty ekranu pojawią się tu, gdy appka trafi do sklepów.',
+      'trainers.title': 'Jesteś trenerem personalnym?',
+      'trainers.body': 'Tworzenie i wysyłanie planów treningowych klientom ręcznie zajmuje mnóstwo czasu. Dołącz do Coachie App jako jeden z pierwszych trenerów i miej to wszystko w jednym miejscu, bez własnej strony, systemu rezerwacji czy aplikacji do kontaktu.',
+      'trainers.item1': 'Wczesny dostęp za darmo, status „Founding Trainer"',
+      'trainers.item2': 'Twórz i wysyłaj plany klientom w kilka minut, nie godzin',
+      'trainers.item3': 'Rezerwacje, czat i płatności w jednym miejscu',
+      'trainers.cta': 'Napisz do nas',
+      'faq.title': 'Pytania i odpowiedzi',
+      'faq.sub': 'Jeśli czegoś tu brakuje, po prostu napisz do nas.',
+      'faq.1.q': 'Czy muszę mieć trenera, żeby korzystać z appki?',
+      'faq.1.a': 'Nie. Coachie, wbudowany trener AI, jest dostępny od pierwszej minuty i wystarcza, jeśli nigdy nie będziesz potrzebować trenera-człowieka. Prawdziwego trenera dobierasz tylko wtedy, gdy sam/a zechcesz.',
+      'faq.2.q': 'Ile to kosztuje?',
+      'faq.2.a': 'Dla osób, które zapiszą się na liście oczekujących już teraz, dostęp do Coachie App będzie darmowy na zawsze. Cennik dla osób, które dołączą po pełnym starcie, jeszcze nie jest ustalony.',
+      'faq.3.q': 'Na jakie platformy wyjdzie appka i kiedy?',
+      'faq.3.a': 'iOS i Android razem, premiera planowana na grudzień.',
+      'faq.4.q': 'Czy moje dane są bezpieczne?',
+      'faq.4.a': 'Tak. Pełne informacje o tym, jakie dane zbieramy i dlaczego, znajdziesz w naszej <a href="/legal/">Polityce prywatności</a>.',
+      'faq.5.q': 'Czy mogę zostać trenerem w appce?',
+      'faq.5.a': 'Tak, szukamy pierwszych trenerów. Zobacz sekcję „Dla trenerów" powyżej albo napisz do nas bezpośrednio.',
+      'faq.6.q': 'Jak dokładnie działa generowanie planu przez AI?',
+      'faq.6.a': 'Podajesz cel, poziom zaawansowania, dostępny sprzęt i ewentualne kontuzje, a Coachie układa z tego konkretny plan treningowy i jadłospis, który możesz dowolnie edytować.',
+      'faq.7.q': 'Czy mogę później przejść z Coachie na prawdziwego trenera?',
+      'faq.7.a': 'Tak, w dowolnym momencie. Twoja historia, postępy i czat zostają bez zmian.',
+      'faq.8.q': 'Czy appka jest po polsku?',
+      'faq.8.a': 'Tak, appka i Coachie mówią po polsku. Dostępny jest też angielski.',
+      'founder.body': 'Zacząłem budować Coachie App, patrząc na trenerów personalnych, którzy tworzą plany treningowe dla swoich klientów. To zajmuje mnóstwo czasu, a samo wysyłanie gotowego planu bywa uciążliwe: PDF-y, wiadomości, arkusze. Chciałem, żeby trenerzy mieli jedną appkę do obsługi klientów i planów, która realnie oszczędza im czas i jest po prostu wygodniejsza. Coachie, trener AI, to dodatek dla osób, które jeszcze nie mają trenera, ale chcą choć minimalnie zadbać o siebie. Buduję to sam, w pełni jawnie, krok po kroku, więc jeśli chcesz śledzić postępy albo masz pomysł, czego appce brakuje, po prostu napisz.',
+      'founder.sign': 'Jan, twórca Coachie App',
+      'store.label': 'Wkrótce do pobrania',
+      'counter.suffix': 'osób już czeka na start',
+      'signup.title': 'Zapisz się na start',
+      'signup.lead': 'Damy znać, gdy Coachie App będzie dostępna do pobrania.',
+      'signup.placeholder': 'twoj@email.pl',
+      'signup.button': 'Zapisz mnie',
+      'signup.fine': 'Żadnego spamu. Tylko jedna wiadomość, gdy appka wystartuje.',
+      'footer.legal': 'Polityka prywatności i Regulamin',
+      'footer.tagline': 'Coachie App &middot; Kraków, Polska',
+      'status.submitting': 'Zapisuję...',
+      'status.success': 'Dzięki! Jesteś na liście.',
+      'status.error': 'Coś poszło nie tak. Spróbuj ponownie.'
+    },
+    en: {
+      'nav.features': 'Features',
+      'nav.preview': 'Preview',
+      'nav.trainers': 'For trainers',
+      'nav.faq': 'FAQ',
+      'nav.legal': 'Privacy & Terms',
+      'nav.cta': 'Sign up',
+      'hero.eyebrow': '<span class="flame">🔥</span> Coming soon',
+      'hero.title': 'Find a trainer. <em>Or</em> take care of yourself with Coachie.',
+      'hero.sub': "Coachie App is real personal trainers, without the time-consuming, manual work of creating and sending plans. And if you don't have a trainer yet, Coachie, your AI trainer, takes care of you from the first minute.",
+      'hero.ctaPrimary': 'Get early access',
+      'hero.ctaGhost': 'See what it does',
+      'cards.1.title': 'Real trainers',
+      'cards.1.desc': 'A personal trainer guides you step by step, and creating and sending plans now takes them minutes, not hours.',
+      'cards.2.title': 'Coachie, your AI trainer',
+      'cards.2.desc': "Don't have a trainer yet? Coachie generates a workout plan and meal plan so you can start taking care of yourself today.",
+      'cards.3.title': 'Progress under control',
+      'cards.3.desc': 'Progress photos, measurements, calories and macros, streaks and badges: all in one place, not spread across five different apps.',
+      'features.title': 'Everything you need to train',
+      'features.sub': "One app instead of five. Here's what you get from day one.",
+      'features.1.title': 'AI-generated plan',
+      'features.1.desc': 'Coachie builds your workout plan and meal plan based on your goal, level, available equipment and training history, ready in seconds.',
+      'features.2.title': 'Trainer matching',
+      'features.2.desc': 'Swipe through nearby trainer profiles, just like a dating app. You see ratings, specialty and distance before you send the first message.',
+      'features.3.title': 'Session bookings',
+      'features.3.desc': 'Book sessions with your trainer online, with an automatic Google Meet link, or in person at the gym, without switching between apps.',
+      'features.4.title': 'Chat',
+      'features.4.desc': 'Message your trainer or Coachie, send photos and documents. One conversation, always at hand, with full history in one place.',
+      'features.5.title': 'Progress tracking',
+      'features.5.desc': 'Progress photos, body measurements and charts over time. You see a real change in your body, not just a number on the scale.',
+      'features.6.title': 'Calories and macros',
+      'features.6.desc': "Scan a product's barcode or log a meal manually. Your food diary tracks calories and macros automatically, on its own.",
+      'features.7.title': 'Streaks and badges',
+      'features.7.desc': 'A workout and meal-logging streak counter, badges for consistency, and a reminder before you lose your streak.',
+      'features.8.title': 'Exercise library',
+      'features.8.desc': "Every exercise comes with a short instructional video, no guessing what correct form looks like.",
+      'compare.title': 'Why not 5 separate apps',
+      'compare.sub': 'A typical training setup looks like this today. Coachie App brings it all into one place.',
+      'compare.before.title': 'Today',
+      'compare.before.1': 'An app for your workout plan',
+      'compare.before.2': 'A second app for counting calories',
+      'compare.before.3': 'A calendar for booking sessions',
+      'compare.before.4': 'A messaging app to reach your trainer',
+      'compare.before.5': 'A notebook or spreadsheet for tracking progress',
+      'compare.after.title': 'With Coachie App',
+      'compare.after.1': 'One app, one login',
+      'compare.after.2': 'Workout plan and meal plan in the same place',
+      'compare.after.3': 'Bookings built in, with a meeting link',
+      'compare.after.4': 'Chat with your trainer without leaving the app',
+      'compare.after.5': 'Progress, streaks and photos always at hand',
+      'preview.title': 'See what it looks like',
+      'preview.sub': "The app is always dark, regardless of your phone's settings. These are real colors and layouts from Coachie App.",
+      'preview.phone1.appLabel': 'Streaks',
+      'preview.phone1.trainingTitle': 'Workout',
+      'preview.phone1.trainingDays': '12 days in a row',
+      'preview.phone1.mealsTitle': 'Meals',
+      'preview.phone1.mealsDays': '8 days in a row',
+      'preview.caption1': 'Workout and meal streaks',
+      'preview.phone2.meta': 'Personal trainer · 1.8 km',
+      'preview.caption2': 'Swipe to match with a trainer',
+      'preview.phone3.appLabel': 'Bookings',
+      'preview.phone3.onlineTitle': 'Online session',
+      'preview.phone3.onlineMeta': 'Tuesday, 2:00 PM · Google Meet',
+      'preview.phone3.gymTitle': 'FitZone Gym',
+      'preview.phone3.gymMeta': 'Thursday, 6:00 PM',
+      'preview.phone3.pill': 'Book a slot',
+      'preview.caption3': 'Book sessions online and at the gym',
+      'preview.footnote': 'Conceptual preview. Real screenshots will appear here once the app reaches the app stores.',
+      'trainers.title': 'Are you a personal trainer?',
+      'trainers.body': 'Creating and sending workout plans to clients by hand takes a huge amount of time. Join Coachie App as one of the first trainers and have it all in one place, without your own website, booking system or messaging app.',
+      'trainers.item1': 'Free early access, "Founding Trainer" status',
+      'trainers.item2': 'Create and send plans to clients in minutes, not hours',
+      'trainers.item3': 'Bookings, chat and payments in one place',
+      'trainers.cta': 'Get in touch',
+      'faq.title': 'Frequently asked questions',
+      'faq.sub': "If something's missing here, just get in touch.",
+      'faq.1.q': 'Do I need a trainer to use the app?',
+      'faq.1.a': "No. Coachie, the built-in AI trainer, is available from the first minute and is enough if you never need a human trainer. You only pick a real trainer when you decide to.",
+      'faq.2.q': 'How much does it cost?',
+      'faq.2.a': "For people who join the waitlist now, access to Coachie App will be free forever. Pricing for people who join after the full launch hasn't been decided yet.",
+      'faq.3.q': 'Which platforms will the app launch on, and when?',
+      'faq.3.a': 'iOS and Android together, launch planned for December.',
+      'faq.4.q': 'Is my data safe?',
+      'faq.4.a': 'Yes. Full details on what data we collect and why are in our <a href="/legal/">Privacy Policy</a>.',
+      'faq.5.q': 'Can I become a trainer in the app?',
+      'faq.5.a': 'Yes, we\'re looking for our first trainers. See the "For trainers" section above or get in touch directly.',
+      'faq.6.q': 'How exactly does AI plan generation work?',
+      'faq.6.a': 'You provide your goal, experience level, available equipment and any injuries, and Coachie turns that into a concrete workout and meal plan you can freely edit.',
+      'faq.7.q': 'Can I later switch from Coachie to a real trainer?',
+      'faq.7.a': 'Yes, at any time. Your history, progress and chat stay exactly as they are.',
+      'faq.8.q': 'Is the app available in Polish?',
+      'faq.8.a': 'Yes, the app and Coachie speak Polish. English is also available.',
+      'founder.body': "I started building Coachie App by looking at personal trainers who create workout plans for their clients. That takes a lot of time, and just sending a finished plan is often a hassle: PDFs, messages, spreadsheets. I wanted trainers to have one app to manage their clients and plans that actually saves them time and is simply more convenient. Coachie, the AI trainer, is an extra for people who don't have a trainer yet but still want to take at least minimal care of themselves. I'm building this alone, fully in the open, step by step, so if you want to follow along or have an idea for what the app is missing, just reach out.",
+      'founder.sign': 'Jan, founder of Coachie App',
+      'store.label': 'Coming soon',
+      'counter.suffix': 'people already waiting',
+      'signup.title': 'Sign up for launch',
+      'signup.lead': "We'll let you know when Coachie App is ready to download.",
+      'signup.placeholder': 'you@email.com',
+      'signup.button': 'Sign me up',
+      'signup.fine': 'No spam. Just one message, when the app launches.',
+      'footer.legal': 'Privacy Policy & Terms',
+      'footer.tagline': 'Coachie App &middot; Kraków, Poland',
+      'status.submitting': 'Saving...',
+      'status.success': "Thanks! You're on the list.",
+      'status.error': 'Something went wrong. Please try again.'
+    }
+  };
+
+  var currentLang = 'pl';
+  var latestCount = null;
+
+  function renderCounter() {
+    if (latestCount === null) return;
+    var numEl = document.getElementById('counter-number');
+    var labelEl = document.getElementById('counter-label');
+    if (numEl) numEl.textContent = latestCount;
+    if (labelEl) labelEl.textContent = TRANSLATIONS[currentLang]['counter.suffix'];
+  }
+
+  function applyLanguage(lang) {
+    if (!TRANSLATIONS[lang]) lang = 'pl';
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var t = TRANSLATIONS[lang][el.getAttribute('data-i18n')];
+      if (t !== undefined) el.innerHTML = t;
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+      var t = TRANSLATIONS[lang][el.getAttribute('data-i18n-placeholder')];
+      if (t !== undefined) el.placeholder = t;
+    });
+    document.querySelectorAll('.lang-switch button').forEach(function (b) {
+      b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+    });
+    renderCounter();
+    try { localStorage.setItem('coachie-lang', lang); } catch (e) {}
+  }
+
+  function detectLanguage() {
+    try {
+      var saved = localStorage.getItem('coachie-lang');
+      if (saved === 'pl' || saved === 'en') return saved;
+    } catch (e) {}
+    var navLang = (navigator.language || (navigator.languages && navigator.languages[0]) || '').toLowerCase();
+    return navLang.indexOf('en') === 0 ? 'en' : 'pl';
+  }
+
+  applyLanguage(detectLanguage());
+
+  document.querySelectorAll('.lang-switch button').forEach(function (b) {
+    b.addEventListener('click', function () { applyLanguage(b.getAttribute('data-lang')); });
+  });
 
   // ---- nav scroll state + scroll progress bar ----
   var nav = document.getElementById('nav');
@@ -997,10 +1286,10 @@ footer a { color: var(--fg-muted); }
       count = Number(count) || 0;
       if (count <= 0) return;
       var wrap = document.getElementById('signup-counter');
-      var numEl = document.getElementById('counter-number');
       wrap.hidden = false;
       if (reduceMotion) {
-        numEl.textContent = count;
+        latestCount = count;
+        renderCounter();
         return;
       }
       var start = performance.now();
@@ -1008,7 +1297,8 @@ footer a { color: var(--fg-muted); }
       function tick(now) {
         var t = Math.min(1, (now - start) / duration);
         var eased = 1 - Math.pow(1 - t, 3);
-        numEl.textContent = Math.round(eased * count);
+        latestCount = Math.round(eased * count);
+        renderCounter();
         if (t < 1) requestAnimationFrame(tick);
       }
       requestAnimationFrame(tick);
@@ -1023,8 +1313,8 @@ footer a { color: var(--fg-muted); }
   var btn = document.getElementById('submit-btn');
   var status = document.getElementById('status');
 
-  function setStatus(text, kind) {
-    status.textContent = text;
+  function setStatus(key, kind) {
+    status.textContent = TRANSLATIONS[currentLang][key];
     status.className = 'status' + (kind ? ' ' + kind : '');
   }
 
@@ -1034,7 +1324,7 @@ footer a { color: var(--fg-muted); }
     if (!email) return;
 
     btn.disabled = true;
-    setStatus('Zapisuję...', '');
+    setStatus('status.submitting', '');
 
     try {
       var res = await fetch(SUPABASE_URL + '/rest/v1/landing_page_signups', {
@@ -1050,14 +1340,14 @@ footer a { color: var(--fg-muted); }
 
       // 409 = unique email constraint already hit - treat as success, not an error.
       if (res.ok || res.status === 409) {
-        setStatus('Dzięki! Jesteś na liście.', 'ok');
+        setStatus('status.success', 'ok');
         form.reset();
         fireConfetti();
       } else {
-        setStatus('Coś poszło nie tak. Spróbuj ponownie.', 'err');
+        setStatus('status.error', 'err');
       }
     } catch (err) {
-      setStatus('Coś poszło nie tak. Spróbuj ponownie.', 'err');
+      setStatus('status.error', 'err');
     } finally {
       btn.disabled = false;
     }
