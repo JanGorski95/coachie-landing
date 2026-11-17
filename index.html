@@ -34,6 +34,7 @@
   }
 }
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 html, body { background: var(--bg); margin: 0; padding: 0; }
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -49,6 +50,20 @@ h1, h2, h3 {
 .wrap { max-width: 1040px; margin: 0 auto; }
 .narrow { max-width: 760px; margin: 0 auto; }
 section { padding-block: 44px; }
+section[id] { scroll-margin-top: 76px; }
+
+/* ---------- motion system ---------- */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.is-in { opacity: 1; transform: translateY(0); }
+.reveal-group > * { transition-delay: calc(var(--i, 0) * 70ms); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+}
+
+/* scroll progress bar */
+.scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--accent); z-index: 30; transition: width 0.1s linear; }
 
 /* ---------- nav ---------- */
 .nav {
@@ -83,6 +98,7 @@ section { padding-block: 44px; }
   padding: 7px 12px;
   border-radius: 999px;
   white-space: nowrap;
+  transition: color 0.15s ease, background 0.15s ease;
 }
 .nav-links a:hover { color: var(--fg); background: var(--bg-sunken); }
 .nav-cta {
@@ -98,15 +114,38 @@ section { padding-block: 44px; }
   cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 14px -6px color-mix(in srgb, var(--accent) 60%, transparent); }
 
 /* ---------- hero ---------- */
 .hero {
   padding-block: 52px 36px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-glow {
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: var(--accent);
+  filter: blur(90px);
+  opacity: 0.16;
+  z-index: -1;
+  pointer-events: none;
+  animation: drift 22s ease-in-out infinite alternate;
+}
+.hero-glow.b { background: var(--success); opacity: 0.1; animation-duration: 28s; animation-direction: alternate-reverse; }
+@keyframes drift {
+  0% { transform: translate(-20%, -10%) scale(1); }
+  100% { transform: translate(15%, 20%) scale(1.15); }
 }
 .eyebrow {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -116,6 +155,11 @@ section { padding-block: 44px; }
   border-radius: 999px;
   padding: 6px 14px;
   margin-bottom: 20px;
+}
+.eyebrow .flame { animation: pulse 2.4s ease-in-out infinite; display: inline-block; }
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
 }
 h1 {
   font-size: clamp(2rem, 6vw, 3rem);
@@ -142,9 +186,13 @@ h1 em { font-style: normal; color: var(--accent); }
   text-decoration: none;
   display: inline-block;
   border: 1px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
+.btn:hover { transform: translateY(-2px); }
 .btn-primary { color: var(--accent-fg); background: var(--accent); }
+.btn-primary:hover { box-shadow: 0 10px 20px -8px color-mix(in srgb, var(--accent) 60%, transparent); }
 .btn-ghost { color: var(--fg); background: transparent; border-color: var(--border); }
+.btn-ghost:hover { background: var(--bg-sunken); }
 
 /* ---------- section headers ---------- */
 .section-head { text-align: center; margin-bottom: 30px; }
@@ -163,7 +211,9 @@ h1 em { font-style: normal; color: var(--accent); }
   border: 1px solid var(--border);
   border-radius: 18px;
   padding: 22px 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+.card:hover { transform: translateY(-3px); box-shadow: 0 14px 28px -16px rgba(0,0,0,0.25); }
 .card .num {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 0.8rem;
@@ -187,7 +237,9 @@ h1 em { font-style: normal; color: var(--accent); }
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+.feature:hover { transform: translateY(-3px); box-shadow: 0 14px 28px -16px rgba(0,0,0,0.25); }
 .feature .icon {
   width: 38px; height: 38px;
   border-radius: 10px;
@@ -200,9 +252,21 @@ h1 em { font-style: normal; color: var(--accent); }
 .feature h3 { font-size: 0.94rem; margin: 0 0 5px; }
 .feature p { font-size: 0.84rem; color: var(--fg-muted); line-height: 1.5; margin: 0; }
 
-/* ---------- phone mockups (real app colors - the app itself is always
-   dark regardless of system theme, so these are hardcoded, not tied to
-   this page's own light/dark --tokens) ---------- */
+/* ---------- comparison ---------- */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 680px) { .compare-grid { grid-template-columns: 1fr; } }
+.compare-col { border-radius: 18px; padding: 22px 20px; border: 1px solid var(--border); }
+.compare-col.before { background: var(--bg-sunken); }
+.compare-col.after { background: var(--bg-raised); border-color: var(--accent); }
+.compare-col h3 { font-size: 1rem; margin: 0 0 14px; display: flex; align-items: center; gap: 8px; }
+.compare-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.compare-col li { font-size: 0.9rem; color: var(--fg-muted); display: flex; align-items: flex-start; gap: 8px; line-height: 1.4; }
+.compare-col.after li { color: var(--fg); }
+.compare-mark { flex: 0 0 auto; font-weight: 700; }
+.compare-col.before .compare-mark { color: var(--fg-muted); }
+.compare-col.after .compare-mark { color: var(--success); }
+
+/* ---------- phone mockups ---------- */
 .preview-panel {
   background: #0B0D10;
   border-radius: 28px;
@@ -256,12 +320,17 @@ h1 em { font-style: normal; color: var(--accent); }
 .streak-title { font-size: 0.82rem; font-weight: 800; color: #F4F6F8; }
 .streak-days { font-size: 0.68rem; font-weight: 700; color: #35D483; margin-top: 1px; }
 .week-dots { display: flex; gap: 5px; }
-.week-dots .dot { flex: 1; height: 16px; border-radius: 5px; background: #1F242B; }
-.week-dots .dot.done { background: #35D483; }
+.week-dots .dot { flex: 1; height: 16px; border-radius: 5px; background: #1F242B; transform: scaleY(0.3); opacity: 0; transition: transform 0.35s ease, opacity 0.35s ease, background 0.35s ease; transition-delay: calc(var(--d, 0) * 60ms); transform-origin: bottom; }
+.phone.is-in .week-dots .dot { transform: scaleY(1); opacity: 1; }
+.phone.is-in .week-dots .dot.done { background: #35D483; }
 .streak-divider { height: 1px; background: #1F242B; margin: 2px 0; }
 
 /* swipe mockup */
-.swipe-card { flex: 1; position: relative; border-radius: 20px; overflow: hidden; margin-bottom: -20px; z-index: 1; }
+.swipe-card { flex: 1; position: relative; border-radius: 20px; overflow: hidden; margin-bottom: -20px; z-index: 1; animation: tilt 6s ease-in-out infinite; transform-origin: 50% 85%; }
+@keyframes tilt {
+  0%, 100% { transform: rotate(-1.2deg); }
+  50% { transform: rotate(1.2deg); }
+}
 .swipe-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .swipe-gradient { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.25) 48%, transparent 72%); }
 .swipe-info { position: absolute; left: 13px; right: 13px; bottom: 12px; color: #fff; }
@@ -296,6 +365,12 @@ h1 em { font-style: normal; color: var(--accent); }
   border-radius: 999px;
   padding: 11px 14px;
 }
+.phone.is-in .mock-pill { animation: glow-once 1.4s ease-out 0.4s; }
+@keyframes glow-once {
+  0% { box-shadow: 0 0 0 0 rgba(62, 198, 255, 0.6); }
+  60% { box-shadow: 0 0 0 10px rgba(62, 198, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(62, 198, 255, 0); }
+}
 
 .preview-caption { text-align: center; font-size: 0.78rem; color: #8E97A3; margin-top: 10px; font-weight: 600; }
 .photo-credit { text-align: center; font-size: 0.68rem; color: #5A6168; margin-top: 2px; }
@@ -317,6 +392,58 @@ h1 em { font-style: normal; color: var(--accent); }
 .trainers-panel p { color: var(--fg-muted); font-size: 0.94rem; line-height: 1.6; margin: 0 0 18px; }
 .trainers-panel ul { margin: 0 0 20px; padding-left: 1.1em; color: var(--fg-muted); font-size: 0.9rem; line-height: 1.7; }
 .trainers-panel .cta { flex: 0 0 auto; }
+
+/* ---------- FAQ ---------- */
+.faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+.faq-item { background: var(--bg-raised); border: 1px solid var(--border); border-radius: 14px; padding: 4px 18px; }
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 14px 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  flex: 0 0 auto;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--accent);
+  transition: transform 0.2s ease;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p { font-size: 0.9rem; color: var(--fg-muted); line-height: 1.6; margin: 0 0 16px; }
+.faq-item p a { color: var(--accent); }
+
+/* ---------- founder note ---------- */
+.founder-note { max-width: 640px; margin: 0 auto; text-align: center; }
+.founder-note p { font-size: 0.98rem; color: var(--fg-muted); line-height: 1.7; }
+.founder-note .sign { margin-top: 14px; font-weight: 700; color: var(--fg); font-size: 0.92rem; }
+
+/* ---------- store badges ---------- */
+.store-strip { text-align: center; margin-bottom: 26px; }
+.store-strip .label { font-size: 0.78rem; font-weight: 700; color: var(--fg-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+.store-badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.store-badge {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--fg-muted);
+}
+.store-badge svg { width: 18px; height: 18px; flex: 0 0 auto; }
+
+/* ---------- signup counter ---------- */
+.signup-counter { font-size: 0.85rem; font-weight: 700; color: var(--accent); margin-bottom: 14px; }
+.signup-counter[hidden] { display: none; }
 
 /* ---------- signup ---------- */
 .signup {
@@ -359,7 +486,9 @@ button.submit {
   padding: 13px 22px;
   cursor: pointer;
   white-space: nowrap;
+  transition: transform 0.15s ease;
 }
+button.submit:hover:not(:disabled) { transform: translateY(-2px); }
 button.submit:disabled { opacity: 0.6; cursor: default; }
 button.submit:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
 
@@ -381,6 +510,8 @@ footer a { color: var(--fg-muted); }
 </head>
 <body>
 
+<div class="scroll-progress" id="scroll-progress"></div>
+
 <div class="wrap">
   <nav class="nav" id="nav">
     <div class="wordmark">Coachie<span> App</span></div>
@@ -388,38 +519,43 @@ footer a { color: var(--fg-muted); }
       <a href="#features">Funkcje</a>
       <a href="#preview">Podgląd</a>
       <a href="#trainers">Dla trenerów</a>
+      <a href="#faq">FAQ</a>
       <a href="/legal/">Polityka i Regulamin</a>
     </div>
     <a href="#signup-section" class="nav-cta">Zapisz się</a>
   </nav>
 
   <section class="hero narrow">
-    <span class="eyebrow">Już wkrótce</span>
-    <h1>Trenuj z AI. <em>Albo</em> znajdź prawdziwego trenera.</h1>
-    <p class="sub">
-      Coachie App to Twój osobisty trener AI, dostępny od pierwszej minuty,
-      i sieć prawdziwych trenerów personalnych, gdy zechcesz żywego wsparcia. Plany treningowe,
-      jadłospisy, śledzenie postępów i czat w jednej aplikacji.
-    </p>
-    <div class="hero-ctas">
-      <a href="#signup-section" class="btn btn-primary">Zapisz się na start</a>
-      <a href="#features" class="btn btn-ghost">Zobacz co potrafi</a>
+    <div class="hero-glow a"></div>
+    <div class="hero-glow b"></div>
+    <div class="reveal-group">
+      <span class="eyebrow reveal" style="--i:0"><span class="flame">🔥</span> Już wkrótce</span>
+      <h1 class="reveal" style="--i:1">Trenuj z AI. <em>Albo</em> znajdź prawdziwego trenera.</h1>
+      <p class="sub reveal" style="--i:2">
+        Coachie App to Twój osobisty trener AI, dostępny od pierwszej minuty,
+        i sieć prawdziwych trenerów personalnych, gdy zechcesz żywego wsparcia. Plany treningowe,
+        jadłospisy, śledzenie postępów i czat w jednej aplikacji.
+      </p>
+      <div class="hero-ctas reveal" style="--i:3">
+        <a href="#signup-section" class="btn btn-primary">Zapisz się na start</a>
+        <a href="#features" class="btn btn-ghost">Zobacz co potrafi</a>
+      </div>
     </div>
   </section>
 
   <section>
-    <div class="cards">
-      <div class="card">
+    <div class="cards reveal-group">
+      <div class="card reveal" style="--i:0">
         <div class="num">01</div>
         <h3>Coachie, Twój trener AI</h3>
         <p>Spersonalizowany plan treningowy i jadłospis generowany przez AI. Gotowy, zanim znajdziesz trenera, i wystarczający, jeśli nigdy go nie potrzebujesz.</p>
       </div>
-      <div class="card">
+      <div class="card reveal" style="--i:1">
         <div class="num">02</div>
         <h3>Prawdziwi trenerzy</h3>
         <p>Gdy będziesz gotów/a, przełącz się na trenera personalnego: rezerwacja sesji, czat i Twoja historia zostają bez zmian.</p>
       </div>
-      <div class="card">
+      <div class="card reveal" style="--i:2">
         <div class="num">03</div>
         <h3>Postępy pod kontrolą</h3>
         <p>Zdjęcia sylwetki, pomiary, kalorie i makroskładniki, passy i odznaki: wszystko w jednym miejscu, nie w pięciu różnych appkach.</p>
@@ -428,63 +564,92 @@ footer a { color: var(--fg-muted); }
   </section>
 
   <section id="features">
-    <div class="section-head">
+    <div class="section-head reveal">
       <h2>Wszystko, czego potrzebujesz do treningu</h2>
       <p>Jedna aplikacja zamiast pięciu. Oto co dostajesz od pierwszego dnia.</p>
     </div>
-    <div class="feature-grid">
-      <div class="feature">
+    <div class="feature-grid reveal-group">
+      <div class="feature reveal" style="--i:0">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a5 5 0 0 0-5 5v1.6A4 4 0 0 0 5 13v2a4 4 0 0 0 2.3 3.6c.2 1.3 1.3 2.4 2.7 2.4h4c1.4 0 2.5-1.1 2.7-2.4A4 4 0 0 0 19 15v-2a4 4 0 0 0-2-3.4V8a5 5 0 0 0-5-5Z"/><path d="M9 11h.01M15 11h.01"/></svg></div>
         <h3>Plan generowany przez AI</h3>
-        <p>Trening i jadłospis dopasowane do celu, poziomu i preferencji, gotowe w kilkadziesiąt sekund.</p>
+        <p>Coachie buduje Twój plan treningowy i jadłospis na podstawie celu, poziomu, dostępnego sprzętu i historii treningów, gotowy w kilkadziesiąt sekund.</p>
       </div>
-      <div class="feature">
+      <div class="feature reveal" style="--i:1">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="10" height="15" rx="2" transform="rotate(-8 5 4)"/><rect x="8" y="5" width="11" height="15" rx="2"/></svg></div>
         <h3>Dopasowanie do trenera</h3>
-        <p>Przesuwaj profile trenerów w pobliżu, jak w aplikacji randkowej. Tylko że chodzi o Twój trening.</p>
+        <p>Przesuwaj profile trenerów w pobliżu, jak w aplikacji randkowej. Widzisz oceny, specjalizację i odległość, zanim napiszesz pierwszą wiadomość.</p>
       </div>
-      <div class="feature">
+      <div class="feature reveal" style="--i:2">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
         <h3>Rezerwacje sesji</h3>
-        <p>Umawiaj się z trenerem przez wbudowany kalendarz, z automatycznym linkiem do Google Meet.</p>
+        <p>Umawiaj się z trenerem online, z automatycznym linkiem do Google Meet, albo stacjonarnie na siłowni, bez przerzucania się między aplikacjami.</p>
       </div>
-      <div class="feature">
+      <div class="feature reveal" style="--i:3">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></div>
         <h3>Czat</h3>
-        <p>Pisz z trenerem albo z Coachie, wysyłaj zdjęcia i pliki. Jedna rozmowa, zawsze pod ręką.</p>
+        <p>Pisz z trenerem albo z Coachie, wysyłaj zdjęcia i dokumenty. Jedna rozmowa, zawsze pod ręką, z pełną historią w jednym miejscu.</p>
       </div>
-      <div class="feature">
+      <div class="feature reveal" style="--i:4">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
         <h3>Śledzenie postępów</h3>
-        <p>Zdjęcia sylwetki, pomiary ciała i wykresy w czasie. Widzisz realną zmianę, nie tylko liczbę na wadze.</p>
+        <p>Zdjęcia sylwetki, pomiary ciała i wykresy w czasie. Widzisz realną zmianę sylwetki, nie tylko liczbę na wadze.</p>
       </div>
-      <div class="feature">
+      <div class="feature reveal" style="--i:5">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="1"/><path d="M7 7v10M11 7v10M15 7v3M15 14v3M18 7v10"/></svg></div>
         <h3>Kalorie i makra</h3>
-        <p>Skanuj kod kreskowy produktu albo wpisz posiłek ręcznie, dziennik żywienia liczy się sam.</p>
+        <p>Skanuj kod kreskowy produktu albo wpisz posiłek ręcznie. Dziennik żywienia liczy kalorie i makroskładniki na bieżąco, sam.</p>
       </div>
-      <div class="feature">
+      <div class="feature reveal" style="--i:6">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-9.3-9.2C1.4 8.6 3 5 6.6 5c2 0 3.2 1 4.4 2.6C12.2 6 13.4 5 15.4 5 19 5 20.6 8.6 19.3 11.8 17 16.4 12 21 12 21Z"/></svg></div>
         <h3>Passy i odznaki</h3>
-        <p>Codzienna motywacja: licznik serii, odznaki za konsekwencję, przypomnienia zanim stracisz passę.</p>
+        <p>Licznik serii treningowej i posiłkowej, odznaki za konsekwencję i przypomnienie, zanim stracisz passę.</p>
       </div>
-      <div class="feature">
+      <div class="feature reveal" style="--i:7">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 9l5 3-5 3Z"/></svg></div>
         <h3>Biblioteka ćwiczeń</h3>
-        <p>Każde ćwiczenie z krótkim instruktażem wideo, bez zgadywania, jak wygląda poprawna technika.</p>
+        <p>Każde ćwiczenie z krótkim instruktażem wideo, bez zgadywania, jak wygląda poprawna technika wykonania.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="compare">
+    <div class="section-head reveal">
+      <h2>Dlaczego nie 5 osobnych appek</h2>
+      <p>Typowy zestaw do treningu wygląda tak dziś. Coachie App zamyka to w jednym miejscu.</p>
+    </div>
+    <div class="compare-grid reveal-group">
+      <div class="compare-col before reveal" style="--i:0">
+        <h3>Dziś</h3>
+        <ul>
+          <li><span class="compare-mark">-</span> Apka do planu treningowego</li>
+          <li><span class="compare-mark">-</span> Druga apka do liczenia kalorii</li>
+          <li><span class="compare-mark">-</span> Kalendarz do umawiania sesji</li>
+          <li><span class="compare-mark">-</span> Komunikator do kontaktu z trenerem</li>
+          <li><span class="compare-mark">-</span> Notatnik albo arkusz do śledzenia postępów</li>
+        </ul>
+      </div>
+      <div class="compare-col after reveal" style="--i:1">
+        <h3>Z Coachie App</h3>
+        <ul>
+          <li><span class="compare-mark">✓</span> Jedna aplikacja, jedno logowanie</li>
+          <li><span class="compare-mark">✓</span> Plan treningowy i jadłospis w tym samym miejscu</li>
+          <li><span class="compare-mark">✓</span> Rezerwacje wbudowane, z linkiem do spotkania</li>
+          <li><span class="compare-mark">✓</span> Czat z trenerem bez wychodzenia z appki</li>
+          <li><span class="compare-mark">✓</span> Postępy, passy i zdjęcia zawsze pod ręką</li>
+        </ul>
       </div>
     </div>
   </section>
 
   <section id="preview">
     <div class="preview-panel">
-      <div class="section-head">
+      <div class="section-head reveal">
         <h2>Zobacz, jak to wygląda</h2>
         <p>Appka jest zawsze w ciemnym interfejsie, niezależnie od ustawień telefonu. To realne kolory i układy z Coachie App.</p>
       </div>
-      <div class="preview-row">
+      <div class="preview-row reveal-group">
         <div>
-          <div class="phone">
+          <div class="phone reveal" style="--i:0">
             <div class="screen">
               <div class="app-label">Passy</div>
               <div class="streak-row">
@@ -495,8 +660,8 @@ footer a { color: var(--fg-muted); }
                 </div>
               </div>
               <div class="week-dots">
-                <div class="dot done"></div><div class="dot done"></div><div class="dot done"></div>
-                <div class="dot done"></div><div class="dot done"></div><div class="dot"></div><div class="dot done"></div>
+                <div class="dot done" style="--d:0"></div><div class="dot done" style="--d:1"></div><div class="dot done" style="--d:2"></div>
+                <div class="dot done" style="--d:3"></div><div class="dot done" style="--d:4"></div><div class="dot" style="--d:5"></div><div class="dot done" style="--d:6"></div>
               </div>
               <div class="streak-divider"></div>
               <div class="streak-row">
@@ -507,15 +672,15 @@ footer a { color: var(--fg-muted); }
                 </div>
               </div>
               <div class="week-dots">
-                <div class="dot done"></div><div class="dot done"></div><div class="dot"></div>
-                <div class="dot done"></div><div class="dot done"></div><div class="dot done"></div><div class="dot done"></div>
+                <div class="dot done" style="--d:0"></div><div class="dot done" style="--d:1"></div><div class="dot" style="--d:2"></div>
+                <div class="dot done" style="--d:3"></div><div class="dot done" style="--d:4"></div><div class="dot done" style="--d:5"></div><div class="dot done" style="--d:6"></div>
               </div>
             </div>
           </div>
           <p class="preview-caption">Passa treningowa i posiłkowa</p>
         </div>
         <div>
-          <div class="phone">
+          <div class="phone reveal" style="--i:1">
             <div class="screen" style="padding: 12px;">
               <div class="swipe-card">
                 <img src="https://images.unsplash.com/photo-1704223523169-52feeed90365?w=400&h=500&fit=crop&auto=format&q=80" alt="Trener personalny" loading="lazy">
@@ -536,7 +701,7 @@ footer a { color: var(--fg-muted); }
           <p class="photo-credit">Zdjęcie: Samuel Girven / Unsplash</p>
         </div>
         <div>
-          <div class="phone">
+          <div class="phone reveal" style="--i:2">
             <div class="screen">
               <div class="app-label">Rezerwacje</div>
               <div class="booking-card">
@@ -564,7 +729,7 @@ footer a { color: var(--fg-muted); }
   </section>
 
   <section id="trainers">
-    <div class="trainers-panel">
+    <div class="trainers-panel reveal">
       <div class="copy">
         <h2>Jesteś trenerem personalnym?</h2>
         <p>Dołącz do Coachie App jako jeden z pierwszych trenerów i zbuduj swoją bazę klientów bez własnej strony, systemu rezerwacji czy aplikacji do kontaktu.</p>
@@ -580,10 +745,66 @@ footer a { color: var(--fg-muted); }
     </div>
   </section>
 
+  <section id="faq">
+    <div class="section-head reveal">
+      <h2>Pytania i odpowiedzi</h2>
+      <p>Jeśli czegoś tu brakuje, po prostu napisz do nas.</p>
+    </div>
+    <div class="faq-list reveal-group" id="faq-list">
+      <details class="faq-item reveal" style="--i:0">
+        <summary>Czy muszę mieć trenera, żeby korzystać z appki?</summary>
+        <p>Nie. Coachie, wbudowany trener AI, jest dostępny od pierwszej minuty i wystarcza, jeśli nigdy nie będziesz potrzebować trenera-człowieka. Prawdziwego trenera dobierasz tylko wtedy, gdy sam/a zechcesz.</p>
+      </details>
+      <details class="faq-item reveal" style="--i:1">
+        <summary>Ile to kosztuje?</summary>
+        <p>Na etapie testów dostęp przyznajemy ręcznie, za darmo. Model cenowy po pełnym starcie jeszcze nie jest ustalony, ale damy znać z wyprzedzeniem, zanim cokolwiek się zmieni.</p>
+      </details>
+      <details class="faq-item reveal" style="--i:2">
+        <summary>Na jakie platformy wyjdzie appka i kiedy?</summary>
+        <p>iOS i Android razem, premiera planowana na grudzień.</p>
+      </details>
+      <details class="faq-item reveal" style="--i:3">
+        <summary>Czy moje dane są bezpieczne?</summary>
+        <p>Tak. Pełne informacje o tym, jakie dane zbieramy i dlaczego, znajdziesz w naszej <a href="/legal/">Polityce prywatności</a>.</p>
+      </details>
+      <details class="faq-item reveal" style="--i:4">
+        <summary>Czy mogę zostać trenerem w appce?</summary>
+        <p>Tak, szukamy pierwszych trenerów. Zobacz sekcję „Dla trenerów" powyżej albo napisz do nas bezpośrednio.</p>
+      </details>
+      <details class="faq-item reveal" style="--i:5">
+        <summary>Jak dokładnie działa generowanie planu przez AI?</summary>
+        <p>Podajesz cel, poziom zaawansowania, dostępny sprzęt i ewentualne kontuzje, a Coachie układa z tego konkretny plan treningowy i jadłospis, który możesz dowolnie edytować.</p>
+      </details>
+      <details class="faq-item reveal" style="--i:6">
+        <summary>Czy mogę później przejść z Coachie na prawdziwego trenera?</summary>
+        <p>Tak, w dowolnym momencie. Twoja historia, postępy i czat zostają bez zmian.</p>
+      </details>
+      <details class="faq-item reveal" style="--i:7">
+        <summary>Czy appka jest po polsku?</summary>
+        <p>Tak, appka i Coachie mówią po polsku. Dostępny jest też angielski.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="founder">
+    <div class="founder-note reveal">
+      <p>Coachie App buduje jedna osoba, bez zespołu i na razie bez budżetu marketingowego. Zacząłem to robić, bo chciałem aplikacji, która łączy AI-trenera z prawdziwymi trenerami zamiast zmuszać do wyboru jednego albo drugiego. Buduję to w pełni jawnie, krok po kroku, więc jeśli chcesz śledzić postępy albo masz pomysł, czego appce brakuje, po prostu napisz.</p>
+      <div class="sign">Jan, twórca Coachie App</div>
+    </div>
+  </section>
+
   <section class="signup narrow" id="signup-section">
-    <h2>Zapisz się na start</h2>
-    <p class="lead">Damy znać, gdy Coachie App będzie dostępna do pobrania.</p>
-    <form class="signup-form" id="signup-form">
+    <div class="store-strip reveal">
+      <div class="label">Wkrótce do pobrania</div>
+      <div class="store-badges">
+        <span class="store-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 2h-11A2.5 2.5 0 0 0 4 4.5v15A2.5 2.5 0 0 0 6.5 22h11a2.5 2.5 0 0 0 2.5-2.5v-15A2.5 2.5 0 0 0 17.5 2ZM12 20.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM17 17H7V5h10Z"/></svg> App Store</span>
+        <span class="store-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.5a1 1 0 0 0-.6.9v17.2a1 1 0 0 0 .6.9l9.9-9.5Zm11.2 9.5-2.6-2.6L4.5 2l10.9 6.3 2.1 1.3Zm1.4 1.4 2.9-1.7a1 1 0 0 0 0-1.7l-2.9-1.7L13.2 12Zm-1.4 1.4L4.5 22l7.7-7.1 2.6-2.5Z"/></svg> Google Play</span>
+      </div>
+    </div>
+    <div class="signup-counter reveal" id="signup-counter" hidden>🔥 <span id="counter-number">0</span> osób już czeka na start</div>
+    <h2 class="reveal">Zapisz się na start</h2>
+    <p class="lead reveal">Damy znać, gdy Coachie App będzie dostępna do pobrania.</p>
+    <form class="signup-form reveal" id="signup-form">
       <input type="email" id="email-input" placeholder="twoj@email.pl" autocomplete="email" required>
       <button type="submit" class="submit" id="submit-btn">Zapisz mnie</button>
     </form>
@@ -595,6 +816,7 @@ footer a { color: var(--fg-muted); }
     <div class="flinks">
       <a href="#features">Funkcje</a>
       <a href="#trainers">Dla trenerów</a>
+      <a href="#faq">FAQ</a>
       <a href="/legal/">Polityka prywatności i Regulamin</a>
     </div>
     Coachie App &middot; Kraków, Polska
@@ -605,12 +827,86 @@ footer a { color: var(--fg-muted); }
 (function () {
   var SUPABASE_URL = 'https://grqzbmrxfllywmyugqlb.supabase.co';
   var SUPABASE_ANON_KEY = 'sb_publishable_xMJNZcyh0Cv1kP9SDPpJuw_6fIjy_Y3';
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // ---- nav scroll state + scroll progress bar ----
   var nav = document.getElementById('nav');
+  var progressBar = document.getElementById('scroll-progress');
   window.addEventListener('scroll', function () {
     nav.classList.toggle('scrolled', window.scrollY > 8);
+    var height = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = height > 0 ? (window.scrollY / height) * 100 : 0;
+    progressBar.style.width = pct + '%';
+  }, { passive: true });
+
+  // ---- hero entrance ----
+  requestAnimationFrame(function () {
+    requestAnimationFrame(function () {
+      document.querySelectorAll('.hero .reveal').forEach(function (el) { el.classList.add('is-in'); });
+    });
   });
 
+  // ---- scroll-triggered reveals ----
+  var revealTargets = document.querySelectorAll('.reveal:not(.hero .reveal), .phone');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealTargets.forEach(function (el) { io.observe(el); });
+  } else {
+    revealTargets.forEach(function (el) { el.classList.add('is-in'); });
+  }
+
+  // ---- FAQ: one open at a time ----
+  var faqList = document.getElementById('faq-list');
+  if (faqList) {
+    faqList.addEventListener('toggle', function (e) {
+      if (e.target.tagName !== 'DETAILS' || !e.target.open) return;
+      faqList.querySelectorAll('details[open]').forEach(function (d) {
+        if (d !== e.target) d.open = false;
+      });
+    }, true);
+  }
+
+  // ---- live signup counter ----
+  (async function loadCounter() {
+    try {
+      var res = await fetch(SUPABASE_URL + '/rest/v1/rpc/landing_page_signup_count', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + SUPABASE_ANON_KEY },
+        body: '{}',
+      });
+      if (!res.ok) return;
+      var count = await res.json();
+      count = Number(count) || 0;
+      if (count <= 0) return;
+      var wrap = document.getElementById('signup-counter');
+      var numEl = document.getElementById('counter-number');
+      wrap.hidden = false;
+      if (reduceMotion) {
+        numEl.textContent = count;
+        return;
+      }
+      var start = performance.now();
+      var duration = 900;
+      function tick(now) {
+        var t = Math.min(1, (now - start) / duration);
+        var eased = 1 - Math.pow(1 - t, 3);
+        numEl.textContent = Math.round(eased * count);
+        if (t < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    } catch (err) {
+      // best-effort - counter just stays hidden
+    }
+  })();
+
+  // ---- signup form ----
   var form = document.getElementById('signup-form');
   var input = document.getElementById('email-input');
   var btn = document.getElementById('submit-btn');
