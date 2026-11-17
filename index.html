@@ -550,6 +550,66 @@ button.submit:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px;
 .status.err { color: var(--accent); }
 .fine { font-size: 0.78rem; color: var(--fg-muted); margin-top: 14px; }
 
+/* ---------- trainer lead modal ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay[hidden] { display: none; }
+.modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 34px 26px 28px;
+  text-align: left;
+}
+.modal-card h3 { font-size: 1.25rem; margin: 0 0 8px; }
+.modal-lead { color: var(--fg-muted); font-size: 0.9rem; margin: 0 0 20px; }
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-close:hover { background: var(--border); }
+#trainer-form { display: flex; flex-direction: column; gap: 12px; }
+#trainer-form input,
+#trainer-form textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 13px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--fg);
+  resize: vertical;
+}
+#trainer-form input:focus-visible,
+#trainer-form textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+#trainer-form button.btn { margin-top: 4px; }
+
 footer {
   text-align: center;
   padding-block: 28px 44px;
@@ -590,11 +650,10 @@ footer a { color: var(--fg-muted); }
     <div class="hero-glow-wrap" data-parallax="0.05"><div class="hero-glow b"></div></div>
     <div class="reveal-group">
       <span class="eyebrow reveal blur-in" style="--i:0" data-i18n="hero.eyebrow"><span class="flame">🔥</span> Już wkrótce</span>
-      <h1 class="reveal blur-in" style="--i:1" data-i18n="hero.title">Trenuj z AI. <em>Albo</em> znajdź prawdziwego trenera.</h1>
+      <h1 class="reveal blur-in" style="--i:1" data-i18n="hero.title">Znajdź trenera. <em>Albo</em> zadbaj o siebie z Coachie.</h1>
       <p class="sub reveal blur-in" style="--i:2" data-i18n="hero.sub">
-        Coachie App to Twój osobisty trener AI, dostępny od pierwszej minuty,
-        i sieć prawdziwych trenerów personalnych, gdy zechcesz żywego wsparcia. Plany treningowe,
-        jadłospisy, śledzenie postępów i czat w jednej aplikacji.
+        Coachie App to prawdziwi trenerzy personalni, bez czasochłonnego tworzenia i ręcznego wysyłania planów.
+        A jeśli nie masz jeszcze trenera, Coachie, Twój trener AI, zadba o Ciebie od pierwszej minuty.
       </p>
       <div class="hero-ctas reveal" style="--i:3">
         <a href="#signup-section" class="btn btn-primary" data-i18n="hero.ctaPrimary">Zapisz się na start</a>
@@ -607,13 +666,13 @@ footer a { color: var(--fg-muted); }
     <div class="cards reveal-group">
       <div class="card reveal" style="--i:0">
         <div class="num">01</div>
-        <h3 data-i18n="cards.1.title">Coachie, Twój trener AI</h3>
-        <p data-i18n="cards.1.desc">Spersonalizowany plan treningowy i jadłospis generowany przez AI. Gotowy, zanim znajdziesz trenera, i wystarczający, jeśli nigdy go nie potrzebujesz.</p>
+        <h3 data-i18n="cards.1.title">Prawdziwi trenerzy</h3>
+        <p data-i18n="cards.1.desc">Trener personalny prowadzi Cię krok po kroku, a tworzenie i wysyłanie planów zajmuje mu teraz minuty, nie godziny.</p>
       </div>
       <div class="card reveal" style="--i:1">
         <div class="num">02</div>
-        <h3 data-i18n="cards.2.title">Prawdziwi trenerzy</h3>
-        <p data-i18n="cards.2.desc">Gdy będziesz gotów/a, przełącz się na trenera personalnego: rezerwacja sesji, czat i Twoja historia zostają bez zmian.</p>
+        <h3 data-i18n="cards.2.title">Coachie, Twój trener AI</h3>
+        <p data-i18n="cards.2.desc">Nie masz jeszcze trenera? Coachie wygeneruje Ci plan treningowy i jadłospis, żebyś mógł/mogła zadbać o siebie już dziś.</p>
       </div>
       <div class="card reveal" style="--i:2">
         <div class="num">03</div>
@@ -792,18 +851,34 @@ footer a { color: var(--fg-muted); }
     <div class="trainers-panel reveal">
       <div class="copy">
         <h2 data-i18n="trainers.title">Jesteś trenerem personalnym?</h2>
-        <p data-i18n="trainers.body">Dołącz do Coachie App jako jeden z pierwszych trenerów i zbuduj swoją bazę klientów bez własnej strony, systemu rezerwacji czy aplikacji do kontaktu.</p>
+        <p data-i18n="trainers.body">Tworzenie i wysyłanie planów treningowych klientom ręcznie zajmuje mnóstwo czasu. Dołącz do Coachie App jako jeden z pierwszych trenerów i miej to wszystko w jednym miejscu, bez własnej strony, systemu rezerwacji czy aplikacji do kontaktu.</p>
         <ul>
           <li data-i18n="trainers.item1">Wczesny dostęp za darmo, status „Founding Trainer"</li>
-          <li data-i18n="trainers.item2">Rezerwacje, czat i płatności w jednym miejscu</li>
-          <li data-i18n="trainers.item3">Realny wpływ na to, co budujemy dalej</li>
+          <li data-i18n="trainers.item2">Twórz i wysyłaj plany klientom w kilka minut, nie godzin</li>
+          <li data-i18n="trainers.item3">Rezerwacje, czat i płatności w jednym miejscu</li>
         </ul>
       </div>
       <div class="cta">
-        <a href="mailto:jan.gorski95@icloud.com?subject=Coachie%20App%20-%20Founding%20Trainer" class="btn btn-primary" data-i18n="trainers.cta">Napisz do nas</a>
+        <button type="button" class="btn btn-primary" id="trainer-form-trigger" data-i18n="trainers.cta">Napisz do nas</button>
       </div>
     </div>
   </section>
+
+  <div class="modal-overlay" id="trainer-modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="trainer-modal-title">
+      <button type="button" class="modal-close" id="trainer-modal-close" data-i18n-aria-label="trainerForm.close" aria-label="Zamknij">&times;</button>
+      <h3 id="trainer-modal-title" data-i18n="trainerForm.title">Zgłoś się jako trener</h3>
+      <p class="modal-lead" data-i18n="trainerForm.lead">Zostaw swoje dane, odezwiemy się najszybciej jak to możliwe.</p>
+      <form id="trainer-form">
+        <input type="text" id="trainer-name" data-i18n-placeholder="trainerForm.namePlaceholder" placeholder="Imię i nazwisko" autocomplete="name" required>
+        <input type="email" id="trainer-email" data-i18n-placeholder="trainerForm.emailPlaceholder" placeholder="twoj@email.pl" autocomplete="email" required>
+        <input type="text" id="trainer-city" data-i18n-placeholder="trainerForm.cityPlaceholder" placeholder="Miasto (opcjonalnie)" autocomplete="address-level2">
+        <textarea id="trainer-message" data-i18n-placeholder="trainerForm.messagePlaceholder" placeholder="Kilka słów o sobie (opcjonalnie)" rows="3"></textarea>
+        <button type="submit" class="btn btn-primary" id="trainer-form-submit" data-i18n="trainerForm.submit">Wyślij zgłoszenie</button>
+      </form>
+      <div class="status" id="trainer-form-status" role="status" aria-live="polite"></div>
+    </div>
+  </div>
 
   <section id="faq">
     <div class="section-head reveal">
@@ -848,7 +923,7 @@ footer a { color: var(--fg-muted); }
 
   <section id="founder">
     <div class="founder-note reveal">
-      <p data-i18n="founder.body">Zacząłem budować Coachie App, bo sam szukałem aplikacji, która łączy AI-trenera z realnym wsparciem trenera personalnego, zamiast zmuszać do wyboru jednego albo drugiego, i nie mogłem jej znaleźć. Im więcej o tym rozmawiałem z innymi, tym jaśniej widziałem, że to nie tylko mój problem. Buduję to sam, w pełni jawnie, krok po kroku, więc jeśli chcesz śledzić postępy albo masz pomysł, czego appce brakuje, po prostu napisz.</p>
+      <p data-i18n="founder.body">Zacząłem budować Coachie App, patrząc na trenerów personalnych, którzy tworzą plany treningowe dla swoich klientów. To zajmuje mnóstwo czasu, a samo wysyłanie gotowego planu bywa uciążliwe: PDF-y, wiadomości, arkusze. Chciałem, żeby trenerzy mieli jedną appkę do obsługi klientów i planów, która realnie oszczędza im czas i jest po prostu wygodniejsza. Coachie, trener AI, to dodatek dla osób, które jeszcze nie mają trenera, ale chcą choć minimalnie zadbać o siebie. Buduję to sam, w pełni jawnie, krok po kroku, więc jeśli chcesz śledzić postępy albo masz pomysł, czego appce brakuje, po prostu napisz.</p>
       <div class="sign" data-i18n="founder.sign">Jan, twórca Coachie App</div>
     </div>
   </section>
@@ -971,6 +1046,17 @@ footer a { color: var(--fg-muted); }
       'trainers.item2': 'Twórz i wysyłaj plany klientom w kilka minut, nie godzin',
       'trainers.item3': 'Rezerwacje, czat i płatności w jednym miejscu',
       'trainers.cta': 'Napisz do nas',
+      'trainerForm.title': 'Zgłoś się jako trener',
+      'trainerForm.lead': 'Zostaw swoje dane, odezwiemy się najszybciej jak to możliwe.',
+      'trainerForm.namePlaceholder': 'Imię i nazwisko',
+      'trainerForm.emailPlaceholder': 'twoj@email.pl',
+      'trainerForm.cityPlaceholder': 'Miasto (opcjonalnie)',
+      'trainerForm.messagePlaceholder': 'Kilka słów o sobie (opcjonalnie)',
+      'trainerForm.submit': 'Wyślij zgłoszenie',
+      'trainerForm.sending': 'Wysyłanie...',
+      'trainerForm.ok': 'Dzięki! Odezwiemy się najszybciej jak to możliwe.',
+      'trainerForm.err': 'Coś nie zadziałało, spróbuj jeszcze raz.',
+      'trainerForm.close': 'Zamknij',
       'faq.title': 'Pytania i odpowiedzi',
       'faq.sub': 'Jeśli czegoś tu brakuje, po prostu napisz do nas.',
       'faq.1.q': 'Czy muszę mieć trenera, żeby korzystać z appki?',
@@ -1078,6 +1164,17 @@ footer a { color: var(--fg-muted); }
       'trainers.item2': 'Create and send plans to clients in minutes, not hours',
       'trainers.item3': 'Bookings, chat and payments in one place',
       'trainers.cta': 'Get in touch',
+      'trainerForm.title': 'Apply as a trainer',
+      'trainerForm.lead': 'Leave your details and we will get back to you as soon as possible.',
+      'trainerForm.namePlaceholder': 'Full name',
+      'trainerForm.emailPlaceholder': 'you@email.com',
+      'trainerForm.cityPlaceholder': 'City (optional)',
+      'trainerForm.messagePlaceholder': 'A few words about yourself (optional)',
+      'trainerForm.submit': 'Send application',
+      'trainerForm.sending': 'Sending...',
+      'trainerForm.ok': 'Thanks! We will get back to you as soon as possible.',
+      'trainerForm.err': 'Something went wrong, please try again.',
+      'trainerForm.close': 'Close',
       'faq.title': 'Frequently asked questions',
       'faq.sub': "If something's missing here, just get in touch.",
       'faq.1.q': 'Do I need a trainer to use the app?',
@@ -1135,6 +1232,10 @@ footer a { color: var(--fg-muted); }
     document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
       var t = TRANSLATIONS[lang][el.getAttribute('data-i18n-placeholder')];
       if (t !== undefined) el.placeholder = t;
+    });
+    document.querySelectorAll('[data-i18n-aria-label]').forEach(function (el) {
+      var t = TRANSLATIONS[lang][el.getAttribute('data-i18n-aria-label')];
+      if (t !== undefined) el.setAttribute('aria-label', t);
     });
     document.querySelectorAll('.lang-switch button').forEach(function (b) {
       b.classList.toggle('active', b.getAttribute('data-lang') === lang);
@@ -1350,6 +1451,87 @@ footer a { color: var(--fg-muted); }
       setStatus('status.error', 'err');
     } finally {
       btn.disabled = false;
+    }
+  });
+
+  // ---- trainer lead modal ----
+  var trainerModal = document.getElementById('trainer-modal');
+  var trainerTrigger = document.getElementById('trainer-form-trigger');
+  var trainerClose = document.getElementById('trainer-modal-close');
+  var trainerForm = document.getElementById('trainer-form');
+  var trainerSubmit = document.getElementById('trainer-form-submit');
+  var trainerStatus = document.getElementById('trainer-form-status');
+  var trainerNameInput = document.getElementById('trainer-name');
+
+  function setTrainerStatus(key, kind) {
+    trainerStatus.textContent = TRANSLATIONS[currentLang][key];
+    trainerStatus.className = 'status' + (kind ? ' ' + kind : '');
+  }
+
+  function openTrainerModal() {
+    trainerModal.hidden = false;
+    trainerStatus.textContent = '';
+    trainerStatus.className = 'status';
+    trainerNameInput.focus();
+    document.addEventListener('keydown', onTrainerModalKeydown);
+  }
+
+  function closeTrainerModal() {
+    trainerModal.hidden = true;
+    document.removeEventListener('keydown', onTrainerModalKeydown);
+    trainerTrigger.focus();
+  }
+
+  function onTrainerModalKeydown(e) {
+    if (e.key === 'Escape') closeTrainerModal();
+  }
+
+  trainerTrigger.addEventListener('click', openTrainerModal);
+  trainerClose.addEventListener('click', closeTrainerModal);
+  trainerModal.addEventListener('click', function (e) {
+    if (e.target === trainerModal) closeTrainerModal();
+  });
+
+  trainerForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var fullName = trainerNameInput.value.trim();
+    var email = document.getElementById('trainer-email').value.trim();
+    var city = document.getElementById('trainer-city').value.trim();
+    var message = document.getElementById('trainer-message').value.trim();
+    if (!fullName || !email) return;
+
+    trainerSubmit.disabled = true;
+    setTrainerStatus('trainerForm.sending', '');
+
+    try {
+      var res = await fetch(SUPABASE_URL + '/rest/v1/trainer_leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: 'Bearer ' + SUPABASE_ANON_KEY,
+          Prefer: 'return=minimal',
+        },
+        body: JSON.stringify({
+          full_name: fullName,
+          email: email,
+          city: city || null,
+          message: message || null,
+        }),
+      });
+
+      // 409 = unique email constraint already hit - treat as success, not an error.
+      if (res.ok || res.status === 409) {
+        setTrainerStatus('trainerForm.ok', 'ok');
+        trainerForm.reset();
+        fireConfetti();
+      } else {
+        setTrainerStatus('trainerForm.err', 'err');
+      }
+    } catch (err) {
+      setTrainerStatus('trainerForm.err', 'err');
+    } finally {
+      trainerSubmit.disabled = false;
     }
   });
 })();
