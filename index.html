@@ -61,11 +61,15 @@ section[id] { scroll-margin-top: 76px; }
   transform: translateY(28px) scale(0.96);
   transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1), transform 2s cubic-bezier(0.16, 1, 0.3, 1), filter 2s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.reveal.is-in { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
 /* Hero-only modifier: starts visibly blurred and sharpens into focus
    alongside the usual rise, for the one moment on the page where the
-   extra "wow" is worth the slightly heavier effect. */
+   extra "wow" is worth the slightly heavier effect. Declared BEFORE
+   .reveal.is-in below: both are two-class selectors with identical
+   specificity, so source order is what decides the tie once an element
+   carries both classes - .is-in has to come second or its filter:
+   blur(0) never wins and the element stays stuck blurred forever. */
 .reveal.blur-in { filter: blur(16px); }
+.reveal.is-in { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
 .reveal-group > * { transition-delay: calc(var(--i, 0) * 180ms); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
