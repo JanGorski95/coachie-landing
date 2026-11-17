@@ -52,18 +52,48 @@ h1, h2, h3 {
 section { padding-block: 44px; }
 section[id] { scroll-margin-top: 76px; }
 
-/* ---------- motion system ---------- */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
-.reveal.is-in { opacity: 1; transform: translateY(0); }
-.reveal-group > * { transition-delay: calc(var(--i, 0) * 70ms); }
+/* ---------- motion system ----------
+   Cinematic pacing: a 2s "ease-out-expo" curve plus a generous 180ms
+   per-item stagger, so a group (e.g. the 8 feature cards) visibly
+   cascades into place rather than popping in almost together. */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px) scale(0.96);
+  transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1), transform 2s cubic-bezier(0.16, 1, 0.3, 1), filter 2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.is-in { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+/* Hero-only modifier: starts visibly blurred and sharpens into focus
+   alongside the usual rise, for the one moment on the page where the
+   extra "wow" is worth the slightly heavier effect. */
+.reveal.blur-in { filter: blur(16px); }
+.reveal-group > * { transition-delay: calc(var(--i, 0) * 180ms); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .reveal { opacity: 1; transform: none; filter: none; transition: none; }
   * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
 }
 
 /* scroll progress bar */
 .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--accent); z-index: 30; transition: width 0.1s linear; }
+
+/* subtle film-grain texture over the whole page - static (not an
+   animation), so it's left on even under reduced-motion. */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 25;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* confetti burst on a successful signup */
+.confetti-piece { position: fixed; top: -10px; width: 8px; height: 8px; border-radius: 2px; pointer-events: none; z-index: 40; animation: confetti-fall 1.4s ease-in forwards; }
+@keyframes confetti-fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(540deg); opacity: 0; }
+}
 
 /* ---------- nav ---------- */
 .nav {
@@ -125,6 +155,12 @@ section[id] { scroll-margin-top: 76px; }
   position: relative;
   overflow: hidden;
 }
+/* Scroll-linked parallax (see JS) is applied to the wrapper via
+   transform, while the drift keyframe animation stays owned by the
+   inner .hero-glow itself - an animated property can't also take an
+   inline transform from JS without the animation winning every frame,
+   so the two motions live on separate elements instead of fighting. */
+.hero-glow-wrap { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
 .hero-glow {
   position: absolute;
   width: 480px;
@@ -133,8 +169,6 @@ section[id] { scroll-margin-top: 76px; }
   background: var(--accent);
   filter: blur(90px);
   opacity: 0.16;
-  z-index: -1;
-  pointer-events: none;
   animation: drift 22s ease-in-out infinite alternate;
 }
 .hero-glow.b { background: var(--success); opacity: 0.1; animation-duration: 28s; animation-direction: alternate-reverse; }
@@ -510,6 +544,7 @@ footer a { color: var(--fg-muted); }
 </head>
 <body>
 
+<div class="grain-overlay"></div>
 <div class="scroll-progress" id="scroll-progress"></div>
 
 <div class="wrap">
@@ -526,12 +561,12 @@ footer a { color: var(--fg-muted); }
   </nav>
 
   <section class="hero narrow">
-    <div class="hero-glow a"></div>
-    <div class="hero-glow b"></div>
+    <div class="hero-glow-wrap" data-parallax="0.08"><div class="hero-glow a"></div></div>
+    <div class="hero-glow-wrap" data-parallax="0.05"><div class="hero-glow b"></div></div>
     <div class="reveal-group">
-      <span class="eyebrow reveal" style="--i:0"><span class="flame">🔥</span> Już wkrótce</span>
-      <h1 class="reveal" style="--i:1">Trenuj z AI. <em>Albo</em> znajdź prawdziwego trenera.</h1>
-      <p class="sub reveal" style="--i:2">
+      <span class="eyebrow reveal blur-in" style="--i:0"><span class="flame">🔥</span> Już wkrótce</span>
+      <h1 class="reveal blur-in" style="--i:1">Trenuj z AI. <em>Albo</em> znajdź prawdziwego trenera.</h1>
+      <p class="sub reveal blur-in" style="--i:2">
         Coachie App to Twój osobisty trener AI, dostępny od pierwszej minuty,
         i sieć prawdziwych trenerów personalnych, gdy zechcesz żywego wsparcia. Plany treningowe,
         jadłospisy, śledzenie postępów i czat w jednej aplikacji.
@@ -648,7 +683,7 @@ footer a { color: var(--fg-muted); }
         <p>Appka jest zawsze w ciemnym interfejsie, niezależnie od ustawień telefonu. To realne kolory i układy z Coachie App.</p>
       </div>
       <div class="preview-row reveal-group">
-        <div>
+        <div data-parallax="0.03">
           <div class="phone reveal" style="--i:0">
             <div class="screen">
               <div class="app-label">Passy</div>
@@ -679,7 +714,7 @@ footer a { color: var(--fg-muted); }
           </div>
           <p class="preview-caption">Passa treningowa i posiłkowa</p>
         </div>
-        <div>
+        <div data-parallax="0.07">
           <div class="phone reveal" style="--i:1">
             <div class="screen" style="padding: 12px;">
               <div class="swipe-card">
@@ -700,7 +735,7 @@ footer a { color: var(--fg-muted); }
           <p class="preview-caption">Przesuń, żeby dopasować trenera</p>
           <p class="photo-credit">Zdjęcie: Samuel Girven / Unsplash</p>
         </div>
-        <div>
+        <div data-parallax="0.04">
           <div class="phone reveal" style="--i:2">
             <div class="screen">
               <div class="app-label">Rezerwacje</div>
@@ -828,6 +863,7 @@ footer a { color: var(--fg-muted); }
   var SUPABASE_URL = 'https://grqzbmrxfllywmyugqlb.supabase.co';
   var SUPABASE_ANON_KEY = 'sb_publishable_xMJNZcyh0Cv1kP9SDPpJuw_6fIjy_Y3';
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hoverCapable = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   // ---- nav scroll state + scroll progress bar ----
   var nav = document.getElementById('nav');
@@ -838,6 +874,77 @@ footer a { color: var(--fg-muted); }
     var pct = height > 0 ? (window.scrollY / height) * 100 : 0;
     progressBar.style.width = pct + '%';
   }, { passive: true });
+
+  // ---- scroll-linked parallax: one rAF-throttled loop, reads
+  // getBoundingClientRect only inside the throttled tick (never on a raw
+  // scroll event), offset computed relative to each element's own
+  // position so it stays bounded instead of growing with total scroll
+  // distance. ----
+  var parallaxEls = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
+  if (!reduceMotion && parallaxEls.length) {
+    var parallaxTicking = false;
+    var updateParallax = function () {
+      var viewportCenter = window.innerHeight / 2;
+      parallaxEls.forEach(function (el) {
+        var factor = parseFloat(el.getAttribute('data-parallax')) || 0;
+        var rect = el.getBoundingClientRect();
+        var elCenter = rect.top + rect.height / 2;
+        var offset = (viewportCenter - elCenter) * factor;
+        el.style.transform = 'translateY(' + offset + 'px)';
+      });
+      parallaxTicking = false;
+    };
+    window.addEventListener('scroll', function () {
+      if (!parallaxTicking) { requestAnimationFrame(updateParallax); parallaxTicking = true; }
+    }, { passive: true });
+    updateParallax();
+  }
+
+  // ---- 3D cursor-tilt on the phone mockups + magnetic CTA buttons
+  // (desktop/mouse only - a no-op on touch devices, which is correct
+  // there, not a missing feature) ----
+  if (hoverCapable && !reduceMotion) {
+    document.querySelectorAll('.phone').forEach(function (phone) {
+      phone.style.transition = 'transform 0.2s ease-out';
+      phone.addEventListener('mousemove', function (e) {
+        var rect = phone.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        phone.style.transform = 'perspective(800px) rotateY(' + (x * 14) + 'deg) rotateX(' + (-y * 14) + 'deg)';
+      });
+      phone.addEventListener('mouseleave', function () { phone.style.transform = ''; });
+    });
+
+    var magnetize = function (el, liftPx) {
+      if (!el) return;
+      el.style.transition = 'transform 0.2s ease-out';
+      el.addEventListener('mousemove', function (e) {
+        var rect = el.getBoundingClientRect();
+        var x = e.clientX - (rect.left + rect.width / 2);
+        var y = e.clientY - (rect.top + rect.height / 2);
+        el.style.transform = 'translate(' + (x * 0.15) + 'px, ' + (y * 0.25 - liftPx) + 'px)';
+      });
+      el.addEventListener('mouseleave', function () { el.style.transform = ''; });
+    };
+    document.querySelectorAll('.btn-primary').forEach(function (b) { magnetize(b, 2); });
+    magnetize(document.querySelector('.nav-cta'), 1);
+  }
+
+  // ---- confetti burst, fired once on a successful signup ----
+  function fireConfetti() {
+    if (reduceMotion) return;
+    var colors = ['#E05A2B', '#35D483', '#3EC6FF', '#FF4D8D', '#FFB020'];
+    for (var i = 0; i < 18; i++) {
+      var piece = document.createElement('div');
+      piece.className = 'confetti-piece';
+      piece.style.left = (45 + Math.random() * 10) + 'vw';
+      piece.style.background = colors[i % colors.length];
+      piece.style.animationDelay = (Math.random() * 0.3) + 's';
+      piece.style.animationDuration = (1.1 + Math.random() * 0.6) + 's';
+      document.body.appendChild(piece);
+      (function (p) { setTimeout(function () { p.remove(); }, 2200); })(piece);
+    }
+  }
 
   // ---- hero entrance ----
   requestAnimationFrame(function () {
@@ -941,6 +1048,7 @@ footer a { color: var(--fg-muted); }
       if (res.ok || res.status === 409) {
         setStatus('Dzięki! Jesteś na liście.', 'ok');
         form.reset();
+        fireConfetti();
       } else {
         setStatus('Coś poszło nie tak. Spróbuj ponownie.', 'err');
       }
