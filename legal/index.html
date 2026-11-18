@@ -3,34 +3,37 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Coachie App: Polityka prywatności i Regulamin</title>
+<title>Ramvo: Polityka prywatności i Regulamin</title>
+<meta name="description" content="Polityka prywatności i Regulamin aplikacji Ramvo.">
+<meta name="theme-color" content="#0B0D10">
+<link rel="icon" href="/assets/brand/favicon/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/brand/favicon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/brand/favicon/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ramvo">
+<meta property="og:title" content="Ramvo: Polityka prywatności i Regulamin">
+<meta property="og:description" content="Polityka prywatności i Regulamin aplikacji Ramvo.">
+<meta property="og:image" content="https://ramvo.app/assets/brand/ramvo-og-1200x630-1200.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://ramvo.app/legal/">
+<meta name="twitter:card" content="summary_large_image">
 <style>
 :root {
-  --bg: #FAF8F4;
-  --bg-raised: #FFFFFF;
-  --fg: #211C17;
-  --fg-muted: #6B6358;
-  --accent: #B5471F;
-  --accent-soft: #F2E4DB;
-  --border: #E6DFD3;
-  color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #181511;
-    --bg-raised: #221D18;
-    --fg: #F3EEE5;
-    --fg-muted: #B3A99A;
-    --accent: #E8865A;
-    --accent-soft: #3A2A20;
-    --border: #3A332A;
-    color-scheme: dark;
-  }
+  /* Performance Lab, dark only */
+  --bg: #0B0D10;
+  --bg-raised: #15181C;
+  --fg: #F4F6F8;
+  --fg-muted: #8E97A3;
+  --accent: #3EC6FF;
+  --accent-soft: #122833;
+  --border: #1F242B;
+  color-scheme: dark;
 }
 * { box-sizing: border-box; }
 html, body { background: var(--bg); margin: 0; padding: 0; }
 body {
-  font-family: 'Source Serif 4', Georgia, serif;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: var(--fg);
   padding-left: max(20px, env(safe-area-inset-left, 0px));
   padding-right: max(20px, env(safe-area-inset-right, 0px));
@@ -53,7 +56,7 @@ body {
   padding-top: 8px;
 }
 .tabs a {
-  font-family: 'Inter', sans-serif;
+  font-family: inherit;
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--fg-muted);
@@ -63,9 +66,12 @@ body {
 }
 .tabs a.active { color: var(--accent); background: var(--accent-soft); }
 .tabs a.back { margin-top: 10px; color: var(--fg-muted); font-weight: 500; }
+.wordmark { display: flex; align-items: center; margin: 0 0 14px 14px; }
+.wordmark img { display: block; height: 36px; width: auto; }
+@media (max-width: 720px) { .wordmark { width: 100%; margin: 0 0 6px; } }
 .lang-switch { display: flex; gap: 3px; background: var(--border); border-radius: 999px; padding: 3px; margin-top: 14px; width: fit-content; }
 .lang-switch button {
-  font-family: 'Inter', sans-serif;
+  font-family: inherit;
   font-size: 0.74rem;
   font-weight: 700;
   border: none;
@@ -78,17 +84,17 @@ body {
 .lang-switch button.active { background: var(--bg-raised); color: var(--fg); }
 .doc { flex: 1; min-width: 0; }
 .doc h1 {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
+  font-family: 'Archivo', 'Manrope', sans-serif;
+  font-weight: 800;
   font-size: 1.7rem;
   letter-spacing: -0.01em;
   margin: 0 0 4px;
 }
-.updated { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--fg-muted); margin: 0 0 28px; }
+.updated { font-family: inherit; font-size: 0.78rem; color: var(--fg-muted); margin: 0 0 28px; }
 .doc h2 {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Archivo', 'Manrope', sans-serif;
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 800;
   margin: 2.2em 0 0.6em;
   padding-top: 0.6em;
   border-top: 1px solid var(--border);
@@ -99,7 +105,7 @@ body {
 .doc li { margin-bottom: 0.4em; }
 .doc strong { font-weight: 600; }
 .callout {
-  font-family: 'Inter', sans-serif;
+  font-family: inherit;
   font-size: 0.85rem;
   background: var(--accent-soft);
   border-radius: 14px;
@@ -108,7 +114,7 @@ body {
   line-height: 1.55;
 }
 .callout strong { color: var(--accent); }
-table.data-table { width: 100%; border-collapse: collapse; font-family: 'Inter', sans-serif; font-size: 0.85rem; margin: 1em 0 1.8em; }
+table.data-table { width: 100%; border-collapse: collapse; font-family: inherit; font-size: 0.85rem; margin: 1em 0 1.8em; }
 table.data-table th, table.data-table td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
 table.data-table th { color: var(--fg-muted); font-weight: 600; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.03em; }
 @media (max-width: 720px) {
@@ -118,12 +124,15 @@ table.data-table th { color: var(--fg-muted); font-weight: 600; font-size: 0.76r
 }
 [hidden] { display: none !important; }
 </style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@800&family=Manrope:wght@400;600&display=swap">
 </head>
 <body>
 
 <div class="shell">
   <nav class="tabs">
+    <a href="/" class="wordmark"><img src="/assets/brand/ramvo-wordmark-ciemne-tlo.svg" alt="Ramvo" height="36"></a>
     <a href="#privacy" data-tab="privacy" data-i18n="legalnav.privacy">Polityka prywatności</a>
     <a href="#terms" data-tab="terms" data-i18n="legalnav.terms">Regulamin</a>
     <a href="/" class="back" data-i18n="legalnav.back">&larr; Strona główna</a>
@@ -139,7 +148,7 @@ table.data-table th { color: var(--fg-muted); font-weight: 600; font-size: 0.76r
       <p class="updated" data-i18n="privacy.updated">Obowiązuje od 9 listopada 2026</p>
 
       <h2 data-i18n="privacy.s1.h2">1. Kto administruje Twoimi danymi</h2>
-      <p data-i18n="privacy.s1.p">Administratorem danych osobowych przetwarzanych w aplikacji Coachie App jest Jan Gorski, prowadzący jednoosobową działalność gospodarczą (dalej: „Administrator", „my"). Kontakt w sprawach związanych z ochroną danych: <strong>jan.gorski95@icloud.com</strong>.</p>
+      <p data-i18n="privacy.s1.p">Administratorem danych osobowych przetwarzanych w aplikacji Ramvo jest Jan Gorski, prowadzący jednoosobową działalność gospodarczą (dalej: „Administrator", „my"). Kontakt w sprawach związanych z ochroną danych: <strong>jan.gorski95@icloud.com</strong>.</p>
 
       <h2 data-i18n="privacy.s2.h2">2. Jakie dane zbieramy</h2>
       <p data-i18n="privacy.s2.p">Zakres danych zależy od tego, czy jesteś klientem, czy trenerem, oraz z których funkcji korzystasz.</p>
@@ -166,7 +175,7 @@ table.data-table th { color: var(--fg-muted); font-weight: 600; font-size: 0.76r
         <li data-i18n="privacy.s4.li1"><strong>Supabase</strong>: baza danych i uwierzytelnianie</li>
         <li data-i18n="privacy.s4.li2"><strong>Cloudinary</strong>: przechowywanie zdjęć, wideo i dokumentów</li>
         <li data-i18n="privacy.s4.li3"><strong>Google</strong>: geokodowanie lokalizacji, integracja z Kalendarzem Google (tylko za Twoją zgodą, dla rezerwacji sesji)</li>
-        <li data-i18n="privacy.s4.li4"><strong>Anthropic (Claude)</strong>: generowanie planów treningowych/żywieniowych i funkcja AI Coach; przekazujemy wyłącznie dane niezbędne do wygenerowania planu (np. cele, poziom zaawansowania), nigdy danych kontaktowych</li>
+        <li data-i18n="privacy.s4.li4"><strong>Anthropic (Claude)</strong>: generowanie planów treningowych/żywieniowych i funkcja Ramvo AI; przekazujemy wyłącznie dane niezbędne do wygenerowania planu (np. cele, poziom zaawansowania), nigdy danych kontaktowych</li>
         <li data-i18n="privacy.s4.li5"><strong>Expo</strong>: dostarczanie powiadomień push</li>
       </ul>
       <p data-i18n="privacy.s4.p2">Nie sprzedajemy Twoich danych osobowych. Dane mogą być przekazywane poza Europejski Obszar Gospodarczy w zakresie, w jakim robią to powyższe podmioty. W takim wypadku opieramy się na standardowych klauzulach umownych lub innych mechanizmach zgodnych z RODO stosowanych przez te podmioty.</p>
@@ -191,13 +200,13 @@ table.data-table th { color: var(--fg-muted); font-weight: 600; font-size: 0.76r
       <h1 data-i18n="terms.h1">Regulamin</h1>
       <p class="updated" data-i18n="terms.updated">Obowiązuje od 9 listopada 2026</p>
 
-      <div class="callout" data-i18n="terms.callout"><strong>Zastrzeżenie dotyczące zdrowia.</strong> Coachie App nie jest serwisem medycznym. Plany treningowe i żywieniowe, w tym generowane przez AI, mają charakter wyłącznie informacyjny i nie zastępują konsultacji z lekarzem, dietetykiem ani fizjoterapeutą. Przed rozpoczęciem jakiegokolwiek programu treningowego skonsultuj się z lekarzem, zwłaszcza jeśli masz istniejące schorzenia. Korzystasz z aplikacji i wykonujesz ćwiczenia na własną odpowiedzialność.</div>
+      <div class="callout" data-i18n="terms.callout"><strong>Zastrzeżenie dotyczące zdrowia.</strong> Ramvo nie jest serwisem medycznym. Plany treningowe i żywieniowe, w tym generowane przez AI, mają charakter wyłącznie informacyjny i nie zastępują konsultacji z lekarzem, dietetykiem ani fizjoterapeutą. Przed rozpoczęciem jakiegokolwiek programu treningowego skonsultuj się z lekarzem, zwłaszcza jeśli masz istniejące schorzenia. Korzystasz z aplikacji i wykonujesz ćwiczenia na własną odpowiedzialność.</div>
 
       <h2 data-i18n="terms.s1.h2">1. Usługodawca</h2>
-      <p data-i18n="terms.s1.p">Usługę Coachie App świadczy Jan Gorski, prowadzący jednoosobową działalność gospodarczą. Kontakt: <strong>jan.gorski95@icloud.com</strong>.</p>
+      <p data-i18n="terms.s1.p">Usługę Ramvo świadczy Jan Gorski, prowadzący jednoosobową działalność gospodarczą. Kontakt: <strong>jan.gorski95@icloud.com</strong>.</p>
 
-      <h2 data-i18n="terms.s2.h2">2. Czym jest Coachie App</h2>
-      <p data-i18n="terms.s2.p">Coachie App to aplikacja mobilna łącząca klientów z trenerami personalnymi oraz oferująca Coachie, trenera opartego o sztuczną inteligencję, z którego można korzystać samodzielnie, bez trenera-człowieka. Usługa obejmuje generowanie planów treningowych i żywieniowych, śledzenie postępów, czat, rezerwację sesji oraz powiadomienia.</p>
+      <h2 data-i18n="terms.s2.h2">2. Czym jest Ramvo</h2>
+      <p data-i18n="terms.s2.p">Ramvo to aplikacja mobilna łącząca klientów z trenerami personalnymi oraz oferująca Ramvo AI, trenera opartego o sztuczną inteligencję, z którego można korzystać samodzielnie, bez trenera-człowieka. Usługa obejmuje generowanie planów treningowych i żywieniowych, śledzenie postępów, czat, rezerwację sesji oraz powiadomienia.</p>
 
       <h2 data-i18n="terms.s3.h2">3. Konto i uprawnienia</h2>
       <ul>
@@ -207,9 +216,9 @@ table.data-table th { color: var(--fg-muted); font-weight: 600; font-size: 0.76r
       </ul>
 
       <h2 data-i18n="terms.s4.h2">4. Trenerzy personalni</h2>
-      <p data-i18n="terms.s4.p">Trenerzy dostępni w aplikacji są niezależnymi usługodawcami, a nie pracownikami ani przedstawicielami Coachie App. Nie gwarantujemy jakości, dostępności ani rezultatów usług świadczonych przez trenerów. Spory dotyczące usług świadczonych bezpośrednio przez trenera rozwiązywane są między Tobą a danym trenerem.</p>
+      <p data-i18n="terms.s4.p">Trenerzy dostępni w aplikacji są niezależnymi usługodawcami, a nie pracownikami ani przedstawicielami Ramvo. Nie gwarantujemy jakości, dostępności ani rezultatów usług świadczonych przez trenerów. Spory dotyczące usług świadczonych bezpośrednio przez trenera rozwiązywane są między Tobą a danym trenerem.</p>
 
-      <h2 data-i18n="terms.s5.h2">5. Funkcja AI (Coachie)</h2>
+      <h2 data-i18n="terms.s5.h2">5. Funkcja AI (Ramvo AI)</h2>
       <p data-i18n="terms.s5.p">Plany generowane przez sztuczną inteligencję są tworzone automatycznie na podstawie podanych przez Ciebie informacji i mogą zawierać błędy lub nie uwzględniać wszystkich istotnych okoliczności zdrowotnych. Nie stanowią porady medycznej. Używasz ich na własną odpowiedzialność.</p>
 
       <h2 data-i18n="terms.s6.h2">6. Płatności</h2>
@@ -256,7 +265,7 @@ table.data-table th { color: var(--fg-muted); font-weight: 600; font-size: 0.76r
   // ============================================================
   // i18n: same mechanism as the landing page (data-i18n -> innerHTML,
   // browser-language auto-detect, localStorage override shared via the
-  // same 'coachie-lang' key, so a visitor's choice carries over between
+  // same 'ramvo-lang' key, so a visitor's choice carries over between
   // this page and the landing page).
   // ============================================================
   var TRANSLATIONS = {
@@ -267,7 +276,7 @@ table.data-table th { color: var(--fg-muted); font-weight: 600; font-size: 0.76r
       'privacy.h1': 'Polityka prywatności',
       'privacy.updated': 'Obowiązuje od 9 listopada 2026',
       'privacy.s1.h2': '1. Kto administruje Twoimi danymi',
-      'privacy.s1.p': 'Administratorem danych osobowych przetwarzanych w aplikacji Coachie App jest Jan Gorski, prowadzący jednoosobową działalność gospodarczą (dalej: „Administrator", „my"). Kontakt w sprawach związanych z ochroną danych: <strong>jan.gorski95@icloud.com</strong>.',
+      'privacy.s1.p': 'Administratorem danych osobowych przetwarzanych w aplikacji Ramvo jest Jan Gorski, prowadzący jednoosobową działalność gospodarczą (dalej: „Administrator", „my"). Kontakt w sprawach związanych z ochroną danych: <strong>jan.gorski95@icloud.com</strong>.',
       'privacy.s2.h2': '2. Jakie dane zbieramy',
       'privacy.s2.p': 'Zakres danych zależy od tego, czy jesteś klientem, czy trenerem, oraz z których funkcji korzystasz.',
       'privacy.table.th1': 'Kategoria',
@@ -293,7 +302,7 @@ table.data-table th { color: var(--fg-muted); font-weight: 600; font-size: 0.76r
       'privacy.s4.li1': '<strong>Supabase</strong>: baza danych i uwierzytelnianie',
       'privacy.s4.li2': '<strong>Cloudinary</strong>: przechowywanie zdjęć, wideo i dokumentów',
       'privacy.s4.li3': '<strong>Google</strong>: geokodowanie lokalizacji, integracja z Kalendarzem Google (tylko za Twoją zgodą, dla rezerwacji sesji)',
-      'privacy.s4.li4': '<strong>Anthropic (Claude)</strong>: generowanie planów treningowych/żywieniowych i funkcja AI Coach; przekazujemy wyłącznie dane niezbędne do wygenerowania planu (np. cele, poziom zaawansowania), nigdy danych kontaktowych',
+      'privacy.s4.li4': '<strong>Anthropic (Claude)</strong>: generowanie planów treningowych/żywieniowych i funkcja Ramvo AI; przekazujemy wyłącznie dane niezbędne do wygenerowania planu (np. cele, poziom zaawansowania), nigdy danych kontaktowych',
       'privacy.s4.li5': '<strong>Expo</strong>: dostarczanie powiadomień push',
       'privacy.s4.p2': 'Nie sprzedajemy Twoich danych osobowych. Dane mogą być przekazywane poza Europejski Obszar Gospodarczy w zakresie, w jakim robią to powyższe podmioty. W takim wypadku opieramy się na standardowych klauzulach umownych lub innych mechanizmach zgodnych z RODO stosowanych przez te podmioty.',
       'privacy.s5.h2': '5. Jak długo przechowujemy dane',
@@ -308,18 +317,18 @@ table.data-table th { color: var(--fg-muted); font-weight: 600; font-size: 0.76r
       'privacy.s9.p': 'O istotnych zmianach niniejszej polityki poinformujemy Cię w aplikacji. Data na górze tego dokumentu zawsze wskazuje datę ostatniej aktualizacji.',
       'terms.h1': 'Regulamin',
       'terms.updated': 'Obowiązuje od 9 listopada 2026',
-      'terms.callout': '<strong>Zastrzeżenie dotyczące zdrowia.</strong> Coachie App nie jest serwisem medycznym. Plany treningowe i żywieniowe, w tym generowane przez AI, mają charakter wyłącznie informacyjny i nie zastępują konsultacji z lekarzem, dietetykiem ani fizjoterapeutą. Przed rozpoczęciem jakiegokolwiek programu treningowego skonsultuj się z lekarzem, zwłaszcza jeśli masz istniejące schorzenia. Korzystasz z aplikacji i wykonujesz ćwiczenia na własną odpowiedzialność.',
+      'terms.callout': '<strong>Zastrzeżenie dotyczące zdrowia.</strong> Ramvo nie jest serwisem medycznym. Plany treningowe i żywieniowe, w tym generowane przez AI, mają charakter wyłącznie informacyjny i nie zastępują konsultacji z lekarzem, dietetykiem ani fizjoterapeutą. Przed rozpoczęciem jakiegokolwiek programu treningowego skonsultuj się z lekarzem, zwłaszcza jeśli masz istniejące schorzenia. Korzystasz z aplikacji i wykonujesz ćwiczenia na własną odpowiedzialność.',
       'terms.s1.h2': '1. Usługodawca',
-      'terms.s1.p': 'Usługę Coachie App świadczy Jan Gorski, prowadzący jednoosobową działalność gospodarczą. Kontakt: <strong>jan.gorski95@icloud.com</strong>.',
-      'terms.s2.h2': '2. Czym jest Coachie App',
-      'terms.s2.p': 'Coachie App to aplikacja mobilna łącząca klientów z trenerami personalnymi oraz oferująca Coachie, trenera opartego o sztuczną inteligencję, z którego można korzystać samodzielnie, bez trenera-człowieka. Usługa obejmuje generowanie planów treningowych i żywieniowych, śledzenie postępów, czat, rezerwację sesji oraz powiadomienia.',
+      'terms.s1.p': 'Usługę Ramvo świadczy Jan Gorski, prowadzący jednoosobową działalność gospodarczą. Kontakt: <strong>jan.gorski95@icloud.com</strong>.',
+      'terms.s2.h2': '2. Czym jest Ramvo',
+      'terms.s2.p': 'Ramvo to aplikacja mobilna łącząca klientów z trenerami personalnymi oraz oferująca Ramvo AI, trenera opartego o sztuczną inteligencję, z którego można korzystać samodzielnie, bez trenera-człowieka. Usługa obejmuje generowanie planów treningowych i żywieniowych, śledzenie postępów, czat, rezerwację sesji oraz powiadomienia.',
       'terms.s3.h2': '3. Konto i uprawnienia',
       'terms.s3.li1': 'Do założenia konta wymagany jest prawdziwy adres e-mail i ukończone 16 lat.',
       'terms.s3.li2': 'Odpowiadasz za zachowanie poufności swojego hasła oraz za wszystkie działania wykonane z Twojego konta.',
       'terms.s3.li3': 'Konto trenera wymaga zatwierdzenia przez Administratora przed pojawieniem się w wynikach wyszukiwania dla klientów.',
       'terms.s4.h2': '4. Trenerzy personalni',
-      'terms.s4.p': 'Trenerzy dostępni w aplikacji są niezależnymi usługodawcami, a nie pracownikami ani przedstawicielami Coachie App. Nie gwarantujemy jakości, dostępności ani rezultatów usług świadczonych przez trenerów. Spory dotyczące usług świadczonych bezpośrednio przez trenera rozwiązywane są między Tobą a danym trenerem.',
-      'terms.s5.h2': '5. Funkcja AI (Coachie)',
+      'terms.s4.p': 'Trenerzy dostępni w aplikacji są niezależnymi usługodawcami, a nie pracownikami ani przedstawicielami Ramvo. Nie gwarantujemy jakości, dostępności ani rezultatów usług świadczonych przez trenerów. Spory dotyczące usług świadczonych bezpośrednio przez trenera rozwiązywane są między Tobą a danym trenerem.',
+      'terms.s5.h2': '5. Funkcja AI (Ramvo AI)',
       'terms.s5.p': 'Plany generowane przez sztuczną inteligencję są tworzone automatycznie na podstawie podanych przez Ciebie informacji i mogą zawierać błędy lub nie uwzględniać wszystkich istotnych okoliczności zdrowotnych. Nie stanowią porady medycznej. Używasz ich na własną odpowiedzialność.',
       'terms.s6.h2': '6. Płatności',
       'terms.s6.p': 'Na obecnym etapie dostęp do aplikacji jest przyznawany ręcznie przez Administratora (okres testowy/beta) i nie obejmuje automatycznych płatności. Jeśli w przyszłości wprowadzimy odpłatne subskrypcje, warunki płatności zostaną jasno przedstawione przed ich uruchomieniem, a niniejszy regulamin zostanie odpowiednio zaktualizowany.',
@@ -341,7 +350,7 @@ table.data-table th { color: var(--fg-muted); font-weight: 600; font-size: 0.76r
       'privacy.h1': 'Privacy Policy',
       'privacy.updated': 'Effective November 9, 2026',
       'privacy.s1.h2': '1. Who controls your data',
-      'privacy.s1.p': 'The controller of personal data processed in the Coachie App is Jan Gorski, operating as a sole proprietorship (hereinafter: the "Controller", "we"). Contact for data protection matters: <strong>jan.gorski95@icloud.com</strong>.',
+      'privacy.s1.p': 'The controller of personal data processed in the Ramvo app is Jan Gorski, operating as a sole proprietorship (hereinafter: the "Controller", "we"). Contact for data protection matters: <strong>jan.gorski95@icloud.com</strong>.',
       'privacy.s2.h2': '2. What data we collect',
       'privacy.s2.p': 'The scope of data depends on whether you are a client or a trainer, and which features you use.',
       'privacy.table.th1': 'Category',
@@ -367,7 +376,7 @@ table.data-table th { color: var(--fg-muted); font-weight: 600; font-size: 0.76r
       'privacy.s4.li1': '<strong>Supabase</strong>: database and authentication',
       'privacy.s4.li2': '<strong>Cloudinary</strong>: storage of photos, video and documents',
       'privacy.s4.li3': '<strong>Google</strong>: location geocoding, Google Calendar integration (only with your consent, for session bookings)',
-      'privacy.s4.li4': '<strong>Anthropic (Claude)</strong>: generating workout/nutrition plans and the AI Coach feature; we only share the data needed to generate the plan (e.g. goals, experience level), never contact details',
+      'privacy.s4.li4': '<strong>Anthropic (Claude)</strong>: generating workout/nutrition plans and the Ramvo AI feature; we only share the data needed to generate the plan (e.g. goals, experience level), never contact details',
       'privacy.s4.li5': '<strong>Expo</strong>: delivering push notifications',
       'privacy.s4.p2': 'We do not sell your personal data. Data may be transferred outside the European Economic Area to the extent these entities do so themselves, in which case we rely on standard contractual clauses or other GDPR-compliant mechanisms used by those entities.',
       'privacy.s5.h2': '5. How long we keep data',
@@ -382,18 +391,18 @@ table.data-table th { color: var(--fg-muted); font-weight: 600; font-size: 0.76r
       'privacy.s9.p': 'We will inform you in the app of any significant changes to this policy. The date at the top of this document always shows the date of the last update.',
       'terms.h1': 'Terms of Service',
       'terms.updated': 'Effective November 9, 2026',
-      'terms.callout': '<strong>Health disclaimer.</strong> Coachie App is not a medical service. Workout and nutrition plans, including those generated by AI, are for informational purposes only and do not replace consultation with a doctor, dietitian or physiotherapist. Consult a doctor before starting any training program, especially if you have pre-existing conditions. You use the app and perform exercises at your own risk.',
+      'terms.callout': '<strong>Health disclaimer.</strong> Ramvo is not a medical service. Workout and nutrition plans, including those generated by AI, are for informational purposes only and do not replace consultation with a doctor, dietitian or physiotherapist. Consult a doctor before starting any training program, especially if you have pre-existing conditions. You use the app and perform exercises at your own risk.',
       'terms.s1.h2': '1. Service provider',
-      'terms.s1.p': 'The Coachie App service is provided by Jan Gorski, operating as a sole proprietorship. Contact: <strong>jan.gorski95@icloud.com</strong>.',
-      'terms.s2.h2': '2. What Coachie App is',
-      'terms.s2.p': 'Coachie App is a mobile application connecting clients with personal trainers, and offering Coachie, an AI-based trainer that can be used independently, without a human trainer. The service includes generating workout and nutrition plans, progress tracking, chat, session booking and notifications.',
+      'terms.s1.p': 'The Ramvo service is provided by Jan Gorski, operating as a sole proprietorship. Contact: <strong>jan.gorski95@icloud.com</strong>.',
+      'terms.s2.h2': '2. What Ramvo is',
+      'terms.s2.p': 'Ramvo is a mobile application connecting clients with personal trainers, and offering Ramvo AI, an AI-based trainer that can be used independently, without a human trainer. The service includes generating workout and nutrition plans, progress tracking, chat, session booking and notifications.',
       'terms.s3.h2': '3. Account and eligibility',
       'terms.s3.li1': 'Creating an account requires a real email address and being at least 16 years old.',
       'terms.s3.li2': 'You are responsible for keeping your password confidential and for all activity performed from your account.',
       'terms.s3.li3': 'A trainer account requires approval by the Controller before it appears in search results for clients.',
       'terms.s4.h2': '4. Personal trainers',
-      'terms.s4.p': 'Trainers available in the app are independent service providers, not employees or representatives of Coachie App. We do not guarantee the quality, availability or results of services provided by trainers. Disputes concerning services provided directly by a trainer are resolved between you and that trainer.',
-      'terms.s5.h2': '5. AI feature (Coachie)',
+      'terms.s4.p': 'Trainers available in the app are independent service providers, not employees or representatives of Ramvo. We do not guarantee the quality, availability or results of services provided by trainers. Disputes concerning services provided directly by a trainer are resolved between you and that trainer.',
+      'terms.s5.h2': '5. AI feature (Ramvo AI)',
       'terms.s5.p': 'Plans generated by artificial intelligence are created automatically based on the information you provide and may contain errors or fail to account for all relevant health circumstances. They do not constitute medical advice. You use them at your own risk.',
       'terms.s6.h2': '6. Payments',
       'terms.s6.p': 'At this stage, access to the app is granted manually by the Controller (testing/beta period) and does not involve automatic payments. If we introduce paid subscriptions in the future, payment terms will be clearly presented before launch, and these Terms will be updated accordingly.',
@@ -420,12 +429,12 @@ table.data-table th { color: var(--fg-muted); font-weight: 600; font-size: 0.76r
     document.querySelectorAll('.lang-switch button').forEach(function (b) {
       b.classList.toggle('active', b.getAttribute('data-lang') === lang);
     });
-    try { localStorage.setItem('coachie-lang', lang); } catch (e) {}
+    try { localStorage.setItem('ramvo-lang', lang); } catch (e) {}
   }
 
   function detectLanguage() {
     try {
-      var saved = localStorage.getItem('coachie-lang');
+      var saved = localStorage.getItem('ramvo-lang');
       if (saved === 'pl' || saved === 'en') return saved;
     } catch (e) {}
     var navLang = (navigator.language || (navigator.languages && navigator.languages[0]) || '').toLowerCase();

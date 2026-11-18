@@ -3,47 +3,49 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Coachie App</title>
+<title>Ramvo</title>
+<meta name="description" content="Znajdź trenera personalnego albo zacznij od razu z Ramvo AI. Plany treningowe, jadłospis, rezerwacje i czat w jednej appce.">
+<meta name="theme-color" content="#0B0D10">
+<link rel="icon" href="/assets/brand/favicon/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/brand/favicon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/brand/favicon/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ramvo">
+<meta property="og:title" content="Ramvo">
+<meta property="og:description" content="Znajdź trenera personalnego albo zacznij od razu z Ramvo AI. Plany treningowe, jadłospis, rezerwacje i czat w jednej appce.">
+<meta property="og:image" content="https://ramvo.app/assets/brand/ramvo-og-1200x630-1200.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://ramvo.app/">
+<meta name="twitter:card" content="summary_large_image">
 <style>
 :root {
-  --bg: #F7F4EF;
-  --bg-raised: #FFFFFF;
-  --bg-sunken: #EFEAE1;
-  --fg: #211C17;
-  --fg-muted: #6B6358;
-  --accent: #E05A2B;
-  --accent-soft: #FBE3D6;
-  --accent-fg: #FFFFFF;
-  --border: #E6DFD3;
-  --success: #2E7D4F;
-  color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #1B1713;
-    --bg-raised: #252019;
-    --bg-sunken: #16130F;
-    --fg: #F3EEE5;
-    --fg-muted: #B3A99A;
-    --accent: #F17A4E;
-    --accent-soft: #3A2A1F;
-    --accent-fg: #1B1713;
-    --border: #3A332A;
-    --success: #5FB380;
-    color-scheme: dark;
-  }
+  /* Performance Lab, dark only */
+  --bg: #0B0D10;
+  --bg-raised: #15181C;
+  --bg-sunken: #1F242B;
+  --fg: #F4F6F8;
+  --fg-muted: #8E97A3;
+  --accent: #3EC6FF;
+  --accent-soft: #122833;
+  --accent-fg: #04161F;
+  --accent-2: #FF4D8D;
+  --border: #1F242B;
+  --success: #35D483;
+  color-scheme: dark;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 html, body { background: var(--bg); margin: 0; padding: 0; }
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: var(--fg);
   padding-left: max(20px, env(safe-area-inset-left, 0px));
   padding-right: max(20px, env(safe-area-inset-right, 0px));
 }
 h1, h2, h3 {
-  font-family: 'Bricolage Grotesque', 'Inter', sans-serif;
+  font-family: 'Archivo', 'Manrope', sans-serif;
+  font-weight: 800;
   text-wrap: balance;
   letter-spacing: -0.01em;
 }
@@ -114,8 +116,8 @@ section[id] { scroll-margin-top: 76px; }
   border-bottom: 1px solid transparent;
 }
 .nav.scrolled { border-bottom-color: var(--border); }
-.wordmark { flex: 0 0 auto; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: -0.02em; }
-.wordmark span { color: var(--accent); }
+.wordmark { flex: 0 0 auto; display: flex; align-items: center; }
+.wordmark img { display: block; height: 36px; width: auto; }
 .nav-links {
   display: flex;
   align-items: center;
@@ -216,7 +218,7 @@ section[id] { scroll-margin-top: 76px; }
 }
 h1 {
   font-size: clamp(2rem, 6vw, 3rem);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.08;
   margin: 0 0 16px;
 }
@@ -268,9 +270,9 @@ h1 em { font-style: normal; color: var(--accent); }
 }
 .card:hover { transform: translateY(-3px); box-shadow: 0 14px 28px -16px rgba(0,0,0,0.25); }
 .card .num {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Archivo', sans-serif;
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--accent);
   margin-bottom: 10px;
 }
@@ -322,6 +324,7 @@ h1 em { font-style: normal; color: var(--accent); }
 /* ---------- phone mockups ---------- */
 .preview-panel {
   background: #0B0D10;
+  border: 1px solid var(--border);
   border-radius: 28px;
   padding: 40px 20px 34px;
 }
@@ -390,7 +393,7 @@ h1 em { font-style: normal; color: var(--accent); }
 .swipe-name { font-size: 0.92rem; font-weight: 800; display: flex; align-items: center; gap: 5px; }
 .swipe-verified { color: #3EC6FF; font-size: 0.78rem; }
 .swipe-meta { font-size: 0.68rem; font-weight: 600; opacity: 0.85; margin-top: 2px; }
-.swipe-stars { font-size: 0.7rem; color: #FFB020; margin-top: 4px; letter-spacing: 1px; }
+.swipe-stars { font-size: 0.7rem; color: #F4F6F8; margin-top: 4px; letter-spacing: 1px; }
 .swipe-actions-row { position: relative; z-index: 2; display: flex; justify-content: center; gap: 16px; }
 .mbtn {
   width: 38px; height: 38px;
@@ -426,8 +429,8 @@ h1 em { font-style: normal; color: var(--accent); }
 }
 
 .preview-caption { text-align: center; font-size: 0.78rem; color: #8E97A3; margin-top: 10px; font-weight: 600; }
-.photo-credit { text-align: center; font-size: 0.68rem; color: #5A6168; margin-top: 2px; }
-.preview-footnote { text-align: center; font-size: 0.76rem; color: #5A6168; margin-top: 22px; }
+.photo-credit { text-align: center; font-size: 0.68rem; color: #8E97A3; margin-top: 2px; }
+.preview-footnote { text-align: center; font-size: 0.76rem; color: #8E97A3; margin-top: 22px; }
 
 /* real app screenshot mockups */
 .phone .screen.shot {
@@ -576,7 +579,7 @@ button.submit:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px;
 
 .status { min-height: 20px; margin-top: 14px; font-size: 0.88rem; }
 .status.ok { color: var(--success); }
-.status.err { color: var(--accent); }
+.status.err { color: var(--accent-2); }
 .fine { font-size: 0.78rem; color: var(--fg-muted); margin-top: 14px; }
 
 /* ---------- trainer lead modal ---------- */
@@ -648,7 +651,9 @@ footer {
 footer .flinks { margin-bottom: 10px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 footer a { color: var(--fg-muted); }
 </style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@800&family=Manrope:wght@400;600&display=swap">
 </head>
 <body>
 
@@ -657,7 +662,7 @@ footer a { color: var(--fg-muted); }
 
 <div class="wrap">
   <nav class="nav" id="nav">
-    <div class="wordmark">Coachie<span> App</span></div>
+    <a href="/" class="wordmark"><img src="/assets/brand/ramvo-wordmark-ciemne-tlo.svg" alt="Ramvo" height="36"></a>
     <div class="nav-links">
       <a href="#features" data-i18n="nav.features">Funkcje</a>
       <a href="#preview" data-i18n="nav.preview">Podgląd</a>
@@ -679,10 +684,10 @@ footer a { color: var(--fg-muted); }
     <div class="hero-glow-wrap" data-parallax="0.05"><div class="hero-glow b"></div></div>
     <div class="reveal-group">
       <span class="eyebrow reveal blur-in" style="--i:0" data-i18n="hero.eyebrow"><span class="flame">🔥</span> Już wkrótce</span>
-      <h1 class="reveal blur-in" style="--i:1" data-i18n="hero.title">Znajdź trenera. <em>Albo</em> zadbaj o siebie z Coachie.</h1>
+      <h1 class="reveal blur-in" style="--i:1" data-i18n="hero.title">Znajdź trenera. <em>Albo</em> zadbaj o siebie z Ramvo AI.</h1>
       <p class="sub reveal blur-in" style="--i:2" data-i18n="hero.sub">
-        Coachie App to prawdziwi trenerzy personalni, bez czasochłonnego tworzenia i ręcznego wysyłania planów.
-        A jeśli nie masz jeszcze trenera, Coachie, Twój trener AI, zadba o Ciebie od pierwszej minuty.
+        Ramvo to prawdziwi trenerzy personalni, bez czasochłonnego tworzenia i ręcznego wysyłania planów.
+        A jeśli nie masz jeszcze trenera, Ramvo AI zadba o Ciebie od pierwszej minuty.
       </p>
       <div class="hero-ctas reveal" style="--i:3">
         <a href="#signup-section" class="btn btn-primary" data-i18n="hero.ctaPrimary">Zapisz się na start</a>
@@ -700,8 +705,8 @@ footer a { color: var(--fg-muted); }
       </div>
       <div class="card reveal" style="--i:1">
         <div class="num">02</div>
-        <h3 data-i18n="cards.2.title">Coachie, Twój trener AI</h3>
-        <p data-i18n="cards.2.desc">Nie masz jeszcze trenera? Coachie wygeneruje Ci plan treningowy i jadłospis, żebyś mógł/mogła zadbać o siebie już dziś.</p>
+        <h3 data-i18n="cards.2.title">Ramvo AI, Twój wirtualny trener</h3>
+        <p data-i18n="cards.2.desc">Nie masz jeszcze trenera? Ramvo AI wygeneruje Ci plan treningowy i jadłospis, żebyś mógł/mogła zadbać o siebie już dziś.</p>
       </div>
       <div class="card reveal" style="--i:2">
         <div class="num">03</div>
@@ -720,7 +725,7 @@ footer a { color: var(--fg-muted); }
       <div class="feature reveal" style="--i:0">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a5 5 0 0 0-5 5v1.6A4 4 0 0 0 5 13v2a4 4 0 0 0 2.3 3.6c.2 1.3 1.3 2.4 2.7 2.4h4c1.4 0 2.5-1.1 2.7-2.4A4 4 0 0 0 19 15v-2a4 4 0 0 0-2-3.4V8a5 5 0 0 0-5-5Z"/><path d="M9 11h.01M15 11h.01"/></svg></div>
         <h3 data-i18n="features.1.title">Plan generowany przez AI</h3>
-        <p data-i18n="features.1.desc">Coachie buduje Twój plan treningowy i jadłospis na podstawie celu, poziomu, dostępnego sprzętu i historii treningów, gotowy w kilkadziesiąt sekund.</p>
+        <p data-i18n="features.1.desc">Ramvo AI buduje Twój plan treningowy i jadłospis na podstawie celu, poziomu, dostępnego sprzętu i historii treningów, gotowy w kilkadziesiąt sekund.</p>
       </div>
       <div class="feature reveal" style="--i:1">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="10" height="15" rx="2" transform="rotate(-8 5 4)"/><rect x="8" y="5" width="11" height="15" rx="2"/></svg></div>
@@ -735,7 +740,7 @@ footer a { color: var(--fg-muted); }
       <div class="feature reveal" style="--i:3">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></div>
         <h3 data-i18n="features.4.title">Czat</h3>
-        <p data-i18n="features.4.desc">Pisz z trenerem albo z Coachie, wysyłaj zdjęcia i dokumenty. Jedna rozmowa, zawsze pod ręką, z pełną historią w jednym miejscu.</p>
+        <p data-i18n="features.4.desc">Pisz z trenerem albo z Ramvo AI, wysyłaj zdjęcia i dokumenty. Jedna rozmowa, zawsze pod ręką, z pełną historią w jednym miejscu.</p>
       </div>
       <div class="feature reveal" style="--i:4">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
@@ -763,7 +768,7 @@ footer a { color: var(--fg-muted); }
   <section id="compare">
     <div class="section-head reveal">
       <h2 data-i18n="compare.title">Dlaczego nie 5 osobnych appek</h2>
-      <p data-i18n="compare.sub">Typowy zestaw do treningu wygląda tak dziś. Coachie App zamyka to w jednym miejscu.</p>
+      <p data-i18n="compare.sub">Typowy zestaw do treningu wygląda tak dziś. Ramvo zamyka to w jednym miejscu.</p>
     </div>
     <div class="compare-grid reveal-group">
       <div class="compare-col before reveal" style="--i:0">
@@ -777,7 +782,7 @@ footer a { color: var(--fg-muted); }
         </ul>
       </div>
       <div class="compare-col after reveal" style="--i:1">
-        <h3 data-i18n="compare.after.title">Z Coachie App</h3>
+        <h3 data-i18n="compare.after.title">Z Ramvo</h3>
         <ul>
           <li><span class="compare-mark">✓</span> <span data-i18n="compare.after.1">Jedna aplikacja, jedno logowanie</span></li>
           <li><span class="compare-mark">✓</span> <span data-i18n="compare.after.2">Plan treningowy i jadłospis w tym samym miejscu</span></li>
@@ -793,7 +798,7 @@ footer a { color: var(--fg-muted); }
     <div class="preview-panel">
       <div class="section-head reveal">
         <h2 data-i18n="preview.title">Zobacz, jak to wygląda</h2>
-        <p data-i18n="preview.sub">Appka jest zawsze w ciemnym interfejsie, niezależnie od ustawień telefonu. To realne kolory i układy z Coachie App.</p>
+        <p data-i18n="preview.sub">To realne kolory i układy z Ramvo.</p>
       </div>
       <div class="preview-row reveal-group">
         <div data-parallax="0.03">
@@ -840,7 +845,7 @@ footer a { color: var(--fg-muted); }
           <p class="preview-caption" data-i18n="preview.caption4">Kalorie i makra pod kontrolą</p>
         </div>
       </div>
-      <p class="preview-footnote" data-i18n="preview.footnote">Prawdziwe zrzuty ekranu z aplikacji Coachie App. Widok dopasowania trenera to wizualizacja koncepcyjna.</p>
+      <p class="preview-footnote" data-i18n="preview.footnote">Prawdziwe zrzuty ekranu z aplikacji Ramvo. Widok dopasowania trenera to wizualizacja koncepcyjna.</p>
     </div>
   </section>
 
@@ -848,7 +853,7 @@ footer a { color: var(--fg-muted); }
     <div class="trainers-panel reveal">
       <div class="copy">
         <h2 data-i18n="trainers.title">Jesteś trenerem personalnym?</h2>
-        <p data-i18n="trainers.body">Tworzenie i wysyłanie planów treningowych klientom ręcznie zajmuje mnóstwo czasu. Dołącz do Coachie App jako jeden z pierwszych trenerów i miej to wszystko w jednym miejscu, bez własnej strony, systemu rezerwacji czy aplikacji do kontaktu.</p>
+        <p data-i18n="trainers.body">Tworzenie i wysyłanie planów treningowych klientom ręcznie zajmuje mnóstwo czasu. Dołącz do Ramvo jako jeden z pierwszych trenerów i miej to wszystko w jednym miejscu, bez własnej strony, systemu rezerwacji czy aplikacji do kontaktu.</p>
         <ul>
           <li data-i18n="trainers.item1">Wczesny dostęp za darmo, status „Founding Trainer"</li>
           <li data-i18n="trainers.item2">Twórz i wysyłaj plany klientom w kilka minut, nie godzin</li>
@@ -886,11 +891,11 @@ footer a { color: var(--fg-muted); }
     <div class="faq-list reveal-group" id="faq-list">
       <details class="faq-item reveal" style="--i:0">
         <summary data-i18n="faq.1.q">Czy muszę mieć trenera, żeby korzystać z appki?</summary>
-        <p data-i18n="faq.1.a">Nie. Coachie, wbudowany trener AI, jest dostępny od pierwszej minuty i wystarcza, jeśli nigdy nie będziesz potrzebować trenera-człowieka. Prawdziwego trenera dobierasz tylko wtedy, gdy sam/a zechcesz.</p>
+        <p data-i18n="faq.1.a">Nie. Ramvo AI, wbudowany wirtualny trener, jest dostępny od pierwszej minuty i wystarcza, jeśli nigdy nie będziesz potrzebować trenera-człowieka. Prawdziwego trenera dobierasz tylko wtedy, gdy sam/a zechcesz.</p>
       </details>
       <details class="faq-item reveal" style="--i:1">
         <summary data-i18n="faq.2.q">Ile to kosztuje?</summary>
-        <p data-i18n="faq.2.a">Dla osób, które zapiszą się na liście oczekujących już teraz, dostęp do Coachie App będzie darmowy na zawsze. Cennik dla osób, które dołączą po pełnym starcie, jeszcze nie jest ustalony.</p>
+        <p data-i18n="faq.2.a">Dla osób, które zapiszą się na liście oczekujących już teraz, dostęp do Ramvo będzie darmowy na zawsze. Cennik dla osób, które dołączą po pełnym starcie, jeszcze nie jest ustalony.</p>
       </details>
       <details class="faq-item reveal" style="--i:2">
         <summary data-i18n="faq.3.q">Na jakie platformy wyjdzie appka i kiedy?</summary>
@@ -906,10 +911,10 @@ footer a { color: var(--fg-muted); }
       </details>
       <details class="faq-item reveal" style="--i:5">
         <summary data-i18n="faq.6.q">Jak dokładnie działa generowanie planu przez AI?</summary>
-        <p data-i18n="faq.6.a">Podajesz cel, poziom zaawansowania, dostępny sprzęt i ewentualne kontuzje, a Coachie układa z tego konkretny plan treningowy i jadłospis, który możesz dowolnie edytować.</p>
+        <p data-i18n="faq.6.a">Podajesz cel, poziom zaawansowania, dostępny sprzęt i ewentualne kontuzje, a Ramvo AI układa z tego konkretny plan treningowy i jadłospis, który możesz dowolnie edytować.</p>
       </details>
       <details class="faq-item reveal" style="--i:6">
-        <summary data-i18n="faq.7.q">Czy mogę później przejść z Coachie na prawdziwego trenera?</summary>
+        <summary data-i18n="faq.7.q">Czy mogę później przejść z Ramvo AI na prawdziwego trenera?</summary>
         <p data-i18n="faq.7.a">Tak, w dowolnym momencie. Twoja historia, postępy i czat zostają bez zmian.</p>
       </details>
       <details class="faq-item reveal" style="--i:7">
@@ -921,8 +926,8 @@ footer a { color: var(--fg-muted); }
 
   <section id="founder">
     <div class="founder-note reveal">
-      <p data-i18n="founder.body">Zacząłem budować Coachie App, patrząc na trenerów personalnych, którzy tworzą plany treningowe dla swoich klientów. To zajmuje mnóstwo czasu, a samo wysyłanie gotowego planu bywa uciążliwe: PDF-y, wiadomości, arkusze. Chciałem, żeby trenerzy mieli jedną appkę do obsługi klientów i planów, która realnie oszczędza im czas i jest po prostu wygodniejsza. Coachie, trener AI, to dodatek dla osób, które jeszcze nie mają trenera, ale chcą choć minimalnie zadbać o siebie. Buduję to sam, w pełni jawnie, krok po kroku, więc jeśli chcesz śledzić postępy albo masz pomysł, czego appce brakuje, po prostu napisz.</p>
-      <div class="sign" data-i18n="founder.sign">Jan, twórca Coachie App</div>
+      <p data-i18n="founder.body">Zacząłem budować Ramvo, patrząc na trenerów personalnych, którzy tworzą plany treningowe dla swoich klientów. To zajmuje mnóstwo czasu, a samo wysyłanie gotowego planu bywa uciążliwe: PDF-y, wiadomości, arkusze. Chciałem, żeby trenerzy mieli jedną appkę do obsługi klientów i planów, która realnie oszczędza im czas i jest po prostu wygodniejsza. Ramvo AI to dodatek dla osób, które jeszcze nie mają trenera, ale chcą choć minimalnie zadbać o siebie. Buduję to sam, w pełni jawnie, krok po kroku, więc jeśli chcesz śledzić postępy albo masz pomysł, czego appce brakuje, po prostu napisz.</p>
+      <div class="sign" data-i18n="founder.sign">Jan, twórca Ramvo</div>
     </div>
   </section>
 
@@ -936,7 +941,7 @@ footer a { color: var(--fg-muted); }
     </div>
     <div class="signup-counter reveal" id="signup-counter" hidden>🔥 <span id="counter-number">0</span> <span id="counter-label" data-i18n="counter.suffix">osób już czeka na start</span></div>
     <h2 class="reveal" data-i18n="signup.title">Zapisz się na start</h2>
-    <p class="lead reveal" data-i18n="signup.lead">Damy znać, gdy Coachie App będzie dostępna do pobrania.</p>
+    <p class="lead reveal" data-i18n="signup.lead">Damy znać, gdy Ramvo będzie do pobrania.</p>
     <form class="signup-form reveal" id="signup-form">
       <input type="email" id="email-input" data-i18n-placeholder="signup.placeholder" placeholder="twoj@email.pl" autocomplete="email" required>
       <button type="submit" class="submit" id="submit-btn" data-i18n="signup.button">Zapisz mnie</button>
@@ -952,7 +957,7 @@ footer a { color: var(--fg-muted); }
       <a href="#faq" data-i18n="nav.faq">FAQ</a>
       <a href="/legal/" data-i18n="footer.legal">Polityka prywatności i Regulamin</a>
     </div>
-    <span data-i18n="footer.tagline">Coachie App &middot; Kraków, Polska</span>
+    <span data-i18n="footer.tagline">Ramvo &middot; Kraków, Polska</span>
   </footer>
 </div>
 
@@ -978,26 +983,26 @@ footer a { color: var(--fg-muted); }
       'nav.legal': 'Polityka i Regulamin',
       'nav.cta': 'Zapisz się',
       'hero.eyebrow': '<span class="flame">🔥</span> Już wkrótce',
-      'hero.title': 'Znajdź trenera. <em>Albo</em> zadbaj o siebie z Coachie.',
-      'hero.sub': 'Coachie App to prawdziwi trenerzy personalni, bez czasochłonnego tworzenia i ręcznego wysyłania planów. A jeśli nie masz jeszcze trenera, Coachie, Twój trener AI, zadba o Ciebie od pierwszej minuty.',
+      'hero.title': 'Znajdź trenera. <em>Albo</em> zadbaj o siebie z Ramvo AI.',
+      'hero.sub': 'Ramvo to prawdziwi trenerzy personalni, bez czasochłonnego tworzenia i ręcznego wysyłania planów. A jeśli nie masz jeszcze trenera, Ramvo AI zadba o Ciebie od pierwszej minuty.',
       'hero.ctaPrimary': 'Zapisz się na start',
       'hero.ctaGhost': 'Zobacz co potrafi',
       'cards.1.title': 'Prawdziwi trenerzy',
       'cards.1.desc': 'Trener personalny prowadzi Cię krok po kroku, a tworzenie i wysyłanie planów zajmuje mu teraz minuty, nie godziny.',
-      'cards.2.title': 'Coachie, Twój trener AI',
-      'cards.2.desc': 'Nie masz jeszcze trenera? Coachie wygeneruje Ci plan treningowy i jadłospis, żebyś mógł/mogła zadbać o siebie już dziś.',
+      'cards.2.title': 'Ramvo AI, Twój wirtualny trener',
+      'cards.2.desc': 'Nie masz jeszcze trenera? Ramvo AI wygeneruje Ci plan treningowy i jadłospis, żebyś mógł/mogła zadbać o siebie już dziś.',
       'cards.3.title': 'Postępy pod kontrolą',
       'cards.3.desc': 'Zdjęcia sylwetki, pomiary, kalorie i makroskładniki, passy i odznaki: wszystko w jednym miejscu, nie w pięciu różnych appkach.',
       'features.title': 'Wszystko, czego potrzebujesz do treningu',
       'features.sub': 'Jedna aplikacja zamiast pięciu. Oto co dostajesz od pierwszego dnia.',
       'features.1.title': 'Plan generowany przez AI',
-      'features.1.desc': 'Coachie buduje Twój plan treningowy i jadłospis na podstawie celu, poziomu, dostępnego sprzętu i historii treningów, gotowy w kilkadziesiąt sekund.',
+      'features.1.desc': 'Ramvo AI buduje Twój plan treningowy i jadłospis na podstawie celu, poziomu, dostępnego sprzętu i historii treningów, gotowy w kilkadziesiąt sekund.',
       'features.2.title': 'Dopasowanie do trenera',
       'features.2.desc': 'Przesuwaj profile trenerów w pobliżu, jak w aplikacji randkowej. Widzisz oceny, specjalizację i odległość, zanim napiszesz pierwszą wiadomość.',
       'features.3.title': 'Rezerwacje sesji',
       'features.3.desc': 'Umawiaj się z trenerem online, z automatycznym linkiem do Google Meet, albo stacjonarnie na siłowni, bez przerzucania się między aplikacjami.',
       'features.4.title': 'Czat',
-      'features.4.desc': 'Pisz z trenerem albo z Coachie, wysyłaj zdjęcia i dokumenty. Jedna rozmowa, zawsze pod ręką, z pełną historią w jednym miejscu.',
+      'features.4.desc': 'Pisz z trenerem albo z Ramvo AI, wysyłaj zdjęcia i dokumenty. Jedna rozmowa, zawsze pod ręką, z pełną historią w jednym miejscu.',
       'features.5.title': 'Śledzenie postępów',
       'features.5.desc': 'Zdjęcia sylwetki, pomiary ciała i wykresy w czasie. Widzisz realną zmianę sylwetki, nie tylko liczbę na wadze.',
       'features.6.title': 'Kalorie i makra',
@@ -1007,29 +1012,29 @@ footer a { color: var(--fg-muted); }
       'features.8.title': 'Biblioteka ćwiczeń',
       'features.8.desc': 'Każde ćwiczenie z krótkim instruktażem wideo, bez zgadywania, jak wygląda poprawna technika wykonania.',
       'compare.title': 'Dlaczego nie 5 osobnych appek',
-      'compare.sub': 'Typowy zestaw do treningu wygląda tak dziś. Coachie App zamyka to w jednym miejscu.',
+      'compare.sub': 'Typowy zestaw do treningu wygląda tak dziś. Ramvo zamyka to w jednym miejscu.',
       'compare.before.title': 'Dziś',
       'compare.before.1': 'Apka do planu treningowego',
       'compare.before.2': 'Druga apka do liczenia kalorii',
       'compare.before.3': 'Kalendarz do umawiania sesji',
       'compare.before.4': 'Komunikator do kontaktu z trenerem',
       'compare.before.5': 'Notatnik albo arkusz do śledzenia postępów',
-      'compare.after.title': 'Z Coachie App',
+      'compare.after.title': 'Z Ramvo',
       'compare.after.1': 'Jedna aplikacja, jedno logowanie',
       'compare.after.2': 'Plan treningowy i jadłospis w tym samym miejscu',
       'compare.after.3': 'Rezerwacje wbudowane, z linkiem do spotkania',
       'compare.after.4': 'Czat z trenerem bez wychodzenia z appki',
       'compare.after.5': 'Postępy, passy i zdjęcia zawsze pod ręką',
       'preview.title': 'Zobacz, jak to wygląda',
-      'preview.sub': 'Appka jest zawsze w ciemnym interfejsie, niezależnie od ustawień telefonu. To realne kolory i układy z Coachie App.',
+      'preview.sub': 'To realne kolory i układy z Ramvo.',
       'preview.caption1': 'Passa treningowa i posiłkowa',
       'preview.phone2.meta': 'Trener personalny · 1.8 km',
       'preview.caption2': 'Przesuń, żeby dopasować trenera',
       'preview.caption3': 'Rezerwacje online i na siłowni, zawsze pod ręką',
       'preview.caption4': 'Kalorie i makra pod kontrolą',
-      'preview.footnote': 'Prawdziwe zrzuty ekranu z aplikacji Coachie App. Widok dopasowania trenera to wizualizacja koncepcyjna.',
+      'preview.footnote': 'Prawdziwe zrzuty ekranu z aplikacji Ramvo. Widok dopasowania trenera to wizualizacja koncepcyjna.',
       'trainers.title': 'Jesteś trenerem personalnym?',
-      'trainers.body': 'Tworzenie i wysyłanie planów treningowych klientom ręcznie zajmuje mnóstwo czasu. Dołącz do Coachie App jako jeden z pierwszych trenerów i miej to wszystko w jednym miejscu, bez własnej strony, systemu rezerwacji czy aplikacji do kontaktu.',
+      'trainers.body': 'Tworzenie i wysyłanie planów treningowych klientom ręcznie zajmuje mnóstwo czasu. Dołącz do Ramvo jako jeden z pierwszych trenerów i miej to wszystko w jednym miejscu, bez własnej strony, systemu rezerwacji czy aplikacji do kontaktu.',
       'trainers.item1': 'Wczesny dostęp za darmo, status „Founding Trainer"',
       'trainers.item2': 'Twórz i wysyłaj plany klientom w kilka minut, nie godzin',
       'trainers.item3': 'Rezerwacje, czat i płatności w jednym miejscu',
@@ -1049,9 +1054,9 @@ footer a { color: var(--fg-muted); }
       'faq.title': 'Pytania i odpowiedzi',
       'faq.sub': 'Jeśli czegoś tu brakuje, po prostu napisz do nas.',
       'faq.1.q': 'Czy muszę mieć trenera, żeby korzystać z appki?',
-      'faq.1.a': 'Nie. Coachie, wbudowany trener AI, jest dostępny od pierwszej minuty i wystarcza, jeśli nigdy nie będziesz potrzebować trenera-człowieka. Prawdziwego trenera dobierasz tylko wtedy, gdy sam/a zechcesz.',
+      'faq.1.a': 'Nie. Ramvo AI, wbudowany wirtualny trener, jest dostępny od pierwszej minuty i wystarcza, jeśli nigdy nie będziesz potrzebować trenera-człowieka. Prawdziwego trenera dobierasz tylko wtedy, gdy sam/a zechcesz.',
       'faq.2.q': 'Ile to kosztuje?',
-      'faq.2.a': 'Dla osób, które zapiszą się na liście oczekujących już teraz, dostęp do Coachie App będzie darmowy na zawsze. Cennik dla osób, które dołączą po pełnym starcie, jeszcze nie jest ustalony.',
+      'faq.2.a': 'Dla osób, które zapiszą się na liście oczekujących już teraz, dostęp do Ramvo będzie darmowy na zawsze. Cennik dla osób, które dołączą po pełnym starcie, jeszcze nie jest ustalony.',
       'faq.3.q': 'Na jakie platformy wyjdzie appka i kiedy?',
       'faq.3.a': 'iOS i Android razem, premiera planowana na grudzień.',
       'faq.4.q': 'Czy moje dane są bezpieczne?',
@@ -1059,22 +1064,22 @@ footer a { color: var(--fg-muted); }
       'faq.5.q': 'Czy mogę zostać trenerem w appce?',
       'faq.5.a': 'Tak, szukamy pierwszych trenerów. Zobacz sekcję „Dla trenerów" powyżej albo napisz do nas bezpośrednio.',
       'faq.6.q': 'Jak dokładnie działa generowanie planu przez AI?',
-      'faq.6.a': 'Podajesz cel, poziom zaawansowania, dostępny sprzęt i ewentualne kontuzje, a Coachie układa z tego konkretny plan treningowy i jadłospis, który możesz dowolnie edytować.',
-      'faq.7.q': 'Czy mogę później przejść z Coachie na prawdziwego trenera?',
+      'faq.6.a': 'Podajesz cel, poziom zaawansowania, dostępny sprzęt i ewentualne kontuzje, a Ramvo AI układa z tego konkretny plan treningowy i jadłospis, który możesz dowolnie edytować.',
+      'faq.7.q': 'Czy mogę później przejść z Ramvo AI na prawdziwego trenera?',
       'faq.7.a': 'Tak, w dowolnym momencie. Twoja historia, postępy i czat zostają bez zmian.',
       'faq.8.q': 'W jakich językach jest dostępna appka?',
       'faq.8.a': 'Angielski i polski.',
-      'founder.body': 'Zacząłem budować Coachie App, patrząc na trenerów personalnych, którzy tworzą plany treningowe dla swoich klientów. To zajmuje mnóstwo czasu, a samo wysyłanie gotowego planu bywa uciążliwe: PDF-y, wiadomości, arkusze. Chciałem, żeby trenerzy mieli jedną appkę do obsługi klientów i planów, która realnie oszczędza im czas i jest po prostu wygodniejsza. Coachie, trener AI, to dodatek dla osób, które jeszcze nie mają trenera, ale chcą choć minimalnie zadbać o siebie. Buduję to sam, w pełni jawnie, krok po kroku, więc jeśli chcesz śledzić postępy albo masz pomysł, czego appce brakuje, po prostu napisz.',
-      'founder.sign': 'Jan, twórca Coachie App',
+      'founder.body': 'Zacząłem budować Ramvo, patrząc na trenerów personalnych, którzy tworzą plany treningowe dla swoich klientów. To zajmuje mnóstwo czasu, a samo wysyłanie gotowego planu bywa uciążliwe: PDF-y, wiadomości, arkusze. Chciałem, żeby trenerzy mieli jedną appkę do obsługi klientów i planów, która realnie oszczędza im czas i jest po prostu wygodniejsza. Ramvo AI to dodatek dla osób, które jeszcze nie mają trenera, ale chcą choć minimalnie zadbać o siebie. Buduję to sam, w pełni jawnie, krok po kroku, więc jeśli chcesz śledzić postępy albo masz pomysł, czego appce brakuje, po prostu napisz.',
+      'founder.sign': 'Jan, twórca Ramvo',
       'store.label': 'Wkrótce do pobrania',
       'counter.suffix': 'osób już czeka na start',
       'signup.title': 'Zapisz się na start',
-      'signup.lead': 'Damy znać, gdy Coachie App będzie dostępna do pobrania.',
+      'signup.lead': 'Damy znać, gdy Ramvo będzie do pobrania.',
       'signup.placeholder': 'twoj@email.pl',
       'signup.button': 'Zapisz mnie',
       'signup.fine': 'Żadnego spamu. Tylko jedna wiadomość, gdy appka wystartuje.',
       'footer.legal': 'Polityka prywatności i Regulamin',
-      'footer.tagline': 'Coachie App &middot; Kraków, Polska',
+      'footer.tagline': 'Ramvo &middot; Kraków, Polska',
       'status.submitting': 'Zapisuję...',
       'status.success': 'Dzięki! Jesteś na liście.',
       'status.error': 'Coś poszło nie tak. Spróbuj ponownie.'
@@ -1087,26 +1092,26 @@ footer a { color: var(--fg-muted); }
       'nav.legal': 'Privacy & Terms',
       'nav.cta': 'Sign up',
       'hero.eyebrow': '<span class="flame">🔥</span> Coming soon',
-      'hero.title': 'Find a trainer. <em>Or</em> take care of yourself with Coachie.',
-      'hero.sub': "Coachie App is real personal trainers, without the time-consuming, manual work of creating and sending plans. And if you don't have a trainer yet, Coachie, your AI trainer, takes care of you from the first minute.",
+      'hero.title': 'Find a trainer. <em>Or</em> take care of yourself with Ramvo AI.',
+      'hero.sub': "Ramvo is real personal trainers, without the time-consuming, manual work of creating and sending plans. And if you don't have a trainer yet, Ramvo AI takes care of you from the first minute.",
       'hero.ctaPrimary': 'Get early access',
       'hero.ctaGhost': 'See what it does',
       'cards.1.title': 'Real trainers',
       'cards.1.desc': 'A personal trainer guides you step by step, and creating and sending plans now takes them minutes, not hours.',
-      'cards.2.title': 'Coachie, your AI trainer',
-      'cards.2.desc': "Don't have a trainer yet? Coachie generates a workout plan and meal plan so you can start taking care of yourself today.",
+      'cards.2.title': 'Ramvo AI, your virtual trainer',
+      'cards.2.desc': "Don't have a trainer yet? Ramvo AI generates a workout plan and meal plan so you can start taking care of yourself today.",
       'cards.3.title': 'Progress under control',
       'cards.3.desc': 'Progress photos, measurements, calories and macros, streaks and badges: all in one place, not spread across five different apps.',
       'features.title': 'Everything you need to train',
       'features.sub': "One app instead of five. Here's what you get from day one.",
       'features.1.title': 'AI-generated plan',
-      'features.1.desc': 'Coachie builds your workout plan and meal plan based on your goal, level, available equipment and training history, ready in seconds.',
+      'features.1.desc': 'Ramvo AI builds your workout plan and meal plan based on your goal, level, available equipment and training history, ready in seconds.',
       'features.2.title': 'Trainer matching',
       'features.2.desc': 'Swipe through nearby trainer profiles, just like a dating app. You see ratings, specialty and distance before you send the first message.',
       'features.3.title': 'Session bookings',
       'features.3.desc': 'Book sessions with your trainer online, with an automatic Google Meet link, or in person at the gym, without switching between apps.',
       'features.4.title': 'Chat',
-      'features.4.desc': 'Message your trainer or Coachie, send photos and documents. One conversation, always at hand, with full history in one place.',
+      'features.4.desc': 'Message your trainer or Ramvo AI, send photos and documents. One conversation, always at hand, with full history in one place.',
       'features.5.title': 'Progress tracking',
       'features.5.desc': 'Progress photos, body measurements and charts over time. You see a real change in your body, not just a number on the scale.',
       'features.6.title': 'Calories and macros',
@@ -1116,29 +1121,29 @@ footer a { color: var(--fg-muted); }
       'features.8.title': 'Exercise library',
       'features.8.desc': "Every exercise comes with a short instructional video, no guessing what correct form looks like.",
       'compare.title': 'Why not 5 separate apps',
-      'compare.sub': 'A typical training setup looks like this today. Coachie App brings it all into one place.',
+      'compare.sub': 'A typical training setup looks like this today. Ramvo brings it all into one place.',
       'compare.before.title': 'Today',
       'compare.before.1': 'An app for your workout plan',
       'compare.before.2': 'A second app for counting calories',
       'compare.before.3': 'A calendar for booking sessions',
       'compare.before.4': 'A messaging app to reach your trainer',
       'compare.before.5': 'A notebook or spreadsheet for tracking progress',
-      'compare.after.title': 'With Coachie App',
+      'compare.after.title': 'With Ramvo',
       'compare.after.1': 'One app, one login',
       'compare.after.2': 'Workout plan and meal plan in the same place',
       'compare.after.3': 'Bookings built in, with a meeting link',
       'compare.after.4': 'Chat with your trainer without leaving the app',
       'compare.after.5': 'Progress, streaks and photos always at hand',
       'preview.title': 'See what it looks like',
-      'preview.sub': "The app is always dark, regardless of your phone's settings. These are real colors and layouts from Coachie App.",
+      'preview.sub': "These are real colors and layouts from Ramvo.",
       'preview.caption1': 'Workout and meal streaks',
       'preview.phone2.meta': 'Personal trainer · 1.8 km',
       'preview.caption2': 'Swipe to match with a trainer',
       'preview.caption3': 'Online and gym bookings, always at hand',
       'preview.caption4': 'Calories and macros under control',
-      'preview.footnote': 'Real screenshots from the Coachie App. The trainer-matching view is a conceptual visualization.',
+      'preview.footnote': 'Real screenshots from the Ramvo app. The trainer-matching view is a conceptual visualization.',
       'trainers.title': 'Are you a personal trainer?',
-      'trainers.body': 'Creating and sending workout plans to clients by hand takes a huge amount of time. Join Coachie App as one of the first trainers and have it all in one place, without your own website, booking system or messaging app.',
+      'trainers.body': 'Creating and sending workout plans to clients by hand takes a huge amount of time. Join Ramvo as one of the first trainers and have it all in one place, without your own website, booking system or messaging app.',
       'trainers.item1': 'Free early access, "Founding Trainer" status',
       'trainers.item2': 'Create and send plans to clients in minutes, not hours',
       'trainers.item3': 'Bookings, chat and payments in one place',
@@ -1158,9 +1163,9 @@ footer a { color: var(--fg-muted); }
       'faq.title': 'Frequently asked questions',
       'faq.sub': "If something's missing here, just get in touch.",
       'faq.1.q': 'Do I need a trainer to use the app?',
-      'faq.1.a': "No. Coachie, the built-in AI trainer, is available from the first minute and is enough if you never need a human trainer. You only pick a real trainer when you decide to.",
+      'faq.1.a': "No. Ramvo AI, the built-in virtual trainer, is available from the first minute and is enough if you never need a human trainer. You only pick a real trainer when you decide to.",
       'faq.2.q': 'How much does it cost?',
-      'faq.2.a': "For people who join the waitlist now, access to Coachie App will be free forever. Pricing for people who join after the full launch hasn't been decided yet.",
+      'faq.2.a': "For people who join the waitlist now, access to Ramvo will be free forever. Pricing for people who join after the full launch hasn't been decided yet.",
       'faq.3.q': 'Which platforms will the app launch on, and when?',
       'faq.3.a': 'iOS and Android together, launch planned for December.',
       'faq.4.q': 'Is my data safe?',
@@ -1168,22 +1173,22 @@ footer a { color: var(--fg-muted); }
       'faq.5.q': 'Can I become a trainer in the app?',
       'faq.5.a': 'Yes, we\'re looking for our first trainers. See the "For trainers" section above or get in touch directly.',
       'faq.6.q': 'How exactly does AI plan generation work?',
-      'faq.6.a': 'You provide your goal, experience level, available equipment and any injuries, and Coachie turns that into a concrete workout and meal plan you can freely edit.',
-      'faq.7.q': 'Can I later switch from Coachie to a real trainer?',
+      'faq.6.a': 'You provide your goal, experience level, available equipment and any injuries, and Ramvo AI turns that into a concrete workout and meal plan you can freely edit.',
+      'faq.7.q': 'Can I later switch from Ramvo AI to a real trainer?',
       'faq.7.a': 'Yes, at any time. Your history, progress and chat stay exactly as they are.',
       'faq.8.q': 'What languages is the app available in?',
       'faq.8.a': 'English and Polish.',
-      'founder.body': "I started building Coachie App by looking at personal trainers who create workout plans for their clients. That takes a lot of time, and just sending a finished plan is often a hassle: PDFs, messages, spreadsheets. I wanted trainers to have one app to manage their clients and plans that actually saves them time and is simply more convenient. Coachie, the AI trainer, is an extra for people who don't have a trainer yet but still want to take at least minimal care of themselves. I'm building this alone, fully in the open, step by step, so if you want to follow along or have an idea for what the app is missing, just reach out.",
-      'founder.sign': 'Jan, founder of Coachie App',
+      'founder.body': "I started building Ramvo by looking at personal trainers who create workout plans for their clients. That takes a lot of time, and just sending a finished plan is often a hassle: PDFs, messages, spreadsheets. I wanted trainers to have one app to manage their clients and plans that actually saves them time and is simply more convenient. Ramvo AI is an extra for people who don't have a trainer yet but still want to take at least minimal care of themselves. I'm building this alone, fully in the open, step by step, so if you want to follow along or have an idea for what the app is missing, just reach out.",
+      'founder.sign': 'Jan, founder of Ramvo',
       'store.label': 'Coming soon',
       'counter.suffix': 'people already waiting',
       'signup.title': 'Sign up for launch',
-      'signup.lead': "We'll let you know when Coachie App is ready to download.",
+      'signup.lead': "We'll let you know when Ramvo is ready to download.",
       'signup.placeholder': 'you@email.com',
       'signup.button': 'Sign me up',
       'signup.fine': 'No spam. Just one message, when the app launches.',
       'footer.legal': 'Privacy Policy & Terms',
-      'footer.tagline': 'Coachie App &middot; Kraków, Poland',
+      'footer.tagline': 'Ramvo &middot; Kraków, Poland',
       'status.submitting': 'Saving...',
       'status.success': "Thanks! You're on the list.",
       'status.error': 'Something went wrong. Please try again.'
@@ -1221,12 +1226,12 @@ footer a { color: var(--fg-muted); }
       b.classList.toggle('active', b.getAttribute('data-lang') === lang);
     });
     renderCounter();
-    try { localStorage.setItem('coachie-lang', lang); } catch (e) {}
+    try { localStorage.setItem('ramvo-lang', lang); } catch (e) {}
   }
 
   function detectLanguage() {
     try {
-      var saved = localStorage.getItem('coachie-lang');
+      var saved = localStorage.getItem('ramvo-lang');
       if (saved === 'pl' || saved === 'en') return saved;
     } catch (e) {}
     var navLang = (navigator.language || (navigator.languages && navigator.languages[0]) || '').toLowerCase();
@@ -1307,7 +1312,7 @@ footer a { color: var(--fg-muted); }
   // ---- confetti burst, fired once on a successful signup ----
   function fireConfetti() {
     if (reduceMotion) return;
-    var colors = ['#E05A2B', '#35D483', '#3EC6FF', '#FF4D8D', '#FFB020'];
+    var colors = ['#3EC6FF', '#FF4D8D', '#35D483', '#F4F6F8'];
     for (var i = 0; i < 18; i++) {
       var piece = document.createElement('div');
       piece.className = 'confetti-piece';
