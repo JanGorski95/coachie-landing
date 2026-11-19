@@ -370,33 +370,57 @@ h1 em { font-style: normal; color: var(--accent); }
 .card h3 { font-size: 1.02rem; margin: 0 0 8px; }
 .card p { font-size: 0.9rem; color: var(--fg-muted); line-height: 1.5; margin: 0; }
 
-/* ---------- feature grid ---------- */
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+/* ---------- features: list + sticky phone ----------
+   From 900 px (and with JS, html.fx-js) the phone on the right sticks and
+   cross-fades (opacity, 300 ms) to the screen of the feature crossing the
+   middle of the viewport. Below 900 px every feature keeps its own phone
+   under the text, no sticky. */
+.fx { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 56px; align-items: start; }
+.fx-item { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 0 16px; padding: 26px 0; border-top: 1px solid var(--border); }
+.fx-item:first-child { border-top: 0; }
+.fx-icon { width: 38px; height: 38px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); display: flex; align-items: center; justify-content: center; }
+.fx-icon svg { width: 20px; height: 20px; }
+.fx-copy h3 { font-size: 1.15rem; margin: 6px 0 6px; }
+.fx-copy p { font-size: 0.95rem; color: var(--fg-muted); line-height: 1.6; margin: 0; max-width: 52ch; }
+.fx-shot { grid-column: 1 / -1; display: flex; justify-content: center; margin-top: 18px; }
+.fx-aside { display: none; }
+@media (min-width: 900px) {
+  html.fx-js .fx-shot { display: none; }
+  html.fx-js .fx-aside { display: block; position: sticky; top: max(96px, calc(50vh - 255px)); height: 520px; }
+  html.fx-js .fx-item { min-height: 42vh; align-content: center; opacity: 0.5; transition: opacity 0.3s ease; }
+  html.fx-js .fx-item.active { opacity: 1; }
+  /* room under the last feature so the sticky phone stays put while it is active */
+  html.fx-js .fx-list { padding-bottom: 22vh; }
 }
-@media (max-width: 880px) { .feature-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 480px) { .feature-grid { grid-template-columns: 1fr; } }
-.feature {
-  background: var(--bg-raised);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 18px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.feature:hover { transform: translateY(-3px); box-shadow: 0 14px 28px -16px rgba(0,0,0,0.25); }
-.feature .icon {
-  width: 38px; height: 38px;
-  border-radius: 10px;
-  background: var(--accent-soft);
-  color: var(--accent);
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 12px;
-}
-.feature .icon svg { width: 20px; height: 20px; }
-.feature h3 { font-size: 0.94rem; margin: 0 0 5px; }
-.feature p { font-size: 0.84rem; color: var(--fg-muted); line-height: 1.5; margin: 0; }
+@media (max-width: 899px) { .fx { grid-template-columns: minmax(0, 1fr); } }
+.fx-stage { transform: scale(1.2); transform-origin: top center; display: flex; justify-content: center; }
+.fx-phone .screen { position: absolute; top: 22px; right: 11px; bottom: 14px; left: 11px; margin: 0; opacity: 0; transition: opacity 0.3s ease; }
+.fx-phone .screen.active { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .fx-phone .screen, html.fx-js .fx-item { transition: none; } }
+
+/* ---------- Tydzień z Ramvo: Monday to Monday, trainer and client lanes ---------- */
+.wk-legend { display: flex; gap: 18px; justify-content: center; margin: -12px 0 24px; font-size: 0.86rem; color: var(--fg-muted); }
+.wk-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 7px; vertical-align: -1px; }
+.wk-legend i.t { background: var(--accent); }
+.wk-legend i.c { background: var(--accent-2); }
+.wk-scroll { overflow-x: auto; padding-bottom: 10px; scrollbar-width: thin; }
+.wk-track { list-style: none; margin: 0; padding: 0; position: relative; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 10px; }
+.wk-track::before { content: ''; position: absolute; left: 0; right: 0; top: 15px; height: 2px; background: var(--border); }
+.wk-day { display: grid; grid-template-rows: auto 1fr 1fr; gap: 8px; }
+html.fx-js .wk-day { opacity: 0; transform: translateX(-16px); transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); transition-delay: calc(var(--i, 0) * 120ms); }
+html.fx-js .wk-track.is-in .wk-day { opacity: 1; transform: none; }
+.wk-label { position: relative; justify-self: start; font: 800 0.7rem 'Archivo', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; background: var(--bg); border: 1px solid var(--border); border-radius: 999px; padding: 8px 11px; white-space: nowrap; }
+.wk-day.next .wk-label { color: var(--accent); border-color: var(--accent); }
+.wk-card { background: var(--bg-raised); border: 1px solid var(--border); border-radius: 12px; padding: 10px 11px; font-size: 0.84rem; line-height: 1.4; }
+.wk-card small { display: block; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
+.wk-card.t { border-top: 2px solid var(--accent); }
+.wk-card.t small { color: var(--accent); }
+.wk-card.c { border-top: 2px solid var(--accent-2); }
+.wk-card.c small { color: var(--accent-2); }
+.wk-card.off { background: transparent; border-style: dashed; border-top: 1px dashed var(--border); color: var(--fg-muted); }
+@media (max-width: 960px) { .wk-track { grid-template-columns: repeat(8, 210px); } .wk-scroll { scroll-snap-type: x mandatory; } .wk-day { scroll-snap-align: start; } }
+@media (max-width: 600px) { .wk-track { grid-template-columns: repeat(8, 76vw); } }
+@media (prefers-reduced-motion: reduce) { html.fx-js .wk-day { opacity: 1; transform: none; transition: none; } }
 
 /* ---------- comparison ---------- */
 .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -568,6 +592,37 @@ h1 em { font-style: normal; color: var(--accent); }
 .mk-bars i:nth-child(2) { transition-delay: 60ms; } .mk-bars i:nth-child(3) { transition-delay: 120ms; } .mk-bars i:nth-child(4) { transition-delay: 180ms; }
 .mk-bars i:nth-child(5) { transition-delay: 240ms; } .mk-bars i:nth-child(6) { transition-delay: 300ms; } .mk-bars i:nth-child(7) { transition-delay: 360ms; }
 .mk-goal { position: absolute; left: 0; right: 0; bottom: 80%; border-top: 1.5px dashed #FF4D8D; }
+.mk-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.mk-chips span { font-size: 7.5px; font-weight: 700; padding: 3px 7px; border-radius: 999px; background: #1F242B; color: #F4F6F8; }
+.mk-bubble { align-self: flex-start; max-width: 86%; background: #1F242B; border-radius: 10px 10px 10px 3px; padding: 6px 8px; font-size: 8.5px; }
+.mk-bubble.me { align-self: flex-end; background: #3EC6FF; color: #04161F; border-radius: 10px 10px 3px 10px; }
+.mk-file { display: flex; align-items: center; gap: 5px; font-weight: 700; }
+.mk-file svg { width: 9px; height: 9px; }
+.mk-li { display: flex; gap: 6px; font-size: 8.5px; color: #F4F6F8; }
+.mk-li span { flex: 0 0 18px; font-weight: 700; color: #3EC6FF; }
+.mk-chat-head { display: flex; gap: 7px; align-items: center; padding-bottom: 6px; border-bottom: 1px solid #1F242B; }
+.mk-chat-head b { display: block; font-size: 10px; }
+.mk-av { width: 22px; height: 22px; border-radius: 50%; background: #3EC6FF; color: #04161F; font: 800 8px 'Archivo', sans-serif; display: grid; place-items: center; }
+.mk-msgs { flex: 1; display: flex; flex-direction: column; gap: 6px; justify-content: flex-end; }
+.mk-input { border: 1px solid #1F242B; border-radius: 999px; padding: 6px 10px; color: #8E97A3; font-size: 8.5px; }
+.mk-kv { display: flex; justify-content: space-between; align-items: baseline; font-size: 9px; }
+.mk-ok { color: #35D483; }
+.mk-line { width: 100%; height: 44px; display: block; }
+.mk-photo { aspect-ratio: 3 / 4; border-radius: 9px; background: linear-gradient(160deg, #2a2f36, #15181C); display: flex; align-items: flex-end; padding: 5px; }
+.mk-photo.b { background: linear-gradient(200deg, #24404d, #15181C); }
+.mk-photo small { font-size: 7.5px; color: #c9ced5; }
+.mk-badge { flex-direction: row; align-items: center; gap: 8px; }
+.mk-badge b { display: block; font-size: 9.5px; }
+.mk-medal { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 50%; background: #FF4D8D; color: #fff; font: 800 11px 'Archivo', sans-serif; display: grid; place-items: center; box-shadow: 0 0 0 3px #3A1426; }
+.mk-vid { height: 92px; border-radius: 11px; background: linear-gradient(160deg, #24404d, #0B0D10); display: grid; place-items: center; position: relative; }
+.mk-vid svg { width: 26px; height: 26px; }
+.mk-vid small { position: absolute; left: 8px; bottom: 6px; font-size: 7.5px; color: #c9ced5; }
+.mk-search { border: 1px solid #1F242B; border-radius: 7px; padding: 6px 8px; color: #8E97A3; font-size: 8.5px; }
+.mk-list { gap: 0; padding: 4px 9px; }
+.mk-ex { display: flex; gap: 7px; align-items: center; padding: 5px 0; border-top: 1px solid #1F242B; }
+.mk-ex:first-child { border-top: 0; }
+.mk-ex i { flex: 0 0 30px; height: 20px; border-radius: 5px; background: linear-gradient(135deg, #24404d, #15181C); }
+.mk-ex b { display: block; font-size: 9px; }
 .mk .week-dots { gap: 4px; }
 .mk .week-dots .dot { height: 6px; border-radius: 3px; }
 .phone.is-in .mk .week-dots .dot.done { background: #FF4D8D; }
@@ -868,47 +923,193 @@ footer a { color: var(--fg-muted); }
       <h2 data-i18n="features.title">Wszystko, czego potrzebujesz do treningu</h2>
       <p data-i18n="features.sub">Jedna aplikacja zamiast pięciu. Oto co dostajesz od pierwszego dnia.</p>
     </div>
-    <div class="feature-grid reveal-group">
-      <div class="feature reveal" style="--i:0">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a5 5 0 0 0-5 5v1.6A4 4 0 0 0 5 13v2a4 4 0 0 0 2.3 3.6c.2 1.3 1.3 2.4 2.7 2.4h4c1.4 0 2.5-1.1 2.7-2.4A4 4 0 0 0 19 15v-2a4 4 0 0 0-2-3.4V8a5 5 0 0 0-5-5Z"/><path d="M9 11h.01M15 11h.01"/></svg></div>
-        <h3 data-i18n="features.1.title">Plan generowany przez AI</h3>
-        <p data-i18n="features.1.desc">Ramvo AI buduje Twój plan treningowy i jadłospis na podstawie celu, poziomu, dostępnego sprzętu i historii treningów, gotowy w kilkadziesiąt sekund.</p>
+    <!-- 8 features with a phone. From 900 px the phone on the right is sticky
+         and swaps to the screen of the feature in the middle of the viewport
+         (the script clones each .fx-shot screen into .fx-phone). Below 900 px,
+         or without JS, every feature shows its own phone under the text. -->
+    <div class="fx">
+      <div class="fx-list">
+        <article class="fx-item">
+          <div class="fx-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a5 5 0 0 0-5 5v1.6A4 4 0 0 0 5 13v2a4 4 0 0 0 2.3 3.6c.2 1.3 1.3 2.4 2.7 2.4h4c1.4 0 2.5-1.1 2.7-2.4A4 4 0 0 0 19 15v-2a4 4 0 0 0-2-3.4V8a5 5 0 0 0-5-5Z"/><path d="M9 11h.01M15 11h.01"/></svg></div>
+          <div class="fx-copy"><h3 data-i18n="features.1.title">Plan generowany przez AI</h3><p data-i18n="features.1.desc">Ramvo AI buduje Twój plan treningowy i jadłospis na podstawie celu, poziomu, dostępnego sprzętu i historii treningów, gotowy w kilkadziesiąt sekund.</p></div>
+          <div class="fx-shot"><div class="phone"><div class="screen mk">
+            <div class="mk-title">Ramvo AI</div>
+            <div class="mk-chips"><span data-i18n="fx.ai.c1">Cel: redukcja</span><span data-i18n="fx.ai.c2">Średni poziom</span><span data-i18n="fx.ai.c3">Siłownia</span><span data-i18n="fx.ai.c4">3× w tygodniu</span></div>
+            <div class="mk-bubble" data-i18n="fx.ai.msg">Twój plan jest gotowy: 12 treningów na 4 tygodnie.</div>
+            <div class="mk-card">
+              <span class="mk-tag on" data-i18n="fx.ai.planTag">Plan treningowy</span>
+              <b class="mk-when" data-i18n="fx.ai.plan">Redukcja, 4 tygodnie</b>
+              <div class="mk-li" data-i18n="fx.ai.d1"><span>Pn</span>Góra ciała · 6 ćwiczeń</div>
+              <div class="mk-li" data-i18n="fx.ai.d2"><span>Śr</span>Dół ciała · 5 ćwiczeń</div>
+              <div class="mk-li" data-i18n="fx.ai.d3"><span>Pt</span>Całe ciało · 6 ćwiczeń</div>
+            </div>
+            <div class="mk-card">
+              <span class="mk-tag" data-i18n="fx.ai.mealTag">Jadłospis</span>
+              <b class="mk-when" data-i18n="fx.ai.meal">2000 kcal · 150 g białka</b>
+            </div>
+            <div class="mk-btn" data-i18n="fx.ai.save">Zapisz plan</div>
+          </div></div></div>
+        </article>
+
+        <article class="fx-item">
+          <div class="fx-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="10" height="15" rx="2" transform="rotate(-8 5 4)"/><rect x="8" y="5" width="11" height="15" rx="2"/></svg></div>
+          <div class="fx-copy"><h3 data-i18n="features.2.title">Dopasowanie do trenera</h3><p data-i18n="features.2.desc">Przesuwaj profile trenerów w pobliżu, jak w aplikacji randkowej. Widzisz oceny, specjalizację i odległość, zanim napiszesz pierwszą wiadomość.</p></div>
+          <div class="fx-shot"><div class="phone"><div class="screen" style="padding: 12px;">
+            <div class="swipe-card">
+              <img src="https://images.unsplash.com/photo-1704223523169-52feeed90365?w=400&h=500&fit=crop&auto=format&q=80" alt="" loading="lazy">
+              <div class="swipe-gradient"></div>
+              <div class="swipe-info">
+                <div class="swipe-name">Marek K. <span class="swipe-verified">✓</span></div>
+                <div class="swipe-meta" data-i18n="preview.phone2.meta">Trener personalny · 1.8 km</div>
+                <div class="swipe-stars">★★★★★ 4.9</div>
+              </div>
+            </div>
+            <div class="swipe-actions-row"><span class="mbtn pass">✕</span><span class="mbtn like">♥</span></div>
+          </div></div></div>
+        </article>
+
+        <article class="fx-item">
+          <div class="fx-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
+          <div class="fx-copy"><h3 data-i18n="features.3.title">Rezerwacje sesji</h3><p data-i18n="features.3.desc">Umawiaj się z trenerem online, z automatycznym linkiem do Google Meet, albo stacjonarnie na siłowni, bez przerzucania się między aplikacjami.</p></div>
+          <div class="fx-shot"><div class="phone"><div class="screen mk">
+            <div class="mk-title" data-i18n="mk.upcoming">Nadchodzące</div>
+            <div class="mk-card">
+              <span class="mk-tag" data-i18n="mk.gym">Siłownia</span>
+              <b class="mk-when" data-i18n="mk.gymWhen">Środa, 14 października, 14:00</b>
+              <span class="mk-muted">Warszawa Fitness Club, ul. Puławska 42</span>
+              <div class="mk-btn" data-i18n="mk.map">Pokaż na mapie</div>
+              <div class="mk-btn ghost" data-i18n="mk.cancel">Odwołaj rezerwację</div>
+            </div>
+            <div class="mk-card">
+              <span class="mk-tag on" data-i18n="mk.online">Online</span>
+              <b class="mk-when" data-i18n="mk.onlineWhen">Czwartek, 15 października, 12:00</b>
+              <div class="mk-btn ok" data-i18n="mk.meet">Dołącz przez Google Meet</div>
+            </div>
+          </div></div></div>
+        </article>
+
+        <article class="fx-item">
+          <div class="fx-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></div>
+          <div class="fx-copy"><h3 data-i18n="features.4.title">Czat</h3><p data-i18n="features.4.desc">Pisz z trenerem albo z Ramvo AI, wysyłaj zdjęcia i dokumenty. Jedna rozmowa, zawsze pod ręką, z pełną historią w jednym miejscu.</p></div>
+          <div class="fx-shot"><div class="phone"><div class="screen mk">
+            <div class="mk-chat-head"><span class="mk-av">MK</span><div><b>Marek K.</b><span class="mk-muted" data-i18n="fx.chat.role">Twój trener</span></div></div>
+            <div class="mk-msgs">
+              <div class="mk-bubble" data-i18n="fx.chat.m1">Jak poszły przysiady w środę?</div>
+              <div class="mk-bubble me" data-i18n="fx.chat.m2">4 × 8 na 60 kg, ostatnia seria ciężko.</div>
+              <div class="mk-bubble me mk-file"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg>przysiad.mp4</div>
+              <div class="mk-bubble" data-i18n="fx.chat.m4">Głębokość jest dobra. W piątek zostań na 60 kg i dołóż serię.</div>
+            </div>
+            <div class="mk-input" data-i18n="fx.chat.input">Napisz wiadomość</div>
+          </div></div></div>
+        </article>
+
+        <article class="fx-item">
+          <div class="fx-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <div class="fx-copy"><h3 data-i18n="features.5.title">Śledzenie postępów</h3><p data-i18n="features.5.desc">Zdjęcia sylwetki, pomiary ciała i wykresy w czasie. Widzisz realną zmianę sylwetki, nie tylko liczbę na wadze.</p></div>
+          <div class="fx-shot"><div class="phone"><div class="screen mk">
+            <div class="mk-title" data-i18n="fx.prog.title">Postępy</div>
+            <div class="mk-card">
+              <div class="mk-kv"><span class="mk-muted" data-i18n="fx.prog.weight">Waga</span><b class="mk-ok" data-i18n="fx.prog.weightV">−3,6 kg</b></div>
+              <svg class="mk-line" viewBox="0 0 160 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 8 L20 10 L40 15 L60 17 L80 24 L100 28 L120 33 L140 37 L160 40 L160 48 L0 48Z" fill="#35D48322"/><path d="M0 8 L20 10 L40 15 L60 17 L80 24 L100 28 L120 33 L140 37 L160 40" fill="none" stroke="#35D483" stroke-width="2"/></svg>
+            </div>
+            <div class="mk-two">
+              <div class="mk-photo"><small>6.10</small></div>
+              <div class="mk-photo b"><small>1.12</small></div>
+            </div>
+            <div class="mk-card">
+              <div class="mk-kv"><span class="mk-muted" data-i18n="fx.prog.waist">Talia</span><b>−4 cm</b></div>
+              <div class="mk-kv"><span class="mk-muted" data-i18n="fx.prog.hips">Biodra</span><b>−3 cm</b></div>
+            </div>
+          </div></div></div>
+        </article>
+
+        <article class="fx-item">
+          <div class="fx-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="1"/><path d="M7 7v10M11 7v10M15 7v3M15 14v3M18 7v10"/></svg></div>
+          <div class="fx-copy"><h3 data-i18n="features.6.title">Kalorie i makra</h3><p data-i18n="features.6.desc">Skanuj kod kreskowy produktu albo wpisz posiłek ręcznie. Dziennik żywienia liczy kalorie i makroskładniki na bieżąco, sam.</p></div>
+          <div class="fx-shot"><div class="phone"><div class="screen mk">
+            <div class="mk-title" data-i18n="mk.calPlan">Mój plan kalorii</div>
+            <div class="mk-card mk-center">
+              <span class="mk-muted" data-i18n="mk.net">Netto dziś</span>
+              <div class="mk-kcal">1984 <small>kcal</small></div>
+              <span class="mk-muted" data-i18n="mk.eaten">Zjedzone 2107 · spalone 123</span>
+              <div class="mk-rings">
+                <div><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="14" stroke="#1F242B"/><circle cx="18" cy="18" r="14" stroke="#3EC6FF" stroke-dasharray="88" stroke-dashoffset="1"/></svg><b>2107</b><small>kcal</small></div>
+                <div><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="14" stroke="#1F242B"/><circle cx="18" cy="18" r="14" stroke="#FF4D8D" stroke-dasharray="88" stroke-dashoffset="0"/></svg><b>171</b><small data-i18n="mk.protein">białko</small></div>
+                <div><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="14" stroke="#1F242B"/><circle cx="18" cy="18" r="14" stroke="#35D483" stroke-dasharray="88" stroke-dashoffset="16"/></svg><b>172</b><small data-i18n="mk.carbs">węgle</small></div>
+                <div><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="14" stroke="#1F242B"/><circle cx="18" cy="18" r="14" stroke="#F4F6F8" stroke-dasharray="88" stroke-dashoffset="0"/></svg><b>84</b><small data-i18n="mk.fat">tłuszcz</small></div>
+              </div>
+            </div>
+            <div class="mk-card">
+              <div class="mk-bars" aria-hidden="true"><i style="--h:62%"></i><i style="--h:80%"></i><i style="--h:71%"></i><i style="--h:88%"></i><i style="--h:66%"></i><i style="--h:94%"></i><i style="--h:84%"></i><span class="mk-goal"></span></div>
+              <span class="mk-link" data-i18n="mk.history">Pełna historia makro &rarr;</span>
+            </div>
+          </div></div></div>
+        </article>
+
+        <article class="fx-item">
+          <div class="fx-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-9.3-9.2C1.4 8.6 3 5 6.6 5c2 0 3.2 1 4.4 2.6C12.2 6 13.4 5 15.4 5 19 5 20.6 8.6 19.3 11.8 17 16.4 12 21 12 21Z"/></svg></div>
+          <div class="fx-copy"><h3 data-i18n="features.7.title">Passy i odznaki</h3><p data-i18n="features.7.desc">Licznik serii treningowej i posiłkowej, odznaki za konsekwencję i przypomnienie, zanim stracisz passę.</p></div>
+          <div class="fx-shot"><div class="phone"><div class="screen mk">
+            <div class="mk-top">
+              <div><div class="mk-hi" data-i18n="mk.hi">Cześć, Alex</div><div class="mk-date" data-i18n="mk.date">Wtorek, 13 października</div></div>
+              <span class="mk-avatar" aria-hidden="true"></span>
+            </div>
+            <div class="mk-card">
+              <div class="mk-h" data-i18n="mk.streak">Twoja passa</div>
+              <div class="mk-two">
+                <div class="mk-box"><small data-i18n="mk.workouts">Treningi</small><b>3</b><small data-i18n="mk.best4">dni · rekord 4</small></div>
+                <div class="mk-box hot"><small data-i18n="mk.meals">Posiłki</small><b>1</b><small data-i18n="mk.best1">dzień · rekord 1</small><span class="mk-chip" data-i18n="mk.freeze">Zamroź dziś</span></div>
+              </div>
+              <div class="week-dots">
+                <span class="dot done" style="--d:0"></span><span class="dot done" style="--d:1"></span><span class="dot done" style="--d:2"></span><span class="dot" style="--d:3"></span><span class="dot done" style="--d:4"></span><span class="dot done" style="--d:5"></span><span class="dot done" style="--d:6"></span>
+              </div>
+            </div>
+            <div class="mk-card mk-badge">
+              <span class="mk-medal" aria-hidden="true">7</span>
+              <div><b data-i18n="fx.badge.title">Nowa odznaka</b><span class="mk-muted" data-i18n="fx.badge.desc">7 dni treningów z rzędu</span></div>
+            </div>
+          </div></div></div>
+        </article>
+
+        <article class="fx-item">
+          <div class="fx-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 9l5 3-5 3Z"/></svg></div>
+          <div class="fx-copy"><h3 data-i18n="features.8.title">Biblioteka ćwiczeń</h3><p data-i18n="features.8.desc">Każde ćwiczenie z krótkim instruktażem wideo, bez zgadywania, jak wygląda poprawna technika wykonania.</p></div>
+          <div class="fx-shot"><div class="phone"><div class="screen mk">
+            <div class="mk-title" data-i18n="fx.lib.title">Biblioteka ćwiczeń</div>
+            <div class="mk-vid"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z" fill="#F4F6F8"/></svg><small data-i18n="fx.lib.now">Przysiad przedni · 0:42</small></div>
+            <div class="mk-search" data-i18n="fx.lib.search">Szukaj: nogi</div>
+            <div class="mk-card mk-list">
+              <div class="mk-ex"><i></i><div><b data-i18n="fx.lib.e1">Przysiad przedni</b><span class="mk-muted" data-i18n="fx.lib.m1">Nogi · sztanga</span></div></div>
+              <div class="mk-ex"><i></i><div><b>Hip thrust</b><span class="mk-muted" data-i18n="fx.lib.m2">Pośladki · sztanga</span></div></div>
+              <div class="mk-ex"><i></i><div><b data-i18n="fx.lib.e3">Przysiad bułgarski</b><span class="mk-muted" data-i18n="fx.lib.m3">Nogi · hantle</span></div></div>
+              <div class="mk-ex"><i></i><div><b data-i18n="fx.lib.e4">Uginanie nóg</b><span class="mk-muted" data-i18n="fx.lib.m4">Nogi · maszyna</span></div></div>
+            </div>
+          </div></div></div>
+        </article>
       </div>
-      <div class="feature reveal" style="--i:1">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="10" height="15" rx="2" transform="rotate(-8 5 4)"/><rect x="8" y="5" width="11" height="15" rx="2"/></svg></div>
-        <h3 data-i18n="features.2.title">Dopasowanie do trenera</h3>
-        <p data-i18n="features.2.desc">Przesuwaj profile trenerów w pobliżu, jak w aplikacji randkowej. Widzisz oceny, specjalizację i odległość, zanim napiszesz pierwszą wiadomość.</p>
+      <div class="fx-aside" aria-hidden="true">
+        <div class="fx-stage"><div class="phone fx-phone"></div></div>
       </div>
-      <div class="feature reveal" style="--i:2">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
-        <h3 data-i18n="features.3.title">Rezerwacje sesji</h3>
-        <p data-i18n="features.3.desc">Umawiaj się z trenerem online, z automatycznym linkiem do Google Meet, albo stacjonarnie na siłowni, bez przerzucania się między aplikacjami.</p>
-      </div>
-      <div class="feature reveal" style="--i:3">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></div>
-        <h3 data-i18n="features.4.title">Czat</h3>
-        <p data-i18n="features.4.desc">Pisz z trenerem albo z Ramvo AI, wysyłaj zdjęcia i dokumenty. Jedna rozmowa, zawsze pod ręką, z pełną historią w jednym miejscu.</p>
-      </div>
-      <div class="feature reveal" style="--i:4">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-        <h3 data-i18n="features.5.title">Śledzenie postępów</h3>
-        <p data-i18n="features.5.desc">Zdjęcia sylwetki, pomiary ciała i wykresy w czasie. Widzisz realną zmianę sylwetki, nie tylko liczbę na wadze.</p>
-      </div>
-      <div class="feature reveal" style="--i:5">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="1"/><path d="M7 7v10M11 7v10M15 7v3M15 14v3M18 7v10"/></svg></div>
-        <h3 data-i18n="features.6.title">Kalorie i makra</h3>
-        <p data-i18n="features.6.desc">Skanuj kod kreskowy produktu albo wpisz posiłek ręcznie. Dziennik żywienia liczy kalorie i makroskładniki na bieżąco, sam.</p>
-      </div>
-      <div class="feature reveal" style="--i:6">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-9.3-9.2C1.4 8.6 3 5 6.6 5c2 0 3.2 1 4.4 2.6C12.2 6 13.4 5 15.4 5 19 5 20.6 8.6 19.3 11.8 17 16.4 12 21 12 21Z"/></svg></div>
-        <h3 data-i18n="features.7.title">Passy i odznaki</h3>
-        <p data-i18n="features.7.desc">Licznik serii treningowej i posiłkowej, odznaki za konsekwencję i przypomnienie, zanim stracisz passę.</p>
-      </div>
-      <div class="feature reveal" style="--i:7">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 9l5 3-5 3Z"/></svg></div>
-        <h3 data-i18n="features.8.title">Biblioteka ćwiczeń</h3>
-        <p data-i18n="features.8.desc">Każde ćwiczenie z krótkim instruktażem wideo, bez zgadywania, jak wygląda poprawna technika wykonania.</p>
-      </div>
+    </div>
+  </section>
+
+  <section id="week">
+    <div class="section-head reveal">
+      <h2 data-i18n="week.title">Tydzień z Ramvo</h2>
+      <p data-i18n="week.sub">Co robi trener, a co klient, dzień po dniu. Każda linijka to funkcja, która już działa w aplikacji.</p>
+    </div>
+    <div class="wk-legend reveal"><span><i class="t"></i><span data-i18n="week.trainer">Trener</span></span><span><i class="c"></i><span data-i18n="week.client">Klient</span></span></div>
+    <div class="wk-scroll">
+      <ol class="wk-track" id="wk-track">
+        <li class="wk-day" style="--i:0"><span class="wk-label" data-i18n="week.d1">Pon</span><div class="wk-card t"><small data-i18n="week.trainer">Trener</small><span data-i18n="week.t1">Przypisuje plan na miesiąc kilku klientom naraz</span></div><div class="wk-card c"><small data-i18n="week.client">Klient</small><span data-i18n="week.c1">Dostaje powiadomienie i widzi plan</span></div></li>
+        <li class="wk-day" style="--i:1"><span class="wk-label" data-i18n="week.d2">Wt</span><div class="wk-card t"><small data-i18n="week.trainer">Trener</small><span data-i18n="week.t2">Widzi na żywo, kto trenuje</span></div><div class="wk-card c"><small data-i18n="week.client">Klient</small><span data-i18n="week.c2">Trenuje z filmem techniki, odhacza serie</span></div></li>
+        <li class="wk-day" style="--i:2"><span class="wk-label" data-i18n="week.d3">Śr</span><div class="wk-card t"><small data-i18n="week.trainer">Trener</small><span data-i18n="week.t3">Odpisuje na czacie</span></div><div class="wk-card c"><small data-i18n="week.client">Klient</small><span data-i18n="week.c3">Skanuje kod kreskowy, makro liczy się samo</span></div></li>
+        <li class="wk-day" style="--i:3"><span class="wk-label" data-i18n="week.d4">Czw</span><div class="wk-card t"><small data-i18n="week.trainer">Trener</small><span data-i18n="week.t4">Widzi, kto od kilku dni nie trenuje</span></div><div class="wk-card c"><small data-i18n="week.client">Klient</small><span data-i18n="week.c4">Rezerwuje sesję online</span></div></li>
+        <li class="wk-day" style="--i:4"><span class="wk-label" data-i18n="week.d5">Pt</span><div class="wk-card t"><small data-i18n="week.trainer">Trener</small><span data-i18n="week.t5">Prowadzi sesję przez Google Meet</span></div><div class="wk-card c"><small data-i18n="week.client">Klient</small><span data-i18n="week.c5">Passa rośnie, odznaka</span></div></li>
+        <li class="wk-day" style="--i:5"><span class="wk-label" data-i18n="week.d6">Sob</span><div class="wk-card t off"><small data-i18n="week.trainer">Trener</small><span data-i18n="week.off">Wolne</span></div><div class="wk-card c"><small data-i18n="week.client">Klient</small><span data-i18n="week.c6">Dopisuje rower spoza planu</span></div></li>
+        <li class="wk-day" style="--i:6"><span class="wk-label" data-i18n="week.d7">Nd</span><div class="wk-card t off"><small data-i18n="week.trainer">Trener</small><span data-i18n="week.off">Wolne</span></div><div class="wk-card c"><small data-i18n="week.client">Klient</small><span data-i18n="week.c7">Dzień regeneracji zalicza się do passy</span></div></li>
+        <li class="wk-day next" style="--i:7"><span class="wk-label" data-i18n="week.d8">Pon, 9:00</span><div class="wk-card t"><small data-i18n="week.trainer">Trener</small><span data-i18n="week.t8">Ma postępy klientów w panelu</span></div><div class="wk-card c"><small data-i18n="week.client">Klient</small><span data-i18n="week.c8">Dostaje podsumowanie tygodnia</span></div></li>
+      </ol>
     </div>
   </section>
 
@@ -1266,6 +1467,68 @@ footer a { color: var(--fg-muted); }
       'mk.carbs': 'węgle',
       'mk.fat': 'tłuszcz',
       'mk.history': 'Pełna historia makro &rarr;',
+      'fx.ai.c1': 'Cel: redukcja',
+      'fx.ai.c2': 'Średni poziom',
+      'fx.ai.c3': 'Siłownia',
+      'fx.ai.c4': '3× w tygodniu',
+      'fx.ai.msg': 'Twój plan jest gotowy: 12 treningów na 4 tygodnie.',
+      'fx.ai.planTag': 'Plan treningowy',
+      'fx.ai.plan': 'Redukcja, 4 tygodnie',
+      'fx.ai.d1': '<span>Pn</span>Góra ciała · 6 ćwiczeń',
+      'fx.ai.d2': '<span>Śr</span>Dół ciała · 5 ćwiczeń',
+      'fx.ai.d3': '<span>Pt</span>Całe ciało · 6 ćwiczeń',
+      'fx.ai.mealTag': 'Jadłospis',
+      'fx.ai.meal': '2000 kcal · 150 g białka',
+      'fx.ai.save': 'Zapisz plan',
+      'fx.chat.role': 'Twój trener',
+      'fx.chat.m1': 'Jak poszły przysiady w środę?',
+      'fx.chat.m2': '4 × 8 na 60 kg, ostatnia seria ciężko.',
+      'fx.chat.m4': 'Głębokość jest dobra. W piątek zostań na 60 kg i dołóż serię.',
+      'fx.chat.input': 'Napisz wiadomość',
+      'fx.prog.title': 'Postępy',
+      'fx.prog.weight': 'Waga',
+      'fx.prog.weightV': '−3,6 kg',
+      'fx.prog.waist': 'Talia',
+      'fx.prog.hips': 'Biodra',
+      'fx.badge.title': 'Nowa odznaka',
+      'fx.badge.desc': '7 dni treningów z rzędu',
+      'fx.lib.title': 'Biblioteka ćwiczeń',
+      'fx.lib.now': 'Przysiad przedni · 0:42',
+      'fx.lib.search': 'Szukaj: nogi',
+      'fx.lib.e1': 'Przysiad przedni',
+      'fx.lib.m1': 'Nogi · sztanga',
+      'fx.lib.m2': 'Pośladki · sztanga',
+      'fx.lib.e3': 'Przysiad bułgarski',
+      'fx.lib.m3': 'Nogi · hantle',
+      'fx.lib.e4': 'Uginanie nóg',
+      'fx.lib.m4': 'Nogi · maszyna',
+      'week.title': 'Tydzień z Ramvo',
+      'week.sub': 'Co robi trener, a co klient, dzień po dniu. Każda linijka to funkcja, która już działa w aplikacji.',
+      'week.trainer': 'Trener',
+      'week.client': 'Klient',
+      'week.off': 'Wolne',
+      'week.d1': 'Pon',
+      'week.d2': 'Wt',
+      'week.d3': 'Śr',
+      'week.d4': 'Czw',
+      'week.d5': 'Pt',
+      'week.d6': 'Sob',
+      'week.d7': 'Nd',
+      'week.d8': 'Pon, 9:00',
+      'week.t1': 'Przypisuje plan na miesiąc kilku klientom naraz',
+      'week.c1': 'Dostaje powiadomienie i widzi plan',
+      'week.t2': 'Widzi na żywo, kto trenuje',
+      'week.c2': 'Trenuje z filmem techniki, odhacza serie',
+      'week.t3': 'Odpisuje na czacie',
+      'week.c3': 'Skanuje kod kreskowy, makro liczy się samo',
+      'week.t4': 'Widzi, kto od kilku dni nie trenuje',
+      'week.c4': 'Rezerwuje sesję online',
+      'week.t5': 'Prowadzi sesję przez Google Meet',
+      'week.c5': 'Passa rośnie, odznaka',
+      'week.c6': 'Dopisuje rower spoza planu',
+      'week.c7': 'Dzień regeneracji zalicza się do passy',
+      'week.t8': 'Ma postępy klientów w panelu',
+      'week.c8': 'Dostaje podsumowanie tygodnia',
       'trainers.title': 'Jesteś trenerem personalnym?',
       'trainers.body': 'Tworzenie i wysyłanie planów treningowych klientom ręcznie zajmuje mnóstwo czasu. Dołącz do Ramvo jako jeden z pierwszych trenerów i miej to wszystko w jednym miejscu, bez własnej strony, systemu rezerwacji czy aplikacji do kontaktu.',
       'trainers.item1': 'Wczesny dostęp za darmo, status „Founding Trainer"',
@@ -1412,6 +1675,68 @@ footer a { color: var(--fg-muted); }
       'mk.carbs': 'carbs',
       'mk.fat': 'fat',
       'mk.history': 'Full macro history &rarr;',
+      'fx.ai.c1': 'Goal: fat loss',
+      'fx.ai.c2': 'Intermediate',
+      'fx.ai.c3': 'Gym',
+      'fx.ai.c4': '3× a week',
+      'fx.ai.msg': 'Your plan is ready: 12 sessions over 4 weeks.',
+      'fx.ai.planTag': 'Workout plan',
+      'fx.ai.plan': 'Fat loss, 4 weeks',
+      'fx.ai.d1': '<span>Mon</span>Upper body · 6 exercises',
+      'fx.ai.d2': '<span>Wed</span>Lower body · 5 exercises',
+      'fx.ai.d3': '<span>Fri</span>Full body · 6 exercises',
+      'fx.ai.mealTag': 'Meal plan',
+      'fx.ai.meal': '2000 kcal · 150 g protein',
+      'fx.ai.save': 'Save plan',
+      'fx.chat.role': 'Your trainer',
+      'fx.chat.m1': "How did Wednesday's squats go?",
+      'fx.chat.m2': '4 × 8 at 60 kg, the last set was tough.',
+      'fx.chat.m4': 'Depth looks good. Stay at 60 kg on Friday and add a set.',
+      'fx.chat.input': 'Write a message',
+      'fx.prog.title': 'Progress',
+      'fx.prog.weight': 'Weight',
+      'fx.prog.weightV': '−3.6 kg',
+      'fx.prog.waist': 'Waist',
+      'fx.prog.hips': 'Hips',
+      'fx.badge.title': 'New badge',
+      'fx.badge.desc': '7 training days in a row',
+      'fx.lib.title': 'Exercise library',
+      'fx.lib.now': 'Front squat · 0:42',
+      'fx.lib.search': 'Search: legs',
+      'fx.lib.e1': 'Front squat',
+      'fx.lib.m1': 'Legs · barbell',
+      'fx.lib.m2': 'Glutes · barbell',
+      'fx.lib.e3': 'Bulgarian split squat',
+      'fx.lib.m3': 'Legs · dumbbells',
+      'fx.lib.e4': 'Leg curl',
+      'fx.lib.m4': 'Legs · machine',
+      'week.title': 'A week with Ramvo',
+      'week.sub': 'What the trainer does and what the client does, day by day. Every line is a feature already in the app.',
+      'week.trainer': 'Trainer',
+      'week.client': 'Client',
+      'week.off': 'Day off',
+      'week.d1': 'Mon',
+      'week.d2': 'Tue',
+      'week.d3': 'Wed',
+      'week.d4': 'Thu',
+      'week.d5': 'Fri',
+      'week.d6': 'Sat',
+      'week.d7': 'Sun',
+      'week.d8': 'Mon, 9:00',
+      'week.t1': "Assigns a month's plan to several clients at once",
+      'week.c1': 'Gets a notification and sees the plan',
+      'week.t2': 'Sees live who is training',
+      'week.c2': 'Trains with a form video, ticks off sets',
+      'week.t3': 'Replies in chat',
+      'week.c3': 'Scans a barcode, macros add up on their own',
+      'week.t4': 'Sees who has not trained for a few days',
+      'week.c4': 'Books an online session',
+      'week.t5': 'Runs the session on Google Meet',
+      'week.c5': 'Streak grows, badge unlocked',
+      'week.c6': 'Logs a bike ride outside the plan',
+      'week.c7': 'A rest day counts toward the streak',
+      'week.t8': "Has clients' progress in the panel",
+      'week.c8': 'Gets a weekly summary',
       'trainers.title': 'Are you a personal trainer?',
       'trainers.body': 'Creating and sending workout plans to clients by hand takes a huge amount of time. Join Ramvo as one of the first trainers and have it all in one place, without your own website, booking system or messaging app.',
       'trainers.item1': 'Free early access, "Founding Trainer" status',
@@ -1593,6 +1918,43 @@ footer a { color: var(--fg-muted); }
       document.body.appendChild(piece);
       (function (p) { setTimeout(function () { p.remove(); }, 2200); })(piece);
     }
+  }
+
+  // ---- features: one sticky phone that follows the feature in the middle
+  // of the viewport (CSS shows it from 900 px). Each feature's own screen
+  // is cloned into it, so the copy lives in one place and i18n reaches
+  // both. ----
+  var fxItems = Array.prototype.slice.call(document.querySelectorAll('.fx-item'));
+  var fxPhone = document.querySelector('.fx-phone');
+  if (fxPhone && fxItems.length && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('fx-js');
+    var fxScreens = fxItems.map(function (item) {
+      var screen = item.querySelector('.fx-shot .screen').cloneNode(true);
+      fxPhone.appendChild(screen);
+      return screen;
+    });
+    var fxActivate = function (index) {
+      if (index < 0) return;
+      fxItems.forEach(function (it, i) { it.classList.toggle('active', i === index); });
+      fxScreens.forEach(function (s, i) { s.classList.toggle('active', i === index); });
+    };
+    fxActivate(0);
+    var fxIo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) fxActivate(fxItems.indexOf(entry.target));
+      });
+    }, { rootMargin: '-45% 0px -54% 0px' });
+    fxItems.forEach(function (it) { fxIo.observe(it); });
+
+    // ---- Tydzień z Ramvo: days slide in one after another ----
+    var wkTrack = document.getElementById('wk-track');
+    var wkIo = new IntersectionObserver(function (entries) {
+      if (entries.some(function (e) { return e.isIntersecting; })) {
+        wkTrack.classList.add('is-in');
+        wkIo.disconnect();
+      }
+    }, { rootMargin: '0px 0px -20% 0px' });
+    wkIo.observe(wkTrack);
   }
 
   // ---- hero loop: autoplay only without reduced motion, so those
