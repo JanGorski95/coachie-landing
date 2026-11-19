@@ -183,6 +183,9 @@ section[id] { scroll-margin-top: 76px; }
   transition: background 0.15s ease;
 }
 .nav-trainers:hover { background: var(--accent-soft); }
+/* the section links would only show half a word next to the buttons; the
+   same links sit in the footer */
+@media (max-width: 720px) { .nav-links { display: none; } }
 @media (max-width: 480px) {
   .nav { gap: 6px; }
   .nav-right { gap: 5px; }
@@ -217,9 +220,9 @@ section[id] { scroll-margin-top: 76px; }
   .hero .hero-ctas { justify-content: center; }
 }
 
-/* Hero phone: slightly turned, cyan glow behind. Stacks under the copy
-   on narrow screens (grid above). Content mirrors frame 1 of the planned
-   hero loop ("Monday: new plan from your trainer"). */
+/* Hero phone: slightly turned, cyan glow behind, playing the 12 s week
+   loop (assets/hero-loop-<lang>.*). Stacks under the copy on narrow
+   screens (grid above). */
 .hero-device { position: relative; justify-self: center; width: min(260px, 70vw); padding: 24px 0; transition-delay: 0.5s; }
 .hero-device::before {
   content: '';
@@ -245,31 +248,9 @@ section[id] { scroll-margin-top: 76px; }
   overflow: hidden;
   position: relative;
   background: var(--bg);
-  padding: 40px 14px 14px;
-  text-align: left;
-  font-size: 12.5px;
 }
-.hero-screen::before { content: ''; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 76px; height: 22px; border-radius: 999px; background: #000; }
-.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.hs-day { display: inline-block; font: 800 10px 'Archivo', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); border-radius: 999px; padding: 4px 10px; margin-bottom: 10px; }
-.hs-push { display: flex; gap: 9px; align-items: flex-start; background: #2a2f36; border-radius: 14px; padding: 9px 10px; margin-bottom: 14px; animation: hs-drop 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.2) 1.2s both; }
-.hs-push img { border-radius: 7px; flex: 0 0 auto; }
-.hs-push b { display: block; font-size: 11.5px; }
-.hs-push span { display: block; font-size: 11px; color: #c9ced5; line-height: 1.35; }
-@keyframes hs-drop { from { opacity: 0; transform: translateY(-24px); } }
-.hs-hi { font: 800 19px 'Archivo', sans-serif; margin: 0 0 10px; }
-.hs-card { background: var(--bg-raised); border-radius: 14px; padding: 11px; margin-bottom: 9px; }
-.hs-plan { outline: 2px solid var(--accent); }
-.hs-label { font-size: 10px; font-weight: 700; color: var(--accent); letter-spacing: 0.04em; margin-bottom: 3px; }
-.hs-title { font: 800 15px 'Archivo', sans-serif; }
-.hs-meta { color: var(--fg-muted); font-size: 11px; margin-bottom: 9px; }
-.hs-btn { text-align: center; background: var(--accent); color: var(--accent-fg); font-weight: 700; font-size: 11.5px; border-radius: 8px; padding: 8px; }
-.hs-streak { display: flex; align-items: center; gap: 10px; }
-.hs-streak b { font: 800 26px 'Archivo', sans-serif; color: var(--accent-2); }
-.hs-streak-t { font-weight: 700; font-size: 11.5px; }
-.hs-dots { display: flex; gap: 4px; margin-top: 6px; }
-.hs-dots i { flex: 1; width: 14px; height: 5px; border-radius: 3px; background: var(--bg-sunken); }
-.hs-dots i.on { background: var(--accent-2); }
+.hero-screen::before { content: ''; position: absolute; z-index: 1; top: 10px; left: 50%; transform: translateX(-50%); width: 76px; height: 22px; border-radius: 999px; background: #000; }
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 /* Scroll-linked parallax (see JS) is applied to the wrapper via
    transform, while the drift keyframe animation stays owned by the
    inner .hero-glow itself - an animated property can't also take an
@@ -862,37 +843,18 @@ footer a { color: var(--fg-muted); }
         <a href="/trenerzy/" class="btn btn-trainer" data-i18n="hero.ctaTrainer">Jestem trenerem &rarr;</a>
       </div>
     </div>
-    <!-- Hero phone. When assets/hero-loop.{webm,mp4} and hero-poster.jpg land,
-         replace .hero-screen's children with:
-         <video class="hero-video" muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" aria-hidden="true">
-           <source src="assets/hero-loop.webm" type="video/webm">
-           <source src="assets/hero-loop.mp4" type="video/mp4">
-         </video>
-         The script below starts it only without prefers-reduced-motion, so
-         reduced-motion visitors see just the poster. -->
+    <!-- Hero loop: 12 s, Monday to Sunday (new plan, sets with the technique
+         video, streak 11 -> 12 with a badge, weight chart). One file per
+         language; setHeroVideo() swaps sources with the page language and
+         only plays it without prefers-reduced-motion, so those visitors see
+         the poster alone. -->
     <div class="hero-device reveal blur-in" style="--i:4">
       <div class="hero-phone">
         <div class="hero-screen">
-          <div class="hs-day" data-i18n="hero.phone.day">Poniedziałek</div>
-          <div class="hs-push">
-            <img src="/assets/brand/favicon/favicon.svg" alt="" width="28" height="28">
-            <div><b data-i18n="hero.phone.pushTitle">Nowy plan od trenera</b><span data-i18n="hero.phone.pushBody">Siła, grudzień jest już w Twojej aplikacji.</span></div>
-          </div>
-          <p class="hs-hi" data-i18n="hero.phone.hi">Cześć, Kasia</p>
-          <div class="hs-card hs-plan">
-            <div class="hs-label" data-i18n="hero.phone.planLabel">Plan na grudzień</div>
-            <div class="hs-title" data-i18n="hero.phone.planTitle">Siła, grudzień</div>
-            <div class="hs-meta" data-i18n="hero.phone.planMeta">12 treningów · 4 tygodnie</div>
-            <div class="hs-btn" data-i18n="hero.phone.start">Zacznij dzień A</div>
-          </div>
-          <div class="hs-card hs-streak">
-            <b>11</b>
-            <div><div class="hs-streak-t" data-i18n="hero.phone.streak">dni z rzędu</div><div class="hs-dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
-          </div>
-          <div class="hs-card hs-streak">
-            <svg width="38" height="38" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="18" stroke="#1F242B" stroke-width="6" fill="none"/><circle cx="22" cy="22" r="18" stroke="#3EC6FF" stroke-width="6" fill="none" stroke-dasharray="113" stroke-dashoffset="40" transform="rotate(-90 22 22)" stroke-linecap="round"/></svg>
-            <div><div class="hs-streak-t" data-i18n="hero.phone.protein">Białko dziś</div><div class="hs-meta" style="margin:2px 0 0">92 / 140 g</div></div>
-          </div>
+          <video class="hero-video" muted loop playsinline preload="none" poster="assets/hero-poster-pl.jpg" data-lang="pl" aria-hidden="true">
+            <source src="assets/hero-loop-pl.mp4" type="video/mp4">
+            <source src="assets/hero-loop-pl.webm" type="video/webm">
+          </video>
         </div>
       </div>
     </div>
@@ -1385,16 +1347,6 @@ footer a { color: var(--fg-muted); }
       'hero.ctaPrimary': 'Zapisz się na start',
       'hero.ctaGhost': 'Zobacz co potrafi',
       'hero.ctaTrainer': 'Jestem trenerem &rarr;',
-      'hero.phone.day': 'Poniedziałek',
-      'hero.phone.pushTitle': 'Nowy plan od trenera',
-      'hero.phone.pushBody': 'Siła, grudzień jest już w Twojej aplikacji.',
-      'hero.phone.hi': 'Cześć, Kasia',
-      'hero.phone.planLabel': 'Plan na grudzień',
-      'hero.phone.planTitle': 'Siła, grudzień',
-      'hero.phone.planMeta': '12 treningów · 4 tygodnie',
-      'hero.phone.start': 'Zacznij dzień A',
-      'hero.phone.streak': 'dni z rzędu',
-      'hero.phone.protein': 'Białko dziś',
       'cards.1.title': 'Prawdziwi trenerzy',
       'cards.1.desc': 'Trener personalny prowadzi Cię krok po kroku, a tworzenie i wysyłanie planów zajmuje mu teraz minuty, nie godziny.',
       'cards.2.title': 'Ramvo AI, Twój wirtualny trener',
@@ -1593,16 +1545,6 @@ footer a { color: var(--fg-muted); }
       'hero.ctaPrimary': 'Get early access',
       'hero.ctaGhost': 'See what it does',
       'hero.ctaTrainer': "I'm a trainer &rarr;",
-      'hero.phone.day': 'Monday',
-      'hero.phone.pushTitle': 'New plan from your trainer',
-      'hero.phone.pushBody': 'Strength, December is now in your app.',
-      'hero.phone.hi': 'Hi, Emma',
-      'hero.phone.planLabel': 'December plan',
-      'hero.phone.planTitle': 'Strength, December',
-      'hero.phone.planMeta': '12 sessions · 4 weeks',
-      'hero.phone.start': 'Start day A',
-      'hero.phone.streak': 'days in a row',
-      'hero.phone.protein': 'Protein today',
       'cards.1.title': 'Real trainers',
       'cards.1.desc': 'A personal trainer guides you step by step, and creating and sending plans now takes them minutes, not hours.',
       'cards.2.title': 'Ramvo AI, your virtual trainer',
@@ -1801,6 +1743,28 @@ footer a { color: var(--fg-muted); }
     if (labelEl) labelEl.textContent = TRANSLATIONS[currentLang]['counter.suffix'];
   }
 
+  // Hero loop has text in it, so each language has its own files. Swaps
+  // poster and sources when the language changes; plays only without
+  // reduced motion (those visitors keep the poster frame).
+  function setHeroVideo(lang, force) {
+    var v = document.querySelector('.hero-video');
+    if (!v) return;
+    if (v.getAttribute('data-lang') !== lang) {
+      v.setAttribute('data-lang', lang);
+      v.poster = 'assets/hero-poster-' + lang + '.jpg';
+      var sources = v.querySelectorAll('source');
+      sources[0].src = 'assets/hero-loop-' + lang + '.mp4';
+      sources[1].src = 'assets/hero-loop-' + lang + '.webm';
+      v.load();
+      force = true;
+    }
+    if (force && !reduceMotion) {
+      v.preload = 'auto';
+      var p = v.play();
+      if (p && p.catch) p.catch(function () {});
+    }
+  }
+
   function applyLanguage(lang) {
     if (!TRANSLATIONS[lang]) lang = 'pl';
     currentLang = lang;
@@ -1821,6 +1785,7 @@ footer a { color: var(--fg-muted); }
       b.classList.toggle('active', b.getAttribute('data-lang') === lang);
     });
     renderCounter();
+    setHeroVideo(lang, false);
     try { localStorage.setItem('ramvo-lang', lang); } catch (e) {}
   }
 
@@ -1957,14 +1922,8 @@ footer a { color: var(--fg-muted); }
     wkIo.observe(wkTrack);
   }
 
-  // ---- hero loop: autoplay only without reduced motion, so those
-  // visitors keep the poster frame ----
-  var heroVideo = document.querySelector('.hero-video');
-  if (heroVideo && !reduceMotion) {
-    heroVideo.autoplay = true;
-    var playPromise = heroVideo.play();
-    if (playPromise && playPromise.catch) playPromise.catch(function () {});
-  }
+  // ---- hero loop: start it (the language switch already set its sources) ----
+  setHeroVideo(currentLang, true);
 
   // ---- hero entrance ----
   requestAnimationFrame(function () {
