@@ -211,11 +211,6 @@ section[id] { scroll-margin-top: 76px; }
   padding: 6px 14px;
   margin-bottom: 20px;
 }
-.eyebrow .flame { animation: pulse 2.4s ease-in-out infinite; display: inline-block; }
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.18); }
-}
 h1 {
   font-size: clamp(2rem, 6vw, 3rem);
   font-weight: 800;
@@ -683,11 +678,10 @@ footer a { color: var(--fg-muted); }
     <div class="hero-glow-wrap" data-parallax="0.08"><div class="hero-glow a"></div></div>
     <div class="hero-glow-wrap" data-parallax="0.05"><div class="hero-glow b"></div></div>
     <div class="reveal-group">
-      <span class="eyebrow reveal blur-in" style="--i:0" data-i18n="hero.eyebrow"><span class="flame">🔥</span> Już wkrótce</span>
+      <span class="eyebrow reveal blur-in" style="--i:0" data-i18n="hero.eyebrow">Start 1 stycznia 2027</span>
       <h1 class="reveal blur-in" style="--i:1" data-i18n="hero.title">Znajdź trenera. <em>Albo</em> zadbaj o siebie z Ramvo AI.</h1>
       <p class="sub reveal blur-in" style="--i:2" data-i18n="hero.sub">
-        Ramvo to prawdziwi trenerzy personalni, bez czasochłonnego tworzenia i ręcznego wysyłania planów.
-        A jeśli nie masz jeszcze trenera, Ramvo AI zadba o Ciebie od pierwszej minuty.
+        Twój trener układa plan, Ramvo dostarcza go w sekundę. Bez trenera? Ramvo AI ułoży plan za Ciebie.
       </p>
       <div class="hero-ctas reveal" style="--i:3">
         <a href="#signup-section" class="btn btn-primary" data-i18n="hero.ctaPrimary">Zapisz się na start</a>
@@ -845,7 +839,7 @@ footer a { color: var(--fg-muted); }
           <p class="preview-caption" data-i18n="preview.caption4">Kalorie i makra pod kontrolą</p>
         </div>
       </div>
-      <p class="preview-footnote" data-i18n="preview.footnote">Prawdziwe zrzuty ekranu z aplikacji Ramvo. Widok dopasowania trenera to wizualizacja koncepcyjna.</p>
+      <p class="preview-footnote" data-i18n="preview.footnote">Passa, rezerwacje oraz kalorie i makra to prawdziwe zrzuty ekranu z aplikacji Ramvo.</p>
     </div>
   </section>
 
@@ -857,7 +851,7 @@ footer a { color: var(--fg-muted); }
         <ul>
           <li data-i18n="trainers.item1">Wczesny dostęp za darmo, status „Founding Trainer"</li>
           <li data-i18n="trainers.item2">Twórz i wysyłaj plany klientom w kilka minut, nie godzin</li>
-          <li data-i18n="trainers.item3">Rezerwacje, czat i płatności w jednym miejscu</li>
+          <li data-i18n="trainers.item3">Rezerwacje, czat i postępy klientów w jednym miejscu</li>
         </ul>
       </div>
       <div class="cta" style="display:flex; flex-direction:column; gap:10px; align-items:center;">
@@ -982,9 +976,9 @@ footer a { color: var(--fg-muted); }
       'nav.faq': 'FAQ',
       'nav.legal': 'Polityka i Regulamin',
       'nav.cta': 'Zapisz się',
-      'hero.eyebrow': '<span class="flame">🔥</span> Już wkrótce',
+      'hero.eyebrow': 'Start 1 stycznia 2027',
       'hero.title': 'Znajdź trenera. <em>Albo</em> zadbaj o siebie z Ramvo AI.',
-      'hero.sub': 'Ramvo to prawdziwi trenerzy personalni, bez czasochłonnego tworzenia i ręcznego wysyłania planów. A jeśli nie masz jeszcze trenera, Ramvo AI zadba o Ciebie od pierwszej minuty.',
+      'hero.sub': 'Twój trener układa plan, Ramvo dostarcza go w sekundę. Bez trenera? Ramvo AI ułoży plan za Ciebie.',
       'hero.ctaPrimary': 'Zapisz się na start',
       'hero.ctaGhost': 'Zobacz co potrafi',
       'cards.1.title': 'Prawdziwi trenerzy',
@@ -1032,12 +1026,12 @@ footer a { color: var(--fg-muted); }
       'preview.caption2': 'Przesuń, żeby dopasować trenera',
       'preview.caption3': 'Rezerwacje online i na siłowni, zawsze pod ręką',
       'preview.caption4': 'Kalorie i makra pod kontrolą',
-      'preview.footnote': 'Prawdziwe zrzuty ekranu z aplikacji Ramvo. Widok dopasowania trenera to wizualizacja koncepcyjna.',
+      'preview.footnote': 'Passa, rezerwacje oraz kalorie i makra to prawdziwe zrzuty ekranu z aplikacji Ramvo.',
       'trainers.title': 'Jesteś trenerem personalnym?',
       'trainers.body': 'Tworzenie i wysyłanie planów treningowych klientom ręcznie zajmuje mnóstwo czasu. Dołącz do Ramvo jako jeden z pierwszych trenerów i miej to wszystko w jednym miejscu, bez własnej strony, systemu rezerwacji czy aplikacji do kontaktu.',
       'trainers.item1': 'Wczesny dostęp za darmo, status „Founding Trainer"',
       'trainers.item2': 'Twórz i wysyłaj plany klientom w kilka minut, nie godzin',
-      'trainers.item3': 'Rezerwacje, czat i płatności w jednym miejscu',
+      'trainers.item3': 'Rezerwacje, czat i postępy klientów w jednym miejscu',
       'trainers.cta': 'Napisz do nas',
       'trainers.demo': 'Zobacz demo dla trenerów',
       'trainerForm.title': 'Zgłoś się jako trener',
@@ -1058,7 +1052,7 @@ footer a { color: var(--fg-muted); }
       'faq.2.q': 'Ile to kosztuje?',
       'faq.2.a': 'Dla osób, które zapiszą się na liście oczekujących już teraz, dostęp do Ramvo będzie darmowy na zawsze. Cennik dla osób, które dołączą po pełnym starcie, jeszcze nie jest ustalony.',
       'faq.3.q': 'Na jakie platformy wyjdzie appka i kiedy?',
-      'faq.3.a': 'iOS i Android razem, premiera planowana na grudzień.',
+      'faq.3.a': 'iOS i Android razem, start 1 stycznia 2027.',
       'faq.4.q': 'Czy moje dane są bezpieczne?',
       'faq.4.a': 'Tak. Pełne informacje o tym, jakie dane zbieramy i dlaczego, znajdziesz w naszej <a href="/legal/">Polityce prywatności</a>.',
       'faq.5.q': 'Czy mogę zostać trenerem w appce?',
@@ -1091,9 +1085,9 @@ footer a { color: var(--fg-muted); }
       'nav.faq': 'FAQ',
       'nav.legal': 'Privacy & Terms',
       'nav.cta': 'Sign up',
-      'hero.eyebrow': '<span class="flame">🔥</span> Coming soon',
+      'hero.eyebrow': 'Launching 1 January 2027',
       'hero.title': 'Find a trainer. <em>Or</em> take care of yourself with Ramvo AI.',
-      'hero.sub': "Ramvo is real personal trainers, without the time-consuming, manual work of creating and sending plans. And if you don't have a trainer yet, Ramvo AI takes care of you from the first minute.",
+      'hero.sub': 'Your trainer writes the plan, Ramvo delivers it in a second. No trainer? Ramvo AI builds the plan for you.',
       'hero.ctaPrimary': 'Get early access',
       'hero.ctaGhost': 'See what it does',
       'cards.1.title': 'Real trainers',
@@ -1141,12 +1135,12 @@ footer a { color: var(--fg-muted); }
       'preview.caption2': 'Swipe to match with a trainer',
       'preview.caption3': 'Online and gym bookings, always at hand',
       'preview.caption4': 'Calories and macros under control',
-      'preview.footnote': 'Real screenshots from the Ramvo app. The trainer-matching view is a conceptual visualization.',
+      'preview.footnote': 'Streak, bookings and calories and macros are real screenshots from the Ramvo app.',
       'trainers.title': 'Are you a personal trainer?',
       'trainers.body': 'Creating and sending workout plans to clients by hand takes a huge amount of time. Join Ramvo as one of the first trainers and have it all in one place, without your own website, booking system or messaging app.',
       'trainers.item1': 'Free early access, "Founding Trainer" status',
       'trainers.item2': 'Create and send plans to clients in minutes, not hours',
-      'trainers.item3': 'Bookings, chat and payments in one place',
+      'trainers.item3': 'Bookings, chat and client progress in one place',
       'trainers.cta': 'Get in touch',
       'trainers.demo': 'See the trainer demo',
       'trainerForm.title': 'Apply as a trainer',
@@ -1167,7 +1161,7 @@ footer a { color: var(--fg-muted); }
       'faq.2.q': 'How much does it cost?',
       'faq.2.a': "For people who join the waitlist now, access to Ramvo will be free forever. Pricing for people who join after the full launch hasn't been decided yet.",
       'faq.3.q': 'Which platforms will the app launch on, and when?',
-      'faq.3.a': 'iOS and Android together, launch planned for December.',
+      'faq.3.a': 'iOS and Android together, launching 1 January 2027.',
       'faq.4.q': 'Is my data safe?',
       'faq.4.a': 'Yes. Full details on what data we collect and why are in our <a href="/legal/">Privacy Policy</a>.',
       'faq.5.q': 'Can I become a trainer in the app?',
