@@ -168,6 +168,36 @@ section[id] { scroll-margin-top: 76px; }
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 14px -6px color-mix(in srgb, var(--accent) 60%, transparent); }
+/* "For trainers" sits next to the main CTA so trainers find /trenerzy/
+   without hunting through the link row (visible on phones too). */
+.nav-trainers {
+  flex: 0 0 auto;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+  border-radius: 999px;
+  padding: 7.5px 14px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+.nav-trainers:hover { background: var(--accent-soft); }
+@media (max-width: 480px) {
+  .nav { gap: 6px; }
+  .nav-right { gap: 5px; }
+  .wordmark img { height: 24px; }
+  .lang-switch { padding: 2px; }
+  .lang-switch button { padding: 5px 6px; }
+  .nav-trainers, .nav-cta { font-size: 0.76rem; padding: 7px 9px; }
+}
+@media (max-width: 400px) {
+  .wordmark img { height: 21px; }
+  .lang-switch button { padding: 4px 5px; font-size: 0.7rem; }
+  .nav-trainers, .nav-cta { font-size: 0.72rem; padding: 6px 8px; }
+}
+/* 320 px phones: the hero's own sign-up button is right below */
+@media (max-width: 345px) { .nav-cta { display: none; } }
 
 /* ---------- hero ---------- */
 .hero {
@@ -307,6 +337,8 @@ h1 em { font-style: normal; color: var(--accent); }
 .btn-primary:hover { box-shadow: 0 10px 20px -8px color-mix(in srgb, var(--accent) 60%, transparent); }
 .btn-ghost { color: var(--fg); background: transparent; border-color: var(--border); }
 .btn-ghost:hover { background: var(--bg-sunken); }
+.btn-trainer { color: var(--accent); background: transparent; border: 1.5px solid var(--accent); }
+.btn-trainer:hover { background: var(--accent-soft); }
 
 /* ---------- section headers ---------- */
 .section-head { text-align: center; margin-bottom: 30px; }
@@ -725,7 +757,6 @@ footer a { color: var(--fg-muted); }
     <div class="nav-links">
       <a href="#features" data-i18n="nav.features">Funkcje</a>
       <a href="#preview" data-i18n="nav.preview">Podgląd</a>
-      <a href="/trenerzy/" data-i18n="nav.trainers">Dla trenerów</a>
       <a href="#faq" data-i18n="nav.faq">FAQ</a>
       <a href="/legal/" data-i18n="nav.legal">Polityka i Regulamin</a>
     </div>
@@ -734,6 +765,7 @@ footer a { color: var(--fg-muted); }
         <button type="button" data-lang="pl">PL</button>
         <button type="button" data-lang="en">EN</button>
       </div>
+      <a href="/trenerzy/" class="nav-trainers" data-i18n="nav.trainers">Dla trenerów</a>
       <a href="#signup-section" class="nav-cta" data-i18n="nav.cta">Zapisz się</a>
     </div>
   </nav>
@@ -750,6 +782,7 @@ footer a { color: var(--fg-muted); }
       <div class="hero-ctas reveal" style="--i:3">
         <a href="#signup-section" class="btn btn-primary" data-i18n="hero.ctaPrimary">Zapisz się na start</a>
         <a href="#features" class="btn btn-ghost" data-i18n="hero.ctaGhost">Zobacz co potrafi</a>
+        <a href="/trenerzy/" class="btn btn-trainer" data-i18n="hero.ctaTrainer">Jestem trenerem &rarr;</a>
       </div>
     </div>
     <!-- Hero phone. When assets/hero-loop.{webm,mp4} and hero-poster.jpg land,
@@ -1079,6 +1112,7 @@ footer a { color: var(--fg-muted); }
       'hero.sub': 'Twój trener układa plan, Ramvo dostarcza go w sekundę. Bez trenera? Ramvo AI ułoży plan za Ciebie.',
       'hero.ctaPrimary': 'Zapisz się na start',
       'hero.ctaGhost': 'Zobacz co potrafi',
+      'hero.ctaTrainer': 'Jestem trenerem &rarr;',
       'hero.phone.day': 'Poniedziałek',
       'hero.phone.pushTitle': 'Nowy plan od trenera',
       'hero.phone.pushBody': 'Siła, grudzień jest już w Twojej aplikacji.',
@@ -1198,6 +1232,7 @@ footer a { color: var(--fg-muted); }
       'hero.sub': 'Your trainer writes the plan, Ramvo delivers it in a second. No trainer? Ramvo AI builds the plan for you.',
       'hero.ctaPrimary': 'Get early access',
       'hero.ctaGhost': 'See what it does',
+      'hero.ctaTrainer': "I'm a trainer &rarr;",
       'hero.phone.day': 'Monday',
       'hero.phone.pushTitle': 'New plan from your trainer',
       'hero.phone.pushBody': 'Strength, December is now in your app.',
