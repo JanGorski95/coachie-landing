@@ -172,10 +172,74 @@ section[id] { scroll-margin-top: 76px; }
 /* ---------- hero ---------- */
 .hero {
   padding-block: 52px 36px;
-  text-align: center;
   position: relative;
   overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 32px 48px;
+  align-items: center;
 }
+.hero .sub { margin: 0; }
+.hero .hero-ctas { justify-content: flex-start; }
+@media (max-width: 760px) {
+  .hero { grid-template-columns: minmax(0, 1fr); text-align: center; }
+  .hero .sub { margin: 0 auto; }
+  .hero .hero-ctas { justify-content: center; }
+}
+
+/* Hero phone: slightly turned, cyan glow behind. Stacks under the copy
+   on narrow screens (grid above). Content mirrors frame 1 of the planned
+   hero loop ("Monday: new plan from your trainer"). */
+.hero-device { position: relative; justify-self: center; width: min(260px, 70vw); padding: 24px 0; transition-delay: 0.5s; }
+.hero-device::before {
+  content: '';
+  position: absolute;
+  inset: 12% -8%;
+  border-radius: 50%;
+  background: var(--accent);
+  filter: blur(70px);
+  opacity: 0.32;
+  z-index: -1;
+}
+.hero-phone {
+  aspect-ratio: 9 / 19;
+  background: #000;
+  border-radius: 40px;
+  padding: 9px;
+  transform: rotate(4deg);
+  box-shadow: 0 40px 70px -30px rgba(0, 0, 0, 0.8), 0 0 0 1px #1F242B;
+}
+.hero-screen {
+  height: 100%;
+  border-radius: 32px;
+  overflow: hidden;
+  position: relative;
+  background: var(--bg);
+  padding: 40px 14px 14px;
+  text-align: left;
+  font-size: 12.5px;
+}
+.hero-screen::before { content: ''; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 76px; height: 22px; border-radius: 999px; background: #000; }
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hs-day { display: inline-block; font: 800 10px 'Archivo', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); border-radius: 999px; padding: 4px 10px; margin-bottom: 10px; }
+.hs-push { display: flex; gap: 9px; align-items: flex-start; background: #2a2f36; border-radius: 14px; padding: 9px 10px; margin-bottom: 14px; animation: hs-drop 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.2) 1.2s both; }
+.hs-push img { border-radius: 7px; flex: 0 0 auto; }
+.hs-push b { display: block; font-size: 11.5px; }
+.hs-push span { display: block; font-size: 11px; color: #c9ced5; line-height: 1.35; }
+@keyframes hs-drop { from { opacity: 0; transform: translateY(-24px); } }
+.hs-hi { font: 800 19px 'Archivo', sans-serif; margin: 0 0 10px; }
+.hs-card { background: var(--bg-raised); border-radius: 14px; padding: 11px; margin-bottom: 9px; }
+.hs-plan { outline: 2px solid var(--accent); }
+.hs-label { font-size: 10px; font-weight: 700; color: var(--accent); letter-spacing: 0.04em; margin-bottom: 3px; }
+.hs-title { font: 800 15px 'Archivo', sans-serif; }
+.hs-meta { color: var(--fg-muted); font-size: 11px; margin-bottom: 9px; }
+.hs-btn { text-align: center; background: var(--accent); color: var(--accent-fg); font-weight: 700; font-size: 11.5px; border-radius: 8px; padding: 8px; }
+.hs-streak { display: flex; align-items: center; gap: 10px; }
+.hs-streak b { font: 800 26px 'Archivo', sans-serif; color: var(--accent-2); }
+.hs-streak-t { font-weight: 700; font-size: 11.5px; }
+.hs-dots { display: flex; gap: 4px; margin-top: 6px; }
+.hs-dots i { flex: 1; width: 14px; height: 5px; border-radius: 3px; background: var(--bg-sunken); }
+.hs-dots i.on { background: var(--accent-2); }
 /* Scroll-linked parallax (see JS) is applied to the wrapper via
    transform, while the drift keyframe animation stays owned by the
    inner .hero-glow itself - an animated property can't also take an
@@ -661,7 +725,7 @@ footer a { color: var(--fg-muted); }
     <div class="nav-links">
       <a href="#features" data-i18n="nav.features">Funkcje</a>
       <a href="#preview" data-i18n="nav.preview">Podgląd</a>
-      <a href="#trainers" data-i18n="nav.trainers">Dla trenerów</a>
+      <a href="/trenerzy/" data-i18n="nav.trainers">Dla trenerów</a>
       <a href="#faq" data-i18n="nav.faq">FAQ</a>
       <a href="/legal/" data-i18n="nav.legal">Polityka i Regulamin</a>
     </div>
@@ -674,10 +738,10 @@ footer a { color: var(--fg-muted); }
     </div>
   </nav>
 
-  <section class="hero narrow">
+  <section class="hero">
     <div class="hero-glow-wrap" data-parallax="0.08"><div class="hero-glow a"></div></div>
     <div class="hero-glow-wrap" data-parallax="0.05"><div class="hero-glow b"></div></div>
-    <div class="reveal-group">
+    <div class="hero-copy reveal-group">
       <span class="eyebrow reveal blur-in" style="--i:0" data-i18n="hero.eyebrow">Start 1 stycznia 2027</span>
       <h1 class="reveal blur-in" style="--i:1" data-i18n="hero.title">Znajdź trenera. <em>Albo</em> zadbaj o siebie z Ramvo AI.</h1>
       <p class="sub reveal blur-in" style="--i:2" data-i18n="hero.sub">
@@ -686,6 +750,40 @@ footer a { color: var(--fg-muted); }
       <div class="hero-ctas reveal" style="--i:3">
         <a href="#signup-section" class="btn btn-primary" data-i18n="hero.ctaPrimary">Zapisz się na start</a>
         <a href="#features" class="btn btn-ghost" data-i18n="hero.ctaGhost">Zobacz co potrafi</a>
+      </div>
+    </div>
+    <!-- Hero phone. When assets/hero-loop.{webm,mp4} and hero-poster.jpg land,
+         replace .hero-screen's children with:
+         <video class="hero-video" muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" aria-hidden="true">
+           <source src="assets/hero-loop.webm" type="video/webm">
+           <source src="assets/hero-loop.mp4" type="video/mp4">
+         </video>
+         The script below starts it only without prefers-reduced-motion, so
+         reduced-motion visitors see just the poster. -->
+    <div class="hero-device reveal blur-in" style="--i:4">
+      <div class="hero-phone">
+        <div class="hero-screen">
+          <div class="hs-day" data-i18n="hero.phone.day">Poniedziałek</div>
+          <div class="hs-push">
+            <img src="/assets/brand/favicon/favicon.svg" alt="" width="28" height="28">
+            <div><b data-i18n="hero.phone.pushTitle">Nowy plan od trenera</b><span data-i18n="hero.phone.pushBody">Siła, grudzień jest już w Twojej aplikacji.</span></div>
+          </div>
+          <p class="hs-hi" data-i18n="hero.phone.hi">Cześć, Kasia</p>
+          <div class="hs-card hs-plan">
+            <div class="hs-label" data-i18n="hero.phone.planLabel">Plan na grudzień</div>
+            <div class="hs-title" data-i18n="hero.phone.planTitle">Siła, grudzień</div>
+            <div class="hs-meta" data-i18n="hero.phone.planMeta">12 treningów · 4 tygodnie</div>
+            <div class="hs-btn" data-i18n="hero.phone.start">Zacznij dzień A</div>
+          </div>
+          <div class="hs-card hs-streak">
+            <b>11</b>
+            <div><div class="hs-streak-t" data-i18n="hero.phone.streak">dni z rzędu</div><div class="hs-dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+          </div>
+          <div class="hs-card hs-streak">
+            <svg width="38" height="38" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="18" stroke="#1F242B" stroke-width="6" fill="none"/><circle cx="22" cy="22" r="18" stroke="#3EC6FF" stroke-width="6" fill="none" stroke-dasharray="113" stroke-dashoffset="40" transform="rotate(-90 22 22)" stroke-linecap="round"/></svg>
+            <div><div class="hs-streak-t" data-i18n="hero.phone.protein">Białko dziś</div><div class="hs-meta" style="margin:2px 0 0">92 / 140 g</div></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -855,7 +953,7 @@ footer a { color: var(--fg-muted); }
         </ul>
       </div>
       <div class="cta" style="display:flex; flex-direction:column; gap:10px; align-items:center;">
-        <a href="/demo/" class="btn btn-ghost" data-i18n="trainers.demo">Zobacz demo dla trenerów</a>
+        <a href="/trenerzy/#demo" class="btn btn-ghost" data-i18n="trainers.demo">Zobacz panel w akcji</a>
         <button type="button" class="btn btn-primary" id="trainer-form-trigger" data-i18n="trainers.cta">Napisz do nas</button>
       </div>
     </div>
@@ -947,7 +1045,7 @@ footer a { color: var(--fg-muted); }
   <footer>
     <div class="flinks">
       <a href="#features" data-i18n="nav.features">Funkcje</a>
-      <a href="#trainers" data-i18n="nav.trainers">Dla trenerów</a>
+      <a href="/trenerzy/" data-i18n="nav.trainers">Dla trenerów</a>
       <a href="#faq" data-i18n="nav.faq">FAQ</a>
       <a href="/legal/" data-i18n="footer.legal">Polityka prywatności i Regulamin</a>
     </div>
@@ -981,6 +1079,16 @@ footer a { color: var(--fg-muted); }
       'hero.sub': 'Twój trener układa plan, Ramvo dostarcza go w sekundę. Bez trenera? Ramvo AI ułoży plan za Ciebie.',
       'hero.ctaPrimary': 'Zapisz się na start',
       'hero.ctaGhost': 'Zobacz co potrafi',
+      'hero.phone.day': 'Poniedziałek',
+      'hero.phone.pushTitle': 'Nowy plan od trenera',
+      'hero.phone.pushBody': 'Siła, grudzień jest już w Twojej aplikacji.',
+      'hero.phone.hi': 'Cześć, Kasia',
+      'hero.phone.planLabel': 'Plan na grudzień',
+      'hero.phone.planTitle': 'Siła, grudzień',
+      'hero.phone.planMeta': '12 treningów · 4 tygodnie',
+      'hero.phone.start': 'Zacznij dzień A',
+      'hero.phone.streak': 'dni z rzędu',
+      'hero.phone.protein': 'Białko dziś',
       'cards.1.title': 'Prawdziwi trenerzy',
       'cards.1.desc': 'Trener personalny prowadzi Cię krok po kroku, a tworzenie i wysyłanie planów zajmuje mu teraz minuty, nie godziny.',
       'cards.2.title': 'Ramvo AI, Twój wirtualny trener',
@@ -1033,7 +1141,7 @@ footer a { color: var(--fg-muted); }
       'trainers.item2': 'Twórz i wysyłaj plany klientom w kilka minut, nie godzin',
       'trainers.item3': 'Rezerwacje, czat i postępy klientów w jednym miejscu',
       'trainers.cta': 'Napisz do nas',
-      'trainers.demo': 'Zobacz demo dla trenerów',
+      'trainers.demo': 'Zobacz panel w akcji',
       'trainerForm.title': 'Zgłoś się jako trener',
       'trainerForm.lead': 'Zostaw swoje dane, odezwiemy się najszybciej jak to możliwe.',
       'trainerForm.namePlaceholder': 'Imię i nazwisko',
@@ -1090,6 +1198,16 @@ footer a { color: var(--fg-muted); }
       'hero.sub': 'Your trainer writes the plan, Ramvo delivers it in a second. No trainer? Ramvo AI builds the plan for you.',
       'hero.ctaPrimary': 'Get early access',
       'hero.ctaGhost': 'See what it does',
+      'hero.phone.day': 'Monday',
+      'hero.phone.pushTitle': 'New plan from your trainer',
+      'hero.phone.pushBody': 'Strength, December is now in your app.',
+      'hero.phone.hi': 'Hi, Emma',
+      'hero.phone.planLabel': 'December plan',
+      'hero.phone.planTitle': 'Strength, December',
+      'hero.phone.planMeta': '12 sessions · 4 weeks',
+      'hero.phone.start': 'Start day A',
+      'hero.phone.streak': 'days in a row',
+      'hero.phone.protein': 'Protein today',
       'cards.1.title': 'Real trainers',
       'cards.1.desc': 'A personal trainer guides you step by step, and creating and sending plans now takes them minutes, not hours.',
       'cards.2.title': 'Ramvo AI, your virtual trainer',
@@ -1142,7 +1260,7 @@ footer a { color: var(--fg-muted); }
       'trainers.item2': 'Create and send plans to clients in minutes, not hours',
       'trainers.item3': 'Bookings, chat and client progress in one place',
       'trainers.cta': 'Get in touch',
-      'trainers.demo': 'See the trainer demo',
+      'trainers.demo': 'See the panel in action',
       'trainerForm.title': 'Apply as a trainer',
       'trainerForm.lead': 'Leave your details and we will get back to you as soon as possible.',
       'trainerForm.namePlaceholder': 'Full name',
@@ -1317,6 +1435,15 @@ footer a { color: var(--fg-muted); }
       document.body.appendChild(piece);
       (function (p) { setTimeout(function () { p.remove(); }, 2200); })(piece);
     }
+  }
+
+  // ---- hero loop: autoplay only without reduced motion, so those
+  // visitors keep the poster frame ----
+  var heroVideo = document.querySelector('.hero-video');
+  if (heroVideo && !reduceMotion) {
+    heroVideo.autoplay = true;
+    var playPromise = heroVideo.play();
+    if (playPromise && playPromise.catch) playPromise.catch(function () {});
   }
 
   // ---- hero entrance ----
