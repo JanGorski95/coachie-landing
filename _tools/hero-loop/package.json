@@ -1,0 +1,15 @@
+{
+  "name": "ramvo-hero-loop",
+  "private": true,
+  "description": "Renders the 12 s hero loop for ramvo.app (assets/hero-loop-*.mp4/.webm, hero-poster-*.jpg).",
+  "scripts": {
+    "preview": "node preview.js pl && node preview.js en",
+    "record": "node record.js",
+    "encode": "node encode.js",
+    "build": "node record.js && node encode.js",
+    "check": "node check.js"
+  },
+  "dependencies": {
+    "puppeteer-core": "23.11.1"
+  }
+}

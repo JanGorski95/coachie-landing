@@ -37,6 +37,9 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 html, body { background: var(--bg); margin: 0; padding: 0; }
+/* Glows may spill past the content column and fade into the background;
+   clip only sideways at page level (clip, not hidden, keeps sticky working). */
+html, body { overflow-x: clip; }
 body {
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: var(--fg);
@@ -206,7 +209,6 @@ section[id] { scroll-margin-top: 76px; }
 .hero {
   padding-block: 52px 36px;
   position: relative;
-  overflow: hidden;
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   gap: 32px 48px;
@@ -418,21 +420,6 @@ html.fx-js .wk-track.is-in .wk-day { opacity: 1; transform: none; }
 .compare-col.after .compare-mark { color: var(--success); }
 
 /* ---------- phone mockups ---------- */
-.preview-panel {
-  background: #0B0D10;
-  border: 1px solid var(--border);
-  border-radius: 28px;
-  padding: 40px 20px 34px;
-}
-.preview-panel .section-head h2 { color: #F4F6F8; }
-.preview-panel .section-head p { color: #8E97A3; }
-.preview-row {
-  display: flex;
-  gap: 22px;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding-block: 8px;
-}
 .phone {
   width: 208px;
   height: 424px;
@@ -464,7 +451,6 @@ html.fx-js .wk-track.is-in .wk-day { opacity: 1; transform: none; }
   margin-top: 8px;
   overflow: hidden;
 }
-.app-label { font-size: 0.66rem; font-weight: 700; color: #8E97A3; text-transform: uppercase; letter-spacing: 0.06em; }
 
 /* streak mockup */
 .streak-row { display: flex; align-items: center; gap: 10px; }
@@ -524,12 +510,8 @@ html.fx-js .wk-track.is-in .wk-day { opacity: 1; transform: none; }
   100% { box-shadow: 0 0 0 0 rgba(62, 198, 255, 0); }
 }
 
-/* Each column is exactly one phone wide, so a long caption (the PL
-   bookings one) wraps instead of widening its column and shifting the row. */
-.preview-row > div { width: 208px; }
-.preview-caption { text-align: center; font-size: 0.78rem; color: #8E97A3; margin-top: 10px; font-weight: 600; }
-.photo-credit { text-align: center; font-size: 0.68rem; color: #8E97A3; margin-top: 2px; }
-.preview-footnote { text-align: center; font-size: 0.76rem; color: #8E97A3; margin-top: 22px; }
+.fx-copy .photo-credit { font-size: 0.72rem; margin-top: 8px; }
+.fx-note { text-align: center; font-size: 0.78rem; color: #8E97A3; margin-top: 24px; }
 
 /* HTML mockups of app screens (streak, bookings, macros), drawn from the
    app's real layouts but in the Performance Lab palette, so the preview
@@ -814,7 +796,6 @@ footer a { color: var(--fg-muted); }
     <a href="/" class="wordmark"><img src="/assets/brand/ramvo-wordmark-ciemne-tlo.svg" alt="Ramvo" height="36"></a>
     <div class="nav-links">
       <a href="#features" data-i18n="nav.features">Funkcje</a>
-      <a href="#preview" data-i18n="nav.preview">Podgląd</a>
       <a href="#faq" data-i18n="nav.faq">FAQ</a>
       <a href="/legal/" data-i18n="nav.legal">Polityka i Regulamin</a>
     </div>
@@ -915,7 +896,7 @@ footer a { color: var(--fg-muted); }
 
         <article class="fx-item">
           <div class="fx-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="10" height="15" rx="2" transform="rotate(-8 5 4)"/><rect x="8" y="5" width="11" height="15" rx="2"/></svg></div>
-          <div class="fx-copy"><h3 data-i18n="features.2.title">Dopasowanie do trenera</h3><p data-i18n="features.2.desc">Przesuwaj profile trenerów w pobliżu, jak w aplikacji randkowej. Widzisz oceny, specjalizację i odległość, zanim napiszesz pierwszą wiadomość.</p></div>
+          <div class="fx-copy"><h3 data-i18n="features.2.title">Dopasowanie do trenera</h3><p data-i18n="features.2.desc">Przesuwaj profile trenerów w pobliżu, jak w aplikacji randkowej. Widzisz oceny, specjalizację i odległość, zanim napiszesz pierwszą wiadomość.</p><p class="photo-credit" data-i18n="fx.credit">Zdjęcie: Samuel Girven / Unsplash</p></div>
           <div class="fx-shot"><div class="phone"><div class="screen" style="padding: 12px;">
             <div class="swipe-card">
               <img src="https://images.unsplash.com/photo-1704223523169-52feeed90365?w=400&h=500&fit=crop&auto=format&q=80" alt="" loading="lazy">
@@ -1053,6 +1034,7 @@ footer a { color: var(--fg-muted); }
         <div class="fx-stage"><div class="phone fx-phone"></div></div>
       </div>
     </div>
+    <p class="fx-note" data-i18n="preview.footnote">Ekrany odwzorowują aplikację Ramvo. Imiona i dane są przykładowe.</p>
   </section>
 
   <section id="week">
@@ -1101,110 +1083,6 @@ footer a { color: var(--fg-muted); }
           <li><span class="compare-mark">✓</span> <span data-i18n="compare.after.5">Postępy, passy i zdjęcia zawsze pod ręką</span></li>
         </ul>
       </div>
-    </div>
-  </section>
-
-  <section id="preview">
-    <div class="preview-panel">
-      <div class="section-head reveal">
-        <h2 data-i18n="preview.title">Zobacz, jak to wygląda</h2>
-        <p data-i18n="preview.sub">To realne kolory i układy z Ramvo.</p>
-      </div>
-      <div class="preview-row reveal-group">
-        <div data-parallax="0.03">
-          <div class="phone reveal" style="--i:0">
-            <div class="screen mk">
-              <div class="mk-top">
-                <div><div class="mk-hi" data-i18n="mk.hi">Cześć, Alex</div><div class="mk-date" data-i18n="mk.date">Wtorek, 13 października</div></div>
-                <span class="mk-avatar" aria-hidden="true"></span>
-              </div>
-              <div class="mk-card">
-                <div class="mk-row">
-                  <span class="mk-ic" aria-hidden="true">+</span>
-                  <div><b data-i18n="mk.trainerQ">Gotowy na prawdziwego trenera?</b><span class="mk-muted" data-i18n="mk.trainerA">Ramvo AI ułoży plan, ale trener zrobi dużo więcej.</span></div>
-                </div>
-                <div class="mk-btn ok" data-i18n="mk.findTrainer">Znajdź trenera</div>
-              </div>
-              <div class="mk-card">
-                <div class="mk-h" data-i18n="mk.streak">Twoja passa</div>
-                <div class="mk-two">
-                  <div class="mk-box"><small data-i18n="mk.workouts">Treningi</small><b>3</b><small data-i18n="mk.best4">dni · rekord 4</small></div>
-                  <div class="mk-box hot"><small data-i18n="mk.meals">Posiłki</small><b>1</b><small data-i18n="mk.best1">dzień · rekord 1</small><span class="mk-chip" data-i18n="mk.freeze">Zamroź dziś</span></div>
-                </div>
-                <div class="week-dots">
-                  <span class="dot done" style="--d:0"></span><span class="dot done" style="--d:1"></span><span class="dot done" style="--d:2"></span><span class="dot" style="--d:3"></span><span class="dot done" style="--d:4"></span><span class="dot done" style="--d:5"></span><span class="dot done" style="--d:6"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <p class="preview-caption" data-i18n="preview.caption1">Passa treningowa i posiłkowa</p>
-        </div>
-        <div data-parallax="0.07">
-          <div class="phone reveal" style="--i:1">
-            <div class="screen" style="padding: 12px;">
-              <div class="swipe-card">
-                <img src="https://images.unsplash.com/photo-1704223523169-52feeed90365?w=400&h=500&fit=crop&auto=format&q=80" alt="Trener personalny" loading="lazy">
-                <div class="swipe-gradient"></div>
-                <div class="swipe-info">
-                  <div class="swipe-name">Marek K. <span class="swipe-verified">✓</span></div>
-                  <div class="swipe-meta" data-i18n="preview.phone2.meta">Trener personalny · 1.8 km</div>
-                  <div class="swipe-stars">★★★★★ 4.9</div>
-                </div>
-              </div>
-              <div class="swipe-actions-row">
-                <span class="mbtn pass">✕</span>
-                <span class="mbtn like">♥</span>
-              </div>
-            </div>
-          </div>
-          <p class="preview-caption" data-i18n="preview.caption2">Przesuń, żeby dopasować trenera</p>
-          <p class="photo-credit">Zdjęcie: Samuel Girven / Unsplash</p>
-        </div>
-        <div data-parallax="0.04">
-          <div class="phone reveal" style="--i:2">
-            <div class="screen mk">
-              <div class="mk-title" data-i18n="mk.upcoming">Nadchodzące</div>
-              <div class="mk-card">
-                <span class="mk-tag" data-i18n="mk.gym">Siłownia</span>
-                <b class="mk-when" data-i18n="mk.gymWhen">Środa, 14 października, 14:00</b>
-                <span class="mk-muted">Warszawa Fitness Club, ul. Puławska 42</span>
-                <div class="mk-btn" data-i18n="mk.map">Pokaż na mapie</div>
-                <div class="mk-btn ghost" data-i18n="mk.cancel">Odwołaj rezerwację</div>
-              </div>
-              <div class="mk-card">
-                <span class="mk-tag on" data-i18n="mk.online">Online</span>
-                <b class="mk-when" data-i18n="mk.onlineWhen">Czwartek, 15 października, 12:00</b>
-                <div class="mk-btn ok" data-i18n="mk.meet">Dołącz przez Google Meet</div>
-              </div>
-            </div>
-          </div>
-          <p class="preview-caption" data-i18n="preview.caption3">Rezerwacje online i na siłowni, zawsze pod ręką</p>
-        </div>
-        <div data-parallax="0.05">
-          <div class="phone reveal" style="--i:3">
-            <div class="screen mk">
-              <div class="mk-title" data-i18n="mk.calPlan">Mój plan kalorii</div>
-              <div class="mk-card mk-center">
-                <span class="mk-muted" data-i18n="mk.net">Netto dziś</span>
-                <div class="mk-kcal">1984 <small>kcal</small></div>
-                <span class="mk-muted" data-i18n="mk.eaten">Zjedzone 2107 · spalone 123</span>
-                <div class="mk-rings">
-                  <div><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="14" stroke="#1F242B"/><circle cx="18" cy="18" r="14" stroke="#3EC6FF" stroke-dasharray="88" stroke-dashoffset="1"/></svg><b>2107</b><small>kcal</small></div>
-                  <div><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="14" stroke="#1F242B"/><circle cx="18" cy="18" r="14" stroke="#FF4D8D" stroke-dasharray="88" stroke-dashoffset="0"/></svg><b>171</b><small data-i18n="mk.protein">białko</small></div>
-                  <div><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="14" stroke="#1F242B"/><circle cx="18" cy="18" r="14" stroke="#35D483" stroke-dasharray="88" stroke-dashoffset="16"/></svg><b>172</b><small data-i18n="mk.carbs">węgle</small></div>
-                  <div><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="14" stroke="#1F242B"/><circle cx="18" cy="18" r="14" stroke="#F4F6F8" stroke-dasharray="88" stroke-dashoffset="0"/></svg><b>84</b><small data-i18n="mk.fat">tłuszcz</small></div>
-                </div>
-              </div>
-              <div class="mk-card">
-                <div class="mk-bars" aria-hidden="true"><i style="--h:62%"></i><i style="--h:80%"></i><i style="--h:71%"></i><i style="--h:88%"></i><i style="--h:66%"></i><i style="--h:94%"></i><i style="--h:84%"></i><span class="mk-goal"></span></div>
-                <span class="mk-link" data-i18n="mk.history">Pełna historia makro &rarr;</span>
-              </div>
-            </div>
-          </div>
-          <p class="preview-caption" data-i18n="preview.caption4">Kalorie i makra pod kontrolą</p>
-        </div>
-      </div>
-      <p class="preview-footnote" data-i18n="preview.footnote">Ekrany odwzorowują aplikację Ramvo. Imiona i dane są przykładowe.</p>
     </div>
   </section>
 
@@ -1336,7 +1214,6 @@ footer a { color: var(--fg-muted); }
   var TRANSLATIONS = {
     pl: {
       'nav.features': 'Funkcje',
-      'nav.preview': 'Podgląd',
       'nav.trainers': 'Dla trenerów',
       'nav.faq': 'FAQ',
       'nav.legal': 'Polityka i Regulamin',
@@ -1385,13 +1262,7 @@ footer a { color: var(--fg-muted); }
       'compare.after.3': 'Rezerwacje wbudowane, z linkiem do spotkania',
       'compare.after.4': 'Czat z trenerem bez wychodzenia z appki',
       'compare.after.5': 'Postępy, passy i zdjęcia zawsze pod ręką',
-      'preview.title': 'Zobacz, jak to wygląda',
-      'preview.sub': 'To realne kolory i układy z Ramvo.',
-      'preview.caption1': 'Passa treningowa i posiłkowa',
       'preview.phone2.meta': 'Trener personalny · 1.8 km',
-      'preview.caption2': 'Przesuń, żeby dopasować trenera',
-      'preview.caption3': 'Rezerwacje online i na siłowni, zawsze pod ręką',
-      'preview.caption4': 'Kalorie i makra pod kontrolą',
       'preview.footnote': 'Ekrany odwzorowują aplikację Ramvo. Imiona i dane są przykładowe.',
       'mk.hi': 'Cześć, Alex',
       'mk.date': 'Wtorek, 13 października',
@@ -1419,6 +1290,7 @@ footer a { color: var(--fg-muted); }
       'mk.carbs': 'węgle',
       'mk.fat': 'tłuszcz',
       'mk.history': 'Pełna historia makro &rarr;',
+      'fx.credit': 'Zdjęcie: Samuel Girven / Unsplash',
       'fx.ai.c1': 'Cel: redukcja',
       'fx.ai.c2': 'Średni poziom',
       'fx.ai.c3': 'Siłownia',
@@ -1534,7 +1406,6 @@ footer a { color: var(--fg-muted); }
     },
     en: {
       'nav.features': 'Features',
-      'nav.preview': 'Preview',
       'nav.trainers': 'For trainers',
       'nav.faq': 'FAQ',
       'nav.legal': 'Privacy & Terms',
@@ -1583,13 +1454,7 @@ footer a { color: var(--fg-muted); }
       'compare.after.3': 'Bookings built in, with a meeting link',
       'compare.after.4': 'Chat with your trainer without leaving the app',
       'compare.after.5': 'Progress, streaks and photos always at hand',
-      'preview.title': 'See what it looks like',
-      'preview.sub': "These are real colors and layouts from Ramvo.",
-      'preview.caption1': 'Workout and meal streaks',
       'preview.phone2.meta': 'Personal trainer · 1.8 km',
-      'preview.caption2': 'Swipe to match with a trainer',
-      'preview.caption3': 'Online and gym bookings, always at hand',
-      'preview.caption4': 'Calories and macros under control',
       'preview.footnote': 'Screens mirror the Ramvo app. Names and data are examples.',
       'mk.hi': 'Hey, Alex',
       'mk.date': 'Tuesday, 13 October',
@@ -1617,6 +1482,7 @@ footer a { color: var(--fg-muted); }
       'mk.carbs': 'carbs',
       'mk.fat': 'fat',
       'mk.history': 'Full macro history &rarr;',
+      'fx.credit': 'Photo: Samuel Girven / Unsplash',
       'fx.ai.c1': 'Goal: fat loss',
       'fx.ai.c2': 'Intermediate',
       'fx.ai.c3': 'Gym',
