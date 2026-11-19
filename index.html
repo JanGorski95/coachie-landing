@@ -519,6 +519,9 @@ h1 em { font-style: normal; color: var(--accent); }
   100% { box-shadow: 0 0 0 0 rgba(62, 198, 255, 0); }
 }
 
+/* Each column is exactly one phone wide, so a long caption (the PL
+   bookings one) wraps instead of widening its column and shifting the row. */
+.preview-row > div { width: 208px; }
 .preview-caption { text-align: center; font-size: 0.78rem; color: #8E97A3; margin-top: 10px; font-weight: 600; }
 .photo-credit { text-align: center; font-size: 0.68rem; color: #8E97A3; margin-top: 2px; }
 .preview-footnote { text-align: center; font-size: 0.76rem; color: #8E97A3; margin-top: 22px; }
