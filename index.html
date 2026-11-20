@@ -370,10 +370,11 @@ h1 em { font-style: normal; color: var(--accent); }
 @media (min-width: 900px) {
   html.fx-js .fx-shot { display: none; }
   html.fx-js .fx-aside { display: block; position: sticky; top: max(96px, calc(50vh - 255px)); height: 520px; }
-  html.fx-js .fx-item { min-height: 42vh; align-content: center; opacity: 0.5; transition: opacity 0.3s ease; }
+  /* capped so tall / zoomed-out screens don't get big empty gaps */
+  html.fx-js .fx-item { min-height: clamp(200px, 32vh, 270px); align-content: center; opacity: 0.5; transition: opacity 0.3s ease; }
   html.fx-js .fx-item.active { opacity: 1; }
   /* room under the last feature so the sticky phone stays put while it is active */
-  html.fx-js .fx-list { padding-bottom: 22vh; }
+  html.fx-js .fx-list { padding-bottom: min(22vh, 200px); }
 }
 @media (max-width: 899px) { .fx { grid-template-columns: minmax(0, 1fr); } }
 .fx-stage { transform: scale(1.2); transform-origin: top center; display: flex; justify-content: center; }
