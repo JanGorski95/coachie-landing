@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Trainer Ramvo</title>
-<meta name="description" content="Ty układasz plan, Ramvo robi resztę: wysyłka do klientów, filmy techniki i postępy w jednym panelu. 20 miejsc Founding Trainer, 24 miesiące za darmo.">
+<meta name="description" content="Cały biznes trenera w jednym panelu: klienci, plany z filmami, sesje, czat i płatności. Wypróbuj klikalne demo. 20 miejsc Founding Trainer, 24 miesiące za darmo.">
 <meta name="theme-color" content="#0B0D10">
 <link rel="icon" href="/assets/brand/favicon/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/brand/favicon/favicon.svg" type="image/svg+xml">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ramvo">
 <meta property="og:title" content="Trainer Ramvo">
-<meta property="og:description" content="Ty układasz plan, Ramvo robi resztę. 20 miejsc Founding Trainer, 24 miesiące za darmo.">
+<meta property="og:description" content="Klienci, plany, sesje, czat i płatności w jednym panelu. 20 miejsc Founding Trainer, 24 miesiące za darmo.">
 <meta property="og:image" content="https://ramvo.app/assets/brand/ramvo-og-1200x630-1200.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -20,7 +20,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@800&family=Manrope:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@800&family=Manrope:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="/assets/panel-demo/demo.css?v=3">
 <style>
 /* /trainers: the trainer-facing page. Same Performance Lab tokens as the
    home page. Page-level classes are deliberately distinct from the demo's
@@ -163,69 +164,11 @@ footer a { color: var(--fg-muted); }
 .confetti-piece { position: fixed; top: -10px; width: 8px; height: 8px; border-radius: 2px; pointer-events: none; z-index: 40; animation: confetti-fall 1.4s ease-in forwards; }
 @keyframes confetti-fall { 100% { transform: translateY(100vh) rotate(540deg); opacity: 0; } }
 
-/* ---------- embedded panel demo + hours calculator (scoped copy of /demo/) ---------- */
+/* hours calculator (kept from the old embedded demo, scoped under .dm) */
 .dm{--raised:#1F242B;--sunk:#15181C;--ink:#F4F6F8;--mute:#8E97A3;--acc:#3EC6FF;--accsoft:#122833;--line:#1F242B;
 --a0:#0B0D10;--a1:#15181C;--a2:#1F242B;--a3:#242A31;--at:#F4F6F8;--as:#8E97A3;--cy:#3EC6FF;--mg:#FF4D8D;--gr:#35D483;--wa:#FF4D8D;--cyk:#04161F;font-size:16px}
 .dm h3{margin:0;line-height:1.05}
 .dm button{font-family:inherit;cursor:pointer}
-.dm .steps{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px;justify-content:center}
-.dm .steps button{border:1px solid var(--line);background:var(--raised);color:var(--ink);border-radius:99px;padding:10px 18px;min-height:44px;font-weight:600}
-.dm .steps button[aria-current=true]{background:var(--acc);border-color:var(--acc);color:var(--cyk)}
-.dm .stage{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:clamp(16px,3vw,40px);align-items:center;background:var(--sunk);border-radius:22px;padding:clamp(14px,3vw,36px)}
-.dm .desk{background:var(--a0);border-radius:12px;box-shadow:0 30px 60px -30px #0007,0 0 0 1px #0003;overflow:hidden;color:var(--at);font-family:Manrope,sans-serif;font-size:14px}
-.dm .bar{display:flex;gap:6px;align-items:center;padding:10px 12px;background:var(--a1);border-bottom:1px solid var(--a3)}
-.dm .bar i{width:10px;height:10px;border-radius:50%;background:var(--a3)}.dm .bar span{margin-left:10px;color:var(--as);font-size:12px;background:var(--a0);padding:3px 12px;border-radius:6px;flex:1;max-width:280px}
-.dm .app{display:grid;grid-template-columns:150px minmax(0,1fr);min-height:440px}
-.dm .side{background:var(--a1);padding:14px 8px;border-right:1px solid var(--a3)}.dm .side div{padding:8px 10px;border-radius:6px;color:var(--as);font-size:13px}
-.dm .side div.on{background:#1c2a33;color:var(--cy);font-weight:700}.dm .side .g{font-size:11px;padding:12px 10px 4px;color:var(--as)}
-.dm .main{padding:18px;position:relative}
-.dm .main h3,.dm .ph h3{font:800 19px Archivo,sans-serif;margin:0 0 4px}.dm .sub{color:var(--as);font-size:12.5px;margin:0 0 14px}
-.dm .cols{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:14px}
-.dm .card{background:var(--a1);border:1px solid var(--a3);border-radius:10px;padding:12px}
-.dm .lbl{font:700 11px Manrope,sans-serif;color:var(--as);letter-spacing:.04em;margin-bottom:8px}
-.dm .ex{display:flex;align-items:center;gap:10px;padding:7px 0;border-top:1px solid var(--a3)}.dm .ex:first-of-type{border-top:0}
-.dm .th{width:54px;height:36px;border-radius:6px;flex:none;background:linear-gradient(135deg,#24404d,#15181c);display:grid;place-items:center;position:relative}
-.dm .th svg{width:14px;height:14px}.dm .ex .n{flex:1;font-weight:600;font-size:13px}.dm .ex small{display:block;color:var(--as);font-weight:500;font-size:11.5px}
-.dm .btn{border:0;border-radius:6px;padding:8px 12px;min-height:36px;font:700 12.5px Manrope,sans-serif;background:var(--cy);color:var(--cyk)}
-.dm .btn.ghost{background:var(--a2);color:var(--at)}.dm .btn[disabled]{background:var(--a2);color:var(--gr);cursor:default}
-.dm .btn.big{min-height:44px;padding:10px 16px;font-size:14px}
-.dm .pulse{animation:dm-pu 1.6s ease-in-out infinite}@keyframes dm-pu{50%{box-shadow:0 0 0 6px #3ec6ff33}}
-.dm .search{background:var(--a0);border:1px solid var(--a3);border-radius:6px;padding:8px 10px;color:var(--as);font-size:12.5px;margin-bottom:8px}
-.dm .cl{display:flex;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--a3)}.dm .cl:first-of-type{border-top:0}
-.dm .av{width:30px;height:30px;border-radius:50%;flex:none;display:grid;place-items:center;font:800 11px Archivo,sans-serif;color:var(--cyk)}
-.dm .chk{width:22px;height:22px;border-radius:5px;border:2px solid var(--a3);background:none;flex:none;display:grid;place-items:center;padding:0}
-.dm .chk[aria-pressed=true]{background:var(--cy);border-color:var(--cy)}
-.dm .tag{font-size:11px;font-weight:700;padding:3px 8px;border-radius:99px;background:var(--a2);color:var(--as);white-space:nowrap}
-.dm .tag.ok{background:#13311F;color:var(--gr)}.dm .tag.wa{background:#3A1426;color:var(--wa)}.dm .tag.cy{background:#1c2a33;color:var(--cy)}
-.dm .toast{position:absolute;right:18px;bottom:18px;background:var(--gr);color:#06170d;font:700 13px Manrope,sans-serif;padding:10px 14px;border-radius:8px;animation:dm-in .4s ease both}
-@keyframes dm-in{from{opacity:0;transform:translateY(10px)}}
-.dm .feed div{display:flex;gap:8px;padding:7px 0;border-top:1px solid var(--a3);font-size:12.5px;animation:dm-in .4s ease both}.dm .feed div:first-child{border-top:0}
-.dm .feed b{color:var(--cy)}.dm .feed time{margin-left:auto;color:var(--as);white-space:nowrap}
-.dm .kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:12px}
-.dm .kpi b{display:block;font:800 22px Archivo,sans-serif}.dm .kpi span{font-size:11.5px;color:var(--as)}
-.dm .fig{position:relative;height:120px}.dm .fig svg{position:absolute;inset:0;width:100%;height:100%}
-.dm .phw{justify-self:center;width:100%;max-width:300px}
-.dm .phone{aspect-ratio:9/19;background:#000;border-radius:44px;padding:10px;box-shadow:0 40px 70px -30px #0008}
-.dm .ph{height:100%;background:var(--a0);border-radius:35px;overflow:hidden;position:relative;color:var(--at);font-family:Manrope,sans-serif;font-size:13px;padding:40px 16px 16px}
-.dm .ph::before{content:"";position:absolute;top:10px;left:50%;translate:-50% 0;width:84px;height:24px;border-radius:99px;background:#000}
-.dm .hi{font:800 22px Archivo,sans-serif;margin:0}.dm .date{color:var(--as);font-size:12px;margin-bottom:14px}
-.dm .pc{background:var(--a1);border-radius:14px;padding:12px;margin-bottom:10px}
-.dm .pc.new{outline:2px solid var(--cy);animation:dm-in .5s ease both}
-.dm .streak{display:flex;align-items:center;gap:10px}.dm .streak b{font:800 28px Archivo,sans-serif;color:var(--mg)}
-.dm .dots{display:flex;gap:5px;margin-top:8px}.dm .dots i{flex:1;height:6px;border-radius:3px;background:var(--a2)}.dm .dots i.on{background:var(--mg)}
-.dm .push{position:absolute;left:10px;right:10px;top:40px;background:#2a2f36ee;backdrop-filter:blur(8px);border-radius:16px;padding:10px 12px;display:flex;gap:10px;animation:dm-drop .5s cubic-bezier(.2,.9,.3,1.2) both;z-index:2}
-@keyframes dm-drop{from{transform:translateY(-120%)}}.dm .push .ic{width:30px;height:30px;border-radius:8px;flex:none;overflow:hidden}.dm .push .ic img{display:block;width:100%;height:100%}
-.dm .push b{display:block;font-size:12.5px}.dm .push span{font-size:12px;color:#c9ced5}
-.dm .vid{height:150px;border-radius:12px;background:linear-gradient(160deg,#24404d,#0b0d10);display:grid;place-items:center;margin:8px 0 10px;position:relative}
-.dm .vid svg{width:44px;height:44px}.dm .vid small{position:absolute;left:10px;bottom:8px;color:#c9ced5;font-size:11px}
-.dm .sets{display:flex;gap:6px;margin:10px 0}.dm .sets i{flex:1;height:34px;border-radius:8px;background:var(--a2);display:grid;place-items:center;font:700 12px Manrope,sans-serif;font-style:normal;color:var(--as)}
-.dm .sets i.on{background:var(--gr);color:#06170d}
-.dm .ring{display:flex;gap:12px;align-items:center}
-.dm .cap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) auto;gap:16px 32px;align-items:start;margin-top:22px}
-.dm .cap h3{font:800 24px Archivo,sans-serif;margin-bottom:6px}.dm .cap p{margin:0;color:var(--mute)}
-.dm .vs{display:grid;gap:8px;font-size:14.5px}.dm .vs div{display:flex;gap:10px}.dm .vs span{flex:none;font-weight:700;font-size:12px;padding:3px 9px;border-radius:99px;height:fit-content;white-space:nowrap}
-.dm .vs .b span{background:var(--line);color:var(--mute)}.dm .vs .a span{background:var(--accsoft);color:var(--acc)}
-.dm .next{border:0;background:var(--acc);color:var(--cyk);border-radius:99px;padding:12px 22px;min-height:48px;font-weight:600;white-space:nowrap}
 .dm .calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,56px);align-items:start}
 .dm .res{background:var(--acc);color:var(--cyk);border-radius:22px;padding:clamp(22px,3vw,36px)}
 .dm .res .big{font:800 clamp(56px,9vw,104px)/1 Archivo,sans-serif;white-space:nowrap}.dm .res p{margin:8px 0 0;opacity:.92}
@@ -240,6 +183,70 @@ footer a { color: var(--fg-muted); }
 @media(max-width:900px){.dm .stage{grid-template-columns:minmax(0,1fr)}.dm .phw{max-width:270px}.dm .cap{grid-template-columns:minmax(0,1fr)}.dm .calc{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:600px){.dm .app{grid-template-columns:minmax(0,1fr)}.dm .side{display:none}.dm .cols{grid-template-columns:minmax(0,1fr)}.dm .range{grid-template-columns:minmax(0,1fr)}.dm .kpi b{font-size:18px}.dm .toast{position:static;display:inline-block;margin-top:10px}}
 @media(prefers-reduced-motion:reduce){.dm *{animation:none!important}}
+
+/* ---------- rebuilt page (hero shot, pillars, feature rows, money, app) ---------- */
+.wide { width: min(1320px, calc(100vw - 40px)); margin-left: calc(50% - min(660px, 50vw - 20px)); }
+.hero { padding-block: 60px 20px; }
+.hero h1 { max-width: 19ch; font-size: clamp(2.2rem, 6vw, 4rem); }
+.hero-facts { display: flex; justify-content: center; gap: clamp(18px, 4vw, 48px); flex-wrap: wrap; margin-top: 30px; }
+.hero-facts div { text-align: center; }
+.hero-facts b { display: block; font: 800 clamp(1.5rem, 3vw, 2rem) 'Archivo', sans-serif; color: var(--fg); line-height: 1.05; }
+.hero-facts span { font-size: 0.85rem; color: var(--fg-muted); }
+.hero-shot { position: relative; margin-top: 44px; perspective: 1800px; }
+.hero-shot::before { content: ''; position: absolute; inset: 8% 10% -4%; background: radial-gradient(closest-side, #3ec6ff40, transparent), radial-gradient(closest-side at 80% 70%, #ff4d8d30, transparent); filter: blur(40px); z-index: -1; }
+.hero-shot .tilt { transform: rotateX(9deg) scale(0.98); transform-origin: 50% 0; transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1); border-radius: 16px; box-shadow: 0 60px 120px -50px #000; }
+.hero-shot.is-in .tilt { transform: none; }
+.hero-shot .live { position: absolute; z-index: 2; top: -14px; left: 50%; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 7px; font: 800 0.74rem 'Manrope', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-fg); background: var(--accent); padding: 6px 14px; border-radius: 999px; box-shadow: 0 10px 24px -10px var(--accent); white-space: nowrap; }
+.hero-shot .live i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-fg); animation: blink 1.4s ease-in-out infinite; }
+@keyframes blink { 50% { opacity: 0.25; } }
+.pillars { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 860px) { .pillars { grid-template-columns: minmax(0, 1fr); } }
+.pillar { background: var(--bg-raised); border: 1px solid var(--border); border-radius: 20px; padding: 24px 22px; position: relative; overflow: hidden; }
+.pillar::after { content: ''; position: absolute; right: -40px; top: -40px; width: 140px; height: 140px; border-radius: 50%; background: var(--c); opacity: 0.12; filter: blur(30px); }
+.pillar .ico { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: color-mix(in srgb, var(--c) 16%, transparent); color: var(--c); margin-bottom: 14px; }
+.pillar .ico svg { width: 22px; height: 22px; }
+.pillar h3 { font-size: 1.25rem; margin: 0 0 12px; }
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+.checks li { position: relative; padding-left: 26px; font-size: 0.94rem; color: #c9ced5; }
+.checks li::before { content: ''; position: absolute; left: 0; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: color-mix(in srgb, var(--c, var(--accent)) 18%, transparent); }
+.checks li::after { content: ''; position: absolute; left: 5px; top: 7px; width: 5px; height: 8px; border: solid var(--c, var(--accent)); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.demo-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+.demo-head .head { text-align: left; margin: 0; }
+.demo-note { font-size: 0.8rem; color: var(--fg-muted); text-align: center; margin: 14px 0 0; }
+.feats { display: grid; gap: clamp(40px, 7vw, 88px); }
+.feat { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.4fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+.feat.rev { grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.85fr); }
+.feat.rev .txt { order: 2; }
+@media (max-width: 900px) { .feat, .feat.rev { grid-template-columns: minmax(0, 1fr); } .feat.rev .txt { order: 0; } }
+.feat .kicker { display: inline-flex; align-items: center; gap: 8px; font: 800 0.75rem 'Manrope', sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c); margin-bottom: 10px; }
+.feat .kicker svg { width: 16px; height: 16px; }
+.feat h3 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); line-height: 1.12; margin: 0 0 16px; }
+.feat .more { display: inline-block; margin-top: 18px; font-weight: 700; color: var(--accent); text-decoration: none; }
+.feat .more:hover { text-decoration: underline; }
+.shot { position: relative; border-radius: 14px; }
+.shot::before { content: ''; position: absolute; inset: 10%; background: var(--c); opacity: 0.18; filter: blur(60px); z-index: -1; }
+.shot-ph { aspect-ratio: 1100 / 640; border-radius: 14px; background: var(--bg-raised); }
+.money { position: relative; border-radius: 28px; padding: clamp(24px, 4vw, 48px); background: linear-gradient(160deg, #0f2a1f 0%, var(--bg-raised) 45%, #1a1022 100%); border: 1px solid #1f5a40; overflow: hidden; }
+.money .eyebrow { color: var(--success); background: #13311F; }
+.money h2 { font-size: clamp(1.7rem, 3.6vw, 2.6rem); line-height: 1.08; margin: 0 0 12px; max-width: 22ch; }
+.money .lede { margin: 0 0 28px; max-width: 64ch; text-align: left; }
+.money-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr); gap: clamp(24px, 4vw, 48px); align-items: center; }
+@media (max-width: 900px) { .money-grid { grid-template-columns: minmax(0, 1fr); } }
+.mlist { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
+.mlist li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; }
+.mlist li span.n { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: #13311F; color: var(--success); font: 800 0.85rem 'Archivo', sans-serif; }
+.mlist b { display: block; font-size: 1rem; margin-bottom: 2px; }
+.mlist p { margin: 0; color: var(--fg-muted); font-size: 0.9rem; }
+.phones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 3vw, 36px); align-items: start; }
+.phones figure { margin: 0; }
+.phones figcaption { text-align: center; font-size: 0.88rem; color: var(--fg-muted); margin-top: 14px; }
+.phones figcaption b { display: block; color: var(--fg); font-size: 0.98rem; }
+@media (max-width: 860px) { .phones { grid-template-columns: minmax(0, 1fr); max-width: 300px; margin: 0 auto; } .phones figure:not(:first-child) { display: none; } }
+.final { text-align: center; padding: clamp(36px, 6vw, 64px) 20px; border-radius: 28px; background: radial-gradient(ellipse at 50% 0%, #3ec6ff26, transparent 60%), var(--bg-raised); border: 1px solid var(--border); }
+.final h2 { font-size: clamp(1.7rem, 3.6vw, 2.6rem); margin: 0 0 12px; }
+.final p { color: var(--fg-muted); margin: 0 auto 24px; max-width: 56ch; }
+.final .hero-ctas { margin-top: 0; }
+@media (prefers-reduced-motion: reduce) { .hero-shot .tilt { transform: none; transition: none; } }
 </style>
 </head>
 <body>
@@ -248,8 +255,9 @@ footer a { color: var(--fg-muted); }
   <nav class="nav" id="nav">
     <a href="/" class="wordmark"><img src="/assets/brand/ramvo-wordmark-ciemne-tlo.svg" alt="Ramvo" height="36"></a>
     <div class="nav-links">
-      <a href="#demo" data-i18n="nav.demo">Demo panelu</a>
-      <a href="#calc" data-i18n="nav.calc">Kalkulator</a>
+      <a href="#demo" data-i18n="nav.demo">Demo</a>
+      <a href="#panel" data-i18n="nav.panel">Funkcje</a>
+      <a href="#money" data-i18n="nav.money">Pieniądze</a>
       <a href="#founding" data-i18n="nav.founding">Founding Trainer</a>
       <a href="#faq" data-i18n="nav.faq">FAQ</a>
     </div>
@@ -263,51 +271,157 @@ footer a { color: var(--fg-muted); }
   </nav>
 
   <header class="hero reveal-group">
-    <span class="eyebrow reveal" style="--i:0" data-i18n="hero.eyebrow">Founding Trainer · 20 miejsc</span>
-    <h1 class="reveal" style="--i:1" data-i18n="hero.title">Ty układasz plan. <em>Ramvo</em> robi resztę.</h1>
-    <p class="lede reveal" style="--i:2" data-i18n="hero.sub">Przypisujesz plan kilku klientom naraz, a oni od razu mają go w telefonie, razem z filmami techniki. Ty widzisz w panelu, kto trenuje, a kto wypada z rytmu.</p>
+    <span class="eyebrow reveal" style="--i:0" data-i18n="hero.eyebrow">Founding Trainer · 20 miejsc · 24 mies. za darmo</span>
+    <h1 class="reveal" style="--i:1" data-i18n="hero.title">Cały Twój biznes trenerski <em>w&nbsp;jednym panelu</em>.</h1>
+    <p class="lede reveal" style="--i:2" data-i18n="hero.sub">Klienci, plany z filmami, sesje, czat i płatności w jednym miejscu. Ty prowadzisz ludzi. Ramvo wysyła plany, pilnuje terminów i liczy, kto ile zapłacił.</p>
     <div class="hero-ctas reveal" style="--i:3">
       <a href="#form" class="pill pill-primary" data-i18n="hero.cta">Zgłoś się jako Founding Trainer</a>
-      <a href="#demo" class="pill pill-ghost" data-i18n="hero.ghost">Zobacz panel w akcji</a>
+      <a href="#demo" class="pill pill-ghost" data-i18n="hero.ghost">Wypróbuj demo panelu</a>
+    </div>
+    <div class="hero-facts reveal" style="--i:4">
+      <div><b data-i18n="hero.f1v">7 modułów</b><span data-i18n="hero.f1">jeden panel zamiast pięciu aplikacji</span></div>
+      <div><b data-i18n="hero.f2v">1 klik</b><span data-i18n="hero.f2">plan u wszystkich klientów naraz</span></div>
+      <div><b data-i18n="hero.f3v">0 zł</b><span data-i18n="hero.f3">przez 24 miesiące jako Founding Trainer</span></div>
     </div>
   </header>
+  <div class="hero-shot wide" id="hero-shot">
+    <span class="live"><i></i><span data-i18n="hero.live">Panel na żywo · dane z konta demo</span></span>
+    <div class="tilt"><div class="shot-ph" data-mini="hero"></div></div>
+  </div>
+
+  <section id="why">
+    <div class="head reveal"><h2 data-i18n="why.title">Mniej administracji. Więcej trenowania. Lepsze wyniki finansowe.</h2></div>
+    <div class="pillars reveal-group">
+      <div class="pillar reveal" style="--i:0;--c:#3EC6FF"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h3 data-i18n="why.1.t">Oszczędzasz czas</h3><ul class="checks"><li data-i18n="why.1.1">Plan trafia do klientów jednym kliknięciem, razem z filmami techniki</li><li data-i18n="why.1.2">Treningi, waga i postępy spływają same z aplikacji klienta</li><li data-i18n="why.1.3">Szablony wiadomości zamiast pisania tego samego od nowa</li></ul></div>
+      <div class="pillar reveal" style="--i:1;--c:#35D483"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></svg></div><h3 data-i18n="why.2.t">Zarabiasz więcej</h3><ul class="checks"><li data-i18n="why.2.1">Należności z pakietów i sesji liczą się automatycznie</li><li data-i18n="why.2.2">Przypomnienia o płatności i opłata za nieobecność</li><li data-i18n="why.2.3">Profil w wyszukiwarce trenerów: klienci mogą znaleźć Cię sami</li></ul></div>
+      <div class="pillar reveal" style="--i:2;--c:#FF4D8D"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></div><h3 data-i18n="why.3.t">Wszystko w jednym miejscu</h3><ul class="checks"><li data-i18n="why.3.1">Klienci, plany, kalendarz, czat i budżet w jednym panelu</li><li data-i18n="why.3.2">Google Calendar i Google Meet dla sesji online</li><li data-i18n="why.3.3">Klient ma plan, czat i płatności w jednej aplikacji</li></ul></div>
+    </div>
+  </section>
 
   <section id="problem">
     <div class="head reveal">
-      <h2 data-i18n="problem.title">Plan to połowa pracy. Druga połowa to wysyłka i pilnowanie.</h2>
+      <h2 data-i18n="problem.title">Plan to połowa pracy. Druga połowa to wysyłka, pilnowanie i pieniądze.</h2>
     </div>
     <div class="tiles reveal-group">
-      <div class="tile problem reveal" style="--i:0">
-        <div class="num">01</div>
-        <h3 data-i18n="problem.1.title">Plan w PDF</h3>
-        <p data-i18n="problem.1.desc">Układasz plan, eksportujesz PDF, a przy każdej zmianie robisz nowy plik i wysyłasz go jeszcze raz.</p>
+      <div class="tile problem reveal" style="--i:0"><div class="num">01</div><h3 data-i18n="problem.1.title">Plan w PDF</h3><p data-i18n="problem.1.desc">Układasz plan, eksportujesz PDF, a przy każdej zmianie robisz nowy plik i wysyłasz go jeszcze raz.</p></div>
+      <div class="tile problem reveal" style="--i:1"><div class="num">02</div><h3 data-i18n="problem.2.title">Mail i WhatsApp naraz</h3><p data-i18n="problem.2.desc">Ten sam plan idzie mailem i komunikatorem, do tego linki do filmów. Potem i tak pytasz, czy doszło.</p></div>
+      <div class="tile problem reveal" style="--i:2"><div class="num">03</div><h3 data-i18n="problem.3.title">Postępy w notatkach</h3><p data-i18n="problem.3.desc">Wagi w arkuszu, zdjęcia w czacie, ciężary w notesie. Kto przestał trenować, wychodzi na jaw dopiero, gdy rezygnuje.</p></div>
+    </div>
+  </section>
+
+  <section id="demo">
+    <div class="demo-head">
+      <div class="head reveal"><h2 data-i18n="demo.title">Kliknij przez panel. Na prawdziwych danych.</h2><p data-i18n="demo.sub">To nie film. To działająca kopia panelu trenera z danymi konta demo: 12 klientów, sesje, wiadomości i budżet. Przewodnik pokaże najważniejsze rzeczy w 2 minuty, potem klikaj sam.</p></div>
+      <a class="pill pill-ghost" href="/demo/" data-i18n="demo.full">Demo na pełnym ekranie →</a>
+    </div>
+    <div class="wide"><div id="panel-demo" style="min-height:640px"></div></div>
+    <p class="demo-note" data-i18n="demo.note">Imiona klientów skrócone, kwoty i daty przykładowe. Nic nie jest zapisywane, „Od nowa” przywraca stan początkowy.</p>
+  </section>
+
+  <section id="panel">
+    <div class="head reveal"><h2 data-i18n="panel.title">Jak wygląda panel</h2><p data-i18n="panel.sub">Każdy ekran poniżej to ten sam panel, który dostajesz po aktywacji konta. Kliknij „Zobacz w demo”, żeby go przetestować.</p></div>
+    <div class="feats">
+    <div class="feat" style="--c:#3EC6FF">
+      <div class="txt reveal">
+        <div class="kicker" data-i18n-k="f.clients.k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span data-i18n="f.clients.k">Klienci</span></div>
+        <h3 data-i18n="f.clients.h">Widzisz, kto trenuje, a kto wypada z rytmu</h3>
+        <ul class="checks">
+          <li data-i18n="f.clients.1">Lista z pakietem, realizacją planu i ostatnim treningiem</li>
+          <li data-i18n="f.clients.2">Karta klienta: waga, treningi z 4 tygodni, płatności i cele</li>
+          <li data-i18n="f.clients.3">„Wymaga uwagi” podpowiada, do kogo się odezwać, zanim zrezygnuje</li>
+          <li data-i18n="f.clients.4">Filtry po pakiecie: pełna subskrypcja, tylko treningi, tylko żywienie</li>
+        </ul>
+        <a class="more" href="#demo" data-demo="clients" data-i18n="f.more">Zobacz w demo →</a>
       </div>
-      <div class="tile problem reveal" style="--i:1">
-        <div class="num">02</div>
-        <h3 data-i18n="problem.2.title">Mail i WhatsApp naraz</h3>
-        <p data-i18n="problem.2.desc">Ten sam plan idzie mailem i komunikatorem, do tego linki do filmów. Potem i tak pytasz, czy doszło.</p>
+      <div class="shot reveal" style="--c:#3EC6FF"><div class="shot-ph" data-mini="clients"></div></div>
+    </div>
+    <div class="feat rev" style="--c:#FF4D8D">
+      <div class="txt reveal">
+        <div class="kicker" data-i18n-k="f.plans.k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg><span data-i18n="f.plans.k">Plany treningowe</span></div>
+        <h3 data-i18n="f.plans.h">Układasz raz, wysyłasz wielu klientom</h3>
+        <ul class="checks">
+          <li data-i18n="f.plans.1">Biblioteka ćwiczeń z filmami techniki, albo wgrywasz własne</li>
+          <li data-i18n="f.plans.2">Jeden plan dla wielu klientów, zmiany od razu w aplikacji</li>
+          <li data-i18n="f.plans.3">Klient dostaje powiadomienie i odhacza serie, Ty widzisz to na żywo</li>
+          <li data-i18n="f.plans.4">Plany żywieniowe w tym samym panelu</li>
+        </ul>
+        <a class="more" href="#demo" data-demo="plans" data-i18n="f.more">Zobacz w demo →</a>
       </div>
-      <div class="tile problem reveal" style="--i:2">
-        <div class="num">03</div>
-        <h3 data-i18n="problem.3.title">Postępy w notatkach</h3>
-        <p data-i18n="problem.3.desc">Wagi w arkuszu, zdjęcia w czacie, ciężary w notesie. Kto przestał trenować, wychodzi na jaw dopiero, gdy rezygnuje.</p>
+      <div class="shot reveal" style="--c:#FF4D8D"><div class="shot-ph" data-mini="plans"></div></div>
+    </div>
+    <div class="feat" style="--c:#FFB020">
+      <div class="txt reveal">
+        <div class="kicker" data-i18n-k="f.sessions.k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span data-i18n="f.sessions.k">Sesje</span></div>
+        <h3 data-i18n="f.sessions.h">Kalendarz, który sam pilnuje pieniędzy</h3>
+        <ul class="checks">
+          <li data-i18n="f.sessions.1">Widok tygodnia, zmiana terminu przeciągnięciem</li>
+          <li data-i18n="f.sessions.2">Google Calendar i link Google Meet do sesji online</li>
+          <li data-i18n="f.sessions.3">Potwierdzasz obecność: sesja trafia do należności, nieobecność z opłatą</li>
+          <li data-i18n="f.sessions.4">Cena za 60 minut, krótsze i dłuższe sesje skalują się same</li>
+        </ul>
+        <a class="more" href="#demo" data-demo="sessions" data-i18n="f.more">Zobacz w demo →</a>
+      </div>
+      <div class="shot reveal" style="--c:#FFB020"><div class="shot-ph" data-mini="sessions"></div></div>
+    </div>
+    <div class="feat rev" style="--c:#A78BFA">
+      <div class="txt reveal">
+        <div class="kicker" data-i18n-k="f.messages.k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span data-i18n="f.messages.k">Wiadomości</span></div>
+        <h3 data-i18n="f.messages.h">Czat z klientami bez WhatsAppa</h3>
+        <ul class="checks">
+          <li data-i18n="f.messages.1">Wszystkie rozmowy w jednym miejscu, obok danych klienta</li>
+          <li data-i18n="f.messages.2">Szablony: przypomnienie o treningu, prośba o wagę, gratulacje</li>
+          <li data-i18n="f.messages.3">Potwierdzenia odczytu i powiadomienia push</li>
+          <li data-i18n="f.messages.4">Zdjęcia i pliki prosto w rozmowie</li>
+        </ul>
+        <a class="more" href="#demo" data-demo="messages" data-i18n="f.more">Zobacz w demo →</a>
+      </div>
+      <div class="shot reveal" style="--c:#A78BFA"><div class="shot-ph" data-mini="messages"></div></div>
+    </div>
+    <div class="feat" style="--c:#35D483">
+      <div class="txt reveal">
+        <div class="kicker" data-i18n-k="f.profile.k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg><span data-i18n="f.profile.k">Mój profil</span></div>
+        <h3 data-i18n="f.profile.h">Profil, który sprzedaje za Ciebie</h3>
+        <ul class="checks">
+          <li data-i18n="f.profile.1">Zdjęcia, opis, specjalizacje i opinie klientów z Twoimi odpowiedziami</li>
+          <li data-i18n="f.profile.2">Cennik: trzy pakiety miesięczne i ceny sesji</li>
+          <li data-i18n="f.profile.3">Podgląd na żywo: widzisz dokładnie to, co klient</li>
+          <li data-i18n="f.profile.4">Pomoc AI przy opisie i specjalizacjach</li>
+        </ul>
+        <a class="more" href="#demo" data-demo="profile" data-i18n="f.more">Zobacz w demo →</a>
+      </div>
+      <div class="shot reveal" style="--c:#35D483"><div class="shot-ph" data-mini="profile"></div></div>
+    </div>
+    </div>
+  </section>
+
+  <section id="money">
+    <div class="money reveal">
+      <span class="eyebrow" data-i18n="money.eyebrow">Budżet</span>
+      <h2 data-i18n="money.title">Wiesz, ile zarobisz. W tym miesiącu i w kolejnych.</h2>
+      <p class="lede" data-i18n="money.sub">Budżet zastępuje arkusz i notatki w telefonie. Ramvo nie pośredniczy w płatnościach: klienci płacą Ci jak dotąd, a panel liczy, przypomina i prognozuje.</p>
+      <div class="money-grid">
+        <div>
+          <ol class="mlist">
+            <li><span class="n">1</span><div><b data-i18n="money.1.t">Należności liczą się same</b><p data-i18n="money.1.d">Pakiety co 30 dni z góry, sesje po potwierdzeniu obecności, późne odwołania z opłatą.</p></div></li>
+            <li><span class="n">2</span><div><b data-i18n="money.2.t">Przypomnienia za Ciebie</b><p data-i18n="money.2.d">Klient dostaje powiadomienie z kwotą i terminem. Automatycznie albo jednym kliknięciem.</p></div></li>
+            <li><span class="n">3</span><div><b data-i18n="money.3.t">„Zapłaciłem” w aplikacji</b><p data-i18n="money.3.d">Klient zgłasza wpłatę, Ty tylko ją potwierdzasz.</p></div></li>
+            <li><span class="n">4</span><div><b data-i18n="money.4.t">Prognoza na 4 miesiące</b><p data-i18n="money.4.d">Co już opłacone, co zaplanowane i co się odnowi. Plus pakiety, które za chwilę wygasną.</p></div></li>
+            <li><span class="n">5</span><div><b data-i18n="money.5.t">Koszty i zysk</b><p data-i18n="money.5.d">Wynajem sali, sprzęt, księgowość. Widzisz zysk, a nie tylko wpływy.</p></div></li>
+          </ol>
+          <a class="pill pill-primary" style="margin-top:24px" href="#demo" data-demo="budget:3" data-i18n="money.cta">Otwórz Budżet w demo</a>
+        </div>
+        <div class="shot" style="--c:#35D483"><div class="shot-ph" data-mini="money"></div></div>
       </div>
     </div>
   </section>
 
-  <section id="demo" class="dm">
-    <div class="head reveal">
-      <h2 data-i18n="demo.title">Zobacz panel w akcji</h2>
-      <p data-i18n="demo.sub">Kliknij przez cztery kroki: biblioteka ćwiczeń, wysyłka do klientów, trening klienta i jego postępy. Panel trenera i telefon klienta reagują na każde kliknięcie.</p>
+  <section id="app">
+    <div class="head reveal"><h2 data-i18n="app.title">Twoi klienci mają wszystko w telefonie</h2><p data-i18n="app.sub">Aplikacja Ramvo dla klientów: plan z filmami, trening krok po kroku, czat z Tobą i płatności. Te telefony też są klikalne.</p></div>
+    <div class="phones reveal-group">
+      <figure class="reveal" style="--i:0"><div data-phone="home"></div><figcaption><b data-i18n="app.1.t">Start</b><span data-i18n="app.1.d">Plan na dziś, passa treningowa, najbliższa sesja</span></figcaption></figure>
+      <figure class="reveal" style="--i:1"><div data-phone="workout"></div><figcaption><b data-i18n="app.2.t">Trening</b><span data-i18n="app.2.d">Film techniki i zapisywanie serii</span></figcaption></figure>
+      <figure class="reveal" style="--i:2"><div data-phone="pay"></div><figcaption><b data-i18n="app.3.t">Płatności</b><span data-i18n="app.3.d">Kwota, termin i przycisk „Zapłaciłem”</span></figcaption></figure>
     </div>
-    <nav class="steps" id="steps" aria-label="Demo"></nav>
-    <div class="stage">
-      <div class="desk"><div class="bar"><i></i><i></i><i></i><span>admin.ramvo.app</span></div>
-        <div class="app"><nav class="side" id="side"></nav><div class="main" id="desk"></div></div></div>
-      <div class="phw"><div class="phone"><div class="ph" id="phone"></div></div></div>
-    </div>
-    <div class="cap"><div><h3 id="c-h"></h3><p id="c-p"></p></div><div class="vs" id="c-vs"></div><button type="button" class="next" id="next"></button></div>
-    <p class="note" id="t-sample"></p>
   </section>
 
   <section id="calc" class="dm">
@@ -408,6 +522,26 @@ footer a { color: var(--fg-muted); }
         <summary data-i18n="faq.5.q">Ilu klientów mogę prowadzić za darmo?</summary>
         <p data-i18n="faq.5.a">W ramach Founding Trainer do 30 aktywnych klientów przez 24 miesiące od aktywacji konta.</p>
       </details>
+      <details class="faq-item reveal" style="--i:5">
+        <summary data-i18n="faq.6.q">Czy Ramvo pobiera płatności od moich klientów?</summary>
+        <p data-i18n="faq.6.a">Nie. Klienci płacą Ci jak dotąd: przelewem, BLIK-iem albo gotówką. Ramvo liczy należności, wysyła przypomnienia i zapisuje wpłaty, które potwierdzisz.</p>
+      </details>
+      <details class="faq-item reveal" style="--i:6">
+        <summary data-i18n="faq.7.q">Czy panel działa z Google Calendar i Google Meet?</summary>
+        <p data-i18n="faq.7.a">Tak. Po połączeniu konta Google sesje trafiają do Twojego kalendarza, zajęte terminy blokują rezerwacje, a sesje online dostają link Google Meet.</p>
+      </details>
+      <details class="faq-item reveal" style="--i:7">
+        <summary data-i18n="faq.8.q">Czy demo na tej stronie to prawdziwy panel?</summary>
+        <p data-i18n="faq.8.a">To wierna kopia panelu na danych z naszego konta demo. Po aktywacji konta dostajesz ten sam panel, z własnymi klientami.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="final">
+    <div class="final reveal">
+      <h2 data-i18n="final.title">Zacznij prowadzić klientów w jednym panelu</h2>
+      <p data-i18n="final.sub">20 miejsc Founding Trainer, 24 miesiące za darmo. Zostaw kontakt, a odezwiemy się z dostępem do panelu.</p>
+      <div class="hero-ctas"><a href="#form" class="pill pill-primary" data-i18n="hero.cta">Zgłoś się jako Founding Trainer</a><a href="/demo/" class="pill pill-ghost" data-i18n="demo.full">Demo na pełnym ekranie →</a></div>
     </div>
   </section>
 
@@ -435,8 +569,10 @@ footer a { color: var(--fg-muted); }
     </div>
     <span data-i18n="footer.tagline">Ramvo &middot; Kraków, Polska</span>
   </footer>
+
 </div>
 
+<script src="/assets/panel-demo/demo.js?v=3"></script>
 <script>
 (function () {
   var SUPABASE_URL = 'https://grqzbmrxfllywmyugqlb.supabase.co';
@@ -450,24 +586,17 @@ footer a { color: var(--fg-muted); }
   var P = {
     pl: {
       'nav.demo': 'Demo panelu',
-      'nav.calc': 'Kalkulator',
       'nav.founding': 'Founding Trainer',
       'nav.faq': 'FAQ',
       'nav.cta': 'Zgłoś się',
-      'hero.eyebrow': 'Founding Trainer · 20 miejsc',
-      'hero.title': 'Ty układasz plan. <em>Ramvo</em> robi resztę.',
-      'hero.sub': 'Przypisujesz plan kilku klientom naraz, a oni od razu mają go w telefonie, razem z filmami techniki. Ty widzisz w panelu, kto trenuje, a kto wypada z rytmu.',
       'hero.cta': 'Zgłoś się jako Founding Trainer',
-      'hero.ghost': 'Zobacz panel w akcji',
-      'problem.title': 'Plan to połowa pracy. Druga połowa to wysyłka i pilnowanie.',
+      'problem.title': 'Plan to połowa pracy. Druga połowa to wysyłka, pilnowanie i pieniądze.',
       'problem.1.title': 'Plan w PDF',
       'problem.1.desc': 'Układasz plan, eksportujesz PDF, a przy każdej zmianie robisz nowy plik i wysyłasz go jeszcze raz.',
       'problem.2.title': 'Mail i WhatsApp naraz',
       'problem.2.desc': 'Ten sam plan idzie mailem i komunikatorem, do tego linki do filmów. Potem i tak pytasz, czy doszło.',
       'problem.3.title': 'Postępy w notatkach',
       'problem.3.desc': 'Wagi w arkuszu, zdjęcia w czacie, ciężary w notesie. Kto przestał trenować, wychodzi na jaw dopiero, gdy rezygnuje.',
-      'demo.title': 'Zobacz panel w akcji',
-      'demo.sub': 'Kliknij przez cztery kroki: biblioteka ćwiczeń, wysyłka do klientów, trening klienta i jego postępy. Panel trenera i telefon klienta reagują na każde kliknięcie.',
       'videos.title': 'Twoje filmy zostają Twoje',
       'videos.sub': 'Nagrywasz technikę po swojemu? Wgrywasz ją do biblioteki ćwiczeń i używasz w planach. Albo bierzesz gotowe instruktaże z biblioteki.',
       'videos.1.title': 'Tylko Ty i Twoi klienci',
@@ -519,28 +648,115 @@ footer a { color: var(--fg-muted); }
       'form.fine': 'Wysyłając zgłoszenie, akceptujesz <a href="/legal/">Politykę prywatności</a>.',
       'footer.home': 'Strona główna',
       'footer.legal': 'Polityka prywatności i Regulamin',
-      'footer.tagline': 'Ramvo &middot; Kraków, Polska'
+      'footer.tagline': 'Ramvo &middot; Kraków, Polska',
+      'nav.demo': 'Demo',
+      'nav.panel': 'Funkcje',
+      'nav.money': 'Pieniądze',
+      'hero.eyebrow': 'Founding Trainer · 20 miejsc · 24 mies. za darmo',
+      'hero.title': 'Cały Twój biznes trenerski <em>w&nbsp;jednym panelu</em>.',
+      'hero.sub': 'Klienci, plany z filmami, sesje, czat i płatności w jednym miejscu. Ty prowadzisz ludzi. Ramvo wysyła plany, pilnuje terminów i liczy, kto ile zapłacił.',
+      'hero.ghost': 'Wypróbuj demo panelu',
+      'hero.f1v': '7 modułów',
+      'hero.f1': 'jeden panel zamiast pięciu aplikacji',
+      'hero.f2v': '1 klik',
+      'hero.f2': 'plan u wszystkich klientów naraz',
+      'hero.f3v': '0 zł',
+      'hero.f3': 'przez 24 miesiące jako Founding Trainer',
+      'hero.live': 'Panel na żywo · dane z konta demo',
+      'why.title': 'Mniej administracji. Więcej trenowania. Lepsze wyniki finansowe.',
+      'why.1.t': 'Oszczędzasz czas',
+      'why.1.1': 'Plan trafia do klientów jednym kliknięciem, razem z filmami techniki',
+      'why.1.2': 'Treningi, waga i postępy spływają same z aplikacji klienta',
+      'why.1.3': 'Szablony wiadomości zamiast pisania tego samego od nowa',
+      'why.2.t': 'Zarabiasz więcej',
+      'why.2.1': 'Należności z pakietów i sesji liczą się automatycznie',
+      'why.2.2': 'Przypomnienia o płatności i opłata za nieobecność',
+      'why.2.3': 'Profil w wyszukiwarce trenerów: klienci mogą znaleźć Cię sami',
+      'why.3.t': 'Wszystko w jednym miejscu',
+      'why.3.1': 'Klienci, plany, kalendarz, czat i budżet w jednym panelu',
+      'why.3.2': 'Google Calendar i Google Meet dla sesji online',
+      'why.3.3': 'Klient ma plan, czat i płatności w jednej aplikacji',
+      'demo.title': 'Kliknij przez panel. Na prawdziwych danych.',
+      'demo.sub': 'To nie film. To działająca kopia panelu trenera z danymi konta demo: 12 klientów, sesje, wiadomości i budżet. Przewodnik pokaże najważniejsze rzeczy w 2 minuty, potem klikaj sam.',
+      'demo.full': 'Demo na pełnym ekranie →',
+      'demo.note': 'Imiona klientów skrócone, kwoty i daty przykładowe. Nic nie jest zapisywane, „Od nowa” przywraca stan początkowy.',
+      'panel.title': 'Jak wygląda panel',
+      'panel.sub': 'Każdy ekran poniżej to ten sam panel, który dostajesz po aktywacji konta. Kliknij „Zobacz w demo”, żeby go przetestować.',
+      'f.more': 'Zobacz w demo →',
+      'f.clients.k': 'Klienci',
+      'f.clients.h': 'Widzisz, kto trenuje, a kto wypada z rytmu',
+      'f.clients.1': 'Lista z pakietem, realizacją planu i ostatnim treningiem',
+      'f.clients.2': 'Karta klienta: waga, treningi z 4 tygodni, płatności i cele',
+      'f.clients.3': '„Wymaga uwagi” podpowiada, do kogo się odezwać, zanim zrezygnuje',
+      'f.clients.4': 'Filtry po pakiecie: pełna subskrypcja, tylko treningi, tylko żywienie',
+      'f.plans.k': 'Plany treningowe',
+      'f.plans.h': 'Układasz raz, wysyłasz wielu klientom',
+      'f.plans.1': 'Biblioteka ćwiczeń z filmami techniki, albo wgrywasz własne',
+      'f.plans.2': 'Jeden plan dla wielu klientów, zmiany od razu w aplikacji',
+      'f.plans.3': 'Klient dostaje powiadomienie i odhacza serie, Ty widzisz to na żywo',
+      'f.plans.4': 'Plany żywieniowe w tym samym panelu',
+      'f.sessions.k': 'Sesje',
+      'f.sessions.h': 'Kalendarz, który sam pilnuje pieniędzy',
+      'f.sessions.1': 'Widok tygodnia, zmiana terminu przeciągnięciem',
+      'f.sessions.2': 'Google Calendar i link Google Meet do sesji online',
+      'f.sessions.3': 'Potwierdzasz obecność: sesja trafia do należności, nieobecność z opłatą',
+      'f.sessions.4': 'Cena za 60 minut, krótsze i dłuższe sesje skalują się same',
+      'f.messages.k': 'Wiadomości',
+      'f.messages.h': 'Czat z klientami bez WhatsAppa',
+      'f.messages.1': 'Wszystkie rozmowy w jednym miejscu, obok danych klienta',
+      'f.messages.2': 'Szablony: przypomnienie o treningu, prośba o wagę, gratulacje',
+      'f.messages.3': 'Potwierdzenia odczytu i powiadomienia push',
+      'f.messages.4': 'Zdjęcia i pliki prosto w rozmowie',
+      'f.profile.k': 'Mój profil',
+      'f.profile.h': 'Profil, który sprzedaje za Ciebie',
+      'f.profile.1': 'Zdjęcia, opis, specjalizacje i opinie klientów z Twoimi odpowiedziami',
+      'f.profile.2': 'Cennik: trzy pakiety miesięczne i ceny sesji',
+      'f.profile.3': 'Podgląd na żywo: widzisz dokładnie to, co klient',
+      'f.profile.4': 'Pomoc AI przy opisie i specjalizacjach',
+      'money.eyebrow': 'Budżet',
+      'money.title': 'Wiesz, ile zarobisz. W tym miesiącu i w kolejnych.',
+      'money.sub': 'Budżet zastępuje arkusz i notatki w telefonie. Ramvo nie pośredniczy w płatnościach: klienci płacą Ci jak dotąd, a panel liczy, przypomina i prognozuje.',
+      'money.1.t': 'Należności liczą się same',
+      'money.1.d': 'Pakiety co 30 dni z góry, sesje po potwierdzeniu obecności, późne odwołania z opłatą.',
+      'money.2.t': 'Przypomnienia za Ciebie',
+      'money.2.d': 'Klient dostaje powiadomienie z kwotą i terminem. Automatycznie albo jednym kliknięciem.',
+      'money.3.t': '„Zapłaciłem” w aplikacji',
+      'money.3.d': 'Klient zgłasza wpłatę, Ty tylko ją potwierdzasz.',
+      'money.4.t': 'Prognoza na 4 miesiące',
+      'money.4.d': 'Co już opłacone, co zaplanowane i co się odnowi. Plus pakiety, które za chwilę wygasną.',
+      'money.5.t': 'Koszty i zysk',
+      'money.5.d': 'Wynajem sali, sprzęt, księgowość. Widzisz zysk, a nie tylko wpływy.',
+      'money.cta': 'Otwórz Budżet w demo',
+      'app.title': 'Twoi klienci mają wszystko w telefonie',
+      'app.sub': 'Aplikacja Ramvo dla klientów: plan z filmami, trening krok po kroku, czat z Tobą i płatności. Te telefony też są klikalne.',
+      'app.1.t': 'Start',
+      'app.1.d': 'Plan na dziś, passa treningowa, najbliższa sesja',
+      'app.2.t': 'Trening',
+      'app.2.d': 'Film techniki i zapisywanie serii',
+      'app.3.t': 'Płatności',
+      'app.3.d': 'Kwota, termin i przycisk „Zapłaciłem”',
+      'faq.6.q': 'Czy Ramvo pobiera płatności od moich klientów?',
+      'faq.6.a': 'Nie. Klienci płacą Ci jak dotąd: przelewem, BLIK-iem albo gotówką. Ramvo liczy należności, wysyła przypomnienia i zapisuje wpłaty, które potwierdzisz.',
+      'faq.7.q': 'Czy panel działa z Google Calendar i Google Meet?',
+      'faq.7.a': 'Tak. Po połączeniu konta Google sesje trafiają do Twojego kalendarza, zajęte terminy blokują rezerwacje, a sesje online dostają link Google Meet.',
+      'faq.8.q': 'Czy demo na tej stronie to prawdziwy panel?',
+      'faq.8.a': 'To wierna kopia panelu na danych z naszego konta demo. Po aktywacji konta dostajesz ten sam panel, z własnymi klientami.',
+      'final.title': 'Zacznij prowadzić klientów w jednym panelu',
+      'final.sub': '20 miejsc Founding Trainer, 24 miesiące za darmo. Zostaw kontakt, a odezwiemy się z dostępem do panelu.'
     },
     en: {
       'nav.demo': 'Panel demo',
-      'nav.calc': 'Calculator',
       'nav.founding': 'Founding Trainer',
       'nav.faq': 'FAQ',
       'nav.cta': 'Apply',
-      'hero.eyebrow': 'Founding Trainer · 20 places',
-      'hero.title': 'You write the plan. <em>Ramvo</em> does the rest.',
-      'hero.sub': 'Assign a plan to several clients at once and it is on their phones straight away, form videos included. Your panel shows who is training and who is slipping.',
       'hero.cta': 'Apply as a Founding Trainer',
-      'hero.ghost': 'See the panel in action',
-      'problem.title': 'The plan is half the job. The other half is sending it and chasing people.',
+      'problem.title': 'The plan is half the job. The other half is sending, chasing and getting paid.',
       'problem.1.title': 'The plan as a PDF',
       'problem.1.desc': 'You build the plan, export a PDF, and every change means a new file sent all over again.',
       'problem.2.title': 'Email and WhatsApp at once',
       'problem.2.desc': 'The same plan goes out by email and by messenger, plus links to videos. Then you still ask whether it arrived.',
       'problem.3.title': 'Progress in notes',
       'problem.3.desc': 'Weights in a spreadsheet, photos in chat, lifts in a notebook. You find out someone stopped training when they quit.',
-      'demo.title': 'See the panel in action',
-      'demo.sub': 'Click through four steps: exercise library, sending to clients, the client workout and their progress. The trainer panel and the client\'s phone react to every click.',
       'videos.title': 'Your videos stay yours',
       'videos.sub': 'Film your own technique videos? Upload them to the exercise library and use them in your plans. Or take ready-made form videos from the library.',
       'videos.1.title': 'Only you and your clients',
@@ -592,136 +808,175 @@ footer a { color: var(--fg-muted); }
       'form.fine': 'By applying you accept our <a href="/legal/">Privacy Policy</a>.',
       'footer.home': 'Home',
       'footer.legal': 'Privacy Policy & Terms',
-      'footer.tagline': 'Ramvo &middot; Kraków, Poland'
+      'footer.tagline': 'Ramvo &middot; Kraków, Poland',
+      'nav.demo': 'Demo',
+      'nav.panel': 'Features',
+      'nav.money': 'Money',
+      'hero.eyebrow': 'Founding Trainer · 20 places · 24 months free',
+      'hero.title': 'Your whole coaching business <em>in one panel</em>.',
+      'hero.sub': 'Clients, plans with videos, sessions, chat and payments in one place. You coach people. Ramvo sends the plans, keeps the schedule and tracks who paid what.',
+      'hero.ghost': 'Try the panel demo',
+      'hero.f1v': '7 modules',
+      'hero.f1': 'one panel instead of five apps',
+      'hero.f2v': '1 click',
+      'hero.f2': 'the plan reaches every client at once',
+      'hero.f3v': '0 zł',
+      'hero.f3': 'for 24 months as a Founding Trainer',
+      'hero.live': 'Live panel · demo account data',
+      'why.title': 'Less admin. More coaching. Better numbers.',
+      'why.1.t': 'You save time',
+      'why.1.1': 'One click sends the plan to your clients, form videos included',
+      'why.1.2': 'Workouts, weight and progress arrive from the client app on their own',
+      'why.1.3': 'Message templates instead of typing the same thing again',
+      'why.2.t': 'You earn more',
+      'why.2.1': 'Dues from packages and sessions are calculated automatically',
+      'why.2.2': 'Payment reminders and a no-show fee',
+      'why.2.3': 'A profile in the trainer search: clients can find you themselves',
+      'why.3.t': 'Everything in one place',
+      'why.3.1': 'Clients, plans, calendar, chat and budget in one panel',
+      'why.3.2': 'Google Calendar and Google Meet for online sessions',
+      'why.3.3': 'Clients get plan, chat and payments in one app',
+      'demo.title': 'Click through the panel. Real data.',
+      'demo.sub': 'Not a video. A working copy of the trainer panel with the demo account\'s data: 12 clients, sessions, messages and budget. The guided tour shows the essentials in 2 minutes, then click around yourself.',
+      'demo.full': 'Full-screen demo →',
+      'demo.note': 'Client names shortened, amounts and dates are examples. Nothing is saved; "Reset" restores the starting state.',
+      'panel.title': 'What the panel looks like',
+      'panel.sub': 'Every screen below is the same panel you get once your account is activated. Click "See it in the demo" to try it.',
+      'f.more': 'See it in the demo →',
+      'f.clients.k': 'Clients',
+      'f.clients.h': 'See who is training and who is slipping',
+      'f.clients.1': 'A list with package, plan completion and last workout',
+      'f.clients.2': 'The client card: weight, 4 weeks of workouts, payments and goals',
+      'f.clients.3': '"Needs attention" tells you whom to contact before they quit',
+      'f.clients.4': 'Filter by package: full subscription, workouts only, nutrition only',
+      'f.plans.k': 'Workout plans',
+      'f.plans.h': 'Build once, send to many clients',
+      'f.plans.1': 'An exercise library with form videos, or upload your own',
+      'f.plans.2': 'One plan for many clients, changes reach the app instantly',
+      'f.plans.3': 'Clients get a notification and tick off sets; you see it live',
+      'f.plans.4': 'Meal plans in the same panel',
+      'f.sessions.k': 'Sessions',
+      'f.sessions.h': 'A calendar that keeps track of the money',
+      'f.sessions.1': 'Week view, reschedule by dragging',
+      'f.sessions.2': 'Google Calendar and a Google Meet link for online sessions',
+      'f.sessions.3': 'Confirm attendance: the session becomes a due, a no-show carries a fee',
+      'f.sessions.4': 'Price per 60 minutes; shorter and longer sessions scale automatically',
+      'f.messages.k': 'Messages',
+      'f.messages.h': 'Chat with clients without WhatsApp',
+      'f.messages.1': 'Every conversation in one place, next to the client\'s data',
+      'f.messages.2': 'Templates: workout reminder, weigh-in request, congratulations',
+      'f.messages.3': 'Read receipts and push notifications',
+      'f.messages.4': 'Photos and files right in the conversation',
+      'f.profile.k': 'My profile',
+      'f.profile.h': 'A profile that sells for you',
+      'f.profile.1': 'Photos, bio, specialisations and client reviews with your replies',
+      'f.profile.2': 'Prices: three monthly packages and session prices',
+      'f.profile.3': 'Live preview: you see exactly what clients see',
+      'f.profile.4': 'AI help with your bio and specialisations',
+      'money.eyebrow': 'Budget',
+      'money.title': 'Know what you will earn. This month and the next ones.',
+      'money.sub': 'Budget replaces the spreadsheet and the notes on your phone. Ramvo does not handle the money: clients pay you as they do today, and the panel calculates, reminds and forecasts.',
+      'money.1.t': 'Dues calculate themselves',
+      'money.1.d': 'Packages every 30 days in advance, sessions once attendance is confirmed, late cancellations with a fee.',
+      'money.2.t': 'Reminders on your behalf',
+      'money.2.d': 'Clients get a notification with the amount and due date. Automatically or with one click.',
+      'money.3.t': '"I\'ve paid" in the app',
+      'money.3.d': 'The client reports the payment; you just confirm it.',
+      'money.4.t': 'A 4-month forecast',
+      'money.4.d': 'What is paid, what is planned and what will renew. Plus packages about to expire.',
+      'money.5.t': 'Costs and profit',
+      'money.5.d': 'Gym rent, equipment, accounting. You see profit, not just money in.',
+      'money.cta': 'Open Budget in the demo',
+      'app.title': 'Your clients have everything on their phone',
+      'app.sub': 'The Ramvo client app: plan with videos, step-by-step workouts, chat with you and payments. These phones are clickable too.',
+      'app.1.t': 'Home',
+      'app.1.d': 'Today\'s plan, training streak, next session',
+      'app.2.t': 'Workout',
+      'app.2.d': 'Form video and set logging',
+      'app.3.t': 'Payments',
+      'app.3.d': 'Amount, due date and an "I\'ve paid" button',
+      'faq.6.q': 'Does Ramvo take payments from my clients?',
+      'faq.6.a': 'No. Clients pay you as they do today: bank transfer, BLIK or cash. Ramvo calculates dues, sends reminders and records the payments you confirm.',
+      'faq.7.q': 'Does the panel work with Google Calendar and Google Meet?',
+      'faq.7.a': 'Yes. Once you connect your Google account, sessions go to your calendar, busy slots block bookings, and online sessions get a Google Meet link.',
+      'faq.8.q': 'Is the demo on this page the real panel?',
+      'faq.8.a': 'It is a faithful copy of the panel running on our demo account\'s data. Once activated you get the same panel with your own clients.',
+      'final.title': 'Start coaching your clients from one panel',
+      'final.sub': '20 Founding Trainer places, 24 months free. Leave your details and we will email you with panel access.'
     }
   };
 
   // ============================================================
-  // Panel demo + hours calculator: same behaviour and copy as /demo/.
+  // Hours calculator (unchanged logic)
   // ============================================================
-  const play='<svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="#F4F6F8"/></svg>';
-  const T={
-  pl:{steps:['Biblioteka','Wysyłka','Trening','Postępy'],next:'Dalej',again:'Od początku',
-  sample:'Przykładowe dane: klienci, ciężary i daty w demo są fikcyjne. Ekrany odwzorowują panel i aplikację Ramvo.',
-  side:[['g','Przegląd'],['','Pulpit'],['g','Programowanie'],['','Plany treningowe'],['lib','Biblioteka ćwiczeń'],['','Jadłospisy'],['g','Ludzie'],['cli','Moi klienci'],['','Wiadomości'],['','Rezerwacje']],
-  cap:[['Ćwiczenia z filmem, gotowe do wstawienia','Szukasz ćwiczenia, klikasz Dodaj. Instruktaż wideo idzie razem z nim. Nie nagrywasz i nie wklejasz linków do YouTube.',['Szukasz filmu i wklejasz link przy każdym ćwiczeniu','Filmik jest w bibliotece, jedno kliknięcie']],
-  ['Jeden klik zamiast maila i WhatsAppa','Zaznaczasz klientów i przypisujesz plan. Każdy dostaje powiadomienie na telefon i widzi plan od razu.',['PDF, mail, ta sama wiadomość na WhatsAppie, pytania czy doszło','Przypisz, klient dostaje push w sekundę']],
-  ['Klient trenuje z planem w ręku','Klient widzi dzień treningowy, ogląda technikę i odhacza serie. Ty widzisz to na żywo w panelu.',['Pytasz na WhatsAppie, czy trening był zrobiony','Aktywność klienta spływa do panelu sama']],
-  ['Postępy w jednym miejscu','Waga, wyniki siłowe, zdjęcia i passa treningowa. Panel pokazuje też, kto wypada z rytmu, zanim zrezygnuje.',['Zdjęcia w czacie, wagi w arkuszu, ciężary w notesie','Jeden profil klienta, wykresy gotowe']]],
-  lib:'Biblioteka ćwiczeń',libs:'Każde ćwiczenie z krótkim filmem instruktażowym',search:'Szukaj: nogi',add:'Dodaj',added:'Dodane',day:'Plan: Siła, grudzień',dayA:'Dzień A: Nogi',empty:'Dodaj ćwiczenia z biblioteki',
-  ex:[['Przysiad przedni','Nogi · sztanga'],['Hip thrust','Pośladki · sztanga'],['Przysiad bułgarski','Nogi · hantle'],['Uginanie nóg','Nogi · maszyna'],['Wypychanie na suwnicy','Nogi · maszyna']],
-  cli:'Moi klienci',clis:'Przypisz plan: Siła, grudzień',assign:n=>'Przypisz plan ('+n+')',sent:n=>'Wysłano do '+n+' klientów',
-  tier:['Pełny','Trening'],names:['Kasia Nowak','Tomek Wiśniewski','Marta Kowal','Piotr Lis','Ola Szymańska'],
-  act:'Aktywność klientów',live:'na żywo',feed:[['Kasia','ukończyła serię','Przysiad przedni 60 kg × 8']],now:'teraz',
-  prof:'Kasia Nowak',profs:'Klientka od 9 tygodni · Plan: Siła, grudzień',k:['−3,6 kg','waga od startu'],k2:['+20 kg','przysiad przedni'],k3:['12 dni','passa treningowa'],
-  wch:'Waga, kg',sch:'Przysiad przedni, kg',risk:'Wymaga uwagi',riskT:'Tomek: 6 dni bez treningu',write:'Napisz',
-  hello:'Cześć, Kasia',date:'wtorek, 1 grudnia',noplan:'Plan na grudzień',noplans:'Trener jeszcze nie przypisał planu',
-  pushT:'Nowy plan od trenera',pushB:'Siła, grudzień został przypisany do Ciebie.',newplan:'Siła, grudzień',newplans:'12 treningów · 4 tygodnie',start:'Zacznij dzień A',
-  streak:'dni z rzędu',wk:'Ten tydzień',todayW:'Dzień A: Nogi',tech:'Technika · 0:42',set:'Seria',logset:'Zapisz serię',done:'Ćwiczenie ukończone',
-  prog:'Twoje postępy',macro:'Białko dziś',
-  ch:'Ile godzin oddaje Ci Ramvo',cp:'Plan dalej układasz sam. Liczymy tylko to, co dziś zjada czas obok planu: wysyłkę, szukanie filmów i zbieranie postępów. Zmień założenia na swoje.',
-  cl:'Liczba klientów',task:'Zadanie, minut na klienta',today:'Dziś',
-  rows:[['Wysyłka planu mailem i na WhatsAppie','mies.'],['Filmy do ćwiczeń w planie','mies.'],['Zbieranie i sprawdzanie postępów','tydz.']],
-  anote:'Założenia szacunkowe, nie pomiar. Wpisz własne minuty, wynik przelicza się od razu.',
-  hl:n=>'godzin miesięcznie mniej na wysyłkę, filmy i postępy przy '+n+' klientach',r10:'przy 10 klientach',r30:'przy 30 klientach',rw:'tygodniowo przy Twojej liczbie',h:'h'},
-  en:{steps:['Library','Send','Workout','Progress'],next:'Next',again:'Start again',
-  sample:'Sample data: clients, weights and dates in this demo are fictional. Screens mirror the Ramvo panel and app.',
-  side:[['g','Overview'],['','Dashboard'],['g','Programming'],['','Workout plans'],['lib','Exercise library'],['','Meal plans'],['g','People'],['cli','My clients'],['','Messages'],['','Bookings']],
-  cap:[['Exercises with video, ready to drop in','Search an exercise, click Add. The form video comes with it. No filming, no pasting YouTube links.',['Find a video and paste a link for every exercise','The video sits in the library, one click']],
-  ['One click instead of email plus WhatsApp','Tick your clients and assign the plan. Each one gets a push notification and sees the plan straight away.',['PDF, email, the same message on WhatsApp, "did you get it?"','Assign, the client gets a push in a second']],
-  ['Your client trains with the plan in hand','The client sees the training day, watches the technique and ticks off sets. You see it live in the panel.',['Ask on WhatsApp whether the session happened','Client activity lands in your panel on its own']],
-  ['Progress in one place','Weight, strength numbers, photos and the training streak. The panel also flags who is slipping, before they quit.',['Photos in chat, weights in a spreadsheet, lifts in a notebook','One client profile, charts ready']]],
-  lib:'Exercise library',libs:'Every exercise with a short form video',search:'Search: legs',add:'Add',added:'Added',day:'Plan: Strength, December',dayA:'Day A: Legs',empty:'Add exercises from the library',
-  ex:[['Front squat','Legs · barbell'],['Hip thrust','Glutes · barbell'],['Bulgarian split squat','Legs · dumbbells'],['Leg curl','Legs · machine'],['Leg press','Legs · machine']],
-  cli:'My clients',clis:'Assign plan: Strength, December',assign:n=>'Assign plan ('+n+')',sent:n=>'Sent to '+n+' clients',
-  tier:['Full','Workout'],names:['Emma Reid','Tom Hughes','Sophie Lane','James Patel','Olivia Shaw'],
-  act:'Client activity',live:'live',feed:[['Emma','finished a set','Front squat 60 kg × 8']],now:'now',
-  prof:'Emma Reid',profs:'Client for 9 weeks · Plan: Strength, December',k:['−3.6 kg','weight since start'],k2:['+20 kg','front squat'],k3:['12 days','training streak'],
-  wch:'Weight, kg',sch:'Front squat, kg',risk:'Needs attention',riskT:'Tom: 6 days without a session',write:'Message',
-  hello:'Hi, Emma',date:'Tuesday, 1 December',noplan:'December plan',noplans:'Your trainer has not assigned a plan yet',
-  pushT:'New plan from your trainer',pushB:'Strength, December is now assigned to you.',newplan:'Strength, December',newplans:'12 sessions · 4 weeks',start:'Start day A',
-  streak:'days in a row',wk:'This week',todayW:'Day A: Legs',tech:'Technique · 0:42',set:'Set',logset:'Log set',done:'Exercise complete',
-  prog:'Your progress',macro:'Protein today',
-  ch:'How many hours Ramvo gives back',cp:'You still write the plan yourself. We count only the work around the plan: sending, finding videos and collecting progress. Change the assumptions to your own.',
-  cl:'Number of clients',task:'Task, minutes per client',today:'Today',
-  rows:[['Sending the plan by email and WhatsApp','month'],['Exercise videos in the plan','month'],['Collecting and checking progress','week']],
-  anote:'Estimated assumptions, not a measurement. Enter your own minutes and the result updates instantly.',
-  hl:n=>'fewer hours a month on sending, videos and progress with '+n+' clients',r10:'with 10 clients',r30:'with 30 clients',rw:'per week at your number',h:'h'}};
-  const COL=['#3EC6FF','#FF4D8D','#35D483','#F4F6F8','#8E97A3'];
-  let L='pl',S={step:0,added:[0,1],sel:[true,true,true,false,false],assigned:false,sets:1};
-  let A=[[10,0.5],[10,2],[8,3]];
-  const $=id=>document.getElementById(id);
-  const ini=n=>n.split(' ').map(w=>w[0]).join('');
-  function side(t){$('side').innerHTML=t.side.map(([k,v])=>`<div class="${k==='g'?'g':''}${(k==='lib'&&S.step===0)||(k==='cli'&&S.step>0)?' on':''}">${v}</div>`).join('')}
-  function desk(t){
-   let h='';
-   if(S.step===0){
-    h=`<h3>${t.lib}</h3><p class="sub">${t.libs}</p><div class="cols"><div class="card"><div class="search">${t.search}</div>${t.ex.map((e,i)=>`<div class="ex"><div class="th">${play}</div><div class="n">${e[0]}<small>${e[1]}</small></div><button type="button" class="btn${S.added.includes(i)?'':(i===2?' pulse':'')}" data-add="${i}" ${S.added.includes(i)?'disabled':''}>${S.added.includes(i)?t.added:t.add}</button></div>`).join('')}</div>
-    <div class="card"><div class="lbl">${t.day}</div><div style="font-weight:700;margin-bottom:6px">${t.dayA}</div>${S.added.map(i=>`<div class="ex" style="animation:dm-in .4s ease both"><div class="th" style="width:40px;height:28px">${play}</div><div class="n">${t.ex[i][0]}<small>4 × 8 · 90 s</small></div></div>`).join('')||`<p class="sub">${t.empty}</p>`}</div></div>`;
-   }else if(S.step===1){
-    const n=S.sel.filter(Boolean).length;
-    h=`<h3>${t.cli}</h3><p class="sub">${t.clis}</p><div class="card">${t.names.map((m,i)=>`<div class="cl"><button type="button" class="chk" aria-pressed="${S.sel[i]}" data-sel="${i}" aria-label="${m}">${S.sel[i]?'<svg width="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-6" stroke="#04161F" stroke-width="2.2" fill="none"/></svg>':''}</button><div class="av" style="background:${COL[i]}">${ini(m)}</div><div class="n" style="flex:1;font-weight:600">${m}</div>${S.assigned&&S.sel[i]?`<span class="tag ok">${t.added}</span>`:`<span class="tag">${t.tier[i<3?0:1]}</span>`}</div>`).join('')}</div>
-    <div style="margin-top:12px"><button type="button" class="btn big${S.assigned?'':' pulse'}" id="assign" ${S.assigned||!n?'disabled':''}>${S.assigned?t.sent(n):t.assign(n)}</button></div>${S.assigned?`<div class="toast">${t.sent(n)} · 0:01</div>`:''}`;
-   }else if(S.step===2){
-    const f=[];for(let i=1;i<=S.sets;i++)f.unshift(`<div><b>${t.names[0].split(' ')[0]}</b> ${t.feed[0][1]} ${i}/4 · ${t.feed[0][2]}<time>${i===S.sets?t.now:(S.sets-i)*2+' min'}</time></div>`);
-    h=`<h3>${t.act}</h3><p class="sub"><span class="tag cy">${t.live}</span></p><div class="cols"><div class="card"><div class="lbl">${t.todayW}</div><div class="feed">${f.join('')}</div></div>
-    <div class="card"><div class="lbl">${t.wk}</div>${t.names.slice(0,4).map((m,i)=>`<div class="cl"><div class="av" style="background:${COL[i]}">${ini(m)}</div><div style="flex:1;font-weight:600">${m.split(' ')[0]}</div><span class="tag ${i===1?'wa':'ok'}">${[3,0,2,2][i]}/3</span></div>`).join('')}</div></div>`;
-   }else{
-    h=`<h3>${t.prof}</h3><p class="sub">${t.profs}</p><div class="kpis">${[t.k,t.k2,t.k3].map((k,i)=>`<div class="card kpi"><b style="color:${['var(--gr)','var(--cy)','var(--mg)'][i]}">${k[0]}</b><span>${k[1]}</span></div>`).join('')}</div>
-    <div class="cols"><div class="card"><div class="lbl">${t.wch}</div><div class="fig"><svg id="g1"></svg></div></div><div class="card"><div class="lbl">${t.sch}</div><div class="fig"><svg id="g2"></svg></div></div></div>
-    <div class="card" style="margin-top:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap"><span class="tag wa">${t.risk}</span><span style="flex:1">${t.riskT}</span><button type="button" class="btn ghost">${t.write}</button></div>`;
-   }
-   $('desk').innerHTML=h;if(S.step===3)charts();
+  var L = 'pl';
+  const T = {
+    pl: { ch: 'Ile godzin oddaje Ci Ramvo', cp: 'Plan dalej układasz sam. Liczymy tylko to, co dziś zjada czas obok planu: wysyłkę, szukanie filmów i zbieranie postępów. Zmień założenia na swoje.',
+      cl: 'Liczba klientów', task: 'Zadanie, minut na klienta', today: 'Dziś',
+      rows: [['Wysyłka planu mailem i na WhatsAppie', 'mies.'], ['Filmy do ćwiczeń w planie', 'mies.'], ['Zbieranie i sprawdzanie postępów', 'tydz.']],
+      anote: 'Założenia szacunkowe, nie pomiar. Wpisz własne minuty, wynik przelicza się od razu.',
+      hl: n => 'godzin miesięcznie mniej na wysyłkę, filmy i postępy przy ' + n + ' klientach', r10: 'przy 10 klientach', r30: 'przy 30 klientach', rw: 'tygodniowo przy Twojej liczbie', h: 'h' },
+    en: { ch: 'How many hours Ramvo gives back', cp: 'You still write the plan yourself. We count only the work around the plan: sending, finding videos and collecting progress. Change the assumptions to your own.',
+      cl: 'Number of clients', task: 'Task, minutes per client', today: 'Today',
+      rows: [['Sending the plan by email and WhatsApp', 'month'], ['Exercise videos in the plan', 'month'], ['Collecting and checking progress', 'week']],
+      anote: 'Estimated assumptions, not a measurement. Enter your own minutes and the result updates instantly.',
+      hl: n => 'fewer hours a month on sending, videos and progress with ' + n + ' clients', r10: 'with 10 clients', r30: 'with 30 clients', rw: 'per week at your number', h: 'h' }
+  };
+  let A = [[10, 0.5], [10, 2], [8, 3]];
+  const $ = id => document.getElementById(id);
+  const fmt = v => { const r = Math.round(v * 10) / 10; return (Number.isInteger(r) ? String(r) : r.toFixed(1)).replace('.', L === 'pl' ? ',' : '.'); };
+  function perClient() { return (A[0][0] - A[0][1]) + (A[1][0] - A[1][1]) + (A[2][0] - A[2][1]) * 52 / 12; }
+  function calc() { const t = T[L], n = +$('n').value, pc = perClient(); $('nv').textContent = n;
+    $('hrs').textContent = fmt(pc * n / 60) + ' ' + t.h; $('hrsl').textContent = t.hl(n);
+    $('r10').textContent = fmt(pc * 10 / 60) + ' ' + t.h; $('r30').textContent = fmt(pc * 30 / 60) + ' ' + t.h; $('rw').textContent = fmt(pc * n / 60 * 12 / 52) + ' ' + t.h; }
+  function rows(t) { $('rows').innerHTML = t.rows.map((r, i) => `<tr><td>${r[0]} <span style="color:var(--mute);font-size:12.5px">/ ${r[1]}</span></td>${[0, 1].map(j => `<td><input type="number" min="0" max="120" step="0.5" inputmode="decimal" id="a${i}${j}" value="${A[i][j]}" aria-label="${r[0]} ${j ? 'Ramvo' : t.today}"></td>`).join('')}</tr>`).join(''); }
+  function render() { const t = T[L];
+    for (const k of ['ch', 'cp', 'cl', 'task', 'today', 'anote']) $('t-' + k).textContent = t[k];
+    $('r10l').textContent = t.r10; $('r30l').textContent = t.r30; $('rwl').textContent = t.rw; calc(); }
+  $('calc').addEventListener('input', e => { const m = e.target.id.match(/^a(\d)(\d)$/); if (m) { const v = parseFloat(e.target.value); A[+m[1]][+m[2]] = isFinite(v) && v >= 0 ? v : 0; calc(); } if (e.target.id === 'n') calc(); });
+
+  // ============================================================
+  // Panel demo (assets/panel-demo): interactive embed, hero autoplay,
+  // feature previews and the client phones. Previews mount lazily.
+  // ============================================================
+  var demo = null;
+  var CTA = { href: '#form', pl: 'Zgłoś się jako Founding Trainer', en: 'Apply as a Founding Trainer' };
+  RamvoDemo.mount(document.getElementById('panel-demo'), { tour: true, h: '640px', cta: CTA }).then(function (d) {
+    demo = d;
+    var m = location.hash.match(/^#demo\/([\w:]+)/);
+    if (m) { d.go(m[1]); document.getElementById('demo').scrollIntoView(); }
+  });
+  var MINI = {
+    hero: { mini: true, width: 1240, h: '620px', cycle: ['dashboard', 'budget:3', 'sessions', 'messages', 'clients'], cycleMs: 4200 },
+    clients: { mini: true, h: '600px', set: { mod: 'clients', client: 'auto' } },
+    plans: { mini: true, h: '600px', set: { mod: 'plans' } },
+    sessions: { mini: true, h: '600px', set: { mod: 'sessions' } },
+    messages: { mini: true, h: '600px', set: { mod: 'messages' } },
+    profile: { mini: true, h: '600px', set: { mod: 'profile' } },
+    money: { mini: true, h: '640px', set: { mod: 'budget', btab: 3, fcVar: 'renew' } }
+  };
+  function mountMini(el) {
+    var key = el.getAttribute('data-mini');
+    if (key) { el.classList.remove('shot-ph'); el.removeAttribute('style'); RamvoDemo.mount(el, MINI[key]); return; }
+    var screen = el.getAttribute('data-phone');
+    var others = { home: ['home', 'chat'], workout: ['workout'], pay: ['pay', 'home'] }[screen];
+    RamvoDemo.mount(el, { phoneOnly: true, who: 'auto', set: { phone: { who: null, screen: screen, push: null, plan: false, sets: screen === 'workout' ? 2 : 0 } }, screens: others.length > 1 ? others : null, screensMs: 5200 })
+      .then(function (d) { if (d && !d.st.phone.who) { d.st.phone.who = d.st.sessions[0] ? d.st.sessions[0].c : null; d.render(); } });
   }
-  function phone(t){
-   let h='';const st=`<div class="pc"><div class="streak"><b>${S.step===3?12:11}</b><div><div style="font-weight:700">${t.streak}</div><div class="dots">${[1,1,1,1,1,0,0].map((o,i)=>`<i class="${o||(S.step>=2&&i===5)?'on':''}"></i>`).join('')}</div></div></div></div>`;
-   if(S.step<=1){
-    h=`<p class="hi">${t.hello}</p><div class="date">${t.date}</div>${S.assigned?`<div class="pc new"><div class="lbl" style="color:var(--cy)">${t.noplan}</div><div style="font:800 17px Archivo,sans-serif">${t.newplan}</div><div style="color:var(--as);font-size:12px;margin-bottom:10px">${t.newplans}</div><button type="button" class="btn" style="width:100%" data-go="2">${t.start}</button></div>`:`<div class="pc"><div class="lbl">${t.noplan}</div><div style="color:var(--as)">${t.noplans}</div></div>`}${st}
-    <div class="pc ring"><svg width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="22" r="18" stroke="#1F242B" stroke-width="6" fill="none"/><circle cx="22" cy="22" r="18" stroke="#3EC6FF" stroke-width="6" fill="none" stroke-dasharray="113" stroke-dashoffset="40" transform="rotate(-90 22 22)" stroke-linecap="round"/></svg><div><div style="font-weight:700">${t.macro}</div><div style="color:var(--as)">92 / 140 g</div></div></div>
-    ${S.assigned?`<div class="push"><div class="ic"><img src="/assets/brand/favicon/favicon.svg" alt=""></div><div><b>${t.pushT}</b><span>${t.pushB}</span></div></div>`:''}`;
-   }else if(S.step===2){
-    const d=S.sets>=4;
-    h=`<div class="lbl">${t.todayW}</div><h3>${t.ex[0][0]}</h3><div style="color:var(--as)">4 × 8 · 60 kg · 90 s</div><div class="vid">${play}<small>${t.tech}</small></div>
-    <div class="sets">${[1,2,3,4].map(i=>`<i class="${i<=S.sets?'on':''}">${t.set} ${i}</i>`).join('')}</div>
-    <button type="button" class="btn big${d?'':' pulse'}" style="width:100%" id="log" ${d?'disabled':''}>${d?t.done:t.logset}</button>
-    <div class="pc" style="margin-top:12px">${t.ex.slice(1,3).map(e=>`<div class="ex"><div class="th" style="width:40px;height:28px">${play}</div><div class="n">${e[0]}<small>4 × 8</small></div></div>`).join('')}</div>`;
-   }else{
-    h=`<p class="hi">${t.prog}</p><div class="date">${t.date}</div>${st}<div class="pc"><div class="lbl">${t.wch}</div><div class="fig" style="height:90px"><svg id="g3"></svg></div></div>
-    <div class="pc" style="display:grid;grid-template-columns:1fr 1fr;gap:8px">${[0,1].map(i=>`<div style="aspect-ratio:3/4;border-radius:10px;background:linear-gradient(${i?'200deg,#24404d,#15181c':'160deg,#2a2f36,#15181c'});display:grid;place-items:end start;padding:6px;font-size:11px;color:#c9ced5">${i?'1.12':'6.10'}</div>`).join('')}</div>`;
-   }
-   $('phone').innerHTML=h;if(S.step===3)charts();
-  }
-  function line(svg,data,col,lo,hi){if(!svg)return;const W=svg.clientWidth,H=svg.clientHeight;if(!W)return;const p=6;
-   const x=i=>p+i*(W-2*p)/(data.length-1),y=v=>H-p-(v-lo)/(hi-lo)*(H-2*p);
-   const d=data.map((v,i)=>(i?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1)).join(' ');
-   svg.innerHTML=`<path d="${d} L${x(data.length-1)} ${H} L${x(0)} ${H}Z" fill="${col}22"/><path d="${d}" stroke="${col}" stroke-width="2.5" fill="none" stroke-linejoin="round"/><circle cx="${x(data.length-1)}" cy="${y(data[data.length-1])}" r="4" fill="${col}"/><text x="${x(data.length-1)-8}" y="${y(data[data.length-1])<H/2?y(data[data.length-1])+16:y(data[data.length-1])-10}" text-anchor="end" fill="#8E97A3" font-size="11" font-family="Manrope">${String(data[data.length-1]).replace('.',L==='pl'?',':'.')}</text>`}
-  function charts(){const w=[71.2,70.8,70.1,69.9,69.2,68.8,68.3,67.9,67.6],s=[40,45,45,47.5,50,52.5,55,57.5,60];
-   line($('g1'),w,'#35D483',66.5,72);line($('g2'),s,'#3EC6FF',35,62);line($('g3'),w,'#35D483',66.5,72)}
-  if('ResizeObserver' in window)new ResizeObserver(()=>{if(S.step===3)charts()}).observe(document.body);
-  function cap(t){const c=t.cap[S.step];$('c-h').textContent=c[0];$('c-p').textContent=c[1];
-   $('c-vs').innerHTML=`<div class="b"><span>${t.today}</span>${c[2][0]}</div><div class="a"><span>Ramvo</span>${c[2][1]}</div>`;
-   $('next').textContent=S.step===3?t.again:t.next;
-   $('steps').innerHTML=t.steps.map((s,i)=>`<button type="button" data-step="${i}" aria-current="${i===S.step}">${s}</button>`).join('')}
-  const fmt=v=>{const r=Math.round(v*10)/10;return (Number.isInteger(r)?String(r):r.toFixed(1)).replace('.',L==='pl'?',':'.')};
-  function perClient(){return (A[0][0]-A[0][1])+(A[1][0]-A[1][1])+(A[2][0]-A[2][1])*52/12}
-  function calc(){const t=T[L],n=+$('n').value,pc=perClient();$('nv').textContent=n;
-   $('hrs').textContent=fmt(pc*n/60)+' '+t.h;$('hrsl').textContent=t.hl(n);
-   $('r10').textContent=fmt(pc*10/60)+' '+t.h;$('r30').textContent=fmt(pc*30/60)+' '+t.h;$('rw').textContent=fmt(pc*n/60*12/52)+' '+t.h}
-  function rows(t){$('rows').innerHTML=t.rows.map((r,i)=>`<tr><td>${r[0]} <span style="color:var(--mute);font-size:12.5px">/ ${r[1]}</span></td>${[0,1].map(j=>`<td><input type="number" min="0" max="120" step="0.5" inputmode="decimal" id="a${i}${j}" value="${A[i][j]}" aria-label="${r[0]} ${j?'Ramvo':t.today}"></td>`).join('')}</tr>`).join('')}
-  function render(){const t=T[L];
-   for(const k of ['sample','ch','cp','cl','task','today','anote'])$('t-'+k).textContent=t[k];
-   $('r10l').textContent=t.r10;$('r30l').textContent=t.r30;$('rwl').textContent=t.rw;
-   side(t);desk(t);phone(t);cap(t);calc()}
-  function go(i){S.step=i;if(i===0){S.added=[0,1]}if(i<=1){S.assigned=false}if(i===2)S.sets=1;if(i>=2)S.assigned=true;render()}
-  $('demo').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
-   if(b.dataset.step){go(+b.dataset.step);return}
-   if(b.dataset.go){go(+b.dataset.go);return}
-   if(b.dataset.add){S.added.push(+b.dataset.add);render();return}
-   if(b.dataset.sel){if(S.assigned)return;S.sel[+b.dataset.sel]=!S.sel[+b.dataset.sel];render();return}
-   if(b.id==='assign'){S.assigned=true;render();return}
-   if(b.id==='log'){S.sets=Math.min(4,S.sets+1);render();return}
-   if(b.id==='next'){go(S.step===3?0:S.step+1)}});
-  $('calc').addEventListener('input',e=>{const m=e.target.id.match(/^a(\d)(\d)$/);if(m){const v=parseFloat(e.target.value);A[+m[1]][+m[2]]=isFinite(v)&&v>=0?v:0;calc()}if(e.target.id==='n')calc()});
+  var lazy = document.querySelectorAll('[data-mini],[data-phone]');
+  if ('IntersectionObserver' in window) {
+    var mio = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { mio.unobserve(e.target); mountMini(e.target); } }); }, { rootMargin: '400px 0px' });
+    lazy.forEach(function (el) { mio.observe(el); });
+  } else lazy.forEach(mountMini);
+  var shot = document.getElementById('hero-shot');
+  setTimeout(function () { shot.classList.add('is-in'); }, reduceMotion ? 0 : 350);
+  // "See it in the demo" links open the embedded demo on that module
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('[data-demo]'); if (!a) return;
+    e.preventDefault();
+    if (demo) demo.go(a.getAttribute('data-demo'));
+    document.getElementById('demo').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+  });
 
   // ============================================================
   // Language
@@ -745,6 +1000,7 @@ footer a { color: var(--fg-muted); }
     });
     rows(T[L]);
     render();
+    if (window.RamvoDemo) RamvoDemo.setLang(lang);
     try { localStorage.setItem('ramvo-lang', lang); } catch (e) {}
   }
   function detectLanguage() {

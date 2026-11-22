@@ -1,0 +1,5062 @@
+{
+ "exportedOn": "2026-11-22",
+ "trainer": {
+  "name": "Marta Nowak",
+  "bio": "Trenerka personalna i dietetyczka sportowa z Warszawy. Pomagam zapracowanym ludziom wrócić do formy bez rewolucji w życiu – plan treningowy i jadłospis układam pod Twój grafik, sprzęt i to, co lubisz jeść. Pracuję online i na siłowni na Mokotowie. Co tydzień sprawdzam postępy w aplikacji i odpisuję na czacie, więc nie zostajesz z planem sam(a). Najczęściej trenuję z osobami, które chcą zrzucić kilka kilogramów, poprawić siłę i zadbać o kręgosłup przy pracy biurowej.",
+  "years": 8,
+  "tags": [
+   "Redukcja",
+   "Trening siłowy",
+   "Powrót po kontuzji"
+  ],
+  "mode": "both",
+  "gyms": [
+   "Fit Factory Mokotów, Warszawa"
+  ],
+  "prices": {
+   "full": 400,
+   "workout_only": 280,
+   "meal_only": 220,
+   "online": 150,
+   "gym": 180
+  },
+  "goal": 6000,
+  "terms": 7,
+  "noShowPct": 50,
+  "lateCancelPct": 50,
+  "bank": "00 0000 0000 0000 0000 0000 0000",
+  "photos": [
+   "img/trainer-1.webp",
+   "img/trainer-2.webp",
+   "img/trainer-3.webp",
+   "img/trainer-4.webp"
+  ]
+ },
+ "reviews": [
+  {
+   "c": "c5",
+   "name": "Kasia W.",
+   "stars": 5,
+   "comment": "Marta ułożyła mi plan, który naprawdę da się wpleść w pracę i dom. Minus 6 kg w 3 miesiące i zero głodówek.",
+   "at": "2026-11-16T20:00:00+00:00",
+   "reply": "Kasiu, dziękuję! Te 6 kg to w 100% Twoja konsekwencja – ja tylko pilnowałam, żeby plan pasował do życia. Działamy dalej 💪",
+   "replyAt": "2026-11-16T23:00:00+00:00"
+  },
+  {
+   "c": "c12",
+   "name": "Tomek Z.",
+   "stars": 5,
+   "comment": "Konkretny plan i szybkie odpowiedzi na czacie. Przysiad +30 kg w 12 tygodni.",
+   "at": "2026-11-16T20:00:00+00:00",
+   "reply": "Dzięki Tomek! +30 kg w przysiadzie to Twoja robota 💪",
+   "replyAt": "2026-11-22T08:46:37.623323+00:00"
+  },
+  {
+   "c": "c9",
+   "name": "Ola K.",
+   "stars": 5,
+   "comment": "Najlepszy plan, jaki miałam. Wszystko w jednej aplikacji, a Marta widzi każdą moją serię.",
+   "at": "2026-11-16T20:00:00+00:00",
+   "reply": null,
+   "replyAt": null
+  },
+  {
+   "c": "c7",
+   "name": "Magda L.",
+   "stars": 4,
+   "comment": "Super kontakt, przejście z Ramvo AI do trenera było bezbolesne.",
+   "at": "2026-11-16T20:00:00+00:00",
+   "reply": "Dzięki, Magda! Cieszę się, że przejście z Ramvo AI poszło gładko. Daj znać, jeśli coś w planie będzie do poprawki.",
+   "replyAt": "2026-11-16T23:00:00+00:00"
+  }
+ ],
+ "clients": [
+  {
+   "id": "c1",
+   "name": "Agnieszka M.",
+   "city": "Warszawa",
+   "goals": [
+    "Redukcja",
+    "Zdrowe nawyki"
+   ],
+   "level": "beginner",
+   "since": "2026-10-16",
+   "plan": "meal_only",
+   "price": 220,
+   "subStart": "2026-10-18",
+   "subEnd": "2026-12-17",
+   "compliance": null,
+   "lastActive": null,
+   "workoutDays": [],
+   "weights": [
+    [
+     "2026-10-18",
+     72
+    ],
+    [
+     "2026-10-25",
+     71.5
+    ],
+    [
+     "2026-11-01",
+     70.9
+    ],
+    [
+     "2026-11-08",
+     70.4
+    ],
+    [
+     "2026-11-15",
+     69.8
+    ],
+    [
+     "2026-11-22",
+     69.3
+    ]
+   ],
+   "bodyFat": null,
+   "target": null,
+   "bestStreak": 0
+  },
+  {
+   "id": "c2",
+   "name": "Bartek N.",
+   "city": "Warszawa",
+   "goals": [
+    "Redukcja",
+    "Zdrowe nawyki"
+   ],
+   "level": "beginner",
+   "since": "2026-11-08",
+   "plan": "full",
+   "price": 400,
+   "subStart": "2026-11-11",
+   "subEnd": "2026-12-11",
+   "compliance": 100,
+   "lastActive": "2026-11-20T18:46:00+00:00",
+   "workoutDays": [
+    "2026-11-11",
+    "2026-11-13",
+    "2026-11-16",
+    "2026-11-18",
+    "2026-11-20"
+   ],
+   "weights": [
+    [
+     "2026-11-11",
+     88
+    ],
+    [
+     "2026-11-18",
+     87.1
+    ]
+   ],
+   "bodyFat": 21.700000000000003,
+   "target": 82,
+   "bestStreak": 24
+  },
+  {
+   "id": "c3",
+   "name": "Ewa D.",
+   "city": "Warszawa",
+   "goals": [
+    "Zdrowie",
+    "Redukcja"
+   ],
+   "level": "beginner",
+   "since": "2026-10-04",
+   "plan": "workout_only",
+   "price": 280,
+   "subStart": "2026-10-07",
+   "subEnd": "2027-01-05",
+   "compliance": 100,
+   "lastActive": "2026-11-11T18:46:00+00:00",
+   "workoutDays": [
+    "2026-10-12",
+    "2026-10-14",
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-21",
+    "2026-10-26",
+    "2026-10-28",
+    "2026-10-30",
+    "2026-11-02",
+    "2026-11-04",
+    "2026-11-06",
+    "2026-11-09",
+    "2026-11-11"
+   ],
+   "weights": [
+    [
+     "2026-10-07",
+     73.8
+    ],
+    [
+     "2026-10-14",
+     73.5
+    ],
+    [
+     "2026-10-21",
+     73.6
+    ],
+    [
+     "2026-10-28",
+     73.3
+    ],
+    [
+     "2026-11-04",
+     73.3
+    ],
+    [
+     "2026-11-11",
+     73.1
+    ],
+    [
+     "2026-11-18",
+     73.1
+    ]
+   ],
+   "bodyFat": 32.1,
+   "target": 68,
+   "bestStreak": 24
+  },
+  {
+   "id": "c4",
+   "name": "Karolina P.",
+   "city": "Warszawa",
+   "goals": [
+    "Sylwetka",
+    "Lepsza kondycja"
+   ],
+   "level": "beginner",
+   "since": "2026-11-02",
+   "plan": "workout_only",
+   "price": 280,
+   "subStart": "2026-11-04",
+   "subEnd": "2026-12-04",
+   "compliance": 100,
+   "lastActive": "2026-11-19T18:38:00+00:00",
+   "workoutDays": [
+    "2026-11-05",
+    "2026-11-06",
+    "2026-11-09",
+    "2026-11-10",
+    "2026-11-12",
+    "2026-11-13",
+    "2026-11-19"
+   ],
+   "weights": [
+    [
+     "2026-11-04",
+     63
+    ],
+    [
+     "2026-11-11",
+     62.8
+    ],
+    [
+     "2026-11-18",
+     62.5
+    ]
+   ],
+   "bodyFat": null,
+   "target": null,
+   "bestStreak": 0
+  },
+  {
+   "id": "c5",
+   "name": "Kasia W.",
+   "city": "Warszawa",
+   "goals": [
+    "Redukcja",
+    "Lepsza kondycja"
+   ],
+   "level": "intermediate",
+   "since": "2026-08-20",
+   "plan": "full",
+   "price": 400,
+   "subStart": "2026-08-23",
+   "subEnd": "2026-12-31",
+   "compliance": 100,
+   "lastActive": "2026-11-20T18:46:00+00:00",
+   "workoutDays": [
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-20",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-29",
+    "2026-10-30",
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-05",
+    "2026-11-06",
+    "2026-11-09",
+    "2026-11-10",
+    "2026-11-12",
+    "2026-11-13",
+    "2026-11-16",
+    "2026-11-17",
+    "2026-11-19",
+    "2026-11-20"
+   ],
+   "weights": [
+    [
+     "2026-08-23",
+     72.3
+    ],
+    [
+     "2026-08-30",
+     71.7
+    ],
+    [
+     "2026-09-06",
+     71.2
+    ],
+    [
+     "2026-09-13",
+     70.3
+    ],
+    [
+     "2026-09-20",
+     70
+    ],
+    [
+     "2026-09-27",
+     69.4
+    ],
+    [
+     "2026-10-04",
+     68.8
+    ],
+    [
+     "2026-10-11",
+     68.4
+    ],
+    [
+     "2026-10-18",
+     67.9
+    ],
+    [
+     "2026-10-25",
+     67.3
+    ],
+    [
+     "2026-11-01",
+     67.3
+    ],
+    [
+     "2026-11-08",
+     67.1
+    ],
+    [
+     "2026-11-15",
+     66.8
+    ]
+   ],
+   "bodyFat": 26.3,
+   "target": 64,
+   "bestStreak": 24
+  },
+  {
+   "id": "c6",
+   "name": "Kuba W.",
+   "city": "Warszawa",
+   "goals": [
+    "Masa mięśniowa"
+   ],
+   "level": "intermediate",
+   "since": "2026-09-19",
+   "plan": "full",
+   "price": 400,
+   "subStart": "2026-09-22",
+   "subEnd": "2026-11-24",
+   "compliance": 100,
+   "lastActive": "2026-11-20T18:46:00+00:00",
+   "workoutDays": [
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-15",
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-20",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-29",
+    "2026-10-30",
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-05",
+    "2026-11-06",
+    "2026-11-09",
+    "2026-11-10",
+    "2026-11-13",
+    "2026-11-16",
+    "2026-11-17",
+    "2026-11-19",
+    "2026-11-20"
+   ],
+   "weights": [
+    [
+     "2026-09-22",
+     69.9
+    ],
+    [
+     "2026-09-29",
+     70.7
+    ],
+    [
+     "2026-10-06",
+     71.3
+    ],
+    [
+     "2026-10-13",
+     71.8
+    ],
+    [
+     "2026-10-20",
+     72.2
+    ],
+    [
+     "2026-10-27",
+     72.3
+    ],
+    [
+     "2026-11-03",
+     72.9
+    ],
+    [
+     "2026-11-10",
+     73.1
+    ],
+    [
+     "2026-11-17",
+     73.2
+    ]
+   ],
+   "bodyFat": 13.600000000000001,
+   "target": 76,
+   "bestStreak": 24
+  },
+  {
+   "id": "c7",
+   "name": "Magda L.",
+   "city": "Kraków",
+   "goals": [
+    "Sylwetka",
+    "Siła"
+   ],
+   "level": "intermediate",
+   "since": "2026-10-19",
+   "plan": "full",
+   "price": 400,
+   "subStart": "2026-10-22",
+   "subEnd": "2026-12-21",
+   "compliance": 100,
+   "lastActive": "2026-11-20T18:46:00+00:00",
+   "workoutDays": [
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-29",
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-05",
+    "2026-11-06",
+    "2026-11-09",
+    "2026-11-10",
+    "2026-11-12",
+    "2026-11-13",
+    "2026-11-17",
+    "2026-11-19",
+    "2026-11-20"
+   ],
+   "weights": [
+    [
+     "2026-10-22",
+     61.4
+    ],
+    [
+     "2026-10-29",
+     61
+    ],
+    [
+     "2026-11-05",
+     60.6
+    ],
+    [
+     "2026-11-12",
+     59.9
+    ],
+    [
+     "2026-11-19",
+     60
+    ]
+   ],
+   "bodyFat": 24.900000000000002,
+   "target": 58,
+   "bestStreak": 24
+  },
+  {
+   "id": "c8",
+   "name": "Michał K.",
+   "city": "Warszawa",
+   "goals": [
+    "Siła",
+    "Masa mięśniowa"
+   ],
+   "level": "intermediate",
+   "since": "2026-10-09",
+   "plan": "workout_only",
+   "price": 280,
+   "subStart": "2026-10-11",
+   "subEnd": "2026-12-10",
+   "compliance": 100,
+   "lastActive": "2026-11-20T18:38:00+00:00",
+   "workoutDays": [
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-15",
+    "2026-10-19",
+    "2026-10-20",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-26",
+    "2026-10-29",
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-05",
+    "2026-11-06",
+    "2026-11-09",
+    "2026-11-10",
+    "2026-11-12",
+    "2026-11-13",
+    "2026-11-16",
+    "2026-11-17",
+    "2026-11-19",
+    "2026-11-20"
+   ],
+   "weights": [
+    [
+     "2026-10-11",
+     84
+    ],
+    [
+     "2026-10-18",
+     83.8
+    ],
+    [
+     "2026-10-25",
+     83.5
+    ],
+    [
+     "2026-11-01",
+     83.3
+    ],
+    [
+     "2026-11-08",
+     83.1
+    ],
+    [
+     "2026-11-15",
+     82.8
+    ],
+    [
+     "2026-11-22",
+     82.6
+    ]
+   ],
+   "bodyFat": null,
+   "target": null,
+   "bestStreak": 0
+  },
+  {
+   "id": "c9",
+   "name": "Ola K.",
+   "city": "Warszawa",
+   "goals": [
+    "Redukcja",
+    "Półmaraton"
+   ],
+   "level": "advanced",
+   "since": "2026-09-04",
+   "plan": "full",
+   "price": 400,
+   "subStart": "2026-09-07",
+   "subEnd": "2027-01-30",
+   "compliance": 100,
+   "lastActive": "2026-11-20T18:46:00+00:00",
+   "workoutDays": [
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-15",
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-20",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-29",
+    "2026-10-30",
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-05",
+    "2026-11-06",
+    "2026-11-09",
+    "2026-11-10",
+    "2026-11-12",
+    "2026-11-13",
+    "2026-11-16",
+    "2026-11-17",
+    "2026-11-19",
+    "2026-11-20"
+   ],
+   "weights": [
+    [
+     "2026-09-07",
+     67.8
+    ],
+    [
+     "2026-09-14",
+     67.2
+    ],
+    [
+     "2026-09-21",
+     66.9
+    ],
+    [
+     "2026-09-28",
+     66.3
+    ],
+    [
+     "2026-10-05",
+     66
+    ],
+    [
+     "2026-10-12",
+     65.5
+    ],
+    [
+     "2026-10-19",
+     65.2
+    ],
+    [
+     "2026-10-26",
+     64.7
+    ],
+    [
+     "2026-11-02",
+     64.4
+    ],
+    [
+     "2026-11-09",
+     64.3
+    ],
+    [
+     "2026-11-16",
+     63.7
+    ]
+   ],
+   "bodyFat": 23.8,
+   "target": 62,
+   "bestStreak": 24
+  },
+  {
+   "id": "c10",
+   "name": "Paweł K.",
+   "city": "Piaseczno",
+   "goals": [
+    "Redukcja",
+    "Zdrowie"
+   ],
+   "level": "beginner",
+   "since": "2026-09-19",
+   "plan": "full",
+   "price": 400,
+   "subStart": "2026-09-22",
+   "subEnd": "2026-11-26",
+   "compliance": 100,
+   "lastActive": "2026-11-13T18:46:00+00:00",
+   "workoutDays": [
+    "2026-10-12",
+    "2026-10-14",
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-21",
+    "2026-11-02",
+    "2026-11-04",
+    "2026-11-06",
+    "2026-11-09",
+    "2026-11-11",
+    "2026-11-13"
+   ],
+   "weights": [
+    [
+     "2026-09-22",
+     93.9
+    ],
+    [
+     "2026-09-29",
+     93.8
+    ],
+    [
+     "2026-10-06",
+     93.7
+    ],
+    [
+     "2026-10-13",
+     93.2
+    ],
+    [
+     "2026-10-20",
+     93.3
+    ],
+    [
+     "2026-10-27",
+     93.1
+    ],
+    [
+     "2026-11-03",
+     92.9
+    ],
+    [
+     "2026-11-10",
+     92.8
+    ],
+    [
+     "2026-11-17",
+     92.7
+    ]
+   ],
+   "bodyFat": 26.1,
+   "target": 86,
+   "bestStreak": 9
+  },
+  {
+   "id": "c11",
+   "name": "Piotr G.",
+   "city": "Piaseczno",
+   "goals": [
+    "Masa mięśniowa"
+   ],
+   "level": "intermediate",
+   "since": "2026-11-06",
+   "plan": "meal_only",
+   "price": 220,
+   "subStart": "2026-11-08",
+   "subEnd": "2026-12-08",
+   "compliance": null,
+   "lastActive": null,
+   "workoutDays": [],
+   "weights": [
+    [
+     "2026-11-08",
+     71
+    ],
+    [
+     "2026-11-15",
+     71.6
+    ],
+    [
+     "2026-11-22",
+     72.1
+    ]
+   ],
+   "bodyFat": null,
+   "target": null,
+   "bestStreak": 0
+  },
+  {
+   "id": "c12",
+   "name": "Tomek Z.",
+   "city": "Warszawa",
+   "goals": [
+    "Masa mięśniowa",
+    "Siła"
+   ],
+   "level": "intermediate",
+   "since": "2026-08-26",
+   "plan": "full",
+   "price": 400,
+   "subStart": "2026-08-29",
+   "subEnd": "2027-01-20",
+   "compliance": 100,
+   "lastActive": "2026-11-20T18:46:00+00:00",
+   "workoutDays": [
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-15",
+    "2026-10-19",
+    "2026-10-20",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-29",
+    "2026-10-30",
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-05",
+    "2026-11-06",
+    "2026-11-09",
+    "2026-11-10",
+    "2026-11-12",
+    "2026-11-13",
+    "2026-11-16",
+    "2026-11-17",
+    "2026-11-19",
+    "2026-11-20"
+   ],
+   "weights": [
+    [
+     "2026-08-29",
+     73.9
+    ],
+    [
+     "2026-09-05",
+     74.6
+    ],
+    [
+     "2026-09-12",
+     75.4
+    ],
+    [
+     "2026-09-19",
+     75.6
+    ],
+    [
+     "2026-09-26",
+     76.4
+    ],
+    [
+     "2026-10-03",
+     76.8
+    ],
+    [
+     "2026-10-10",
+     77.2
+    ],
+    [
+     "2026-10-17",
+     77.6
+    ],
+    [
+     "2026-10-24",
+     77.9
+    ],
+    [
+     "2026-10-31",
+     78
+    ],
+    [
+     "2026-11-07",
+     78.5
+    ],
+    [
+     "2026-11-14",
+     78.7
+    ],
+    [
+     "2026-11-21",
+     78.7
+    ]
+   ],
+   "bodyFat": 15.200000000000001,
+   "target": 80,
+   "bestStreak": 31
+  }
+ ],
+ "plans": [
+  {
+   "id": "p1",
+   "title": "Redukcja 4x tydzień",
+   "goal": null,
+   "level": null,
+   "minutes": null,
+   "clients": [
+    "c9",
+    "c7",
+    "c4",
+    "c5"
+   ],
+   "days": [
+    {
+     "title": "Dół A",
+     "ex": [
+      {
+       "e": "e18",
+       "sets": 4,
+       "reps": "8-10",
+       "rest": 90,
+       "kg": 40
+      },
+      {
+       "e": "e21",
+       "sets": 3,
+       "reps": "10",
+       "rest": 90,
+       "kg": 35
+      },
+      {
+       "e": "e11",
+       "sets": 3,
+       "reps": "12",
+       "rest": 90,
+       "kg": 10
+      },
+      {
+       "e": "e7",
+       "sets": 3,
+       "reps": "45 s",
+       "rest": 90,
+       "kg": null
+      }
+     ]
+    },
+    {
+     "title": "Góra A",
+     "ex": [
+      {
+       "e": "e6",
+       "sets": 4,
+       "reps": "10",
+       "rest": 90,
+       "kg": 12
+      },
+      {
+       "e": "e23",
+       "sets": 4,
+       "reps": "10-12",
+       "rest": 90,
+       "kg": 35
+      },
+      {
+       "e": "e22",
+       "sets": 3,
+       "reps": "12",
+       "rest": 90,
+       "kg": 8
+      },
+      {
+       "e": "e4",
+       "sets": 3,
+       "reps": "12",
+       "rest": 90,
+       "kg": 30
+      }
+     ]
+    },
+    {
+     "title": "Dół B",
+     "ex": [
+      {
+       "e": "e8",
+       "sets": 4,
+       "reps": "10",
+       "rest": 90,
+       "kg": 50
+      },
+      {
+       "e": "e9",
+       "sets": 3,
+       "reps": "12",
+       "rest": 90,
+       "kg": 80
+      },
+      {
+       "e": "e20",
+       "sets": 3,
+       "reps": "12",
+       "rest": 90,
+       "kg": 25
+      },
+      {
+       "e": "e25",
+       "sets": 3,
+       "reps": "10",
+       "rest": 90,
+       "kg": null
+      }
+     ]
+    },
+    {
+     "title": "Góra B",
+     "ex": [
+      {
+       "e": "e2",
+       "sets": 4,
+       "reps": "10-12",
+       "rest": 90,
+       "kg": null
+      },
+      {
+       "e": "e29",
+       "sets": 4,
+       "reps": "10",
+       "rest": 90,
+       "kg": 14
+      },
+      {
+       "e": "e1",
+       "sets": 3,
+       "reps": "15",
+       "rest": 90,
+       "kg": 5
+      },
+      {
+       "e": "e14",
+       "sets": 3,
+       "reps": "12",
+       "rest": 90,
+       "kg": 15
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p2",
+   "title": "Siła i masa, góra/dół",
+   "goal": null,
+   "level": null,
+   "minutes": null,
+   "clients": [
+    "c12",
+    "c6",
+    "c8"
+   ],
+   "days": [
+    {
+     "title": "Dół: siła",
+     "ex": [
+      {
+       "e": "e18",
+       "sets": 5,
+       "reps": "5",
+       "rest": 90,
+       "kg": 80
+      },
+      {
+       "e": "e21",
+       "sets": 4,
+       "reps": "8",
+       "rest": 90,
+       "kg": 70
+      },
+      {
+       "e": "e9",
+       "sets": 3,
+       "reps": "10",
+       "rest": 90,
+       "kg": 140
+      },
+      {
+       "e": "e10",
+       "sets": 4,
+       "reps": "12",
+       "rest": 90,
+       "kg": 60
+      }
+     ]
+    },
+    {
+     "title": "Góra: siła",
+     "ex": [
+      {
+       "e": "e16",
+       "sets": 5,
+       "reps": "5",
+       "rest": 90,
+       "kg": 65
+      },
+      {
+       "e": "e12",
+       "sets": 4,
+       "reps": "8",
+       "rest": 90,
+       "kg": 60
+      },
+      {
+       "e": "e30",
+       "sets": 3,
+       "reps": "8",
+       "rest": 90,
+       "kg": 40
+      },
+      {
+       "e": "e15",
+       "sets": 3,
+       "reps": "8",
+       "rest": 90,
+       "kg": null
+      }
+     ]
+    },
+    {
+     "title": "Dół: objętość",
+     "ex": [
+      {
+       "e": "e17",
+       "sets": 4,
+       "reps": "5",
+       "rest": 90,
+       "kg": 100
+      },
+      {
+       "e": "e26",
+       "sets": 3,
+       "reps": "8",
+       "rest": 90,
+       "kg": 60
+      },
+      {
+       "e": "e19",
+       "sets": 3,
+       "reps": "10",
+       "rest": 90,
+       "kg": 16
+      },
+      {
+       "e": "e20",
+       "sets": 3,
+       "reps": "12",
+       "rest": 90,
+       "kg": 40
+      }
+     ]
+    },
+    {
+     "title": "Góra: objętość",
+     "ex": [
+      {
+       "e": "e6",
+       "sets": 4,
+       "reps": "10",
+       "rest": 90,
+       "kg": 26
+      },
+      {
+       "e": "e5",
+       "sets": 4,
+       "reps": "10",
+       "rest": 90,
+       "kg": 50
+      },
+      {
+       "e": "e28",
+       "sets": 3,
+       "reps": "10",
+       "rest": 90,
+       "kg": 18
+      },
+      {
+       "e": "e3",
+       "sets": 3,
+       "reps": "10",
+       "rest": 90,
+       "kg": 30
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p3",
+   "title": "Powrót do formy 3x",
+   "goal": null,
+   "level": null,
+   "minutes": null,
+   "clients": [
+    "c10",
+    "c2",
+    "c3"
+   ],
+   "days": [
+    {
+     "title": "Całe ciało A",
+     "ex": [
+      {
+       "e": "e9",
+       "sets": 3,
+       "reps": "12",
+       "rest": 90,
+       "kg": 90
+      },
+      {
+       "e": "e23",
+       "sets": 3,
+       "reps": "12",
+       "rest": 90,
+       "kg": 45
+      },
+      {
+       "e": "e2",
+       "sets": 3,
+       "reps": "10",
+       "rest": 90,
+       "kg": null
+      },
+      {
+       "e": "e7",
+       "sets": 3,
+       "reps": "40 s",
+       "rest": 90,
+       "kg": null
+      }
+     ]
+    },
+    {
+     "title": "Całe ciało B",
+     "ex": [
+      {
+       "e": "e21",
+       "sets": 3,
+       "reps": "10",
+       "rest": 90,
+       "kg": 50
+      },
+      {
+       "e": "e22",
+       "sets": 3,
+       "reps": "10",
+       "rest": 90,
+       "kg": 14
+      },
+      {
+       "e": "e4",
+       "sets": 3,
+       "reps": "12",
+       "rest": 90,
+       "kg": 45
+      },
+      {
+       "e": "e13",
+       "sets": 3,
+       "reps": "15",
+       "rest": 90,
+       "kg": null
+      }
+     ]
+    },
+    {
+     "title": "Całe ciało C",
+     "ex": [
+      {
+       "e": "e18",
+       "sets": 3,
+       "reps": "12",
+       "rest": 90,
+       "kg": 20
+      },
+      {
+       "e": "e29",
+       "sets": 3,
+       "reps": "10",
+       "rest": 90,
+       "kg": 20
+      },
+      {
+       "e": "e27",
+       "sets": 3,
+       "reps": "10",
+       "rest": 90,
+       "kg": 10
+      },
+      {
+       "e": "e24",
+       "sets": 1,
+       "reps": null,
+       "rest": 90,
+       "kg": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "library": [
+  {
+   "id": "e1",
+   "name": "Lateral Raise",
+   "nameEn": "Lateral Raise",
+   "muscle": "shoulders",
+   "equipment": [
+    "dumbbells"
+   ],
+   "yt": "LT1Eo-q58yg"
+  },
+  {
+   "id": "e2",
+   "name": "Push Ups",
+   "nameEn": "Push Ups",
+   "muscle": "chest",
+   "equipment": [
+    "bodyweight"
+   ],
+   "yt": "XIHO5t_VBPQ"
+  },
+  {
+   "id": "e3",
+   "name": "Barbell Curl",
+   "nameEn": "Barbell Curl",
+   "muscle": "arms",
+   "equipment": [
+    "barbell"
+   ],
+   "yt": "dDI8ClxRS04"
+  },
+  {
+   "id": "e4",
+   "name": "Seated Cable Row",
+   "nameEn": "Seated Cable Row",
+   "muscle": "back",
+   "equipment": [
+    "cable"
+   ],
+   "yt": "IzoCF_b3cIY"
+  },
+  {
+   "id": "e5",
+   "name": "T-Bar Row",
+   "nameEn": "T-Bar Row",
+   "muscle": "back",
+   "equipment": [
+    "barbell",
+    "landmine"
+   ],
+   "yt": "w0KnlQ-b7jw"
+  },
+  {
+   "id": "e6",
+   "name": "Incline Dumbbell Press",
+   "nameEn": "Incline Dumbbell Press",
+   "muscle": "chest",
+   "equipment": [
+    "dumbbells",
+    "bench"
+   ],
+   "yt": "DnV3R4vp3K0"
+  },
+  {
+   "id": "e7",
+   "name": "Plank",
+   "nameEn": "Plank",
+   "muscle": "core",
+   "equipment": [
+    "bodyweight",
+    "mat"
+   ],
+   "yt": "tgbrMdfuGJA"
+  },
+  {
+   "id": "e8",
+   "name": "Hip Thrust",
+   "nameEn": "Hip Thrust",
+   "muscle": "glutes",
+   "equipment": [
+    "barbell",
+    "bench"
+   ],
+   "yt": "Fk1OfkMmVt4"
+  },
+  {
+   "id": "e9",
+   "name": "Leg Press",
+   "nameEn": "Leg Press",
+   "muscle": "legs",
+   "equipment": [
+    "machine"
+   ],
+   "yt": "3R0SOJ3alTA"
+  },
+  {
+   "id": "e10",
+   "name": "Standing Calf Raise",
+   "nameEn": "Standing Calf Raise",
+   "muscle": "legs",
+   "equipment": [
+    "machine"
+   ],
+   "yt": "MAMzF7iZNkc"
+  },
+  {
+   "id": "e11",
+   "name": "Walking Lunge",
+   "nameEn": "Walking Lunge",
+   "muscle": "legs",
+   "equipment": [
+    "dumbbells"
+   ],
+   "yt": "Wb8Yr3Nx7dE"
+  },
+  {
+   "id": "e12",
+   "name": "Barbell Row",
+   "nameEn": "Barbell Row",
+   "muscle": "back",
+   "equipment": [
+    "barbell"
+   ],
+   "yt": "-xlBxIMqh3A"
+  },
+  {
+   "id": "e13",
+   "name": "Crunches",
+   "nameEn": "Crunches",
+   "muscle": "core",
+   "equipment": [
+    "bodyweight",
+    "mat"
+   ],
+   "yt": "YdZakh0Pkwc"
+  },
+  {
+   "id": "e14",
+   "name": "Triceps Rope Pushdown",
+   "nameEn": "Triceps Rope Pushdown",
+   "muscle": "arms",
+   "equipment": [
+    "cable"
+   ],
+   "yt": "qS_aDZe6Qos"
+  },
+  {
+   "id": "e15",
+   "name": "Pull-Up",
+   "nameEn": "Pull-Up",
+   "muscle": "back",
+   "equipment": [
+    "pull_up_bar"
+   ],
+   "yt": "WXMKjV11lAk"
+  },
+  {
+   "id": "e16",
+   "name": "Barbell Bench Press",
+   "nameEn": "Barbell Bench Press",
+   "muscle": "chest",
+   "equipment": [
+    "barbell",
+    "bench"
+   ],
+   "yt": null
+  },
+  {
+   "id": "e17",
+   "name": "Deadlift",
+   "nameEn": "Deadlift",
+   "muscle": "full_body",
+   "equipment": [
+    "barbell"
+   ],
+   "yt": "a5zhnubunoE"
+  },
+  {
+   "id": "e18",
+   "name": "Back Squat",
+   "nameEn": "Back Squat",
+   "muscle": "legs",
+   "equipment": [
+    "barbell",
+    "squat_rack"
+   ],
+   "yt": "tVB1q8zkP3o"
+  },
+  {
+   "id": "e19",
+   "name": "Bulgarian Split Squat",
+   "nameEn": "Bulgarian Split Squat",
+   "muscle": "legs",
+   "equipment": [
+    "dumbbells",
+    "bench"
+   ],
+   "yt": "-IpkZv8tZYM"
+  },
+  {
+   "id": "e20",
+   "name": "Leg Curl",
+   "nameEn": "Leg Curl",
+   "muscle": "legs",
+   "equipment": [
+    "machine"
+   ],
+   "yt": "jxctD6fL_FQ"
+  },
+  {
+   "id": "e21",
+   "name": "Romanian Deadlift",
+   "nameEn": "Romanian Deadlift",
+   "muscle": "legs",
+   "equipment": [
+    "barbell"
+   ],
+   "yt": "e1pFg9Rz55k"
+  },
+  {
+   "id": "e22",
+   "name": "Dumbbell Shoulder Press",
+   "nameEn": "Dumbbell Shoulder Press",
+   "muscle": "shoulders",
+   "equipment": [
+    "dumbbells",
+    "bench"
+   ],
+   "yt": "tzZMsrzG_zE"
+  },
+  {
+   "id": "e23",
+   "name": "Lat Pulldown",
+   "nameEn": "Lat Pulldown",
+   "muscle": "back",
+   "equipment": [
+    "machine"
+   ],
+   "yt": "S0no-Q03h74"
+  },
+  {
+   "id": "e24",
+   "name": "Rowing Machine",
+   "nameEn": "Rowing Machine",
+   "muscle": "cardio",
+   "equipment": [
+    "rowing_machine"
+   ],
+   "yt": "QPV4RlqED5E"
+  },
+  {
+   "id": "e25",
+   "name": "Hanging Leg Raise",
+   "nameEn": "Hanging Leg Raise",
+   "muscle": "core",
+   "equipment": [
+    "pull_up_bar"
+   ],
+   "yt": "Nw0LOKe3_l8"
+  },
+  {
+   "id": "e26",
+   "name": "Front Squat",
+   "nameEn": "Front Squat",
+   "muscle": "legs",
+   "equipment": [
+    "barbell",
+    "squat_rack"
+   ],
+   "yt": "9Hi_sgKPNEo"
+  },
+  {
+   "id": "e27",
+   "name": "Step-Up",
+   "nameEn": "Step-Up",
+   "muscle": "legs",
+   "equipment": [
+    "dumbbells",
+    "box_step"
+   ],
+   "yt": "7AtIjR-QqVA"
+  },
+  {
+   "id": "e28",
+   "name": "Arnold Press",
+   "nameEn": "Arnold Press",
+   "muscle": "shoulders",
+   "equipment": [
+    "dumbbells",
+    "bench"
+   ],
+   "yt": "X60-yTMOJfw"
+  },
+  {
+   "id": "e29",
+   "name": "Dumbbell Row",
+   "nameEn": "Dumbbell Row",
+   "muscle": "back",
+   "equipment": [
+    "dumbbells",
+    "bench"
+   ],
+   "yt": "PgpQ4-jHiq4"
+  },
+  {
+   "id": "e30",
+   "name": "Overhead Press",
+   "nameEn": "Overhead Press",
+   "muscle": "shoulders",
+   "equipment": [
+    "barbell"
+   ],
+   "yt": "8E4oWpi0RkA"
+  },
+  {
+   "id": "e31",
+   "name": "90/90 Hip Stretch",
+   "nameEn": "90/90 Hip Stretch",
+   "muscle": "mobility",
+   "equipment": [
+    "mat"
+   ],
+   "yt": "t4Zz6-aG8Iw"
+  },
+  {
+   "id": "e32",
+   "name": "Ab Wheel Rollout",
+   "nameEn": "Ab Wheel Rollout",
+   "muscle": "core",
+   "equipment": [
+    "bodyweight"
+   ],
+   "yt": "VmqDIL2xzbk"
+  },
+  {
+   "id": "e33",
+   "name": "Air Bike",
+   "nameEn": "Air Bike",
+   "muscle": "cardio",
+   "equipment": [
+    "stationary_bike"
+   ],
+   "yt": "KC-ZSfOmXgE"
+  },
+  {
+   "id": "e34",
+   "name": "Ankle Dorsiflexion Stretch",
+   "nameEn": "Ankle Dorsiflexion Stretch",
+   "muscle": "mobility",
+   "equipment": [
+    "bodyweight"
+   ],
+   "yt": "FYAdAI1NE28"
+  },
+  {
+   "id": "e35",
+   "name": "Back Extension",
+   "nameEn": "Back Extension",
+   "muscle": "back",
+   "equipment": [
+    "mat"
+   ],
+   "yt": "Bw9YuQTTc58"
+  },
+  {
+   "id": "e36",
+   "name": "Band Pull-Apart",
+   "nameEn": "Band Pull-Apart",
+   "muscle": "back",
+   "equipment": [
+    "resistance_band"
+   ],
+   "yt": "MnDpmNYUjbc"
+  }
+ ],
+ "sessions": [
+  {
+   "c": "c12",
+   "type": "online",
+   "start": "2026-11-03T18:00:00+00:00",
+   "end": "2026-11-03T19:00:00+00:00",
+   "status": "cancelled",
+   "att": null,
+   "price": 150,
+   "meet": false,
+   "series": false,
+   "note": null
+  },
+  {
+   "c": "c7",
+   "type": "gym",
+   "start": "2026-11-04T16:00:00+00:00",
+   "end": "2026-11-04T17:00:00+00:00",
+   "status": "confirmed",
+   "att": "attended",
+   "price": 180,
+   "meet": false,
+   "series": false,
+   "note": null
+  },
+  {
+   "c": "c5",
+   "type": "gym",
+   "start": "2026-11-04T18:00:00+00:00",
+   "end": "2026-11-04T19:00:00+00:00",
+   "status": "confirmed",
+   "att": "attended",
+   "price": 180,
+   "meet": false,
+   "series": false,
+   "note": null
+  },
+  {
+   "c": "c9",
+   "type": "gym",
+   "start": "2026-11-05T08:00:00+00:00",
+   "end": "2026-11-05T09:00:00+00:00",
+   "status": "confirmed",
+   "att": "attended",
+   "price": 180,
+   "meet": false,
+   "series": false,
+   "note": null
+  },
+  {
+   "c": "c6",
+   "type": "gym",
+   "start": "2026-11-06T09:00:00+00:00",
+   "end": "2026-11-06T10:00:00+00:00",
+   "status": "confirmed",
+   "att": "attended",
+   "price": 180,
+   "meet": false,
+   "series": false,
+   "note": null
+  },
+  {
+   "c": "c10",
+   "type": "gym",
+   "start": "2026-11-06T19:00:00+00:00",
+   "end": "2026-11-06T20:00:00+00:00",
+   "status": "confirmed",
+   "att": "attended",
+   "price": 180,
+   "meet": false,
+   "series": false,
+   "note": "Przysiad: lepsza głębokość, pilnować kolan na zewnątrz. Następnym razem +2,5 kg."
+  },
+  {
+   "c": "c3",
+   "type": "gym",
+   "start": "2026-11-07T12:00:00+00:00",
+   "end": "2026-11-07T13:00:00+00:00",
+   "status": "confirmed",
+   "att": "attended",
+   "price": 180,
+   "meet": false,
+   "series": false,
+   "note": null
+  },
+  {
+   "c": "c9",
+   "type": "gym",
+   "start": "2026-11-09T19:00:00+00:00",
+   "end": "2026-11-09T20:00:00+00:00",
+   "status": "cancelled",
+   "att": null,
+   "price": 180,
+   "meet": false,
+   "series": false,
+   "note": null
+  },
+  {
+   "c": "c12",
+   "type": "gym",
+   "start": "2026-11-10T07:00:00+00:00",
+   "end": "2026-11-10T08:00:00+00:00",
+   "status": "confirmed",
+   "att": "attended",
+   "price": 180,
+   "meet": false,
+   "series": false,
+   "note": "Ból barku przy wyciskaniu nad głowę – zamiana na landmine press, obserwować."
+  },
+  {
+   "c": "c5",
+   "type": "gym",
+   "start": "2026-11-11T18:00:00+00:00",
+   "end": "2026-11-11T19:00:00+00:00",
+   "status": "confirmed",
+   "att": "attended",
+   "price": 180,
+   "meet": false,
+   "series": false,
+   "note": null
+  },
+  {
+   "c": "c7",
+   "type": "gym",
+   "start": "2026-11-14T16:00:00+00:00",
+   "end": "2026-11-14T17:00:00+00:00",
+   "status": "confirmed",
+   "att": "attended",
+   "price": 180,
+   "meet": false,
+   "series": false,
+   "note": "Gorszy dzień (stres w pracy) – lżejszy trening, mobilność bioder."
+  },
+  {
+   "c": "c2",
+   "type": "gym",
+   "start": "2026-11-14T17:00:00+00:00",
+   "end": "2026-11-14T18:00:00+00:00",
+   "status": "confirmed",
+   "att": "attended",
+   "price": 180,
+   "meet": false,
+   "series": false,
+   "note": null
+  },
+  {
+   "c": "c6",
+   "type": "online",
+   "start": "2026-11-15T17:00:00+00:00",
+   "end": "2026-11-15T18:00:00+00:00",
+   "status": "cancelled",
+   "att": null,
+   "price": 150,
+   "meet": false,
+   "series": false,
+   "note": null
+  },
+  {
+   "c": "c5",
+   "type": "gym",
+   "start": "2026-11-18T18:00:00+00:00",
+   "end": "2026-11-18T19:00:00+00:00",
+   "status": "confirmed",
+   "att": "attended",
+   "price": 180,
+   "meet": false,
+   "series": false,
+   "note": "Dużo energii, zrobiliśmy dodatkową serię martwego ciągu. Rozmowa o śnie – kładzie się po 1:00."
+  },
+  {
+   "c": "c9",
+   "type": "gym",
+   "start": "2026-11-19T08:00:00+00:00",
+   "end": "2026-11-19T09:00:00+00:00",
+   "status": "confirmed",
+   "att": "attended",
+   "price": 180,
+   "meet": false,
+   "series": false,
+   "note": null
+  },
+  {
+   "c": "c12",
+   "type": "gym",
+   "start": "2026-11-21T13:00:00+00:00",
+   "end": "2026-11-21T14:00:00+00:00",
+   "status": "confirmed",
+   "att": null,
+   "price": 180,
+   "meet": false,
+   "series": false,
+   "note": null
+  },
+  {
+   "c": "c9",
+   "type": "gym",
+   "start": "2026-11-21T16:00:00+00:00",
+   "end": "2026-11-21T17:00:00+00:00",
+   "status": "confirmed",
+   "att": null,
+   "price": 180,
+   "meet": false,
+   "series": false,
+   "note": null
+  },
+  {
+   "c": "c5",
+   "type": "gym",
+   "start": "2026-11-21T18:00:00+00:00",
+   "end": "2026-11-21T19:00:00+00:00",
+   "status": "confirmed",
+   "att": null,
+   "price": 180,
+   "meet": false,
+   "series": false,
+   "note": null
+  },
+  {
+   "c": "c7",
+   "type": "online",
+   "start": "2026-11-21T19:00:00+00:00",
+   "end": "2026-11-21T20:00:00+00:00",
+   "status": "confirmed",
+   "att": "attended",
+   "price": 150,
+   "meet": false,
+   "series": false,
+   "note": null
+  },
+  {
+   "c": "c5",
+   "type": "gym",
+   "start": "2026-11-22T18:00:00+00:00",
+   "end": "2026-11-22T19:00:00+00:00",
+   "status": "confirmed",
+   "att": null,
+   "price": 180,
+   "meet": false,
+   "series": false,
+   "note": null
+  },
+  {
+   "c": "c12",
+   "type": "gym",
+   "start": "2026-11-23T07:00:00+00:00",
+   "end": "2026-11-23T08:00:00+00:00",
+   "status": "confirmed",
+   "att": null,
+   "price": 180,
+   "meet": false,
+   "series": false,
+   "note": null
+  },
+  {
+   "c": "c12",
+   "type": "gym",
+   "start": "2026-11-24T07:00:00+00:00",
+   "end": "2026-11-24T08:00:00+00:00",
+   "status": "confirmed",
+   "att": null,
+   "price": 180,
+   "meet": false,
+   "series": false,
+   "note": null
+  },
+  {
+   "c": "c9",
+   "type": "online",
+   "start": "2026-11-24T12:00:00+00:00",
+   "end": "2026-11-24T13:00:00+00:00",
+   "status": "confirmed",
+   "att": null,
+   "price": 150,
+   "meet": false,
+   "series": false,
+   "note": null
+  },
+  {
+   "c": "c5",
+   "type": "gym",
+   "start": "2026-11-24T18:30:00+00:00",
+   "end": "2026-11-24T19:30:00+00:00",
+   "status": "confirmed",
+   "att": null,
+   "price": 180,
+   "meet": false,
+   "series": true,
+   "note": null
+  },
+  {
+   "c": "c6",
+   "type": "gym",
+   "start": "2026-11-25T16:00:00+00:00",
+   "end": "2026-11-25T17:00:00+00:00",
+   "status": "confirmed",
+   "att": null,
+   "price": 180,
+   "meet": false,
+   "series": false,
+   "note": null
+  },
+  {
+   "c": "c2",
+   "type": "gym",
+   "start": "2026-11-25T17:00:00+00:00",
+   "end": "2026-11-25T18:00:00+00:00",
+   "status": "confirmed",
+   "att": null,
+   "price": 180,
+   "meet": false,
+   "series": false,
+   "note": null
+  },
+  {
+   "c": "c10",
+   "type": "online",
+   "start": "2026-11-26T08:00:00+00:00",
+   "end": "2026-11-26T09:00:00+00:00",
+   "status": "confirmed",
+   "att": null,
+   "price": 150,
+   "meet": false,
+   "series": false,
+   "note": null
+  },
+  {
+   "c": "c5",
+   "type": "gym",
+   "start": "2026-11-29T18:00:00+00:00",
+   "end": "2026-11-29T19:00:00+00:00",
+   "status": "confirmed",
+   "att": null,
+   "price": 180,
+   "meet": false,
+   "series": false,
+   "note": null
+  },
+  {
+   "c": "c5",
+   "type": "gym",
+   "start": "2026-12-01T18:30:00+00:00",
+   "end": "2026-12-01T19:30:00+00:00",
+   "status": "confirmed",
+   "att": null,
+   "price": 180,
+   "meet": false,
+   "series": true,
+   "note": null
+  },
+  {
+   "c": "c5",
+   "type": "gym",
+   "start": "2026-12-08T18:30:00+00:00",
+   "end": "2026-12-08T19:30:00+00:00",
+   "status": "confirmed",
+   "att": null,
+   "price": 180,
+   "meet": false,
+   "series": true,
+   "note": null
+  }
+ ],
+ "threads": [
+  {
+   "c": "c6",
+   "clientRead": "2026-11-22T06:24:00+00:00",
+   "trainerRead": "2026-11-22T07:54:44.721+00:00",
+   "msgs": [
+    {
+     "me": false,
+     "body": "Dzień dobry, czy w czwartek o 16 jest jeszcze wolne?",
+     "at": "2026-11-20T15:30:00+00:00"
+    },
+    {
+     "me": true,
+     "body": "Tak, wpisałem Cię na czwartek 16:00 na siłowni.",
+     "at": "2026-11-20T16:15:00+00:00"
+    },
+    {
+     "me": false,
+     "body": "Dzięki! A mogę przyjść 10 minut wcześniej na rozgrzewkę?",
+     "at": "2026-11-21T10:00:00+00:00"
+    },
+    {
+     "me": true,
+     "body": "Jasne, sala będzie wolna od 15:45.",
+     "at": "2026-11-21T10:40:00+00:00"
+    },
+    {
+     "me": true,
+     "body": "Kuba, przypomnienie: zabierz w czwartek pas, robimy martwy ciąg.",
+     "at": "2026-11-22T06:25:00+00:00"
+    },
+    {
+     "me": true,
+     "body": "Cześć Kuba! Przypominam o płatności: 400 zł za abonament (pełna subskrypcja) 22.10.2026–20.11.2026 (termin 29.10.2026). Przelew: 00 1234 5678 9012 3456 7890 1234 (demo) · BLIK na telefon:  XXX XXX XXX. Jeśli już zapłaciłeś/aś – daj znać, odhaczę. Dziękuję!",
+     "at": "2026-11-22T12:30:20.774464+00:00"
+    }
+   ]
+  },
+  {
+   "c": "c5",
+   "clientRead": "2026-11-22T07:55:31.023657+00:00",
+   "trainerRead": "2026-11-22T07:54:52.769+00:00",
+   "msgs": [
+    {
+     "me": true,
+     "body": "Świetna robota. Od przyszłego tygodnia +2,5 kg na przysiadzie.",
+     "at": "2026-10-07T12:14:00+00:00"
+    },
+    {
+     "me": false,
+     "body": "Dzień dobry! Zrobiłam dziś trening B, ale przysiady szły ciężko – może za mało snu.",
+     "at": "2026-11-14T18:05:00+00:00"
+    },
+    {
+     "me": true,
+     "body": "Hej Kasia, to normalne po takim tygodniu. Zostaw ciężar, skup się na głębokości. Ile spałaś?",
+     "at": "2026-11-14T18:32:00+00:00"
+    },
+    {
+     "me": false,
+     "body": "Jakieś 6 godzin. Postaram się dziś wcześniej.",
+     "at": "2026-11-14T18:40:00+00:00"
+    },
+    {
+     "me": true,
+     "body": "Super, sen to połowa wyniku 🙂",
+     "at": "2026-11-14T18:51:00+00:00"
+    },
+    {
+     "me": true,
+     "body": "Jak samopoczucie po weekendzie? Pamiętaj o wtorkowej sesji o 18:30.",
+     "at": "2026-11-17T07:10:00+00:00"
+    },
+    {
+     "me": false,
+     "body": "Super, będę! Waga spadła o 0,4 kg 🙂",
+     "at": "2026-11-17T08:45:00+00:00"
+    },
+    {
+     "me": true,
+     "body": "Brawo, dokładnie w tempie, jakie zakładaliśmy 💪",
+     "at": "2026-11-17T09:20:00+00:00"
+    },
+    {
+     "me": false,
+     "body": "Hej, mam pytanie – czy mogę zamienić jutrzejsze wykroki na coś innego? Trochę boli mnie kolano.",
+     "at": "2026-11-22T06:10:00+00:00"
+    },
+    {
+     "me": false,
+     "body": "Nic poważnego, ale wolę nie ryzykować.",
+     "at": "2026-11-22T06:14:00+00:00"
+    }
+   ]
+  },
+  {
+   "c": "c10",
+   "clientRead": "2026-11-22T07:54:44.721+00:00",
+   "trainerRead": "2026-11-21T18:39:00+00:00",
+   "msgs": [
+    {
+     "me": true,
+     "body": "Paweł, zaczynamy spokojnie: 3 treningi w tygodniu i dużo spacerów.",
+     "at": "2026-09-27T09:05:00+00:00"
+    },
+    {
+     "me": false,
+     "body": "Ok, spróbuję się trzymać.",
+     "at": "2026-09-27T10:08:00+00:00"
+    },
+    {
+     "me": false,
+     "body": "Cześć, wpisałem wagę – 88,2 kg.",
+     "at": "2026-11-19T06:50:00+00:00"
+    },
+    {
+     "me": true,
+     "body": "Dzięki Paweł! Minus 0,8 kg od zeszłego tygodnia, idzie dobrze.",
+     "at": "2026-11-19T08:15:00+00:00"
+    },
+    {
+     "me": false,
+     "body": "Wczoraj nie dałem rady z treningiem, praca do późna. Nadrobię w sobotę?",
+     "at": "2026-11-21T18:40:00+00:00"
+    }
+   ]
+  },
+  {
+   "c": "c11",
+   "clientRead": "2026-11-22T09:16:40.466+00:00",
+   "trainerRead": "2026-11-20T09:16:40.466+00:00",
+   "msgs": [
+    {
+     "me": false,
+     "body": "Ciężko mi dojeść kolację, mogę ją rozbić na dwa posiłki?",
+     "at": "2026-11-21T09:16:40.385+00:00"
+    }
+   ]
+  },
+  {
+   "c": "c12",
+   "clientRead": "2026-11-22T07:54:44.721+00:00",
+   "trainerRead": "2026-11-21T06:29:00+00:00",
+   "msgs": [
+    {
+     "me": true,
+     "body": "Hej Tomek, plan na masę gotowy. Jemy dużo, śpimy dużo 😄",
+     "at": "2026-09-02T09:05:00+00:00"
+    },
+    {
+     "me": false,
+     "body": "Wchodzę w to!",
+     "at": "2026-09-02T10:08:00+00:00"
+    },
+    {
+     "me": false,
+     "body": "Bark trochę daje znać przy OHP, co robić?",
+     "at": "2026-10-02T11:11:00+00:00"
+    },
+    {
+     "me": true,
+     "body": "Zmniejsz ciężar o 10% i dodaj face pulle na rozgrzewkę. Jeśli ból wróci, zamień na Arnold press.",
+     "at": "2026-10-02T12:14:00+00:00"
+    },
+    {
+     "me": true,
+     "body": "Tomek, świetny tydzień – 4 treningi i komplet posiłków. Tak trzymaj!",
+     "at": "2026-11-12T17:20:00+00:00"
+    },
+    {
+     "me": false,
+     "body": "Dzięki! Czuję, że wraca forma. Mogę w piątek trenować rano zamiast wieczorem?",
+     "at": "2026-11-12T19:05:00+00:00"
+    },
+    {
+     "me": true,
+     "body": "Jasne, tylko zjedz coś lekkiego godzinę przed – banan + jogurt wystarczy.",
+     "at": "2026-11-12T20:40:00+00:00"
+    },
+    {
+     "me": false,
+     "body": "Zrobiłem rano, poszło lepiej niż wieczorem!",
+     "at": "2026-11-18T11:30:00+00:00"
+    },
+    {
+     "me": true,
+     "body": "Świetnie, to może zostańmy przy porankach 👍",
+     "at": "2026-11-18T12:05:00+00:00"
+    },
+    {
+     "me": false,
+     "body": "Wyjeżdżam w przyszłym tygodniu na delegację, hotel ma tylko małą siłownię. Da się coś zmodyfikować w planie?",
+     "at": "2026-11-21T06:30:00+00:00"
+    }
+   ]
+  },
+  {
+   "c": "c2",
+   "clientRead": "2026-11-22T07:54:44.721+00:00",
+   "trainerRead": "2026-11-22T07:54:44.721+00:00",
+   "msgs": [
+    {
+     "me": false,
+     "body": "Jakie białko polecasz po treningu?",
+     "at": "2026-11-18T16:10:00+00:00"
+    },
+    {
+     "me": true,
+     "body": "Zwykłe WPC wystarczy, 25–30 g po treningu. Ważniejsza jest całkowita ilość białka w ciągu dnia.",
+     "at": "2026-11-18T16:28:00+00:00"
+    },
+    {
+     "me": true,
+     "body": "Bartek, wrzuciłem Ci nowy plan na kolejne 4 tygodnie – zerknij i daj znać, czy pasuje.",
+     "at": "2026-11-20T09:00:00+00:00"
+    },
+    {
+     "me": false,
+     "body": "Wygląda świetnie, dzięki! Czy w środy mogę zamienić kolejność ćwiczeń?",
+     "at": "2026-11-20T12:20:00+00:00"
+    },
+    {
+     "me": true,
+     "body": "Tak, byle wyciskanie zostało na początku. Pamiętaj też o zdjęciach postępu na koniec miesiąca 📸",
+     "at": "2026-11-20T13:05:00+00:00"
+    }
+   ]
+  },
+  {
+   "c": "c4",
+   "clientRead": "2026-11-22T09:16:38.467+00:00",
+   "trainerRead": "2026-11-22T09:16:38.467+00:00",
+   "msgs": [
+    {
+     "me": false,
+     "body": "Czy mogę zamienić wiosłowanie na maszynę?",
+     "at": "2026-11-20T09:16:38.385+00:00"
+    },
+    {
+     "me": true,
+     "body": "Jasne, wiosłowanie siedząc na wyciągu będzie OK.",
+     "at": "2026-11-20T09:41:38.385+00:00"
+    }
+   ]
+  },
+  {
+   "c": "c1",
+   "clientRead": "2026-11-22T09:16:39.541+00:00",
+   "trainerRead": "2026-11-22T09:16:39.541+00:00",
+   "msgs": [
+    {
+     "me": false,
+     "body": "Minus 2,7 kg i w ogóle nie jestem głodna 😊",
+     "at": "2026-11-19T09:16:39.466+00:00"
+    },
+    {
+     "me": true,
+     "body": "Świetnie! Trzymamy kurs, w przyszłym tygodniu dorzucę więcej przepisów.",
+     "at": "2026-11-19T09:41:39.466+00:00"
+    }
+   ]
+  },
+  {
+   "c": "c8",
+   "clientRead": "2026-11-22T09:16:37.348+00:00",
+   "trainerRead": "2026-11-22T09:16:37.348+00:00",
+   "msgs": [
+    {
+     "me": false,
+     "body": "Dzięki za nowy blok, przysiad idzie jak burza!",
+     "at": "2026-11-16T09:16:37.252+00:00"
+    },
+    {
+     "me": true,
+     "body": "Super, w przyszłym tygodniu podbijamy o 2,5 kg 💪",
+     "at": "2026-11-16T09:41:37.252+00:00"
+    }
+   ]
+  },
+  {
+   "c": "c3",
+   "clientRead": "2026-11-21T16:39:25.119+00:00",
+   "trainerRead": "2026-11-21T16:39:25.119+00:00",
+   "msgs": [
+    {
+     "me": true,
+     "body": "Ewa, jak kolano po ostatnim treningu?",
+     "at": "2026-11-09T09:05:00+00:00"
+    },
+    {
+     "me": false,
+     "body": "Dobrze, dziękuję!",
+     "at": "2026-11-10T10:08:00+00:00"
+    }
+   ]
+  },
+  {
+   "c": "c7",
+   "clientRead": "2026-11-21T16:39:21.338+00:00",
+   "trainerRead": "2026-11-21T16:39:21.338+00:00",
+   "msgs": [
+    {
+     "me": false,
+     "body": "Cześć, przeszłam z Ramvo AI. Cieszę się na współpracę!",
+     "at": "2026-10-23T09:05:00+00:00"
+    },
+    {
+     "me": true,
+     "body": "Hej Magda! Przejrzałam Twoją historię z AI, kontynuujemy od tego miejsca.",
+     "at": "2026-10-23T10:08:00+00:00"
+    }
+   ]
+  },
+  {
+   "c": "c9",
+   "clientRead": "2026-11-21T16:39:17.945+00:00",
+   "trainerRead": "2026-11-21T16:39:17.945+00:00",
+   "msgs": [
+    {
+     "me": false,
+     "body": "Zrobiłam dziś wszystkie serie, nawet tę ostatnią!",
+     "at": "2026-10-22T09:05:00+00:00"
+    },
+    {
+     "me": true,
+     "body": "Brawo! Widzę w aplikacji, rekord na hip thruście 🔥",
+     "at": "2026-10-22T10:08:00+00:00"
+    }
+   ]
+  }
+ ],
+ "templates": [
+  {
+   "title": "Przypomnienie o treningu",
+   "body": "Hej! Przypominam o dzisiejszym treningu z planu. Daj znać, jak poszło 💪"
+  },
+  {
+   "title": "Zdjęcia postępu",
+   "body": "Cześć! Czas na comiesięczne zdjęcia postępu – przód, bok i tył, w tym samym świetle co ostatnio. Dzięki!"
+  },
+  {
+   "title": "Gratulacje streaka",
+   "body": "Gratulacje, świetna seria treningów z rzędu! 🔥 Tak trzymaj."
+  },
+  {
+   "title": "Prośba o wagę",
+   "body": "Hej, wpisz proszę w aplikacji aktualną wagę (rano, na czczo) – zaktualizuję plan."
+  },
+  {
+   "title": "Potwierdzenie sesji",
+   "body": "Potwierdzam naszą sesję. Do zobaczenia! Jeśli coś się zmieni, napisz najpóźniej dzień wcześniej."
+  }
+ ],
+ "budget": {
+  "overview": {
+   "mrr": 4080,
+   "goal": 6000,
+   "churn": [
+    {
+     "name": "Kuba W.",
+     "price": 400,
+     "expiry": "2026-11-24",
+     "c": "c6"
+    },
+    {
+     "name": "Paweł K.",
+     "price": 400,
+     "expiry": "2026-11-26",
+     "c": "c10"
+    },
+    {
+     "name": "Karolina P.",
+     "price": 280,
+     "expiry": "2026-12-04",
+     "c": "c4"
+    }
+   ],
+   "months": [
+    {
+     "subs": 0,
+     "month": "2026-06-01",
+     "billed": 0,
+     "expenses": 1050,
+     "received": 0,
+     "sessions": 0,
+     "clients_paid": 0
+    },
+    {
+     "subs": 0,
+     "month": "2026-07-01",
+     "billed": 0,
+     "expenses": 1149,
+     "received": 0,
+     "sessions": 0,
+     "clients_paid": 0
+    },
+    {
+     "subs": 400,
+     "month": "2026-08-01",
+     "billed": 400,
+     "expenses": 2349,
+     "received": 580,
+     "sessions": 180,
+     "clients_paid": 1
+    },
+    {
+     "subs": 2400,
+     "month": "2026-09-01",
+     "billed": 3440,
+     "expenses": 1799,
+     "received": 4560,
+     "sessions": 2160,
+     "clients_paid": 5
+    },
+    {
+     "subs": 2380,
+     "month": "2026-10-01",
+     "billed": 6060,
+     "expenses": 1449,
+     "received": 4900,
+     "sessions": 2520,
+     "clients_paid": 9
+    },
+    {
+     "subs": 1360,
+     "month": "2026-11-01",
+     "billed": 7470,
+     "expenses": 1149,
+     "received": 3160,
+     "sessions": 1800,
+     "clients_paid": 9
+    }
+   ],
+   "methods": {
+    "blik": 3080,
+    "cash": 6880,
+    "transfer": 3240
+   },
+   "forecast": 4180,
+   "open_total": 2730,
+   "churn_value": 1080,
+   "overdue_count": 6,
+   "overdue_total": 1840,
+   "active_clients": 12,
+   "reported_count": 1
+  },
+  "clients": [
+   {
+    "c": "c12",
+    "name": "Tomek Z.",
+    "paid_total": 2280,
+    "first_paid": "2026-09-02",
+    "months": 3,
+    "avg_month": 0,
+    "dues_paid": 9,
+    "on_time": 9,
+    "overdue": 180,
+    "monthly_price": 400,
+    "expiry": "2027-01-20",
+    "plan_slug": "full"
+   },
+   {
+    "c": "c5",
+    "name": "Kasia W.",
+    "paid_total": 3360,
+    "first_paid": "2026-08-26",
+    "months": 3,
+    "avg_month": 0,
+    "dues_paid": 15,
+    "on_time": 15,
+    "overdue": 180,
+    "monthly_price": 400,
+    "expiry": "2026-12-31",
+    "plan_slug": "full"
+   },
+   {
+    "c": "c10",
+    "name": "Paweł K.",
+    "paid_total": 940,
+    "first_paid": "2026-09-23",
+    "months": 2,
+    "avg_month": 0,
+    "dues_paid": 4,
+    "on_time": 4,
+    "overdue": 400,
+    "monthly_price": 400,
+    "expiry": "2026-11-26",
+    "plan_slug": "full"
+   },
+   {
+    "c": "c9",
+    "name": "Ola K.",
+    "paid_total": 2100,
+    "first_paid": "2026-09-08",
+    "months": 3,
+    "avg_month": 0,
+    "dues_paid": 8,
+    "on_time": 8,
+    "overdue": 180,
+    "monthly_price": 400,
+    "expiry": "2027-01-30",
+    "plan_slug": "full"
+   },
+   {
+    "c": "c2",
+    "name": "Bartek N.",
+    "paid_total": 580,
+    "first_paid": "2026-11-12",
+    "months": 1,
+    "avg_month": 0,
+    "dues_paid": 2,
+    "on_time": 2,
+    "overdue": 0,
+    "monthly_price": 400,
+    "expiry": "2026-12-11",
+    "plan_slug": "full"
+   },
+   {
+    "c": "c7",
+    "name": "Magda L.",
+    "paid_total": 940,
+    "first_paid": "2026-10-26",
+    "months": 1,
+    "avg_month": 0,
+    "dues_paid": 4,
+    "on_time": 4,
+    "overdue": 0,
+    "monthly_price": 400,
+    "expiry": "2026-12-21",
+    "plan_slug": "full"
+   },
+   {
+    "c": "c6",
+    "name": "Kuba W.",
+    "paid_total": 1120,
+    "first_paid": "2026-09-25",
+    "months": 2,
+    "avg_month": 0,
+    "dues_paid": 5,
+    "on_time": 5,
+    "overdue": 400,
+    "monthly_price": 400,
+    "expiry": "2026-11-24",
+    "plan_slug": "full"
+   },
+   {
+    "c": "c3",
+    "name": "Ewa D.",
+    "paid_total": 1100,
+    "first_paid": "2026-10-11",
+    "months": 2,
+    "avg_month": 0,
+    "dues_paid": 5,
+    "on_time": 4,
+    "overdue": 0,
+    "monthly_price": 280,
+    "expiry": "2027-01-05",
+    "plan_slug": "workout_only"
+   },
+   {
+    "c": "c8",
+    "name": "Michał K.",
+    "paid_total": 280,
+    "first_paid": "2026-10-21",
+    "months": 2,
+    "avg_month": 0,
+    "dues_paid": 1,
+    "on_time": 0,
+    "overdue": 280,
+    "monthly_price": 280,
+    "expiry": "2026-12-10",
+    "plan_slug": "workout_only"
+   },
+   {
+    "c": "c4",
+    "name": "Karolina P.",
+    "paid_total": 280,
+    "first_paid": "2026-11-12",
+    "months": 1,
+    "avg_month": 0,
+    "dues_paid": 1,
+    "on_time": 0,
+    "overdue": 0,
+    "monthly_price": 280,
+    "expiry": "2026-12-04",
+    "plan_slug": "workout_only"
+   },
+   {
+    "c": "c1",
+    "name": "Agnieszka M.",
+    "paid_total": 220,
+    "first_paid": "2026-10-20",
+    "months": 2,
+    "avg_month": 0,
+    "dues_paid": 1,
+    "on_time": 1,
+    "overdue": 0,
+    "monthly_price": 220,
+    "expiry": "2026-12-17",
+    "plan_slug": "meal_only"
+   },
+   {
+    "c": "c11",
+    "name": "Piotr G.",
+    "paid_total": 0,
+    "first_paid": null,
+    "months": 1,
+    "avg_month": 0,
+    "dues_paid": 0,
+    "on_time": 0,
+    "overdue": 220,
+    "monthly_price": 220,
+    "expiry": "2026-12-08",
+    "plan_slug": "meal_only"
+   }
+  ],
+  "month": {
+   "subs": 0,
+   "costs": 1149,
+   "income": 8090,
+   "profit": 6941,
+   "subs_n": 0,
+   "due_rest": 3370,
+   "received": 3160,
+   "sessions": 1560,
+   "sessions_n": 9
+  },
+  "forecast": {
+   "goal": 6000,
+   "months": [
+    {
+     "costs": [
+      {
+       "note": "Wynajem sali – Fit Factory",
+       "amount": 800,
+       "category": "rent",
+       "recurring": "monthly"
+      },
+      {
+       "note": "Biuro rachunkowe",
+       "amount": 250,
+       "category": "accounting",
+       "recurring": "monthly"
+      },
+      {
+       "note": "Ramvo dla trenerów",
+       "amount": 99,
+       "category": "platform",
+       "recurring": "monthly"
+      }
+     ],
+     "month": "2026-11-01",
+     "risks": [
+      {
+       "name": "Kuba W.",
+       "price": 400,
+       "expiry": "2026-11-24",
+       "c": "c6",
+       "plan_slug": "full"
+      },
+      {
+       "name": "Paweł K.",
+       "price": 400,
+       "expiry": "2026-11-26",
+       "c": "c10",
+       "plan_slug": "full"
+      }
+     ],
+     "income": [
+      {
+       "date": "2026-11-24",
+       "kind": "subscription",
+       "name": "Agnieszka M.",
+       "label": "meal_only",
+       "amount": 220,
+       "source": "due",
+       "c": "c1"
+      },
+      {
+       "date": "2026-11-21",
+       "kind": "session",
+       "name": "Kasia W.",
+       "label": "session",
+       "amount": 180,
+       "source": "due",
+       "c": "c5"
+      },
+      {
+       "date": "2026-11-28",
+       "kind": "subscription",
+       "name": "Kasia W.",
+       "label": "full",
+       "amount": 400,
+       "source": "due",
+       "c": "c5"
+      },
+      {
+       "date": "2026-11-25",
+       "kind": "session",
+       "name": "Kasia W.",
+       "label": "session",
+       "amount": 180,
+       "source": "due",
+       "c": "c5"
+      },
+      {
+       "date": "2026-11-28",
+       "kind": "subscription",
+       "name": "Kuba W.",
+       "label": "full",
+       "amount": 400,
+       "source": "due",
+       "c": "c6"
+      },
+      {
+       "date": "2026-11-28",
+       "kind": "subscription",
+       "name": "Magda L.",
+       "label": "full",
+       "amount": 400,
+       "source": "due",
+       "c": "c7"
+      },
+      {
+       "date": "2026-11-28",
+       "kind": "session",
+       "name": "Magda L.",
+       "label": "session",
+       "amount": 150,
+       "source": "due",
+       "c": "c7"
+      },
+      {
+       "date": "2026-11-17",
+       "kind": "subscription",
+       "name": "Michał K.",
+       "label": "workout_only",
+       "amount": 280,
+       "source": "due",
+       "c": "c8"
+      },
+      {
+       "date": "2026-11-21",
+       "kind": "session",
+       "name": "Ola K.",
+       "label": "session",
+       "amount": 180,
+       "source": "due",
+       "c": "c9"
+      },
+      {
+       "date": "2026-11-26",
+       "kind": "session",
+       "name": "Ola K.",
+       "label": "session",
+       "amount": 180,
+       "source": "due",
+       "c": "c9"
+      },
+      {
+       "date": "2026-11-28",
+       "kind": "subscription",
+       "name": "Paweł K.",
+       "label": "full",
+       "amount": 400,
+       "source": "due",
+       "c": "c10"
+      },
+      {
+       "date": "2026-11-15",
+       "kind": "subscription",
+       "name": "Piotr G.",
+       "label": "meal_only",
+       "amount": 220,
+       "source": "due",
+       "c": "c11"
+      },
+      {
+       "date": "2026-11-21",
+       "kind": "session",
+       "name": "Tomek Z.",
+       "label": "session",
+       "amount": 180,
+       "source": "due",
+       "c": "c12"
+      },
+      {
+       "date": "2026-11-12",
+       "kind": "subscription",
+       "name": "Bartek N.",
+       "label": null,
+       "amount": 400,
+       "source": "paid",
+       "c": "c2"
+      },
+      {
+       "date": "2026-11-15",
+       "kind": "session",
+       "name": "Bartek N.",
+       "label": null,
+       "amount": 180,
+       "source": "paid",
+       "c": "c2"
+      },
+      {
+       "date": "2026-11-08",
+       "kind": "session",
+       "name": "Ewa D.",
+       "label": null,
+       "amount": 180,
+       "source": "paid",
+       "c": "c3"
+      },
+      {
+       "date": "2026-11-07",
+       "kind": "subscription",
+       "name": "Ewa D.",
+       "label": null,
+       "amount": 280,
+       "source": "paid",
+       "c": "c3"
+      },
+      {
+       "date": "2026-11-12",
+       "kind": "subscription",
+       "name": "Karolina P.",
+       "label": null,
+       "amount": 280,
+       "source": "paid",
+       "c": "c4"
+      },
+      {
+       "date": "2026-11-11",
+       "kind": "session",
+       "name": "Kasia W.",
+       "label": null,
+       "amount": 360,
+       "source": "paid",
+       "c": "c5"
+      },
+      {
+       "date": "2026-11-07",
+       "kind": "session",
+       "name": "Kuba W.",
+       "label": null,
+       "amount": 180,
+       "source": "paid",
+       "c": "c6"
+      },
+      {
+       "date": "2026-11-14",
+       "kind": "session",
+       "name": "Magda L.",
+       "label": null,
+       "amount": 360,
+       "source": "paid",
+       "c": "c7"
+      },
+      {
+       "date": "2026-11-08",
+       "kind": "subscription",
+       "name": "Ola K.",
+       "label": null,
+       "amount": 400,
+       "source": "paid",
+       "c": "c9"
+      },
+      {
+       "date": "2026-11-06",
+       "kind": "session",
+       "name": "Ola K.",
+       "label": null,
+       "amount": 180,
+       "source": "paid",
+       "c": "c9"
+      },
+      {
+       "date": "2026-11-06",
+       "kind": "session",
+       "name": "Paweł K.",
+       "label": null,
+       "amount": 180,
+       "source": "paid",
+       "c": "c10"
+      },
+      {
+       "date": "2026-11-11",
+       "kind": "session",
+       "name": "Tomek Z.",
+       "label": null,
+       "amount": 180,
+       "source": "paid",
+       "c": "c12"
+      },
+      {
+       "date": "2026-11-25",
+       "kind": "session",
+       "name": "Bartek N.",
+       "label": "gym",
+       "amount": 180,
+       "source": "planned",
+       "c": "c2"
+      },
+      {
+       "date": "2026-11-22",
+       "kind": "session",
+       "name": "Kasia W.",
+       "label": "gym",
+       "amount": 180,
+       "source": "planned",
+       "c": "c5"
+      },
+      {
+       "date": "2026-11-24",
+       "kind": "session",
+       "name": "Kasia W.",
+       "label": "gym",
+       "amount": 180,
+       "source": "planned",
+       "c": "c5"
+      },
+      {
+       "date": "2026-11-29",
+       "kind": "session",
+       "name": "Kasia W.",
+       "label": "gym",
+       "amount": 180,
+       "source": "planned",
+       "c": "c5"
+      },
+      {
+       "date": "2026-11-25",
+       "kind": "session",
+       "name": "Kuba W.",
+       "label": "gym",
+       "amount": 180,
+       "source": "planned",
+       "c": "c6"
+      },
+      {
+       "date": "2026-11-24",
+       "kind": "session",
+       "name": "Ola K.",
+       "label": "online",
+       "amount": 150,
+       "source": "planned",
+       "c": "c9"
+      },
+      {
+       "date": "2026-11-26",
+       "kind": "session",
+       "name": "Paweł K.",
+       "label": "online",
+       "amount": 150,
+       "source": "planned",
+       "c": "c10"
+      },
+      {
+       "date": "2026-11-24",
+       "kind": "session",
+       "name": "Tomek Z.",
+       "label": "gym",
+       "amount": 180,
+       "source": "planned",
+       "c": "c12"
+      },
+      {
+       "date": "2026-11-23",
+       "kind": "session",
+       "name": "Tomek Z.",
+       "label": "gym",
+       "amount": 180,
+       "source": "planned",
+       "c": "c12"
+      },
+      {
+       "date": "2026-11-25",
+       "kind": "subscription",
+       "name": "Kuba W.",
+       "label": "full",
+       "amount": 400,
+       "source": "renewal",
+       "c": "c6"
+      },
+      {
+       "date": "2026-11-27",
+       "kind": "subscription",
+       "name": "Paweł K.",
+       "label": "full",
+       "amount": 400,
+       "source": "renewal",
+       "c": "c10"
+      }
+     ]
+    },
+    {
+     "costs": [
+      {
+       "note": "Wynajem sali – Fit Factory",
+       "amount": 800,
+       "category": "rent",
+       "recurring": "monthly"
+      },
+      {
+       "note": "Biuro rachunkowe",
+       "amount": 250,
+       "category": "accounting",
+       "recurring": "monthly"
+      },
+      {
+       "note": "Ramvo dla trenerów",
+       "amount": 99,
+       "category": "platform",
+       "recurring": "monthly"
+      }
+     ],
+     "month": "2026-12-01",
+     "risks": [
+      {
+       "name": "Karolina P.",
+       "price": 280,
+       "expiry": "2026-12-04",
+       "c": "c4",
+       "plan_slug": "workout_only"
+      },
+      {
+       "name": "Piotr G.",
+       "price": 220,
+       "expiry": "2026-12-08",
+       "c": "c11",
+       "plan_slug": "meal_only"
+      },
+      {
+       "name": "Michał K.",
+       "price": 280,
+       "expiry": "2026-12-10",
+       "c": "c8",
+       "plan_slug": "workout_only"
+      },
+      {
+       "name": "Bartek N.",
+       "price": 400,
+       "expiry": "2026-12-11",
+       "c": "c2",
+       "plan_slug": "full"
+      },
+      {
+       "name": "Agnieszka M.",
+       "price": 220,
+       "expiry": "2026-12-17",
+       "c": "c1",
+       "plan_slug": "meal_only"
+      },
+      {
+       "name": "Magda L.",
+       "price": 400,
+       "expiry": "2026-12-21",
+       "c": "c7",
+       "plan_slug": "full"
+      },
+      {
+       "name": "Kasia W.",
+       "price": 400,
+       "expiry": "2026-12-31",
+       "c": "c5",
+       "plan_slug": "full"
+      }
+     ],
+     "income": [
+      {
+       "date": "2026-12-04",
+       "kind": "subscription",
+       "name": "Tomek Z.",
+       "label": "full",
+       "amount": 400,
+       "source": "due",
+       "c": "c12"
+      },
+      {
+       "date": "2026-12-17",
+       "kind": "subscription",
+       "name": "Agnieszka M.",
+       "label": "meal_only",
+       "amount": 220,
+       "source": "planned",
+       "c": "c1"
+      },
+      {
+       "date": "2026-12-11",
+       "kind": "subscription",
+       "name": "Bartek N.",
+       "label": "full",
+       "amount": 400,
+       "source": "planned",
+       "c": "c2"
+      },
+      {
+       "date": "2026-12-06",
+       "kind": "subscription",
+       "name": "Ewa D.",
+       "label": "workout_only",
+       "amount": 280,
+       "source": "planned",
+       "c": "c3"
+      },
+      {
+       "date": "2026-12-04",
+       "kind": "subscription",
+       "name": "Karolina P.",
+       "label": "workout_only",
+       "amount": 280,
+       "source": "planned",
+       "c": "c4"
+      },
+      {
+       "date": "2026-12-08",
+       "kind": "session",
+       "name": "Kasia W.",
+       "label": "gym",
+       "amount": 180,
+       "source": "planned",
+       "c": "c5"
+      },
+      {
+       "date": "2026-12-21",
+       "kind": "subscription",
+       "name": "Kasia W.",
+       "label": "full",
+       "amount": 400,
+       "source": "planned",
+       "c": "c5"
+      },
+      {
+       "date": "2026-12-01",
+       "kind": "session",
+       "name": "Kasia W.",
+       "label": "gym",
+       "amount": 180,
+       "source": "planned",
+       "c": "c5"
+      },
+      {
+       "date": "2026-12-15",
+       "kind": "session",
+       "name": "Kasia W.",
+       "label": "gym",
+       "amount": 180,
+       "source": "planned",
+       "c": "c5"
+      },
+      {
+       "date": "2026-12-29",
+       "kind": "session",
+       "name": "Kasia W.",
+       "label": "gym",
+       "amount": 180,
+       "source": "planned",
+       "c": "c5"
+      },
+      {
+       "date": "2026-12-22",
+       "kind": "session",
+       "name": "Kasia W.",
+       "label": "gym",
+       "amount": 180,
+       "source": "planned",
+       "c": "c5"
+      },
+      {
+       "date": "2026-12-21",
+       "kind": "subscription",
+       "name": "Magda L.",
+       "label": "full",
+       "amount": 400,
+       "source": "planned",
+       "c": "c7"
+      },
+      {
+       "date": "2026-12-10",
+       "kind": "subscription",
+       "name": "Michał K.",
+       "label": "workout_only",
+       "amount": 280,
+       "source": "planned",
+       "c": "c8"
+      },
+      {
+       "date": "2026-12-06",
+       "kind": "subscription",
+       "name": "Ola K.",
+       "label": "full",
+       "amount": 400,
+       "source": "planned",
+       "c": "c9"
+      },
+      {
+       "date": "2026-12-08",
+       "kind": "subscription",
+       "name": "Piotr G.",
+       "label": "meal_only",
+       "amount": 220,
+       "source": "planned",
+       "c": "c11"
+      },
+      {
+       "date": "2026-12-27",
+       "kind": "subscription",
+       "name": "Tomek Z.",
+       "label": "full",
+       "amount": 400,
+       "source": "planned",
+       "c": "c12"
+      },
+      {
+       "date": "2026-12-18",
+       "kind": "subscription",
+       "name": "Agnieszka M.",
+       "label": "meal_only",
+       "amount": 220,
+       "source": "renewal",
+       "c": "c1"
+      },
+      {
+       "date": "2026-12-12",
+       "kind": "subscription",
+       "name": "Bartek N.",
+       "label": "full",
+       "amount": 400,
+       "source": "renewal",
+       "c": "c2"
+      },
+      {
+       "date": "2026-12-05",
+       "kind": "subscription",
+       "name": "Karolina P.",
+       "label": "workout_only",
+       "amount": 280,
+       "source": "renewal",
+       "c": "c4"
+      },
+      {
+       "date": "2026-12-25",
+       "kind": "subscription",
+       "name": "Kuba W.",
+       "label": "full",
+       "amount": 400,
+       "source": "renewal",
+       "c": "c6"
+      },
+      {
+       "date": "2026-12-22",
+       "kind": "subscription",
+       "name": "Magda L.",
+       "label": "full",
+       "amount": 400,
+       "source": "renewal",
+       "c": "c7"
+      },
+      {
+       "date": "2026-12-11",
+       "kind": "subscription",
+       "name": "Michał K.",
+       "label": "workout_only",
+       "amount": 280,
+       "source": "renewal",
+       "c": "c8"
+      },
+      {
+       "date": "2026-12-27",
+       "kind": "subscription",
+       "name": "Paweł K.",
+       "label": "full",
+       "amount": 400,
+       "source": "renewal",
+       "c": "c10"
+      },
+      {
+       "date": "2026-12-09",
+       "kind": "subscription",
+       "name": "Piotr G.",
+       "label": "meal_only",
+       "amount": 220,
+       "source": "renewal",
+       "c": "c11"
+      }
+     ]
+    },
+    {
+     "costs": [
+      {
+       "note": "Wynajem sali – Fit Factory",
+       "amount": 800,
+       "category": "rent",
+       "recurring": "monthly"
+      },
+      {
+       "note": "Biuro rachunkowe",
+       "amount": 250,
+       "category": "accounting",
+       "recurring": "monthly"
+      },
+      {
+       "note": "Ramvo dla trenerów",
+       "amount": 99,
+       "category": "platform",
+       "recurring": "monthly"
+      }
+     ],
+     "month": "2027-01-01",
+     "risks": [
+      {
+       "name": "Ewa D.",
+       "price": 280,
+       "expiry": "2027-01-05",
+       "c": "c3",
+       "plan_slug": "workout_only"
+      },
+      {
+       "name": "Tomek Z.",
+       "price": 400,
+       "expiry": "2027-01-20",
+       "c": "c12",
+       "plan_slug": "full"
+      },
+      {
+       "name": "Ola K.",
+       "price": 400,
+       "expiry": "2027-01-30",
+       "c": "c9",
+       "plan_slug": "full"
+      }
+     ],
+     "income": [
+      {
+       "date": "2027-01-05",
+       "kind": "subscription",
+       "name": "Ewa D.",
+       "label": "workout_only",
+       "amount": 280,
+       "source": "planned",
+       "c": "c3"
+      },
+      {
+       "date": "2027-01-05",
+       "kind": "subscription",
+       "name": "Ola K.",
+       "label": "full",
+       "amount": 400,
+       "source": "planned",
+       "c": "c9"
+      },
+      {
+       "date": "2027-01-17",
+       "kind": "subscription",
+       "name": "Agnieszka M.",
+       "label": "meal_only",
+       "amount": 220,
+       "source": "renewal",
+       "c": "c1"
+      },
+      {
+       "date": "2027-01-11",
+       "kind": "subscription",
+       "name": "Bartek N.",
+       "label": "full",
+       "amount": 400,
+       "source": "renewal",
+       "c": "c2"
+      },
+      {
+       "date": "2027-01-06",
+       "kind": "subscription",
+       "name": "Ewa D.",
+       "label": "workout_only",
+       "amount": 280,
+       "source": "renewal",
+       "c": "c3"
+      },
+      {
+       "date": "2027-01-04",
+       "kind": "subscription",
+       "name": "Karolina P.",
+       "label": "workout_only",
+       "amount": 280,
+       "source": "renewal",
+       "c": "c4"
+      },
+      {
+       "date": "2027-01-01",
+       "kind": "subscription",
+       "name": "Kasia W.",
+       "label": "full",
+       "amount": 400,
+       "source": "renewal",
+       "c": "c5"
+      },
+      {
+       "date": "2027-01-31",
+       "kind": "subscription",
+       "name": "Kasia W.",
+       "label": "full",
+       "amount": 400,
+       "source": "renewal",
+       "c": "c5"
+      },
+      {
+       "date": "2027-01-24",
+       "kind": "subscription",
+       "name": "Kuba W.",
+       "label": "full",
+       "amount": 400,
+       "source": "renewal",
+       "c": "c6"
+      },
+      {
+       "date": "2027-01-21",
+       "kind": "subscription",
+       "name": "Magda L.",
+       "label": "full",
+       "amount": 400,
+       "source": "renewal",
+       "c": "c7"
+      },
+      {
+       "date": "2027-01-10",
+       "kind": "subscription",
+       "name": "Michał K.",
+       "label": "workout_only",
+       "amount": 280,
+       "source": "renewal",
+       "c": "c8"
+      },
+      {
+       "date": "2027-01-31",
+       "kind": "subscription",
+       "name": "Ola K.",
+       "label": "full",
+       "amount": 400,
+       "source": "renewal",
+       "c": "c9"
+      },
+      {
+       "date": "2027-01-26",
+       "kind": "subscription",
+       "name": "Paweł K.",
+       "label": "full",
+       "amount": 400,
+       "source": "renewal",
+       "c": "c10"
+      },
+      {
+       "date": "2027-01-08",
+       "kind": "subscription",
+       "name": "Piotr G.",
+       "label": "meal_only",
+       "amount": 220,
+       "source": "renewal",
+       "c": "c11"
+      },
+      {
+       "date": "2027-01-21",
+       "kind": "subscription",
+       "name": "Tomek Z.",
+       "label": "full",
+       "amount": 400,
+       "source": "renewal",
+       "c": "c12"
+      }
+     ]
+    },
+    {
+     "costs": [
+      {
+       "note": "Wynajem sali – Fit Factory",
+       "amount": 800,
+       "category": "rent",
+       "recurring": "monthly"
+      },
+      {
+       "note": "Biuro rachunkowe",
+       "amount": 250,
+       "category": "accounting",
+       "recurring": "monthly"
+      },
+      {
+       "note": "Ramvo dla trenerów",
+       "amount": 99,
+       "category": "platform",
+       "recurring": "monthly"
+      }
+     ],
+     "month": "2027-02-01",
+     "risks": [],
+     "income": [
+      {
+       "date": "2027-02-16",
+       "kind": "subscription",
+       "name": "Agnieszka M.",
+       "label": "meal_only",
+       "amount": 220,
+       "source": "renewal",
+       "c": "c1"
+      },
+      {
+       "date": "2027-02-10",
+       "kind": "subscription",
+       "name": "Bartek N.",
+       "label": "full",
+       "amount": 400,
+       "source": "renewal",
+       "c": "c2"
+      },
+      {
+       "date": "2027-02-05",
+       "kind": "subscription",
+       "name": "Ewa D.",
+       "label": "workout_only",
+       "amount": 280,
+       "source": "renewal",
+       "c": "c3"
+      },
+      {
+       "date": "2027-02-03",
+       "kind": "subscription",
+       "name": "Karolina P.",
+       "label": "workout_only",
+       "amount": 280,
+       "source": "renewal",
+       "c": "c4"
+      },
+      {
+       "date": "2027-02-23",
+       "kind": "subscription",
+       "name": "Kuba W.",
+       "label": "full",
+       "amount": 400,
+       "source": "renewal",
+       "c": "c6"
+      },
+      {
+       "date": "2027-02-20",
+       "kind": "subscription",
+       "name": "Magda L.",
+       "label": "full",
+       "amount": 400,
+       "source": "renewal",
+       "c": "c7"
+      },
+      {
+       "date": "2027-02-09",
+       "kind": "subscription",
+       "name": "Michał K.",
+       "label": "workout_only",
+       "amount": 280,
+       "source": "renewal",
+       "c": "c8"
+      },
+      {
+       "date": "2027-02-25",
+       "kind": "subscription",
+       "name": "Paweł K.",
+       "label": "full",
+       "amount": 400,
+       "source": "renewal",
+       "c": "c10"
+      },
+      {
+       "date": "2027-02-07",
+       "kind": "subscription",
+       "name": "Piotr G.",
+       "label": "meal_only",
+       "amount": 220,
+       "source": "renewal",
+       "c": "c11"
+      },
+      {
+       "date": "2027-02-20",
+       "kind": "subscription",
+       "name": "Tomek Z.",
+       "label": "full",
+       "amount": 400,
+       "source": "renewal",
+       "c": "c12"
+      }
+     ]
+    }
+   ],
+   "renewal_rate": null,
+   "renewal_sample": 0
+  },
+  "dues": [
+   {
+    "c": "c12",
+    "kind": "subscription",
+    "plan_slug": "full",
+    "period_start": "2026-11-27",
+    "period_end": "2026-12-26",
+    "description": null,
+    "amount_pln": 400,
+    "discount_pln": 0,
+    "paid_pln": 0,
+    "due_date": "2026-12-04",
+    "status": "open",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c7",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 150,
+    "discount_pln": 0,
+    "paid_pln": 0,
+    "due_date": "2026-11-28",
+    "status": "open",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c7",
+    "kind": "subscription",
+    "plan_slug": "full",
+    "period_start": "2026-11-21",
+    "period_end": "2026-12-20",
+    "description": null,
+    "amount_pln": 400,
+    "discount_pln": 0,
+    "paid_pln": 0,
+    "due_date": "2026-11-28",
+    "status": "open",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c6",
+    "kind": "subscription",
+    "plan_slug": "full",
+    "period_start": "2026-11-21",
+    "period_end": "2026-12-20",
+    "description": null,
+    "amount_pln": 400,
+    "discount_pln": 0,
+    "paid_pln": 0,
+    "due_date": "2026-11-28",
+    "status": "open",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c5",
+    "kind": "subscription",
+    "plan_slug": "full",
+    "period_start": "2026-11-21",
+    "period_end": "2026-12-20",
+    "description": null,
+    "amount_pln": 400,
+    "discount_pln": 0,
+    "paid_pln": 0,
+    "due_date": "2026-11-28",
+    "status": "open",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c10",
+    "kind": "subscription",
+    "plan_slug": "full",
+    "period_start": "2026-11-21",
+    "period_end": "2026-12-20",
+    "description": null,
+    "amount_pln": 400,
+    "discount_pln": 0,
+    "paid_pln": 0,
+    "due_date": "2026-11-28",
+    "status": "open",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c9",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 0,
+    "due_date": "2026-11-26",
+    "status": "open",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c5",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 0,
+    "due_date": "2026-11-25",
+    "status": "open",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c1",
+    "kind": "subscription",
+    "plan_slug": "meal_only",
+    "period_start": "2026-11-17",
+    "period_end": "2026-12-16",
+    "description": null,
+    "amount_pln": 220,
+    "discount_pln": 0,
+    "paid_pln": 0,
+    "due_date": "2026-11-24",
+    "status": "open",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c5",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": "unconfirmed",
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 0,
+    "due_date": "2026-11-21",
+    "status": "open",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c2",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-11-21",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c9",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": "unconfirmed",
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 0,
+    "due_date": "2026-11-21",
+    "status": "open",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c12",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": "unconfirmed",
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 0,
+    "due_date": "2026-11-21",
+    "status": "open",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c7",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-11-21",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c5",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-11-18",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c2",
+    "kind": "subscription",
+    "plan_slug": "full",
+    "period_start": "2026-11-11",
+    "period_end": "2026-12-10",
+    "description": null,
+    "amount_pln": 400,
+    "discount_pln": 0,
+    "paid_pln": 400,
+    "due_date": "2026-11-18",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c12",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-11-17",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c8",
+    "kind": "subscription",
+    "plan_slug": "workout_only",
+    "period_start": "2026-11-10",
+    "period_end": "2026-12-09",
+    "description": null,
+    "amount_pln": 280,
+    "discount_pln": 0,
+    "paid_pln": 0,
+    "due_date": "2026-11-17",
+    "status": "open",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c11",
+    "kind": "subscription",
+    "plan_slug": "meal_only",
+    "period_start": "2026-11-08",
+    "period_end": "2026-12-07",
+    "description": null,
+    "amount_pln": 220,
+    "discount_pln": 0,
+    "paid_pln": 0,
+    "due_date": "2026-11-15",
+    "status": "reported",
+    "reported_at": "2026-11-21T17:41:19.494+00:00",
+    "reminded_at": null
+   },
+   {
+    "c": "c3",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-11-14",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c10",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-11-13",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c3",
+    "kind": "subscription",
+    "plan_slug": "workout_only",
+    "period_start": "2026-11-06",
+    "period_end": "2026-12-05",
+    "description": null,
+    "amount_pln": 280,
+    "discount_pln": 0,
+    "paid_pln": 280,
+    "due_date": "2026-11-13",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c9",
+    "kind": "subscription",
+    "plan_slug": "full",
+    "period_start": "2026-11-06",
+    "period_end": "2026-12-05",
+    "description": null,
+    "amount_pln": 400,
+    "discount_pln": 0,
+    "paid_pln": 400,
+    "due_date": "2026-11-13",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c6",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-11-13",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c9",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-11-12",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c4",
+    "kind": "subscription",
+    "plan_slug": "workout_only",
+    "period_start": "2026-11-04",
+    "period_end": "2026-12-03",
+    "description": null,
+    "amount_pln": 280,
+    "discount_pln": 0,
+    "paid_pln": 280,
+    "due_date": "2026-11-11",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c7",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-11-11",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c5",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-11-11",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c12",
+    "kind": "subscription",
+    "plan_slug": "full",
+    "period_start": "2026-10-28",
+    "period_end": "2026-11-26",
+    "description": null,
+    "amount_pln": 400,
+    "discount_pln": 0,
+    "paid_pln": 400,
+    "due_date": "2026-11-04",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c5",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-11-04",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c12",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-11-03",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c7",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-11-01",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c3",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-10-31",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c6",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-10-30",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c6",
+    "kind": "subscription",
+    "plan_slug": "full",
+    "period_start": "2026-10-22",
+    "period_end": "2026-11-20",
+    "description": null,
+    "amount_pln": 400,
+    "discount_pln": 0,
+    "paid_pln": 0,
+    "due_date": "2026-10-29",
+    "status": "open",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c5",
+    "kind": "subscription",
+    "plan_slug": "full",
+    "period_start": "2026-10-22",
+    "period_end": "2026-11-20",
+    "description": null,
+    "amount_pln": 400,
+    "discount_pln": 0,
+    "paid_pln": 400,
+    "due_date": "2026-10-29",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c7",
+    "kind": "subscription",
+    "plan_slug": "full",
+    "period_start": "2026-10-22",
+    "period_end": "2026-11-20",
+    "description": null,
+    "amount_pln": 400,
+    "discount_pln": 0,
+    "paid_pln": 400,
+    "due_date": "2026-10-29",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c10",
+    "kind": "subscription",
+    "plan_slug": "full",
+    "period_start": "2026-10-22",
+    "period_end": "2026-11-20",
+    "description": null,
+    "amount_pln": 400,
+    "discount_pln": 0,
+    "paid_pln": 0,
+    "due_date": "2026-10-29",
+    "status": "open",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c9",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-10-29",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c5",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-10-28",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c1",
+    "kind": "subscription",
+    "plan_slug": "meal_only",
+    "period_start": "2026-10-18",
+    "period_end": "2026-11-16",
+    "description": null,
+    "amount_pln": 220,
+    "discount_pln": 0,
+    "paid_pln": 220,
+    "due_date": "2026-10-25",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c10",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-10-23",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c5",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-10-21",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c12",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-10-20",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c8",
+    "kind": "subscription",
+    "plan_slug": "workout_only",
+    "period_start": "2026-10-11",
+    "period_end": "2026-11-09",
+    "description": null,
+    "amount_pln": 280,
+    "discount_pln": 0,
+    "paid_pln": 280,
+    "due_date": "2026-10-18",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c3",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-10-17",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c6",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-10-16",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c9",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-10-15",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c3",
+    "kind": "subscription",
+    "plan_slug": "workout_only",
+    "period_start": "2026-10-07",
+    "period_end": "2026-11-05",
+    "description": null,
+    "amount_pln": 280,
+    "discount_pln": 0,
+    "paid_pln": 280,
+    "due_date": "2026-10-14",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c5",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-10-14",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c9",
+    "kind": "subscription",
+    "plan_slug": "full",
+    "period_start": "2026-10-07",
+    "period_end": "2026-11-05",
+    "description": null,
+    "amount_pln": 400,
+    "discount_pln": 0,
+    "paid_pln": 400,
+    "due_date": "2026-10-14",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c5",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-10-07",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c12",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-10-06",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c12",
+    "kind": "subscription",
+    "plan_slug": "full",
+    "period_start": "2026-09-28",
+    "period_end": "2026-10-27",
+    "description": null,
+    "amount_pln": 400,
+    "discount_pln": 0,
+    "paid_pln": 400,
+    "due_date": "2026-10-05",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c10",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-10-02",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c6",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-10-02",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c9",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-10-01",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c5",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-09-30",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c6",
+    "kind": "subscription",
+    "plan_slug": "full",
+    "period_start": "2026-09-22",
+    "period_end": "2026-10-21",
+    "description": null,
+    "amount_pln": 400,
+    "discount_pln": 0,
+    "paid_pln": 400,
+    "due_date": "2026-09-29",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c10",
+    "kind": "subscription",
+    "plan_slug": "full",
+    "period_start": "2026-09-22",
+    "period_end": "2026-10-21",
+    "description": null,
+    "amount_pln": 400,
+    "discount_pln": 0,
+    "paid_pln": 400,
+    "due_date": "2026-09-29",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c5",
+    "kind": "subscription",
+    "plan_slug": "full",
+    "period_start": "2026-09-22",
+    "period_end": "2026-10-21",
+    "description": null,
+    "amount_pln": 400,
+    "discount_pln": 0,
+    "paid_pln": 400,
+    "due_date": "2026-09-29",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c5",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-09-23",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c12",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-09-22",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c9",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-09-17",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c5",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-09-16",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c9",
+    "kind": "subscription",
+    "plan_slug": "full",
+    "period_start": "2026-09-07",
+    "period_end": "2026-10-06",
+    "description": null,
+    "amount_pln": 400,
+    "discount_pln": 0,
+    "paid_pln": 400,
+    "due_date": "2026-09-14",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c5",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-09-09",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c12",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-09-08",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c12",
+    "kind": "subscription",
+    "plan_slug": "full",
+    "period_start": "2026-08-29",
+    "period_end": "2026-09-27",
+    "description": null,
+    "amount_pln": 400,
+    "discount_pln": 0,
+    "paid_pln": 400,
+    "due_date": "2026-09-05",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c5",
+    "kind": "session",
+    "plan_slug": null,
+    "period_start": null,
+    "period_end": null,
+    "description": null,
+    "amount_pln": 180,
+    "discount_pln": 0,
+    "paid_pln": 180,
+    "due_date": "2026-09-02",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   },
+   {
+    "c": "c5",
+    "kind": "subscription",
+    "plan_slug": "full",
+    "period_start": "2026-08-23",
+    "period_end": "2026-09-21",
+    "description": null,
+    "amount_pln": 400,
+    "discount_pln": 0,
+    "paid_pln": 400,
+    "due_date": "2026-08-30",
+    "status": "paid",
+    "reported_at": null,
+    "reminded_at": null
+   }
+  ],
+  "payments": [
+   {
+    "c": "c2",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-11-15"
+   },
+   {
+    "c": "c7",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-11-14"
+   },
+   {
+    "c": "c2",
+    "amount_pln": 400,
+    "method": "cash",
+    "paid_on": "2026-11-12"
+   },
+   {
+    "c": "c4",
+    "amount_pln": 280,
+    "method": "cash",
+    "paid_on": "2026-11-12"
+   },
+   {
+    "c": "c12",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-11-11"
+   },
+   {
+    "c": "c5",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-11-11"
+   },
+   {
+    "c": "c3",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-11-08"
+   },
+   {
+    "c": "c9",
+    "amount_pln": 400,
+    "method": "transfer",
+    "paid_on": "2026-11-08"
+   },
+   {
+    "c": "c6",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-11-07"
+   },
+   {
+    "c": "c3",
+    "amount_pln": 280,
+    "method": "transfer",
+    "paid_on": "2026-11-07"
+   },
+   {
+    "c": "c10",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-11-06"
+   },
+   {
+    "c": "c9",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-11-06"
+   },
+   {
+    "c": "c7",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-11-05"
+   },
+   {
+    "c": "c5",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-11-05"
+   },
+   {
+    "c": "c7",
+    "amount_pln": 400,
+    "method": "blik",
+    "paid_on": "2026-10-29"
+   },
+   {
+    "c": "c12",
+    "amount_pln": 400,
+    "method": "transfer",
+    "paid_on": "2026-10-29"
+   },
+   {
+    "c": "c5",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-10-29"
+   },
+   {
+    "c": "c5",
+    "amount_pln": 400,
+    "method": "blik",
+    "paid_on": "2026-10-28"
+   },
+   {
+    "c": "c12",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-10-27"
+   },
+   {
+    "c": "c7",
+    "amount_pln": 180,
+    "method": "blik",
+    "paid_on": "2026-10-26"
+   },
+   {
+    "c": "c3",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-10-24"
+   },
+   {
+    "c": "c6",
+    "amount_pln": 180,
+    "method": "blik",
+    "paid_on": "2026-10-23"
+   },
+   {
+    "c": "c9",
+    "amount_pln": 180,
+    "method": "blik",
+    "paid_on": "2026-10-23"
+   },
+   {
+    "c": "c5",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-10-22"
+   },
+   {
+    "c": "c8",
+    "amount_pln": 280,
+    "method": "transfer",
+    "paid_on": "2026-10-21"
+   },
+   {
+    "c": "c1",
+    "amount_pln": 220,
+    "method": "blik",
+    "paid_on": "2026-10-20"
+   },
+   {
+    "c": "c3",
+    "amount_pln": 280,
+    "method": "transfer",
+    "paid_on": "2026-10-16"
+   },
+   {
+    "c": "c10",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-10-16"
+   },
+   {
+    "c": "c5",
+    "amount_pln": 180,
+    "method": "blik",
+    "paid_on": "2026-10-15"
+   },
+   {
+    "c": "c12",
+    "amount_pln": 180,
+    "method": "blik",
+    "paid_on": "2026-10-13"
+   },
+   {
+    "c": "c3",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-10-11"
+   },
+   {
+    "c": "c9",
+    "amount_pln": 400,
+    "method": "transfer",
+    "paid_on": "2026-10-11"
+   },
+   {
+    "c": "c6",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-10-10"
+   },
+   {
+    "c": "c9",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-10-08"
+   },
+   {
+    "c": "c5",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-10-08"
+   },
+   {
+    "c": "c12",
+    "amount_pln": 180,
+    "method": "blik",
+    "paid_on": "2026-09-30"
+   },
+   {
+    "c": "c5",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-09-30"
+   },
+   {
+    "c": "c12",
+    "amount_pln": 400,
+    "method": "blik",
+    "paid_on": "2026-09-29"
+   },
+   {
+    "c": "c6",
+    "amount_pln": 400,
+    "method": "transfer",
+    "paid_on": "2026-09-26"
+   },
+   {
+    "c": "c9",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-09-25"
+   },
+   {
+    "c": "c6",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-09-25"
+   },
+   {
+    "c": "c10",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-09-25"
+   },
+   {
+    "c": "c5",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-09-24"
+   },
+   {
+    "c": "c5",
+    "amount_pln": 400,
+    "method": "transfer",
+    "paid_on": "2026-09-23"
+   },
+   {
+    "c": "c10",
+    "amount_pln": 400,
+    "method": "cash",
+    "paid_on": "2026-09-23"
+   },
+   {
+    "c": "c5",
+    "amount_pln": 180,
+    "method": "blik",
+    "paid_on": "2026-09-16"
+   },
+   {
+    "c": "c12",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-09-16"
+   },
+   {
+    "c": "c9",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-09-11"
+   },
+   {
+    "c": "c5",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-09-09"
+   },
+   {
+    "c": "c9",
+    "amount_pln": 400,
+    "method": "transfer",
+    "paid_on": "2026-09-08"
+   },
+   {
+    "c": "c12",
+    "amount_pln": 400,
+    "method": "cash",
+    "paid_on": "2026-09-02"
+   },
+   {
+    "c": "c5",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-09-02"
+   },
+   {
+    "c": "c12",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-09-02"
+   },
+   {
+    "c": "c5",
+    "amount_pln": 400,
+    "method": "blik",
+    "paid_on": "2026-08-27"
+   },
+   {
+    "c": "c5",
+    "amount_pln": 180,
+    "method": "cash",
+    "paid_on": "2026-08-26"
+   }
+  ],
+  "expenses": [
+   {
+    "category": "marketing",
+    "amount_pln": 300,
+    "spent_on": "2026-10-23",
+    "recurring": "none",
+    "ends_on": null,
+    "note": "Reklama na Instagramie"
+   },
+   {
+    "category": "education",
+    "amount_pln": 650,
+    "spent_on": "2026-09-23",
+    "recurring": "none",
+    "ends_on": null,
+    "note": "Kurs dietetyki sportowej"
+   },
+   {
+    "category": "equipment",
+    "amount_pln": 1200,
+    "spent_on": "2026-08-24",
+    "recurring": "none",
+    "ends_on": null,
+    "note": "Kettlebelle i gumy oporowe"
+   },
+   {
+    "category": "platform",
+    "amount_pln": 99,
+    "spent_on": "2026-07-25",
+    "recurring": "monthly",
+    "ends_on": null,
+    "note": "Ramvo dla trenerów"
+   },
+   {
+    "category": "rent",
+    "amount_pln": 800,
+    "spent_on": "2026-05-26",
+    "recurring": "monthly",
+    "ends_on": null,
+    "note": "Wynajem sali – Fit Factory"
+   },
+   {
+    "category": "accounting",
+    "amount_pln": 250,
+    "spent_on": "2026-05-26",
+    "recurring": "monthly",
+    "ends_on": null,
+    "note": "Biuro rachunkowe"
+   }
+  ]
+ }
+}
