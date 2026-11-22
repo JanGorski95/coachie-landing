@@ -926,7 +926,7 @@
       var ev = e.target.closest('.rd-ev'); if (!ev || e.button > 0) return;
       var s = self.st.sessions.filter(function (x) { return x.id === ev.getAttribute('data-ev'); })[0]; if (!s) return;
       self.drag = { ev: ev, s: s, x: e.clientX, y: e.clientY, moved: false, canMove: s.status === 'confirmed' && !self.isPast(s) };
-      ev.setPointerCapture && ev.setPointerCapture(e.pointerId);
+      try { ev.setPointerCapture(e.pointerId); } catch (err) { /* synthetic or already released pointer */ }
     });
     this.el.addEventListener('pointermove', function (e) {
       var d = self.drag; if (!d) return;
