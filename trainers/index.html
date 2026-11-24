@@ -577,6 +577,27 @@ footer a { color: var(--fg-muted); }
 (function () {
   var SUPABASE_URL = 'https://grqzbmrxfllywmyugqlb.supabase.co';
   var SUPABASE_ANON_KEY = 'sb_publishable_xMJNZcyh0Cv1kP9SDPpJuw_6fIjy_Y3';
+
+  // UTM attribution for Marketing Hub posts: remember the utm_* of this
+  // visit (first touch in the tab session) and send it with the forms.
+  // Stays in sessionStorage only; no cookies, no third party.
+  var RAMVO_UTM = (function () {
+    var keys = ['source', 'medium', 'campaign', 'content'];
+    try {
+      var q = new URLSearchParams(window.location.search);
+      var found = {};
+      var any = false;
+      keys.forEach(function (k) {
+        var v = q.get('utm_' + k);
+        if (v) { found[k] = v.slice(0, 100); any = true; }
+      });
+      if (any && !sessionStorage.getItem('ramvo_utm')) sessionStorage.setItem('ramvo_utm', JSON.stringify(found));
+      var saved = sessionStorage.getItem('ramvo_utm');
+      return saved ? JSON.parse(saved) : null;
+    } catch (e) {
+      return null;
+    }
+  })();
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // ============================================================
@@ -1082,7 +1103,7 @@ footer a { color: var(--fg-muted); }
           Authorization: 'Bearer ' + SUPABASE_ANON_KEY,
           Prefer: 'return=minimal',
         },
-        body: JSON.stringify({ full_name: fullName, email: email, city: city || null, message: message || null }),
+        body: JSON.stringify({ full_name: fullName, email: email, city: city || null, message: message || null, utm: RAMVO_UTM }),
       });
       // 409 = unique email constraint already hit - treat as success, not an error.
       if (res.ok || res.status === 409) {
