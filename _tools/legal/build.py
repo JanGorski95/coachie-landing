@@ -42,7 +42,7 @@ DOCS = [
     ('privacy', '2.0', '2026-11-26', 'Polityka prywatności', 'Privacy Policy',
      'Jakie dane zbieramy, po co, na jakiej podstawie, komu je powierzamy, jak długo trzymamy i jakie masz prawa.',
      'What data we collect, why, on what legal basis, who processes it, how long we keep it and your rights.', 'shield'),
-    ('ai', '1.0', '2026-11-26', 'Ramvo AI', 'Ramvo AI',
+    ('ai', '1.1', '2026-11-26', 'Ramvo AI', 'Ramvo AI',
      'Czym jest Ramvo AI, jakie ma ograniczenia, jakie dane do niego trafiają i jak oznaczamy treści AI.',
      'What Ramvo AI is, its limits, what data it receives and how we label AI content.', 'spark'),
     ('community', '1.0', '2026-11-26', 'Zasady społeczności', 'Community Guidelines',
