@@ -1,213 +1,30 @@
 <!doctype html>
 <html lang="pl">
 <head>
+<title>Cennik · Ramvo</title>
+<meta name="description" content="Cennik Ramvo: plany dla trenerów i Ramvo Premium dla osób trenujących z Ramvo AI.">
+<link rel="canonical" href="https://ramvo.app/pricing/">
+<meta property="og:title" content="Cennik · Ramvo">
+<meta property="og:description" content="Cennik Ramvo: plany dla trenerów i Ramvo Premium dla osób trenujących z Ramvo AI.">
+<meta property="og:url" content="https://ramvo.app/pricing/">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cennik Ramvo</title>
-<meta name="description" content="Prosty cennik Ramvo. Trener płaci według liczby klientów, klienci trenera zawsze korzystają za darmo. Ramvo Premium dla osób trenujących z Ramvo AI.">
 <meta name="theme-color" content="#0B0D10">
-<link rel="canonical" href="https://ramvo.app/pricing/">
 <link rel="icon" href="/assets/brand/favicon/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/brand/favicon/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/brand/favicon/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ramvo">
-<meta property="og:title" content="Cennik Ramvo">
-<meta property="og:description" content="Trener płaci według liczby klientów. Klienci trenera zawsze za darmo.">
 <meta property="og:image" content="https://ramvo.app/assets/brand/ramvo-og-1200x630-1200.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://ramvo.app/pricing/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@800&family=Manrope:wght@400;600;700;800&display=swap">
-<style>
-/* /pricing: public price list. Same Performance Lab tokens as /trainers.
-   Plans and prices are read live from the admin panel (public_app_plans RPC),
-   so only plans marked active there show up here. */
-:root {
-  --bg: #0B0D10;
-  --bg-raised: #15181C;
-  --bg-sunken: #1F242B;
-  --fg: #F4F6F8;
-  --fg-muted: #8E97A3;
-  --accent: #3EC6FF;
-  --accent-soft: #122833;
-  --accent-fg: #04161F;
-  --accent-2: #FF4D8D;
-  --accent-2-soft: #3A1426;
-  --border: #1F242B;
-  --success: #35D483;
-  --success-soft: #13311F;
-  --warning: #FFB020;
-  --violet: #A78BFA;
-  color-scheme: dark;
-}
-* { box-sizing: border-box; min-width: 0; }
-html { scroll-behavior: smooth; }
-html, body { background: var(--bg); margin: 0; padding: 0; }
-body {
-  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  color: var(--fg);
-  line-height: 1.55;
-  overflow-x: clip;
-  padding-left: max(20px, env(safe-area-inset-left, 0px));
-  padding-right: max(20px, env(safe-area-inset-right, 0px));
-}
-h1, h2, h3 { font-family: 'Archivo', 'Manrope', sans-serif; font-weight: 800; text-wrap: balance; letter-spacing: -0.01em; }
-a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.shell { max-width: 1160px; margin: 0 auto; }
-section { padding-block: 44px; }
-section[id] { scroll-margin-top: 76px; }
-
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
-.reveal.is-in { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
-  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-}
-
-/* nav */
-.nav { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 16px; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid transparent; }
-.nav.scrolled { border-bottom-color: var(--border); }
-.wordmark { flex: 0 0 auto; display: flex; align-items: center; }
-.wordmark img { display: block; height: 36px; width: auto; }
-.nav-links { display: flex; align-items: center; gap: 4px; overflow-x: auto; scrollbar-width: none; }
-.nav-links::-webkit-scrollbar { display: none; }
-.nav-links a { font-size: 0.86rem; font-weight: 600; color: var(--fg-muted); text-decoration: none; padding: 7px 12px; border-radius: 999px; white-space: nowrap; }
-.nav-links a:hover, .nav-links a[aria-current] { color: var(--fg); background: var(--bg-sunken); }
-.nav-right { display: flex; align-items: center; gap: 10px; flex: 0 0 auto; }
-.lang-switch { display: flex; gap: 3px; background: var(--bg-sunken); border-radius: 999px; padding: 3px; }
-.lang-switch button { font: 700 0.74rem 'Manrope', sans-serif; border: none; background: transparent; color: var(--fg-muted); padding: 5px 10px; border-radius: 999px; cursor: pointer; }
-.lang-switch button.active { background: var(--bg-raised); color: var(--fg); }
-.nav-cta { font-size: 0.86rem; font-weight: 700; color: var(--accent-fg); background: var(--accent); border-radius: 999px; padding: 9px 16px; text-decoration: none; white-space: nowrap; }
-@media (max-width: 720px) { .nav-links { display: none; } }
-
-.pill { font: 700 0.95rem 'Manrope', sans-serif; border-radius: 999px; padding: 13px 24px; text-decoration: none; display: inline-block; border: 1px solid transparent; cursor: pointer; text-align: center; transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease; }
-.pill:hover { transform: translateY(-2px); }
-.pill-primary { color: var(--accent-fg); background: var(--accent); }
-.pill-primary:hover { box-shadow: 0 10px 20px -8px color-mix(in srgb, var(--accent) 60%, transparent); }
-.pill-ghost { color: var(--fg); background: transparent; border-color: var(--border); }
-.pill-ghost:hover { background: var(--bg-sunken); }
-
-/* hero */
-.hero { position: relative; padding-block: 56px 8px; text-align: center; }
-.hero::before { content: ''; position: absolute; left: 50%; top: 0; width: min(720px, 95vw); height: 360px; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(closest-side, #3ec6ff, transparent), radial-gradient(closest-side at 80% 60%, #ff4d8d, transparent); filter: blur(110px); opacity: 0.16; z-index: -1; pointer-events: none; }
-.eyebrow { display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-2); background: var(--accent-2-soft); border-radius: 999px; padding: 6px 14px; margin-bottom: 20px; }
-.hero h1 { font-size: clamp(2.2rem, 6vw, 3.8rem); line-height: 1.04; margin: 0 auto 16px; max-width: 18ch; }
-.hero h1 em { font-style: normal; color: var(--accent); }
-.lede { font-size: 1.08rem; color: var(--fg-muted); max-width: 58ch; margin: 0 auto; }
-
-/* controls */
-.controls { display: flex; flex-direction: column; align-items: center; gap: 14px; margin-top: 30px; }
-.seg { display: inline-flex; gap: 3px; background: var(--bg-raised); border: 1px solid var(--border); border-radius: 999px; padding: 4px; }
-.seg button { font: 700 0.9rem 'Manrope', sans-serif; border: none; background: transparent; color: var(--fg-muted); padding: 9px 18px; border-radius: 999px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; transition: background 0.2s ease, color 0.2s ease; }
-.seg button.active { background: var(--accent); color: var(--accent-fg); }
-.seg.big button { font-size: 1rem; padding: 11px 22px; }
-.seg .save { font-size: 0.7rem; font-weight: 800; padding: 2px 7px; border-radius: 999px; background: var(--success-soft); color: var(--success); }
-.seg button.active .save { background: #04161f33; color: var(--accent-fg); }
-.subcontrols { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
-.seg.small button { font-size: 0.8rem; padding: 6px 13px; }
-
-/* client-count slider */
-.fit { max-width: 560px; margin: 26px auto 0; background: var(--bg-raised); border: 1px solid var(--border); border-radius: 18px; padding: 16px 20px; }
-.fit label { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 700; font-size: 0.95rem; }
-.fit output { font: 800 1.6rem 'Archivo', sans-serif; color: var(--accent); }
-.fit input[type=range] { width: 100%; accent-color: var(--accent); height: 28px; margin-top: 4px; }
-.fit p { margin: 2px 0 0; font-size: 0.85rem; color: var(--fg-muted); }
-
-/* plan cards */
-.plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; align-items: stretch; margin-top: 34px; }
-.plans.one { max-width: 420px; margin-left: auto; margin-right: auto; }
-.plan { --c: var(--violet); position: relative; display: flex; flex-direction: column; background: radial-gradient(100% 70% at 100% 0%, color-mix(in srgb, var(--c) 12%, transparent), transparent 65%), var(--bg-raised); border: 1px solid var(--border); border-radius: 24px; padding: 28px 24px 24px; transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease; }
-.plan:hover { transform: translateY(-4px); }
-.plan.featured { --c: var(--accent); border-color: color-mix(in srgb, var(--c) 65%, transparent); box-shadow: 0 0 0 1px color-mix(in srgb, var(--c) 35%, transparent), 0 24px 60px -30px var(--c); background: radial-gradient(100% 70% at 100% 0%, color-mix(in srgb, var(--c) 22%, transparent), transparent 65%), var(--bg-raised); }
-.plan.match { --c: var(--success); border-color: color-mix(in srgb, var(--c) 70%, transparent); box-shadow: 0 0 0 1px color-mix(in srgb, var(--c) 40%, transparent), 0 24px 60px -30px var(--c); background: radial-gradient(100% 70% at 100% 0%, color-mix(in srgb, var(--c) 22%, transparent), transparent 65%), var(--bg-raised); }
-.plan.small { opacity: 0.5; }
-.ribbon { position: absolute; top: -12px; left: 22px; display: inline-flex; align-items: center; gap: 5px; font: 800 0.72rem 'Manrope', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent-fg); background: var(--c); padding: 5px 11px; border-radius: 999px; box-shadow: 0 8px 20px -8px var(--c); }
-.plan-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-.plan h3 { font-size: 1.35rem; margin: 0; }
-.chip { display: inline-flex; align-items: center; gap: 5px; font-size: 0.76rem; font-weight: 800; color: var(--c); background: color-mix(in srgb, var(--c) 15%, transparent); padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
-.chip svg { width: 13px; height: 13px; }
-.price { display: flex; align-items: baseline; gap: 6px; margin-top: 18px; }
-.price b { font: 800 clamp(2.4rem, 5vw, 3rem) 'Archivo', sans-serif; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
-.price span { color: var(--fg-muted); font-size: 0.95rem; }
-.billed { min-height: 22px; font-size: 0.84rem; color: var(--fg-muted); margin-top: 6px; }
-.billed .ok { color: var(--success); font-weight: 800; margin-left: 4px; }
-.desc { font-size: 0.92rem; color: var(--fg-muted); margin: 14px 0 0; }
-.checks { list-style: none; margin: 18px 0 0; padding: 18px 0 0; border-top: 1px solid var(--border); display: grid; gap: 10px; flex: 1; align-content: start; }
-.checks li { position: relative; padding-left: 28px; font-size: 0.94rem; color: #c9ced5; }
-.checks li::before { content: ''; position: absolute; left: 0; top: 3px; width: 18px; height: 18px; border-radius: 50%; background: color-mix(in srgb, var(--success) 18%, transparent); }
-.checks li::after { content: ''; position: absolute; left: 6px; top: 6px; width: 5px; height: 9px; border: solid var(--success); border-width: 0 2px 2px 0; transform: rotate(45deg); }
-.plan .pill { margin-top: 22px; width: 100%; }
-.plan:not(.featured):not(.match) .pill { color: var(--fg); background: var(--bg-sunken); }
-.plan.match .pill { background: var(--success); color: #04161f; }
-
-/* empty / soon */
-.soon { max-width: 640px; margin: 34px auto 0; text-align: center; background: var(--bg-raised); border: 1px dashed var(--border); border-radius: 24px; padding: 36px 24px; }
-.soon h3 { font-size: 1.4rem; margin: 0 0 8px; }
-.soon p { color: var(--fg-muted); margin: 0 0 20px; }
-
-/* founding / waitlist banner */
-.promo { position: relative; overflow: hidden; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 20px; align-items: center; border-radius: 24px; padding: 22px 26px; margin-top: 28px; background: linear-gradient(120deg, #3a1426 0%, var(--bg-raised) 55%, #122833 100%); border: 1px solid #5a2140; }
-.promo .ico { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; background: var(--accent-2-soft); color: var(--accent-2); }
-.promo .ico svg { width: 26px; height: 26px; }
-.promo b { display: block; font: 800 1.15rem 'Archivo', sans-serif; }
-.promo span { color: var(--fg-muted); font-size: 0.92rem; }
-.promo .pill { background: var(--accent-2); color: #fff; white-space: nowrap; }
-@media (max-width: 720px) { .promo { grid-template-columns: minmax(0, 1fr); text-align: center; } .promo .ico { margin: 0 auto; } }
-
-/* who pays */
-.head { text-align: center; margin: 0 auto 28px; max-width: 62ch; }
-.head h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); margin: 0 0 10px; line-height: 1.1; }
-.head p { color: var(--fg-muted); margin: 0; }
-.who { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-@media (max-width: 860px) { .who { grid-template-columns: minmax(0, 1fr); } }
-.who > div { --c: var(--accent); position: relative; overflow: hidden; background: var(--bg-raised); border: 1px solid var(--border); border-radius: 20px; padding: 24px 22px; }
-.who > div::after { content: ''; position: absolute; right: -40px; top: -40px; width: 140px; height: 140px; border-radius: 50%; background: var(--c); opacity: 0.13; filter: blur(30px); }
-.who .ico { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: color-mix(in srgb, var(--c) 16%, transparent); color: var(--c); margin-bottom: 14px; }
-.who .ico svg { width: 22px; height: 22px; }
-.who h3 { font-size: 1.12rem; margin: 0 0 4px; }
-.who .big { font: 800 1.9rem 'Archivo', sans-serif; color: var(--c); line-height: 1.1; margin: 8px 0 6px; }
-.who p { font-size: 0.92rem; color: var(--fg-muted); margin: 0; }
-
-/* assurances */
-.assure { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-@media (max-width: 900px) { .assure { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 520px) { .assure { grid-template-columns: minmax(0, 1fr); } }
-.assure div { display: flex; gap: 12px; align-items: flex-start; background: var(--bg-raised); border: 1px solid var(--border); border-radius: 16px; padding: 16px; }
-.assure svg { flex: 0 0 auto; width: 20px; height: 20px; color: var(--success); margin-top: 2px; }
-.assure b { display: block; font-size: 0.95rem; }
-.assure span { font-size: 0.84rem; color: var(--fg-muted); }
-
-/* FAQ */
-.faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
-.faq-item { background: var(--bg-raised); border: 1px solid var(--border); border-radius: 14px; padding: 4px 18px; }
-.faq-item summary { cursor: pointer; list-style: none; padding: 14px 0; font-weight: 700; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.faq-item summary::-webkit-details-marker { display: none; }
-.faq-item summary::after { content: '+'; flex: 0 0 auto; font-size: 1.3rem; font-weight: 400; color: var(--accent); transition: transform 0.2s ease; }
-.faq-item[open] summary::after { transform: rotate(45deg); }
-.faq-item p { font-size: 0.93rem; color: var(--fg-muted); margin: 0 0 16px; }
-.faq-item p a { color: var(--accent); }
-
-.final { text-align: center; padding: clamp(36px, 6vw, 64px) 20px; border-radius: 28px; background: radial-gradient(ellipse at 50% 0%, #3ec6ff26, transparent 60%), var(--bg-raised); border: 1px solid var(--border); }
-.final h2 { font-size: clamp(1.7rem, 3.6vw, 2.6rem); margin: 0 0 12px; }
-.final p { color: var(--fg-muted); margin: 0 auto 24px; max-width: 56ch; }
-.ctas { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-.fine { font-size: 0.8rem; color: var(--fg-muted); text-align: center; margin: 18px auto 0; max-width: 70ch; }
-
-footer { text-align: center; padding-block: 28px 44px; font-size: 0.8rem; color: var(--fg-muted); }
-footer .flinks { margin-bottom: 10px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-footer a { color: var(--fg-muted); }
-
-.skeleton { height: 460px; border-radius: 24px; background: linear-gradient(90deg, var(--bg-raised), var(--bg-sunken), var(--bg-raised)); background-size: 200% 100%; animation: shimmer 1.4s linear infinite; }
-@keyframes shimmer { to { background-position: -200% 0; } }
-</style>
+<link rel="stylesheet" href="/assets/pricing/pricing.css?v=1">
 </head>
 <body>
-
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
   <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></symbol>
@@ -221,402 +38,33 @@ footer a { color: var(--fg-muted); }
   <symbol id="i-swap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></symbol>
   <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
 </svg>
-
 <div class="shell">
   <nav class="nav" id="nav">
     <a href="/" class="wordmark"><img src="/assets/brand/ramvo-wordmark-ciemne-tlo.svg" alt="Ramvo" height="36"></a>
-    <div class="nav-links">
-      <a href="/" data-i18n="nav.home">Dla Ciebie</a>
-      <a href="/trainers/" data-i18n="nav.trainers">Dla trenerów</a>
-      <a href="/pricing/" aria-current="page" data-i18n="nav.pricing">Cennik</a>
-      <a href="#faq" data-i18n="nav.faq">FAQ</a>
-    </div>
     <div class="nav-right">
-      <div class="lang-switch" role="group" aria-label="Language">
-        <button type="button" data-lang="pl">PL</button>
-        <button type="button" data-lang="en">EN</button>
-      </div>
-      <a href="/trainers/#form" class="nav-cta" id="nav-cta" data-i18n="nav.cta">Zgłoś się</a>
+      <div class="lang-switch" role="group" aria-label="Language"><button type="button" data-lang="pl">PL</button><button type="button" data-lang="en">EN</button></div>
     </div>
   </nav>
-
   <header class="hero reveal">
-    <span class="eyebrow" data-i18n="hero.eyebrow">Cennik</span>
-    <h1 data-i18n="hero.title">Prosty cennik. <em>Klienci trenera zawsze za darmo.</em></h1>
-    <p class="lede" data-i18n="hero.lede">Trener płaci według liczby klientów, a jego klienci korzystają z aplikacji bezpłatnie. Trenujesz sam z Ramvo AI? Wybierz Ramvo Premium.</p>
-
-    <div class="controls">
-      <div class="seg big" role="tablist" id="aud">
-        <button type="button" role="tab" data-v="trainer"><span data-i18n="aud.trainer">Dla trenerów</span></button>
-        <button type="button" role="tab" data-v="client"><span data-i18n="aud.client">Ramvo Premium</span></button>
-      </div>
-      <div class="subcontrols">
-        <div class="seg" id="iv">
-          <button type="button" data-v="month"><span data-i18n="iv.month">Miesięcznie</span></button>
-          <button type="button" data-v="year"><span data-i18n="iv.year">Rocznie</span> <span class="save" id="save-badge" hidden></span></button>
-        </div>
-        <div class="seg small" id="cur">
-          <button type="button" data-v="PLN">PLN</button>
-          <button type="button" data-v="GBP">GBP</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="fit" id="fit">
-      <label for="fit-range"><span data-i18n="fit.label">Ilu masz klientów?</span> <output id="fit-out">10</output></label>
-      <input type="range" id="fit-range" min="1" max="60" value="10">
-      <p id="fit-hint"></p>
+    <span class="eyebrow" data-i18n="eyebrow">Cennik</span>
+    <h1 data-i18n="title">Który cennik Cię interesuje?</h1>
+    <p class="lede" data-i18n="lede">Trener płaci za panel według liczby klientów. Klienci trenera korzystają za darmo, a osoby trenujące samodzielnie wybierają Ramvo Premium.</p>
+    <div class="choose">
+      <a href="/pricing/trainers/" style="--c: var(--accent)"><span class="ico"><svg><use href="#i-briefcase"/></svg></span><b data-i18n="t.title">Jestem trenerem</b><span data-i18n="t.sub">Plany Start, Pro i Studio. 30 dni za darmo, klienci zawsze bezpłatnie.</span><em data-price="cheapest">—</em></a>
+      <a href="/pricing/premium/" style="--c: var(--accent-2)"><span class="ico"><svg><use href="#i-spark"/></svg></span><b data-i18n="c.title">Trenuję sam z Ramvo AI</b><span data-i18n="c.sub">Ramvo Premium: czat z AI, plany i analiza postępów. 7 dni za darmo.</span><em data-i18n="c.price">Ramvo Premium →</em></a>
     </div>
   </header>
-
-  <section id="plans" style="padding-top: 0">
-    <div class="plans" id="plan-grid" aria-live="polite">
-      <div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>
-    </div>
-    <div class="promo reveal" id="promo">
-      <div class="ico"><svg><use href="#i-crown"/></svg></div>
-      <div><b id="promo-title"></b><span id="promo-sub"></span></div>
-      <a class="pill" id="promo-cta" href="/trainers/#founding"></a>
-    </div>
-    <p class="fine" id="vat-note" data-i18n="vat">Ceny zawierają VAT. Firmy z numerem VAT UE mogą go podać przy płatności.</p>
-  </section>
-
-  <section id="who">
-    <div class="head reveal">
-      <h2 data-i18n="who.title">Kto za co płaci</h2>
-      <p data-i18n="who.sub">Ramvo zarabia na narzędziach dla trenera, nie na jego klientach.</p>
-    </div>
-    <div class="who reveal">
-      <div style="--c: var(--accent)">
-        <div class="ico"><svg><use href="#i-briefcase"/></svg></div>
-        <h3 data-i18n="who.t.title">Trener</h3>
-        <div class="big" id="who-trainer">—</div>
-        <p data-i18n="who.t.sub">Panel, plany, rezerwacje, czat i płatności od klientów. Płacisz według liczby klientów.</p>
-      </div>
-      <div style="--c: var(--success)">
-        <div class="ico"><svg><use href="#i-heart"/></svg></div>
-        <h3 data-i18n="who.c.title">Klient trenera</h3>
-        <div class="big" data-i18n="who.c.big">0 zł, zawsze</div>
-        <p data-i18n="who.c.sub">Plany od trenera, logowanie treningów i posiłków, czat. Płacisz tylko trenerowi, za jego usługi.</p>
-      </div>
-      <div style="--c: var(--accent-2)">
-        <div class="ico"><svg><use href="#i-spark"/></svg></div>
-        <h3 data-i18n="who.a.title">Trenujesz z Ramvo AI</h3>
-        <div class="big" id="who-ai">—</div>
-        <p data-i18n="who.a.sub">Ramvo Premium: trener AI na czacie, plany treningowe i żywieniowe, analiza postępów.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="assure">
-    <div class="assure reveal">
-      <div><svg><use href="#i-cal"/></svg><p style="margin:0"><b data-i18n="as.1">Bez zobowiązań</b><span data-i18n="as.1s">Rezygnujesz w każdej chwili, dostęp zostaje do końca okresu.</span></p></div>
-      <div><svg><use href="#i-swap"/></svg><p style="margin:0"><b data-i18n="as.2">Zmiana planu w minutę</b><span data-i18n="as.2s">Więcej klientów? Przechodzisz na wyższy plan w każdej chwili.</span></p></div>
-      <div><svg><use href="#i-shield"/></svg><p style="margin:0"><b data-i18n="as.3">Bezpieczne płatności</b><span data-i18n="as.3s">Karta przez Stripe na stronie, w aplikacji przez App Store i Google Play.</span></p></div>
-      <div><svg><use href="#i-lock"/></svg><p style="margin:0"><b data-i18n="as.4">Dane zostają Twoje</b><span data-i18n="as.4s">Po rezygnacji nic nie znika. Panel przechodzi w tryb tylko do odczytu.</span></p></div>
-    </div>
-  </section>
-
-  <section id="faq">
-    <div class="head reveal"><h2 data-i18n="faq.title">Pytania o cennik</h2></div>
-    <div class="faq-list reveal" id="faq-list">
-      <details class="faq-item"><summary data-i18n="faq.1.q">Czy moi klienci muszą płacić za aplikację?</summary><p data-i18n="faq.1.a">Nie. Klienci, którzy trenują z Tobą, korzystają z Ramvo bezpłatnie. Za Twoje usługi płacą Tobie, poza Ramvo albo przez płatności w panelu.</p></details>
-      <details class="faq-item"><summary data-i18n="faq.2.q">Czy jest okres próbny?</summary><p data-i18n="faq.2.a">Tak. Trener dostaje 30 dni, a osoba trenująca z Ramvo AI 7 dni. Okres próbny nie wymaga karty i nic nie zostanie pobrane bez Twojej decyzji.</p></details>
-      <details class="faq-item"><summary data-i18n="faq.3.q">Co się stanie, gdy przekroczę limit klientów?</summary><p data-i18n="faq.3.a">Obecni klienci zostają i dalej trenują. Nowych przyjmiesz po przejściu na wyższy plan.</p></details>
-      <details class="faq-item"><summary data-i18n="faq.4.q">Co, jeśli przestanę płacić?</summary><p data-i18n="faq.4.a">Przez kilka dni ponawiamy płatność i masz pełny dostęp. Potem panel przechodzi w tryb tylko do odczytu, ale Twoi klienci dalej widzą plany i logują treningi. Niczego nie usuwamy.</p></details>
-      <details class="faq-item"><summary data-i18n="faq.5.q">Jestem na liście oczekujących. Czy zapłacę?</summary><p data-i18n="faq.5.a">Nie. Osoby z listy oczekujących mają Ramvo Premium za darmo na zawsze. A 20 pierwszych trenerów (Founding Trainer) ma 24 miesiące za darmo.</p></details>
-      <details class="faq-item"><summary data-i18n="faq.6.q">Czy dostanę fakturę?</summary><p data-i18n="faq.6.a">Tak. Faktury i historię płatności znajdziesz w panelu, w zakładce Subskrypcja. Firmy z UE mogą podać numer VAT przy płatności.</p></details>
-    </div>
-  </section>
-
-  <section id="final">
-    <div class="final reveal">
-      <h2 data-i18n="final.title">Zacznij za darmo</h2>
-      <p data-i18n="final.sub">Trenerzy: 20 miejsc Founding Trainer, 24 miesiące za darmo. Trenujesz sam: zapisz się na listę oczekujących i miej Premium na zawsze.</p>
-      <div class="ctas">
-        <a href="/trainers/#form" class="pill pill-primary" data-i18n="final.trainer">Zgłoś się jako trener</a>
-        <a href="/#signup-section" class="pill pill-ghost" data-i18n="final.client">Zapisz się na listę</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="flinks">
-      <a href="/" data-i18n="footer.home">Strona główna</a>
-      <a href="/trainers/" data-i18n="nav.trainers">Dla trenerów</a>
-      <a href="/legal/" data-i18n="footer.legal">Polityka prywatności i Regulamin</a>
-    </div>
-    <span data-i18n="footer.tagline">Ramvo &middot; Kraków, Polska</span>
-  </footer>
+  <footer><div class="flinks"><a href="/" data-i18n="home">Strona główna</a><a href="/legal/" data-i18n="legal">Dokumenty prawne</a></div><span>Ramvo &middot; info@ramvo.app</span></footer>
 </div>
-
+<script>if (location.hash === '#premium' || location.hash === '#client') location.replace('/pricing/premium/');</script>
+<script src="/assets/pricing/pricing.js?v=1"></script>
 <script>
-(function () {
-  var SUPABASE_URL = 'https://grqzbmrxfllywmyugqlb.supabase.co';
-  var SUPABASE_ANON_KEY = 'sb_publishable_xMJNZcyh0Cv1kP9SDPpJuw_6fIjy_Y3';
-  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  var P = {
-    pl: {
-      'nav.home': 'Dla Ciebie', 'nav.trainers': 'Dla trenerów', 'nav.pricing': 'Cennik', 'nav.faq': 'FAQ', 'nav.cta': 'Zgłoś się', 'nav.ctaClient': 'Zapisz się',
-      'hero.eyebrow': 'Cennik',
-      'hero.title': 'Prosty cennik. <em>Klienci trenera zawsze za darmo.</em>',
-      'hero.lede': 'Trener płaci według liczby klientów, a jego klienci korzystają z aplikacji bezpłatnie. Trenujesz sam z Ramvo AI? Wybierz Ramvo Premium.',
-      'aud.trainer': 'Dla trenerów', 'aud.client': 'Ramvo Premium',
-      'iv.month': 'Miesięcznie', 'iv.year': 'Rocznie',
-      'fit.label': 'Ilu masz klientów?',
-      'fit.hint': 'Polecamy plan <b>{plan}</b>.', 'fit.none': 'Żaden plan nie mieści tylu klientów. Napisz do nas.',
-      'perMonth': '/ mies.', 'billedMonthly': 'płatne co miesiąc', 'billedYearly': 'płatne {price} rocznie', 'youSave': 'oszczędzasz {price}',
-      'upTo': 'do {n} klientów', 'unlimited': 'bez limitu', 'save': '−{n}%',
-      'ribbon.popular': 'Najczęściej wybierany', 'ribbon.match': 'Dla Ciebie',
-      'cta.trainer': 'Zacznij 30 dni za darmo', 'cta.client': 'Zapisz się na listę', 'cta.small': 'Za mały plan',
-      'from': 'od {price}', 'soon.title': 'Cennik ogłosimy wkrótce', 'soon.trainer': 'Na razie zapraszamy 20 pierwszych trenerów: 24 miesiące za darmo jako Founding Trainer.', 'soon.client': 'Zapisz się na listę oczekujących, a Ramvo Premium będzie dla Ciebie darmowe na zawsze.',
-      'promo.t.title': 'Founding Trainer: 24 miesiące za darmo', 'promo.t.sub': 'Dla 20 pierwszych trenerów. Bez karty, 30 dni przed końcem przypomnimy mailem.', 'promo.t.cta': 'Zgłoś się',
-      'promo.c.title': 'Lista oczekujących: Premium za darmo na zawsze', 'promo.c.sub': 'Zapisz się przed startem, a nigdy nie zapłacisz za Ramvo Premium.', 'promo.c.cta': 'Zapisz się',
-      'vat': 'Ceny zawierają VAT. Firmy z numerem VAT UE mogą go podać przy płatności.',
-      'who.title': 'Kto za co płaci', 'who.sub': 'Ramvo zarabia na narzędziach dla trenera, nie na jego klientach.',
-      'who.t.title': 'Trener', 'who.t.sub': 'Panel, plany, rezerwacje, czat i płatności od klientów. Płacisz według liczby klientów.',
-      'who.c.title': 'Klient trenera', 'who.c.big': '0 zł, zawsze', 'who.c.sub': 'Plany od trenera, logowanie treningów i posiłków, czat. Płacisz tylko trenerowi, za jego usługi.',
-      'who.a.title': 'Trenujesz z Ramvo AI', 'who.a.sub': 'Ramvo Premium: trener AI na czacie, plany treningowe i żywieniowe, analiza postępów.', 'who.soon': 'wkrótce',
-      'as.1': 'Bez zobowiązań', 'as.1s': 'Rezygnujesz w każdej chwili, dostęp zostaje do końca okresu.',
-      'as.2': 'Zmiana planu w minutę', 'as.2s': 'Więcej klientów? Przechodzisz na wyższy plan w każdej chwili.',
-      'as.3': 'Bezpieczne płatności', 'as.3s': 'Karta przez Stripe na stronie, w aplikacji przez App Store i Google Play.',
-      'as.4': 'Dane zostają Twoje', 'as.4s': 'Po rezygnacji nic nie znika. Panel przechodzi w tryb tylko do odczytu.',
-      'faq.title': 'Pytania o cennik',
-      'faq.1.q': 'Czy moi klienci muszą płacić za aplikację?', 'faq.1.a': 'Nie. Klienci, którzy trenują z Tobą, korzystają z Ramvo bezpłatnie. Za Twoje usługi płacą Tobie, poza Ramvo albo przez płatności w panelu.',
-      'faq.2.q': 'Czy jest okres próbny?', 'faq.2.a': 'Tak. Trener dostaje 30 dni, a osoba trenująca z Ramvo AI 7 dni. Okres próbny nie wymaga karty i nic nie zostanie pobrane bez Twojej decyzji.',
-      'faq.3.q': 'Co się stanie, gdy przekroczę limit klientów?', 'faq.3.a': 'Obecni klienci zostają i dalej trenują. Nowych przyjmiesz po przejściu na wyższy plan.',
-      'faq.4.q': 'Co, jeśli przestanę płacić?', 'faq.4.a': 'Przez kilka dni ponawiamy płatność i masz pełny dostęp. Potem panel przechodzi w tryb tylko do odczytu, ale Twoi klienci dalej widzą plany i logują treningi. Niczego nie usuwamy.',
-      'faq.5.q': 'Jestem na liście oczekujących. Czy zapłacę?', 'faq.5.a': 'Nie. Osoby z listy oczekujących mają Ramvo Premium za darmo na zawsze. A 20 pierwszych trenerów (Founding Trainer) ma 24 miesiące za darmo.',
-      'faq.6.q': 'Czy dostanę fakturę?', 'faq.6.a': 'Tak. Faktury i historię płatności znajdziesz w panelu, w zakładce Subskrypcja. Firmy z UE mogą podać numer VAT przy płatności.',
-      'final.title': 'Zacznij za darmo', 'final.sub': 'Trenerzy: 20 miejsc Founding Trainer, 24 miesiące za darmo. Trenujesz sam: zapisz się na listę oczekujących i miej Premium na zawsze.',
-      'final.trainer': 'Zgłoś się jako trener', 'final.client': 'Zapisz się na listę',
-      'footer.home': 'Strona główna', 'footer.legal': 'Polityka prywatności i Regulamin', 'footer.tagline': 'Ramvo &middot; Kraków, Polska'
-    },
-    en: {
-      'nav.home': 'For you', 'nav.trainers': 'For trainers', 'nav.pricing': 'Pricing', 'nav.faq': 'FAQ', 'nav.cta': 'Apply', 'nav.ctaClient': 'Join',
-      'hero.eyebrow': 'Pricing',
-      'hero.title': 'Simple pricing. <em>A trainer’s clients are always free.</em>',
-      'hero.lede': 'Trainers pay by number of clients, and their clients use the app for free. Training on your own with Ramvo AI? Choose Ramvo Premium.',
-      'aud.trainer': 'For trainers', 'aud.client': 'Ramvo Premium',
-      'iv.month': 'Monthly', 'iv.year': 'Yearly',
-      'fit.label': 'How many clients do you have?',
-      'fit.hint': 'We recommend <b>{plan}</b>.', 'fit.none': 'No plan fits that many clients. Get in touch.',
-      'perMonth': '/ mo', 'billedMonthly': 'billed monthly', 'billedYearly': 'billed {price} yearly', 'youSave': 'you save {price}',
-      'upTo': 'up to {n} clients', 'unlimited': 'unlimited', 'save': '−{n}%',
-      'ribbon.popular': 'Most popular', 'ribbon.match': 'Best for you',
-      'cta.trainer': 'Start 30 days free', 'cta.client': 'Join the waitlist', 'cta.small': 'Plan too small',
-      'from': 'from {price}', 'soon.title': 'Pricing coming soon', 'soon.trainer': 'For now we are inviting the first 20 trainers: 24 months free as a Founding Trainer.', 'soon.client': 'Join the waitlist and Ramvo Premium will be free for you forever.',
-      'promo.t.title': 'Founding Trainer: 24 months free', 'promo.t.sub': 'For the first 20 trainers. No card; we email you 30 days before it ends.', 'promo.t.cta': 'Apply',
-      'promo.c.title': 'Waitlist: Premium free forever', 'promo.c.sub': 'Join before launch and you will never pay for Ramvo Premium.', 'promo.c.cta': 'Join',
-      'vat': 'Prices include VAT. Businesses with an EU VAT number can enter it at checkout.',
-      'who.title': 'Who pays for what', 'who.sub': 'Ramvo earns from trainer tools, not from a trainer’s clients.',
-      'who.t.title': 'Trainer', 'who.t.sub': 'Panel, plans, bookings, chat and client payments. You pay by number of clients.',
-      'who.c.title': 'A trainer’s client', 'who.c.big': 'Free, always', 'who.c.sub': 'Plans from the trainer, workout and meal logging, chat. You only pay your trainer for their services.',
-      'who.a.title': 'Training with Ramvo AI', 'who.a.sub': 'Ramvo Premium: AI coach chat, workout and meal plans, progress insights.', 'who.soon': 'soon',
-      'as.1': 'No commitment', 'as.1s': 'Cancel any time and keep access until the period ends.',
-      'as.2': 'Switch plans in a minute', 'as.2s': 'More clients? Move to a higher plan any time.',
-      'as.3': 'Secure payments', 'as.3s': 'Card via Stripe on the web, App Store and Google Play in the app.',
-      'as.4': 'Your data stays yours', 'as.4s': 'Nothing disappears when you cancel. The panel becomes read-only.',
-      'faq.title': 'Pricing questions',
-      'faq.1.q': 'Do my clients have to pay for the app?', 'faq.1.a': 'No. Clients who train with you use Ramvo for free. They pay you for your services, outside Ramvo or through payments in the panel.',
-      'faq.2.q': 'Is there a free trial?', 'faq.2.a': 'Yes. Trainers get 30 days and people training with Ramvo AI get 7 days. No card needed, and nothing is charged without your decision.',
-      'faq.3.q': 'What happens if I go over my client limit?', 'faq.3.a': 'Your current clients stay and keep training. You can take on new ones after moving to a higher plan.',
-      'faq.4.q': 'What if I stop paying?', 'faq.4.a': 'We retry the payment for a few days and you keep full access. Then the panel becomes read-only, but your clients still see their plans and log workouts. We never delete anything.',
-      'faq.5.q': 'I am on the waitlist. Will I pay?', 'faq.5.a': 'No. People on the waitlist get Ramvo Premium free forever. And the first 20 trainers (Founding Trainers) get 24 months free.',
-      'faq.6.q': 'Will I get an invoice?', 'faq.6.a': 'Yes. Invoices and payment history are in the panel, under Subscription. EU businesses can enter a VAT number at checkout.',
-      'final.title': 'Start for free', 'final.sub': 'Trainers: 20 Founding Trainer spots, 24 months free. Training on your own: join the waitlist and get Premium forever.',
-      'final.trainer': 'Apply as a trainer', 'final.client': 'Join the waitlist',
-      'footer.home': 'Home', 'footer.legal': 'Privacy Policy and Terms', 'footer.tagline': 'Ramvo &middot; Kraków, Poland'
-    }
-  };
-
-  var L = 'pl';
-  var state = { aud: 'trainer', iv: 'month', cur: 'PLN', clients: 10 };
-  var plans = null; // null = loading, [] = none / failed
-
-  function tr(key, vars) {
-    var s = (P[L][key] !== undefined ? P[L][key] : P.pl[key]) || key;
-    if (vars) Object.keys(vars).forEach(function (k) { s = s.split('{' + k + '}').join(vars[k]); });
-    return s;
-  }
-  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
-  function money(minor, cur) {
-    var v = minor / 100;
-    return new Intl.NumberFormat(L === 'en' ? 'en-GB' : 'pl-PL', { style: 'currency', currency: cur, minimumFractionDigits: v % 1 ? 2 : 0, maximumFractionDigits: 2 }).format(v);
-  }
-  function priceOf(p, cur, iv) { return (p.prices || []).filter(function (x) { return x.currency === cur && x.interval === iv; })[0]; }
-  function nameOf(p) { return L === 'en' ? p.name_en : p.name_pl; }
-  function list(aud) {
-    return (plans || []).filter(function (p) { return p.audience === aud; }).sort(function (a, b) {
-      return aud === 'trainer' ? (a.client_limit == null ? 1e9 : a.client_limit) - (b.client_limit == null ? 1e9 : b.client_limit) : a.sort - b.sort;
-    });
-  }
-  function bestSaving(aud) {
-    var best = 0;
-    list(aud).forEach(function (p) {
-      var m = priceOf(p, state.cur, 'month'), y = priceOf(p, state.cur, 'year');
-      if (m && y && m.amount_minor > 0) best = Math.max(best, Math.round((1 - y.amount_minor / (m.amount_minor * 12)) * 100));
-    });
-    return best;
-  }
-  function cheapest(aud) {
-    var min = null;
-    list(aud).forEach(function (p) { var m = priceOf(p, state.cur, 'month'); if (m && (min == null || m.amount_minor < min)) min = m.amount_minor; });
-    return min;
-  }
-
-  function render() {
-    var grid = document.getElementById('plan-grid');
-    var aud = state.aud;
-    setSeg('aud', aud); setSeg('iv', state.iv); setSeg('cur', state.cur);
-    document.getElementById('fit').hidden = aud !== 'trainer' || !list('trainer').length;
-    var navCta = document.getElementById('nav-cta');
-    navCta.href = aud === 'trainer' ? '/trainers/#form' : '/#signup-section';
-    navCta.innerHTML = aud === 'trainer' ? tr('nav.cta') : tr('nav.ctaClient');
-
-    // promo banner
-    var k = aud === 'trainer' ? 't' : 'c';
-    document.getElementById('promo-title').textContent = tr('promo.' + k + '.title');
-    document.getElementById('promo-sub').textContent = tr('promo.' + k + '.sub');
-    var pc = document.getElementById('promo-cta');
-    pc.textContent = tr('promo.' + k + '.cta');
-    pc.href = aud === 'trainer' ? '/trainers/#founding' : '/#signup-section';
-
-    // who-pays numbers
-    var ct = cheapest('trainer'), ca = cheapest('client');
-    document.getElementById('who-trainer').textContent = ct != null ? tr('from', { price: money(ct, state.cur) }) + ' ' + tr('perMonth') : tr('who.soon');
-    document.getElementById('who-ai').textContent = ca != null ? tr('from', { price: money(ca, state.cur) }) + ' ' + tr('perMonth') : tr('who.soon');
-
-    if (plans === null) return;
-    var items = list(aud);
-    var saving = bestSaving(aud);
-    var badge = document.getElementById('save-badge');
-    badge.hidden = !saving;
-    badge.textContent = tr('save', { n: saving });
-    document.getElementById('vat-note').hidden = !items.length;
-
-    if (!items.length) {
-      grid.className = 'plans one';
-      grid.innerHTML = '<div class="soon"><h3>' + tr('soon.title') + '</h3><p>' + tr(aud === 'trainer' ? 'soon.trainer' : 'soon.client') + '</p>' +
-        '<a class="pill pill-primary" href="' + (aud === 'trainer' ? '/trainers/#form' : '/#signup-section') + '">' + tr(aud === 'trainer' ? 'final.trainer' : 'final.client') + '</a></div>';
-      return;
-    }
-
-    // recommended trainer plan for the slider value
-    var match = null;
-    if (aud === 'trainer') {
-      for (var i = 0; i < items.length; i++) { if (items[i].client_limit == null || items[i].client_limit >= state.clients) { match = items[i]; break; } }
-      document.getElementById('fit-out').textContent = state.clients >= 60 ? '60+' : state.clients;
-      document.getElementById('fit-hint').innerHTML = match ? tr('fit.hint', { plan: esc(nameOf(match)) }) : tr('fit.none');
-    }
-
-    grid.className = 'plans' + (items.length === 1 ? ' one' : '');
-    grid.innerHTML = items.map(function (p) {
-      var price = priceOf(p, state.cur, state.iv) || priceOf(p, state.cur, 'month');
-      var iv = price ? price.interval : state.iv;
-      var mprice = priceOf(p, state.cur, 'month');
-      var perMonth = price ? (iv === 'year' ? Math.round(price.amount_minor / 12) : price.amount_minor) : null;
-      var isMatch = match && match.slug === p.slug;
-      var small = aud === 'trainer' && p.client_limit != null && p.client_limit < state.clients;
-      var cls = 'plan' + (isMatch ? ' match' : p.is_featured ? ' featured' : '') + (small ? ' small' : '');
-      var ribbon = isMatch ? '<span class="ribbon"><svg width="11" height="11"><use href="#i-check"/></svg>' + tr('ribbon.match') + '</span>'
-        : p.is_featured ? '<span class="ribbon"><svg width="11" height="11"><use href="#i-star"/></svg>' + tr('ribbon.popular') + '</span>' : '';
-      var billed = '';
-      if (price && iv === 'year') {
-        var saved = mprice ? mprice.amount_minor * 12 - price.amount_minor : 0;
-        billed = tr('billedYearly', { price: money(price.amount_minor, state.cur) }) + (saved > 0 ? '<span class="ok">' + tr('youSave', { price: money(saved, state.cur) }) + '</span>' : '');
-      } else if (price) billed = tr('billedMonthly');
-      var chip = aud === 'trainer'
-        ? '<span class="chip"><svg><use href="#i-users"/></svg>' + (p.client_limit ? tr('upTo', { n: p.client_limit }) : tr('unlimited')) + '</span>' : '';
-      var hl = ((p.highlights && p.highlights[L]) || []).map(function (h) { return '<li>' + esc(h) + '</li>'; }).join('');
-      var desc = L === 'en' ? p.description_en : p.description_pl;
-      var href = aud === 'trainer' ? '/trainers/#form' : '/#signup-section';
-      var cta = small ? tr('cta.small') : tr(aud === 'trainer' ? 'cta.trainer' : 'cta.client');
-      return '<article class="' + cls + '">' + ribbon +
-        '<div class="plan-top"><h3>' + esc(nameOf(p)) + '</h3>' + chip + '</div>' +
-        '<div class="price"><b>' + (perMonth != null ? money(perMonth, state.cur) : '—') + '</b><span>' + tr('perMonth') + '</span></div>' +
-        '<div class="billed">' + billed + '</div>' +
-        (desc ? '<p class="desc">' + esc(desc) + '</p>' : '') +
-        '<ul class="checks">' + hl + '</ul>' +
-        '<a class="pill pill-primary" href="' + href + '"' + (small ? ' aria-disabled="true" tabindex="-1" style="pointer-events:none"' : '') + '>' + cta + '</a>' +
-        '</article>';
-    }).join('');
-  }
-
-  function setSeg(id, v) {
-    document.querySelectorAll('#' + id + ' button').forEach(function (b) {
-      var on = b.getAttribute('data-v') === v;
-      b.classList.toggle('active', on);
-      b.setAttribute('aria-pressed', on);
-    });
-  }
-  ['aud', 'iv', 'cur'].forEach(function (id) {
-    document.getElementById(id).addEventListener('click', function (e) {
-      var b = e.target.closest('button'); if (!b) return;
-      state[id] = b.getAttribute('data-v');
-      if (id === 'aud') try { history.replaceState(null, '', state.aud === 'client' ? '#premium' : location.pathname); } catch (err) {}
-      render();
-    });
-  });
-  document.getElementById('fit-range').addEventListener('input', function (e) { state.clients = Number(e.target.value); render(); });
-
-  // ---- language
-  function applyLanguage(lang) {
-    if (!P[lang]) lang = 'pl';
-    L = lang;
-    document.documentElement.lang = lang;
-    document.querySelectorAll('[data-i18n]').forEach(function (el) {
-      var v = P[lang][el.getAttribute('data-i18n')];
-      if (v !== undefined) el.innerHTML = v;
-    });
-    document.querySelectorAll('.lang-switch button').forEach(function (b) {
-      var on = b.getAttribute('data-lang') === lang;
-      b.classList.toggle('active', on);
-      b.setAttribute('aria-pressed', on);
-    });
-    try { localStorage.setItem('ramvo-lang', lang); } catch (e) {}
-    render();
-  }
-  function detectLanguage() {
-    try {
-      var saved = localStorage.getItem('ramvo-lang');
-      if (saved === 'pl' || saved === 'en') return saved;
-    } catch (e) {}
-    return (navigator.language || '').toLowerCase().indexOf('en') === 0 ? 'en' : 'pl';
-  }
-  var startLang = detectLanguage();
-  state.cur = startLang === 'en' ? 'GBP' : 'PLN';
-  if (location.hash === '#premium' || location.hash === '#client') state.aud = 'client';
-  applyLanguage(startLang);
-  document.querySelectorAll('.lang-switch button').forEach(function (b) {
-    b.addEventListener('click', function () { applyLanguage(b.getAttribute('data-lang')); });
-  });
-
-  // ---- live plans from the admin panel
-  fetch(SUPABASE_URL + '/rest/v1/rpc/public_app_plans', {
-    method: 'POST',
-    headers: { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + SUPABASE_ANON_KEY, 'Content-Type': 'application/json' },
-    body: '{}'
-  }).then(function (r) { return r.ok ? r.json() : []; })
-    .then(function (d) { plans = Array.isArray(d) ? d : []; render(); })
-    .catch(function () { plans = []; render(); });
-
-  // ---- nav border, reveals, one FAQ open at a time
-  var nav = document.getElementById('nav');
-  window.addEventListener('scroll', function () { nav.classList.toggle('scrolled', window.scrollY > 8); }, { passive: true });
-  var targets = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window && !reduceMotion) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); } });
-    }, { threshold: 0.12 });
-    targets.forEach(function (el) { io.observe(el); });
-  } else targets.forEach(function (el) { el.classList.add('is-in'); });
-  document.getElementById('faq-list').addEventListener('toggle', function (e) {
-    if (e.target.tagName !== 'DETAILS' || !e.target.open) return;
-    document.querySelectorAll('#faq-list details[open]').forEach(function (d) { if (d !== e.target) d.open = false; });
-  }, true);
-})();
+RamvoPricing.start({ audience: 'trainer', dict: {
+  pl: { 'meta.title': 'Cennik · Ramvo', eyebrow: 'Cennik', title: 'Który cennik Cię interesuje?', lede: 'Trener płaci za panel według liczby klientów. Klienci trenera korzystają za darmo, a osoby trenujące samodzielnie wybierają Ramvo Premium.',
+        't.title': 'Jestem trenerem', 't.sub': 'Plany Start, Pro i Studio. 30 dni za darmo, klienci zawsze bezpłatnie.', 'c.title': 'Trenuję sam z Ramvo AI', 'c.sub': 'Ramvo Premium: czat z AI, plany i analiza postępów. 7 dni za darmo.', 'c.price': 'Ramvo Premium →', home: 'Strona główna', legal: 'Dokumenty prawne' },
+  en: { 'meta.title': 'Pricing · Ramvo', eyebrow: 'Pricing', title: 'Which pricing are you after?', lede: 'Trainers pay for the panel by number of clients. Their clients use the app for free, and people training on their own choose Ramvo Premium.',
+        't.title': 'I am a trainer', 't.sub': 'Start, Pro and Studio plans. 30 days free, your clients always free.', 'c.title': 'I train on my own with Ramvo AI', 'c.sub': 'Ramvo Premium: AI chat, plans and progress insights. 7 days free.', 'c.price': 'Ramvo Premium →', home: 'Home', legal: 'Legal documents' }
+} });
 </script>
 </body>
 </html>

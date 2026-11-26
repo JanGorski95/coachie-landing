@@ -139,7 +139,7 @@ th { color: var(--fg-muted); font-weight: 700; font-size: 0.72rem; text-transfor
   </aside>
   <main class="doc">
     <h1>Subskrypcje i płatności</h1>
-    <p class="updated">Obowiązuje od 26 listopada 2026 · wersja 1.0</p>
+    <p class="updated">Obowiązuje od 26 listopada 2026 · wersja 1.1</p>
     <details class="toc" open><summary>Spis treści</summary><ol><li><a href="#pl-scope">§1. Zakres</a></li><li><a href="#pl-who-pays">§2. Kto płaci, a kto nie</a></li><li><a href="#pl-prices">§3. Plany i ceny</a></li><li><a href="#pl-trials">§4. Okresy próbne i darmowe okresy</a></li><li><a href="#pl-founding">§5. Founding Trainer i lista oczekujących</a></li><li><a href="#pl-web">§6. Zakup na stronie (Stripe)</a></li><li><a href="#pl-stores">§7. Zakup w aplikacji (App Store, Google Play)</a></li><li><a href="#pl-cancel">§8. Rezygnacja</a></li><li><a href="#pl-failed">§9. Nieudana płatność i tryb ograniczony</a></li><li><a href="#pl-withdrawal">§10. Prawo odstąpienia w ciągu 14 dni (Konsumenci)</a></li><li><a href="#pl-changes-plan">§11. Zmiana planu</a></li><li><a href="#pl-join-trainer">§12. Gdy Klient AI dołącza do Trenera</a></li><li><a href="#pl-tax">§13. Podatki, waluty, rachunki</a></li><li><a href="#pl-changelog">Historia zmian</a></li></ol></details>
 <div class="summary">
   <h2>W skrócie</h2>
@@ -176,7 +176,7 @@ th { color: var(--fg-muted); font-weight: 700; font-size: 0.72rem; text-transfor
 <section id="pl-prices">
   <h2>§3. Plany i ceny</h2>
   <ol>
-    <li>Aktualne plany i ceny są na <a href="/pricing/">ramvo.app/pricing</a> oraz w aplikacji i panelu przed zakupem. Plany dla Trenerów różnią się limitem aktywnych klientów.</li>
+    <li>Aktualne plany i ceny są na <a href="/pricing/trainers/">ramvo.app/pricing/trainers</a> (trenerzy) i <a href="/pricing/premium/">ramvo.app/pricing/premium</a> (Premium) oraz w aplikacji i panelu przed zakupem. Plany dla Trenerów różnią się limitem aktywnych klientów i zakresem funkcji (szczegóły w <a href="/legal/trainers/#plans">Warunkach dla trenerów, §3</a>).</li>
     <li>Ceny podajemy w PLN i GBP, miesięcznie i rocznie. Cena roczna jest niższa niż dwanaście płatności miesięcznych; różnicę pokazujemy przy wyborze.</li>
     <li>Ceny dla Konsumentów <strong>zawierają VAT</strong>. Podatek nalicza Stripe Tax według kraju nabywcy. Firma z numerem VAT UE może podać go przy płatności; wtedy, jeśli przepisy na to pozwalają, faktura zostanie wystawiona bez VAT (odwrotne obciążenie). Ceny w sklepach z aplikacjami ustala i pobiera sklep, także z podatkami.</li>
     <li>Cena, którą widzisz w chwili zakupu, obowiązuje do końca bieżącego okresu rozliczeniowego. Zmianę ceny dla trwającej Subskrypcji ogłaszamy co najmniej <strong>30 dni</strong> przed kolejnym odnowieniem, mailem i w aplikacji. Jeśli nie akceptujesz nowej ceny, zrezygnuj przed odnowieniem, a nic nie zapłacisz po nowej stawce.</li>
@@ -304,6 +304,7 @@ th { color: var(--fg-muted); font-weight: 700; font-size: 0.72rem; text-transfor
 <section id="pl-changelog">
   <h2>Historia zmian</h2>
   <ul class="changelog">
+    <li><strong>1.1 (26 listopada 2026)</strong>: osobne cenniki dla trenerów i Premium; zakres funkcji w planach trenera.</li>
     <li><strong>1.0 (26 listopada 2026)</strong>: pierwsza wersja.</li>
   </ul>
 </section>
@@ -321,7 +322,7 @@ th { color: var(--fg-muted); font-weight: 700; font-size: 0.72rem; text-transfor
   </aside>
   <main class="doc">
     <h1>Subscriptions and payments</h1>
-    <p class="updated">Effective from 26 November 2026 · version 1.0</p>
+    <p class="updated">Effective from 26 November 2026 · version 1.1</p>
     <details class="toc" open><summary>Contents</summary><ol><li><a href="#en-scope">§1. Scope</a></li><li><a href="#en-who-pays">§2. Who pays and who does not</a></li><li><a href="#en-prices">§3. Plans and prices</a></li><li><a href="#en-trials">§4. Trials and free periods</a></li><li><a href="#en-founding">§5. Founding Trainer and the waitlist</a></li><li><a href="#en-web">§6. Buying on the website (Stripe)</a></li><li><a href="#en-stores">§7. Buying in the app (App Store, Google Play)</a></li><li><a href="#en-cancel">§8. Cancelling</a></li><li><a href="#en-failed">§9. Failed payments and limited mode</a></li><li><a href="#en-withdrawal">§10. Your 14-day right to cancel (Consumers)</a></li><li><a href="#en-changes-plan">§11. Changing plan</a></li><li><a href="#en-join-trainer">§12. When an AI client joins a Trainer</a></li><li><a href="#en-tax">§13. Taxes, currencies, receipts</a></li><li><a href="#en-changelog">Change log</a></li></ol></details>
 <div class="summary">
   <h2>In short</h2>
@@ -358,7 +359,7 @@ th { color: var(--fg-muted); font-weight: 700; font-size: 0.72rem; text-transfor
 <section id="en-prices">
   <h2>§3. Plans and prices</h2>
   <ol>
-    <li>Current plans and prices are at <a href="/pricing/">ramvo.app/pricing</a>, and in the app and panel before you buy. Trainer plans differ by the limit of active clients.</li>
+    <li>Current plans and prices are at <a href="/pricing/trainers/">ramvo.app/pricing/trainers</a> (trainers) and <a href="/pricing/premium/">ramvo.app/pricing/premium</a> (Premium), and in the app and panel before you buy. Trainer plans differ by the limit of active clients and by features (details in the <a href="/legal/trainers/#plans">Trainer Terms, §3</a>).</li>
     <li>We show prices in PLN and GBP, monthly and yearly. The yearly price is lower than twelve monthly payments; we show the difference when you choose.</li>
     <li>Prices for Consumers <strong>include VAT</strong>. Stripe Tax calculates the tax based on the buyer's country. A business with an EU or UK VAT number can enter it at checkout; where the law allows, the invoice is then issued without VAT (reverse charge). App store prices, including taxes, are set and collected by the store.</li>
     <li>The price you see when you buy applies until the end of the current billing period. We announce a price change for an ongoing Subscription at least <strong>30 days</strong> before the next renewal, by e-mail and in the app. If you do not accept the new price, cancel before the renewal and you will not pay the new rate.</li>
@@ -486,6 +487,7 @@ th { color: var(--fg-muted); font-weight: 700; font-size: 0.72rem; text-transfor
 <section id="en-changelog">
   <h2>Change log</h2>
   <ul class="changelog">
+    <li><strong>1.1 (26 November 2026)</strong>: separate price lists for trainers and Premium; features in trainer plans.</li>
     <li><strong>1.0 (26 November 2026)</strong>: first version.</li>
   </ul>
 </section>
