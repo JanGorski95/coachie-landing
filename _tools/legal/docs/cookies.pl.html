@@ -1,0 +1,51 @@
+<!--meta
+title: Pliki cookie i podobne technologie
+description: Co Ramvo zapisuje w przeglądarce i w aplikacji, po co i jak to wyłączyć.
+-->
+<div class="summary">
+  <h2>W skrócie</h2>
+  <ul>
+    <li>Na stronie ramvo.app nie używamy plików cookie reklamowych ani śledzących.</li>
+    <li>Zapisujemy w przeglądarce tylko wybrany język i źródło wizyty (na czas karty przeglądarki).</li>
+    <li>W aplikacji analityka działa tylko za Twoją zgodą.</li>
+  </ul>
+</div>
+
+<section id="what">
+  <h2>§1. Czym są te technologie</h2>
+  <p>Pliki cookie i podobne technologie (localStorage, sessionStorage, pamięć aplikacji) to małe porcje danych zapisywane na Twoim urządzeniu. Zapis informacji, które nie są niezbędne do działania usługi, wymaga Twojej zgody (Privacy and Electronic Communications Regulations 2003, reg. 6; art. 399 ustawy Prawo komunikacji elektronicznej).</p>
+</section>
+
+<section id="website">
+  <h2>§2. Strona ramvo.app</h2>
+  <table>
+    <tr><th>Nazwa</th><th>Typ</th><th>Po co</th><th>Jak długo</th><th>Zgoda</th></tr>
+    <tr><td>ramvo-lang</td><td>localStorage</td><td>zapamiętanie wybranego języka (PL/EN)</td><td>do wyczyszczenia przez Ciebie</td><td>niezbędne (Twoje ustawienie)</td></tr>
+    <tr><td>ramvo_utm</td><td>sessionStorage</td><td>zapamiętanie, z jakiej kampanii przyszedłeś, i dołączenie tego do formularza, jeśli go wyślesz</td><td>do zamknięcia karty</td><td>nie opuszcza przeglądarki bez wysłania formularza</td></tr>
+  </table>
+  <p>Czcionki ładujemy z Google Fonts, więc przeglądarka łączy się z serwerami Google i przekazuje im swój adres IP. Google nie zapisuje przy tym plików cookie.</p>
+</section>
+
+<section id="app">
+  <h2>§3. Aplikacja i panel trenera</h2>
+  <table>
+    <tr><th>Co</th><th>Po co</th><th>Zgoda</th></tr>
+    <tr><td>Sesja logowania (Supabase)</td><td>utrzymanie zalogowania</td><td>niezbędne</td></tr>
+    <tr><td>Ustawienia i pamięć podręczna</td><td>język, motyw, ostatnio oglądane dane, praca offline</td><td>niezbędne</td></tr>
+    <tr><td>Raporty błędów (Sentry, UE)</td><td>wykrywanie i naprawianie awarii</td><td>prawnie uzasadniony interes; możesz się sprzeciwić</td></tr>
+    <tr><td>Analityka (PostHog, UE)</td><td>zrozumienie, które funkcje działają, żeby je ulepszać</td><td><strong>tylko za zgodą</strong>, którą zmienisz w ustawieniach</td></tr>
+  </table>
+  <p>Nie używamy identyfikatorów reklamowych (IDFA, AAID) i nie śledzimy Cię w innych aplikacjach.</p>
+</section>
+
+<section id="control">
+  <h2>§4. Jak to wyłączyć</h2>
+  <p>Dane strony usuniesz w ustawieniach przeglądarki (czyszczenie danych witryny). Analitykę w aplikacji wyłączysz w ustawieniach aplikacji. Szczegóły przetwarzania danych: <a href="/legal/privacy/">Polityka prywatności</a>.</p>
+</section>
+
+<section id="changelog">
+  <h2>Historia zmian</h2>
+  <ul class="changelog">
+    <li><strong>1.0 (26 listopada 2026)</strong>: pierwsza wersja.</li>
+  </ul>
+</section>

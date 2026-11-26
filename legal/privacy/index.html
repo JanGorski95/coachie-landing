@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="pl" data-lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Polityka prywatności · Ramvo</title>
+<meta name="description" content="Jak Ramvo przetwarza dane osobowe: jakie dane, po co, na jakiej podstawie, którym dostawcom je powierzamy, jak długo je trzymamy i jakie masz prawa.">
+<meta name="theme-color" content="#0B0D10">
+<link rel="canonical" href="https://ramvo.app/legal/privacy/">
+<link rel="icon" href="/assets/brand/favicon/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/brand/favicon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/brand/favicon/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ramvo">
+<meta property="og:title" content="Polityka prywatności · Ramvo">
+<meta property="og:description" content="Jak Ramvo przetwarza dane osobowe: jakie dane, po co, na jakiej podstawie, którym dostawcom je powierzamy, jak długo je trzymamy i jakie masz prawa.">
+<meta property="og:image" content="https://ramvo.app/assets/brand/ramvo-og-1200x630-1200.png">
+<meta property="og:url" content="https://ramvo.app/legal/privacy/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@800&family=Manrope:wght@400;600;700;800&display=swap">
+<style>
+:root {
+  --bg: #0B0D10; --bg-raised: #15181C; --bg-sunken: #1F242B;
+  --fg: #F4F6F8; --fg-muted: #8E97A3; --accent: #3EC6FF; --accent-soft: #122833;
+  --accent-2: #FF4D8D; --accent-2-soft: #3A1426; --success: #35D483; --success-soft: #13311F;
+  --warning: #FFB020; --border: #1F242B;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; min-width: 0; }
+html { scroll-behavior: smooth; }
+html, body { background: var(--bg); margin: 0; padding: 0; }
+body { font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--fg); line-height: 1.6; overflow-x: clip;
+  padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.top { position: sticky; top: 0; z-index: 5; max-width: 1180px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 14px;
+  background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(8px); }
+.wordmark img { display: block; height: 34px; width: auto; }
+.top-right { display: flex; align-items: center; gap: 10px; }
+.print { font: 600 0.78rem 'Manrope', sans-serif; color: var(--fg-muted); background: transparent; border: 1px solid var(--border); border-radius: 999px; padding: 6px 12px; cursor: pointer; }
+.print:hover { color: var(--fg); background: var(--bg-sunken); }
+.lang-switch { display: flex; gap: 3px; background: var(--bg-sunken); border-radius: 999px; padding: 3px; }
+.lang-switch button { font: 700 0.74rem 'Manrope', sans-serif; border: none; background: transparent; color: var(--fg-muted); padding: 5px 10px; border-radius: 999px; cursor: pointer; }
+.lang-switch button.active { background: var(--bg-raised); color: var(--fg); }
+.shell { max-width: 1180px; margin: 0 auto; padding-bottom: 40px; }
+.lang-block { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 44px; align-items: start; }
+[data-l] { display: none; }
+html[data-lang="pl"] [data-l="pl"], html[data-lang="en"] [data-l="en"] { display: revert; }
+html[data-lang="pl"] .lang-block[data-l="pl"], html[data-lang="en"] .lang-block[data-l="en"] { display: grid; }
+.side { position: sticky; top: 70px; max-height: calc(100vh - 90px); overflow: auto; padding-top: 18px; }
+.side-h { font: 800 0.7rem 'Manrope', sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-muted); margin: 0 0 8px; }
+.docs { display: flex; flex-direction: column; gap: 2px; }
+.docs a { font-size: 0.86rem; font-weight: 600; color: var(--fg-muted); text-decoration: none; padding: 8px 12px; border-radius: 10px; }
+.docs a:hover { color: var(--fg); background: var(--bg-sunken); }
+.docs a[aria-current] { color: var(--accent); background: var(--accent-soft); }
+.docs a.home { margin-top: 10px; font-weight: 500; }
+.doc { padding-top: 18px; max-width: 780px; }
+.doc h1 { font: 800 clamp(1.8rem, 4vw, 2.5rem) 'Archivo', 'Manrope', sans-serif; letter-spacing: -0.015em; line-height: 1.1; margin: 0 0 8px; }
+.updated { font-size: 0.82rem; color: var(--fg-muted); margin: 0 0 22px; }
+.lede { color: var(--fg-muted); font-size: 1.04rem; margin: 0 0 26px; max-width: 64ch; }
+.doc h2 { font: 800 1.2rem 'Archivo', 'Manrope', sans-serif; margin: 0 0 12px; scroll-margin-top: 80px; }
+.doc h3 { font: 800 1rem 'Manrope', sans-serif; margin: 1.4em 0 0.4em; }
+.doc section { padding: 26px 0 6px; border-top: 1px solid var(--border); scroll-margin-top: 70px; }
+.doc p, .doc li { font-size: 0.97rem; line-height: 1.7; }
+.doc ol, .doc ul { padding-left: 1.4em; }
+.doc li { margin-bottom: 0.45em; }
+.doc li::marker { color: var(--fg-muted); }
+.doc strong { font-weight: 700; }
+.doc .ref { font-size: 0.78rem; color: var(--fg-muted); white-space: nowrap; }
+.summary { background: linear-gradient(135deg, var(--accent-soft), var(--bg-raised)); border: 1px solid #1d4457; border-radius: 18px; padding: 18px 22px; margin: 0 0 22px; }
+.summary h2 { font-size: 1rem; margin: 0 0 8px; color: var(--accent); }
+.summary ul { margin: 0; }
+.summary li { font-size: 0.93rem; }
+.callout { border-radius: 14px; padding: 14px 18px; margin: 1.2em 0; font-size: 0.92rem; background: var(--bg-raised); border: 1px solid var(--border); }
+.callout.warn { background: #2a1f0a; border-color: #5a4210; }
+.callout.warn strong:first-child { color: var(--warning); }
+.callout.health { background: var(--accent-2-soft); border-color: #5a2140; }
+.callout.health strong:first-child { color: var(--accent-2); }
+.toc { background: var(--bg-raised); border: 1px solid var(--border); border-radius: 14px; padding: 10px 18px; margin: 0 0 18px; }
+.toc summary { cursor: pointer; font-weight: 800; font-size: 0.9rem; padding: 4px 0; }
+.toc ol { margin: 8px 0 6px; columns: 2; column-gap: 28px; }
+.toc li { font-size: 0.86rem; break-inside: avoid; margin-bottom: 4px; }
+.toc a { color: var(--fg-muted); text-decoration: none; }
+.toc a:hover { color: var(--fg); }
+@media (max-width: 640px) { .toc ol { columns: 1; } }
+table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 0.8em 0 1.4em; display: block; overflow-x: auto; }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { color: var(--fg-muted); font-weight: 700; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
+.form-box { background: var(--bg-raised); border: 1px dashed var(--fg-muted); border-radius: 14px; padding: 16px 20px; font-size: 0.92rem; }
+.changelog li { font-size: 0.88rem; color: var(--fg-muted); }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.card { display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: var(--fg); background: var(--bg-raised); border: 1px solid var(--border); border-radius: 18px; padding: 18px; transition: transform 0.2s ease, border-color 0.2s ease; }
+.card:hover { transform: translateY(-3px); border-color: #2c5a70; }
+.card .ico { width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); }
+.card .ico svg { width: 20px; height: 20px; }
+.card-t { font: 800 1.02rem 'Archivo', 'Manrope', sans-serif; margin-top: 4px; }
+.card-s { font-size: 0.86rem; color: var(--fg-muted); flex: 1; }
+.card-v { font-size: 0.74rem; color: var(--fg-muted); }
+.provider { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 30px; padding: 20px 22px; background: var(--bg-raised); border: 1px solid var(--border); border-radius: 18px; }
+.provider p { margin: 0 0 6px; font-size: 0.9rem; color: var(--fg-muted); }
+.provider p:first-of-type { color: var(--fg); }
+.foot { max-width: 1180px; margin: 0 auto; padding: 24px 0 40px; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--fg-muted); text-align: center; }
+@media (max-width: 860px) {
+  html[data-lang="pl"] .lang-block[data-l="pl"], html[data-lang="en"] .lang-block[data-l="en"] { display: block; }
+  .side { position: static; max-height: none; padding-top: 6px; }
+  .docs { flex-direction: row; overflow-x: auto; scrollbar-width: none; gap: 4px; }
+  .docs .side-h, .docs a.home { display: none; }
+  .docs a { white-space: nowrap; }
+}
+@media print {
+  :root { --bg: #fff; --bg-raised: #fff; --fg: #000; --fg-muted: #444; --border: #ccc; --accent: #000; --accent-soft: #f3f3f3; }
+  .top, .side, .toc, .foot { display: none !important; }
+  .lang-block { display: block !important; }
+  .summary, .callout { background: #f6f6f6 !important; border-color: #ccc !important; }
+  a { color: #000; }
+}
+
+</style>
+</head>
+<body>
+<!-- Generated by _tools/legal/build.py - edit the sources there, not this file. -->
+<header class="top">
+  <a href="/" class="wordmark"><img src="/assets/brand/ramvo-wordmark-ciemne-tlo.svg" alt="Ramvo" height="34"></a>
+  <div class="top-right">
+    <button type="button" class="print" onclick="window.print()"><span data-l="pl">Drukuj / zapisz PDF</span><span data-l="en">Print / save as PDF</span></button>
+    <div class="lang-switch" role="group" aria-label="Language"><button type="button" data-lang="pl">PL</button><button type="button" data-lang="en">EN</button></div>
+  </div>
+</header>
+<div class="shell">
+<div class="lang-block" data-l="pl" lang="pl">
+  <aside class="side">
+    <nav class="docs" aria-label="Dokumenty">
+      <div class="side-h">Dokumenty</div>
+      <a href="/legal/">Wszystkie dokumenty</a>
+      <a href="/legal/terms/">Regulamin</a><a href="/legal/subscriptions/">Subskrypcje i płatności</a><a href="/legal/trainers/">Warunki dla trenerów</a><a href="/legal/privacy/" aria-current="page">Polityka prywatności</a><a href="/legal/ai/">Ramvo AI</a><a href="/legal/community/">Zasady społeczności</a><a href="/legal/cookies/">Pliki cookie i podobne technologie</a>
+      <a href="/" class="home">← Strona główna</a>
+    </nav>
+  </aside>
+  <main class="doc">
+    <h1>Polityka prywatności</h1>
+    <p class="updated">Obowiązuje od 26 listopada 2026 · wersja 2.0</p>
+    <details class="toc" open><summary>Spis treści</summary><ol><li><a href="#pl-controller">§1. Administrator danych</a></li><li><a href="#pl-roles">§2. Ty, my i Twój Trener</a></li><li><a href="#pl-data">§3. Jakie dane, po co i na jakiej podstawie</a></li><li><a href="#pl-health">§4. Dane o zdrowiu: Twoja wyraźna zgoda</a></li><li><a href="#pl-sharing">§5. Komu udostępniamy dane</a></li><li><a href="#pl-processors">§6. Dostawcy i przekazywanie danych poza UK i EOG</a></li><li><a href="#pl-retention">§7. Jak długo przechowujemy dane i usuwanie konta</a></li><li><a href="#pl-rights">§8. Twoje prawa</a></li><li><a href="#pl-security">§9. Bezpieczeństwo</a></li><li><a href="#pl-children">§10. Dzieci</a></li><li><a href="#pl-permissions">§11. Powiadomienia, uprawnienia i e-maile</a></li><li><a href="#pl-changes">§12. Zmiany polityki</a></li><li><a href="#pl-changelog">Historia zmian</a></li></ol></details>
+<div class="summary">
+  <h2>W skrócie</h2>
+  <ul>
+    <li>Zbieramy tylko dane potrzebne do działania aplikacji. Nie sprzedajemy ich i nie pokazujemy reklam.</li>
+    <li>Dane o zdrowiu (np. kontuzje, pomiary, zdjęcia sylwetki, dane z Apple Health) przetwarzamy tylko za Twoją wyraźną zgodą, którą możesz cofnąć.</li>
+    <li>Baza danych działa w Unii Europejskiej (Sztokholm). Część dostawców jest w USA; korzystamy wtedy z zabezpieczeń wymaganych przez RODO.</li>
+    <li>Twój Trener widzi dane, które są mu potrzebne do prowadzenia Cię, i odpowiada za nie jako osobny administrator.</li>
+    <li>Konto i dane usuniesz sam w aplikacji, od razu. Na wnioski odpowiadamy w ciągu miesiąca.</li>
+  </ul>
+</div>
+
+<section id="pl-controller">
+  <h2>§1. Administrator danych</h2>
+  <ol>
+    <li>Administratorem Twoich danych osobowych w Ramvo jest Jan Gorski, przedsiębiorca prowadzący jednoosobową działalność gospodarczą w Zjednoczonym Królestwie (sole trader) pod nazwą handlową Ramvo („my”). Wniosek o rejestrację spółki Ramvo Ltd (Anglia i Walia) jest w toku. Po rejestracji spółka przejmie świadczenie usługi, o czym poinformujemy z wyprzedzeniem.</li>
+    <li>Kontakt we wszystkich sprawach dotyczących danych: <a href="mailto:info@ramvo.app">info@ramvo.app</a>. Nie wyznaczyliśmy inspektora ochrony danych, bo przy naszej skali nie jest wymagany (art. 37 RODO); wszystkie sprawy prowadzi bezpośrednio administrator.</li>
+    <li>Stosujemy brytyjskie przepisy o ochronie danych (UK GDPR i Data Protection Act 2018) oraz, wobec osób w Unii Europejskiej, rozporządzenie UE 2016/679 (RODO).</li>
+  </ol>
+</section>
+
+<section id="pl-roles">
+  <h2>§2. Ty, my i Twój Trener</h2>
+  <ol>
+    <li>Jeśli trenujesz z Trenerem, Twój Trener jest <strong>osobnym administratorem</strong> danych, których używa do prowadzenia Cię (np. Twoich planów, logów, pomiarów, notatek). Widzi tylko swoich klientów. Zasady, których musi przestrzegać, opisują <a href="/legal/trainers/#data">Warunki dla trenerów</a>.</li>
+    <li>Gdy kończysz współpracę z Trenerem, traci on dostęp do Twoich bieżących danych w aplikacji.</li>
+    <li>Jeśli trenujesz z Ramvo AI, Twoje dane przetwarzamy tylko my i nasi dostawcy (§6).</li>
+  </ol>
+</section>
+
+<section id="pl-data">
+  <h2>§3. Jakie dane, po co i na jakiej podstawie</h2>
+  <table>
+    <tr><th>Dane</th><th>Przykłady</th><th>Cel</th><th>Podstawa prawna</th><th>Jak długo</th></tr>
+    <tr><td>Konto</td><td>imię i nazwisko, e-mail, hasło (zaszyfrowane), sposób logowania (Google, Apple), rola, język</td><td>założenie i obsługa konta, logowanie, kontakt w sprawie usługi</td><td>umowa, art. 6 ust. 1 lit. b</td><td>do usunięcia konta</td></tr>
+    <tr><td>Profil i cele</td><td>wiek, płeć, wzrost, cel, poziom, preferencje, sprzęt, dostępność</td><td>dopasowanie planów, Trenera i Ramvo AI</td><td>umowa, art. 6 ust. 1 lit. b</td><td>do usunięcia konta</td></tr>
+    <tr><td><strong>Dane o zdrowiu</strong></td><td>kontuzje i schorzenia, które wpiszesz, waga i pomiary ciała, zdjęcia sylwetki, kroki, aktywna energia, tętno spoczynkowe i treningi z Apple Health / Google Health Connect</td><td>bezpieczne plany, śledzenie postępów, szacowanie spalonych kalorii</td><td><strong>wyraźna zgoda</strong>, art. 9 ust. 2 lit. a i art. 6 ust. 1 lit. a</td><td>do cofnięcia zgody lub usunięcia konta</td></tr>
+    <tr><td>Trening i żywienie</td><td>plany, logi ćwiczeń, posiłki, zeskanowane produkty, serie, odznaki</td><td>główna funkcja aplikacji</td><td>umowa, art. 6 ust. 1 lit. b</td><td>do usunięcia konta</td></tr>
+    <tr><td>Lokalizacja</td><td>miasto, przybliżona lokalizacja (po Twojej zgodzie w telefonie), adres siłowni Trenera</td><td>pokazanie Trenerów w pobliżu i odległości</td><td>zgoda, art. 6 ust. 1 lit. a (uprawnienie w systemie); dla siłowni Trenera: umowa</td><td>do cofnięcia zgody lub usunięcia konta</td></tr>
+    <tr><td>Komunikacja</td><td>wiadomości czatu, załączniki, prośby o współpracę, opinie i odpowiedzi</td><td>kontakt z Trenerem, opinie w wyszukiwarce</td><td>umowa, art. 6 ust. 1 lit. b</td><td>do usunięcia konta nadawcy</td></tr>
+    <tr><td>Rezerwacje</td><td>terminy sesji, odwołania, link Google Meet</td><td>umawianie sesji</td><td>umowa, art. 6 ust. 1 lit. b</td><td>do usunięcia konta</td></tr>
+    <tr><td>Rozmowy z Ramvo AI</td><td>Twoje pytania i odpowiedzi AI, dane profilu potrzebne do odpowiedzi</td><td>działanie Ramvo AI</td><td>umowa; dla danych o zdrowiu wyraźna zgoda</td><td>do usunięcia konta</td></tr>
+    <tr><td>Płatności</td><td>plan, status subskrypcji, daty, identyfikator klienta Stripe lub zakupu w sklepie, kraj i numer VAT (firmy). <strong>Bez danych karty</strong></td><td>sprzedaż i obsługa subskrypcji, podatki</td><td>umowa; obowiązek prawny, art. 6 ust. 1 lit. c</td><td>6 lat od końca roku podatkowego (przepisy podatkowe UK)</td></tr>
+    <tr><td>Dane techniczne</td><td>token powiadomień push, model i system urządzenia, wersja aplikacji, raporty błędów</td><td>powiadomienia, naprawianie błędów, bezpieczeństwo</td><td>umowa; prawnie uzasadniony interes, art. 6 ust. 1 lit. f</td><td>token do wylogowania; błędy do 90 dni</td></tr>
+    <tr><td>Analityka</td><td>zdarzenia w aplikacji (np. otwarcie ekranu, ukończenie treningu) powiązane z identyfikatorem konta</td><td>ulepszanie aplikacji</td><td>zgoda, art. 6 ust. 1 lit. a</td><td>do 12 miesięcy</td></tr>
+    <tr><td>Formularze na stronie</td><td>e-mail z listy oczekujących; imię, e-mail, miasto i wiadomość ze zgłoszenia trenera; źródło wizyty (parametry utm)</td><td>lista oczekujących, kontakt z trenerem, obietnica dożywotniego Premium</td><td>zgoda / działania przed zawarciem umowy, art. 6 ust. 1 lit. a i b</td><td>lista oczekujących: do usunięcia na prośbę; zgłoszenia trenerów: 24 miesiące</td></tr>
+    <tr><td>Bezpieczeństwo i zgłoszenia</td><td>dziennik działań administracyjnych, zgłoszenia treści, decyzje i odwołania</td><td>ochrona Użytkowników, rozliczalność, obowiązki z DSA i Online Safety Act</td><td>prawnie uzasadniony interes; obowiązek prawny</td><td>do 3 lat</td></tr>
+  </table>
+  <p>Podanie danych jest dobrowolne, ale bez danych konta nie założysz konta, a bez danych profilu Ramvo nie dopasuje planu. Nie podejmujemy wobec Ciebie decyzji opartych wyłącznie na zautomatyzowanym przetwarzaniu, które wywołują skutki prawne lub podobnie istotnie na Ciebie wpływają (art. 22 RODO). Plany Ramvo AI są propozycjami, które możesz zmienić lub odrzucić.</p>
+</section>
+
+<section id="pl-health">
+  <h2>§4. Dane o zdrowiu: Twoja wyraźna zgoda</h2>
+  <ol>
+    <li>Dane o zdrowiu to szczególna kategoria danych (art. 9 RODO). Przetwarzamy je tylko wtedy, gdy wyraźnie się na to zgodzisz w aplikacji. Zgoda jest osobna, nie jest zaznaczona z góry i nie jest warunkiem założenia konta.</li>
+    <li>Bez tej zgody możesz korzystać z aplikacji, ale wyłączone są: pola kontuzji i schorzeń, pomiary i zdjęcia sylwetki oraz synchronizacja z Apple Health i Google Health Connect, a plany nie uwzględnią Twoich ograniczeń zdrowotnych.</li>
+    <li>Zgodę cofniesz w każdej chwili w ustawieniach aplikacji albo mailem. Cofnięcie nie wpływa na zgodność z prawem przetwarzania przed cofnięciem. Po cofnięciu usuwamy dane o zdrowiu, chyba że wolisz je zachować w trybie tylko do odczytu do czasu usunięcia konta.</li>
+    <li>Dane z Apple Health i Google Health Connect pobiera telefon, tylko gdy aplikacja jest otwarta, i tylko kategorie, na które się zgodzisz w systemie (treningi, kroki, aktywna energia, tętno spoczynkowe). Nie używamy ich do reklam, nie sprzedajemy ich i nie udostępniamy firmom zajmującym się danymi, zgodnie z zasadami Apple HealthKit i Google Health Connect.</li>
+  </ol>
+</section>
+
+<section id="pl-sharing">
+  <h2>§5. Komu udostępniamy dane</h2>
+  <ol>
+    <li><strong>Twojemu Trenerowi</strong>: jeśli z nim współpracujesz, w zakresie potrzebnym do prowadzenia (§2).</li>
+    <li><strong>Innym Użytkownikom</strong>: tylko to, co jest publiczne z założenia: profil publiczny Trenera i opinie (bez nazwiska autora).</li>
+    <li><strong>Naszym dostawcom</strong> (podmiotom przetwarzającym), na podstawie umów powierzenia, tylko w zakresie potrzebnym do ich usługi (§6).</li>
+    <li><strong>Organom publicznym</strong>, gdy wymaga tego prawo (np. na żądanie sądu lub policji). Sprawdzamy podstawę prawną każdego żądania.</li>
+    <li><strong>Następcy</strong>, który przejmie Usługę, w szczególności spółce Ramvo Ltd po jej rejestracji, na tych samych zasadach. Poinformujemy Cię o tym z wyprzedzeniem.</li>
+    <li>Nie sprzedajemy danych, nie udostępniamy ich reklamodawcom i nie używamy ich do profilowania reklamowego.</li>
+  </ol>
+</section>
+
+<section id="pl-processors">
+  <h2>§6. Dostawcy i przekazywanie danych poza UK i EOG</h2>
+  <table>
+    <tr><th>Dostawca</th><th>Do czego</th><th>Jakie dane</th><th>Gdzie</th></tr>
+    <tr><td>Supabase</td><td>baza danych, logowanie, funkcje serwerowe</td><td>wszystkie dane aplikacji</td><td>UE (Sztokholm)</td></tr>
+    <tr><td>Cloudinary</td><td>przechowywanie zdjęć, filmów i załączników</td><td>pliki, które dodajesz</td><td>USA / globalna sieć dostarczania</td></tr>
+    <tr><td>Anthropic</td><td>model językowy Ramvo AI, generowanie planów i przepisów, szacowanie makro</td><td>treść zapytania, potrzebne dane profilu i planu, bez e-maila i nazwiska</td><td>USA</td></tr>
+    <tr><td>Pollinations.ai</td><td>generowanie ilustracji posiłków i składników</td><td>wyłącznie opis potrawy, bez danych osobowych</td><td>globalnie</td></tr>
+    <tr><td>Google</td><td>logowanie Google, geokodowanie adresów (Maps), Kalendarz Google i Meet (tylko jeśli połączysz)</td><td>e-mail i imię z konta Google, adres siłowni, terminy sesji</td><td>USA / UE</td></tr>
+    <tr><td>Apple</td><td>logowanie Apple, Apple Health (na urządzeniu), App Store</td><td>identyfikator Apple, dane zdrowotne pobierane na telefonie, status zakupu</td><td>USA / urządzenie</td></tr>
+    <tr><td>Stripe</td><td>płatności na stronie, podatki, faktury</td><td>e-mail, imię, kraj, adres rozliczeniowy, numer VAT, dane karty (tylko u Stripe)</td><td>UK / UE / USA</td></tr>
+    <tr><td>RevenueCat</td><td>obsługa zakupów w aplikacji</td><td>identyfikator konta, status zakupu</td><td>USA</td></tr>
+    <tr><td>Expo</td><td>wysyłka powiadomień push</td><td>token urządzenia, treść powiadomienia</td><td>USA</td></tr>
+    <tr><td>Resend</td><td>e-maile transakcyjne (np. przypomnienia, potwierdzenia)</td><td>e-mail, treść wiadomości</td><td>USA</td></tr>
+    <tr><td>Sentry</td><td>raporty błędów aplikacji</td><td>dane techniczne urządzenia, identyfikator konta</td><td>UE (Niemcy)</td></tr>
+    <tr><td>PostHog</td><td>analityka produktowa (za zgodą)</td><td>zdarzenia w aplikacji, identyfikator konta</td><td>UE (Frankfurt)</td></tr>
+    <tr><td>USDA FoodData Central, Open Food Facts</td><td>wyszukiwanie wartości odżywczych i produktów z kodu kreskowego</td><td>wyłącznie nazwa lub kod produktu, bez danych osobowych</td><td>USA / UE</td></tr>
+  </table>
+  <ol>
+    <li>Gdy dane trafiają do kraju bez decyzji o odpowiednim stopniu ochrony, stosujemy standardowe klauzule umowne Komisji Europejskiej (dla danych z EOG), brytyjską umowę IDTA lub Addendum do klauzul (dla danych z UK) albo certyfikację dostawcy w EU–US Data Privacy Framework i UK Extension (art. 45–46 RODO). Kopię zabezpieczeń udostępnimy na prośbę.</li>
+    <li>Z danych z UE do UK przekazujemy na podstawie decyzji Komisji Europejskiej stwierdzającej odpowiedni stopień ochrony w Zjednoczonym Królestwie.</li>
+    <li>Dostawca modelu Ramvo AI (Anthropic) zgodnie ze swoimi warunkami komercyjnymi nie używa danych przesłanych przez API do trenowania modeli i przechowuje je tylko przez ograniczony czas w celach bezpieczeństwa.</li>
+  </ol>
+</section>
+
+<section id="pl-retention">
+  <h2>§7. Jak długo przechowujemy dane i usuwanie konta</h2>
+  <ol>
+    <li>Dane konta i powiązane treści przechowujemy, dopóki masz konto. Okresy dla poszczególnych kategorii podaje tabela w §3.</li>
+    <li>Konto usuniesz sam w aplikacji (Profil → Usuń moje konto). Usunięcie jest natychmiastowe: kasujemy dane w bazie, a pliki (zdjęcia postępów, załączniki, galerie, logo Trenera) usuwamy z magazynu plików. W rzadkich przypadkach usunięcie pliku może się nie udać od razu; wtedy usuwamy go ręcznie.</li>
+    <li>Wiadomości, które wysłałeś, znikają także u odbiorcy. Treści innych osób (np. wiadomości od Trenera) zostają na ich kontach.</li>
+    <li>Kopie zapasowe bazy danych są nadpisywane automatycznie w cyklu dostawcy infrastruktury; usunięte dane znikają z nich najpóźniej w ciągu 30 dni.</li>
+    <li>Zachowujemy tylko dane, które musimy trzymać z mocy prawa (dokumenty sprzedaży przez 6 lat) lub do obrony przed roszczeniami (w minimalnym zakresie, do upływu przedawnienia).</li>
+  </ol>
+</section>
+
+<section id="pl-rights">
+  <h2>§8. Twoje prawa</h2>
+  <ol>
+    <li>Masz prawo do: dostępu do danych i ich kopii, sprostowania, usunięcia, ograniczenia przetwarzania, przenoszenia danych (w formacie nadającym się do odczytu maszynowego), sprzeciwu wobec przetwarzania opartego na prawnie uzasadnionym interesie i cofnięcia zgody w dowolnym momencie (art. 15–21 RODO).</li>
+    <li>Napisz na <a href="mailto:info@ramvo.app">info@ramvo.app</a> z adresu konta. Odpowiemy <strong>w ciągu miesiąca</strong>; w złożonych sprawach możemy przedłużyć termin o dwa miesiące, informując Cię o tym (art. 12 ust. 3 RODO). Wnioski realizujemy bezpłatnie. Możemy poprosić o potwierdzenie tożsamości.</li>
+    <li>Masz prawo wnieść skargę do organu nadzorczego: w Polsce do <strong>Prezesa Urzędu Ochrony Danych Osobowych</strong> (uodo.gov.pl), w UK do <strong>Information Commissioner's Office</strong> (ico.org.uk), albo do organu w kraju swojego pobytu lub pracy. Zachęcamy, żeby najpierw napisać do nas.</li>
+  </ol>
+</section>
+
+<section id="pl-security">
+  <h2>§9. Bezpieczeństwo</h2>
+  <ol>
+    <li>Transmisja danych jest szyfrowana (TLS). Baza danych i magazyn plików są szyfrowane u dostawców.</li>
+    <li>Dostęp do danych kontrolują reguły na poziomie bazy danych (Row Level Security): Klient widzi tylko swoje dane, Trener tylko dane swoich klientów, a profil publiczny Trenera nie ujawnia jego e-maila ani telefonu.</li>
+    <li>Zdjęcia postępów, załączniki i filmy wyświetlamy przez podpisane linki ważne kilka minut, bez publicznych adresów.</li>
+    <li>Hasła przechowujemy w postaci zaszyfrowanej (hash). Działania administracyjne zapisujemy w dzienniku zdarzeń.</li>
+    <li>Jeśli dojdzie do naruszenia ochrony danych, które może powodować wysokie ryzyko dla Ciebie, powiadomimy Cię bez zbędnej zwłoki, a organ nadzorczy w ciągu 72 godzin (art. 33–34 RODO).</li>
+  </ol>
+</section>
+
+<section id="pl-children">
+  <h2>§10. Dzieci</h2>
+  <p>Ramvo jest dla osób, które mają co najmniej 16 lat. Nie zbieramy świadomie danych młodszych osób. Jeśli dowiemy się, że konto należy do osoby poniżej 16 lat, usuniemy je. Rodzic lub opiekun może napisać do nas w takiej sprawie.</p>
+</section>
+
+<section id="pl-permissions">
+  <h2>§11. Powiadomienia, uprawnienia i e-maile</h2>
+  <ol>
+    <li>Powiadomienia push, lokalizację, aparat, zdjęcia i dane zdrowotne włączasz i wyłączasz w ustawieniach telefonu. Rodzaje powiadomień ustawisz też w aplikacji.</li>
+    <li>E-maile wysyłamy w sprawie konta i usługi (np. przypomnienia o końcu okresu próbnego, potwierdzenia płatności, zmiany dokumentów). Nie wysyłamy newslettera marketingowego bez Twojej osobnej zgody.</li>
+    <li>Pliki cookie i podobne technologie opisuje <a href="/legal/cookies/">Polityka cookies</a>.</li>
+  </ol>
+</section>
+
+<section id="pl-changes">
+  <h2>§12. Zmiany polityki</h2>
+  <p>O istotnych zmianach tej polityki poinformujemy mailem i w aplikacji co najmniej 30 dni wcześniej, chyba że zmiana wynika z prawa lub jest na Twoją korzyść. Data i numer wersji na górze strony wskazują aktualną wersję.</p>
+</section>
+
+<section id="pl-changelog">
+  <h2>Historia zmian</h2>
+  <ul class="changelog">
+    <li><strong>2.0 (26 listopada 2026)</strong>: pełna przebudowa; administrator w UK; tabela danych, celów, podstaw i okresów; osobna zgoda na dane o zdrowiu; pełna lista dostawców z lokalizacją; płatności, Ramvo AI, analityka, formularze na stronie; prawa wobec ICO i UODO.</li>
+    <li><strong>1.0 (9 listopada 2026)</strong>: pierwsza wersja.</li>
+  </ul>
+</section>
+
+  </main>
+</div>
+<div class="lang-block" data-l="en" lang="en">
+  <aside class="side">
+    <nav class="docs" aria-label="Documents">
+      <div class="side-h">Documents</div>
+      <a href="/legal/">All documents</a>
+      <a href="/legal/terms/">Terms of Service</a><a href="/legal/subscriptions/">Subscriptions and payments</a><a href="/legal/trainers/">Trainer Terms</a><a href="/legal/privacy/" aria-current="page">Privacy Policy</a><a href="/legal/ai/">Ramvo AI</a><a href="/legal/community/">Community Guidelines</a><a href="/legal/cookies/">Cookies and similar technologies</a>
+      <a href="/" class="home">← Home</a>
+    </nav>
+  </aside>
+  <main class="doc">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Effective from 26 November 2026 · version 2.0</p>
+    <details class="toc" open><summary>Contents</summary><ol><li><a href="#en-controller">§1. Controller</a></li><li><a href="#en-roles">§2. You, us and your Trainer</a></li><li><a href="#en-data">§3. What data, why and on what legal basis</a></li><li><a href="#en-health">§4. Health data: your explicit consent</a></li><li><a href="#en-sharing">§5. Who we share data with</a></li><li><a href="#en-processors">§6. Providers and transfers outside the UK and EEA</a></li><li><a href="#en-retention">§7. How long we keep data, and deleting your account</a></li><li><a href="#en-rights">§8. Your rights</a></li><li><a href="#en-security">§9. Security</a></li><li><a href="#en-children">§10. Children</a></li><li><a href="#en-permissions">§11. Notifications, permissions and e-mails</a></li><li><a href="#en-changes">§12. Changes to this policy</a></li><li><a href="#en-changelog">Change log</a></li></ol></details>
+<div class="summary">
+  <h2>In short</h2>
+  <ul>
+    <li>We only collect the data the app needs to work. We do not sell it and we show no ads.</li>
+    <li>We process health data (for example injuries, measurements, body photos, Apple Health data) only with your explicit consent, which you can withdraw.</li>
+    <li>The database runs in the European Union (Stockholm). Some providers are in the US; we then use the safeguards the GDPR requires.</li>
+    <li>Your Trainer sees the data they need to coach you and is responsible for it as a separate controller.</li>
+    <li>You can delete your account and data yourself in the app, immediately. We answer requests within one month.</li>
+  </ul>
+</div>
+
+<section id="en-controller">
+  <h2>§1. Controller</h2>
+  <ol>
+    <li>The controller of your personal data in Ramvo is Jan Gorski, a sole trader in the United Kingdom trading as Ramvo ("we"). An application to incorporate Ramvo Ltd (England and Wales) is in progress. Once registered, the company will take over the service, and we will tell you in advance.</li>
+    <li>Contact for all data matters: <a href="mailto:info@ramvo.app">info@ramvo.app</a>. We have not appointed a data protection officer because one is not required at our scale (Article 37 GDPR); the controller handles all matters directly.</li>
+    <li>We apply UK data protection law (UK GDPR and the Data Protection Act 2018) and, for people in the European Union, Regulation (EU) 2016/679 (GDPR).</li>
+  </ol>
+</section>
+
+<section id="en-roles">
+  <h2>§2. You, us and your Trainer</h2>
+  <ol>
+    <li>If you train with a Trainer, your Trainer is a <strong>separate controller</strong> of the data they use to coach you (for example your plans, logs, measurements, notes). They only see their own clients. The rules they must follow are in the <a href="/legal/trainers/#data">Trainer Terms</a>.</li>
+    <li>When you stop working with a Trainer, they lose access to your current data in the app.</li>
+    <li>If you train with Ramvo AI, only we and our providers process your data (§6).</li>
+  </ol>
+</section>
+
+<section id="en-data">
+  <h2>§3. What data, why and on what legal basis</h2>
+  <table>
+    <tr><th>Data</th><th>Examples</th><th>Purpose</th><th>Legal basis</th><th>How long</th></tr>
+    <tr><td>Account</td><td>name, e-mail, password (hashed), sign-in method (Google, Apple), role, language</td><td>creating and running the account, sign-in, service messages</td><td>contract, Art. 6(1)(b)</td><td>until the account is deleted</td></tr>
+    <tr><td>Profile and goals</td><td>age, sex, height, goal, level, preferences, equipment, availability</td><td>matching plans, a Trainer and Ramvo AI</td><td>contract, Art. 6(1)(b)</td><td>until the account is deleted</td></tr>
+    <tr><td><strong>Health data</strong></td><td>injuries and conditions you enter, weight and body measurements, body photos, steps, active energy, resting heart rate and workouts from Apple Health / Google Health Connect</td><td>safe plans, tracking progress, estimating calories burned</td><td><strong>explicit consent</strong>, Art. 9(2)(a) and Art. 6(1)(a)</td><td>until consent is withdrawn or the account is deleted</td></tr>
+    <tr><td>Training and nutrition</td><td>plans, exercise logs, meals, scanned products, streaks, badges</td><td>the app's core function</td><td>contract, Art. 6(1)(b)</td><td>until the account is deleted</td></tr>
+    <tr><td>Location</td><td>city, approximate location (after you allow it on your phone), the Trainer's gym address</td><td>showing nearby Trainers and distance</td><td>consent, Art. 6(1)(a) (system permission); for a Trainer's gym: contract</td><td>until consent is withdrawn or the account is deleted</td></tr>
+    <tr><td>Communication</td><td>chat messages, attachments, coaching requests, reviews and replies</td><td>contact with a Trainer, reviews in search</td><td>contract, Art. 6(1)(b)</td><td>until the sender's account is deleted</td></tr>
+    <tr><td>Bookings</td><td>session times, cancellations, Google Meet link</td><td>booking sessions</td><td>contract, Art. 6(1)(b)</td><td>until the account is deleted</td></tr>
+    <tr><td>Ramvo AI conversations</td><td>your questions and AI answers, profile data needed to answer</td><td>running Ramvo AI</td><td>contract; for health data, explicit consent</td><td>until the account is deleted</td></tr>
+    <tr><td>Payments</td><td>plan, subscription status, dates, Stripe customer or store purchase identifier, country and VAT number (businesses). <strong>No card details</strong></td><td>selling and running subscriptions, tax</td><td>contract; legal obligation, Art. 6(1)(c)</td><td>6 years from the end of the tax year (UK tax rules)</td></tr>
+    <tr><td>Technical data</td><td>push notification token, device model and OS, app version, error reports</td><td>notifications, fixing bugs, security</td><td>contract; legitimate interests, Art. 6(1)(f)</td><td>token until sign-out; errors up to 90 days</td></tr>
+    <tr><td>Analytics</td><td>in-app events (for example opening a screen, finishing a workout) linked to the account identifier</td><td>improving the app</td><td>consent, Art. 6(1)(a)</td><td>up to 12 months</td></tr>
+    <tr><td>Website forms</td><td>waitlist e-mail; name, e-mail, city and message from a trainer application; visit source (utm parameters)</td><td>waitlist, contacting trainers, the lifetime Premium promise</td><td>consent / steps before a contract, Art. 6(1)(a) and (b)</td><td>waitlist: until you ask us to delete it; trainer applications: 24 months</td></tr>
+    <tr><td>Safety and reports</td><td>log of administrative actions, content reports, decisions and appeals</td><td>protecting Users, accountability, DSA and Online Safety Act duties</td><td>legitimate interests; legal obligation</td><td>up to 3 years</td></tr>
+  </table>
+  <p>Giving data is voluntary, but without account data you cannot create an account, and without profile data Ramvo cannot match a plan. We do not make decisions about you based solely on automated processing that have legal or similarly significant effects (Article 22 GDPR). Ramvo AI plans are suggestions you can change or reject.</p>
+</section>
+
+<section id="en-health">
+  <h2>§4. Health data: your explicit consent</h2>
+  <ol>
+    <li>Health data is a special category of data (Article 9 GDPR). We process it only if you explicitly agree in the app. The consent is separate, not pre-ticked and not a condition for having an account.</li>
+    <li>Without this consent you can use the app, but the injury and condition fields, body measurements and photos, and Apple Health and Google Health Connect sync are switched off, and plans will not take your health limitations into account.</li>
+    <li>You can withdraw consent at any time in the app settings or by e-mail. Withdrawing does not affect the lawfulness of processing before it. After you withdraw, we delete the health data, unless you prefer to keep it read-only until you delete the account.</li>
+    <li>Your phone reads Apple Health and Google Health Connect data only while the app is open, and only the categories you allow in the system (workouts, steps, active energy, resting heart rate). We do not use it for advertising, sell it or share it with data brokers, in line with the Apple HealthKit and Google Health Connect rules.</li>
+  </ol>
+</section>
+
+<section id="en-sharing">
+  <h2>§5. Who we share data with</h2>
+  <ol>
+    <li><strong>Your Trainer</strong>: if you work with them, to the extent needed to coach you (§2).</li>
+    <li><strong>Other Users</strong>: only what is public by design: a Trainer's public profile and reviews (without the author's name).</li>
+    <li><strong>Our providers</strong> (processors), under data processing agreements, only to the extent needed for their service (§6).</li>
+    <li><strong>Public authorities</strong>, where the law requires it (for example a court or police request). We check the legal basis of every request.</li>
+    <li><strong>A successor</strong> that takes over the Service, in particular Ramvo Ltd once registered, on the same terms. We will tell you in advance.</li>
+    <li>We do not sell data, share it with advertisers or use it for advertising profiling.</li>
+  </ol>
+</section>
+
+<section id="en-processors">
+  <h2>§6. Providers and transfers outside the UK and EEA</h2>
+  <table>
+    <tr><th>Provider</th><th>What for</th><th>What data</th><th>Where</th></tr>
+    <tr><td>Supabase</td><td>database, sign-in, server functions</td><td>all app data</td><td>EU (Stockholm)</td></tr>
+    <tr><td>Cloudinary</td><td>storing photos, videos and attachments</td><td>files you add</td><td>US / global delivery network</td></tr>
+    <tr><td>Anthropic</td><td>the language model behind Ramvo AI, generating plans and recipes, estimating macros</td><td>the request, needed profile and plan data, no e-mail or name</td><td>US</td></tr>
+    <tr><td>Pollinations.ai</td><td>generating meal and ingredient illustrations</td><td>only the dish description, no personal data</td><td>global</td></tr>
+    <tr><td>Google</td><td>Google sign-in, address geocoding (Maps), Google Calendar and Meet (only if you connect them)</td><td>e-mail and name from the Google account, gym address, session times</td><td>US / EU</td></tr>
+    <tr><td>Apple</td><td>Apple sign-in, Apple Health (on device), App Store</td><td>Apple identifier, health data read on the phone, purchase status</td><td>US / device</td></tr>
+    <tr><td>Stripe</td><td>web payments, tax, invoices</td><td>e-mail, name, country, billing address, VAT number, card details (held only by Stripe)</td><td>UK / EU / US</td></tr>
+    <tr><td>RevenueCat</td><td>in-app purchase handling</td><td>account identifier, purchase status</td><td>US</td></tr>
+    <tr><td>Expo</td><td>sending push notifications</td><td>device token, notification content</td><td>US</td></tr>
+    <tr><td>Resend</td><td>transactional e-mails (for example reminders, confirmations)</td><td>e-mail address, message content</td><td>US</td></tr>
+    <tr><td>Sentry</td><td>app error reports</td><td>device technical data, account identifier</td><td>EU (Germany)</td></tr>
+    <tr><td>PostHog</td><td>product analytics (with consent)</td><td>in-app events, account identifier</td><td>EU (Frankfurt)</td></tr>
+    <tr><td>USDA FoodData Central, Open Food Facts</td><td>looking up nutrition values and barcode products</td><td>only the product name or code, no personal data</td><td>US / EU</td></tr>
+  </table>
+  <ol>
+    <li>When data goes to a country without an adequacy decision, we use the European Commission's standard contractual clauses (for EEA data), the UK IDTA or the UK Addendum to the clauses (for UK data), or the provider's certification under the EU–US Data Privacy Framework and its UK Extension (Articles 45–46 GDPR). We will provide a copy of the safeguards on request.</li>
+    <li>Data from the EU goes to the UK on the basis of the European Commission's adequacy decision for the United Kingdom.</li>
+    <li>The Ramvo AI model provider (Anthropic), under its commercial terms, does not use data sent through its API to train models and keeps it only for a limited time for safety purposes.</li>
+  </ol>
+</section>
+
+<section id="en-retention">
+  <h2>§7. How long we keep data, and deleting your account</h2>
+  <ol>
+    <li>We keep account data and related content while you have an account. The periods for each category are in the table in §3.</li>
+    <li>You delete your account yourself in the app (Profile → Delete my account). Deletion is immediate: we erase the data in the database and remove files (progress photos, attachments, galleries, a Trainer's logo) from file storage. Rarely, deleting a file may not succeed straight away; we then remove it manually.</li>
+    <li>Messages you sent also disappear for the recipient. Other people's content (for example messages from a Trainer) stays in their accounts.</li>
+    <li>Database backups are overwritten automatically in our infrastructure provider's cycle; deleted data disappears from them within 30 days at the latest.</li>
+    <li>We keep only data we must keep by law (sales records for 6 years) or to defend against claims (to the minimum extent, until the limitation period ends).</li>
+  </ol>
+</section>
+
+<section id="en-rights">
+  <h2>§8. Your rights</h2>
+  <ol>
+    <li>You have the right to: access your data and a copy of it, rectification, erasure, restriction of processing, data portability (in a machine-readable format), object to processing based on legitimate interests, and withdraw consent at any time (Articles 15–21 GDPR).</li>
+    <li>E-mail <a href="mailto:info@ramvo.app">info@ramvo.app</a> from your account address. We reply <strong>within one month</strong>; for complex requests we may extend this by two months and will tell you (Article 12(3) GDPR). Requests are free. We may ask you to confirm your identity.</li>
+    <li>You have the right to complain to a supervisory authority: in the UK the <strong>Information Commissioner's Office</strong> (ico.org.uk), in Poland the <strong>President of the Personal Data Protection Office (UODO)</strong> (uodo.gov.pl), or the authority where you live or work. We encourage you to contact us first.</li>
+  </ol>
+</section>
+
+<section id="en-security">
+  <h2>§9. Security</h2>
+  <ol>
+    <li>Data in transit is encrypted (TLS). The database and file storage are encrypted by our providers.</li>
+    <li>Access to data is controlled by database-level rules (Row Level Security): a Client sees only their own data, a Trainer only their clients' data, and a Trainer's public profile does not reveal their e-mail or phone number.</li>
+    <li>Progress photos, attachments and videos are shown through signed links valid for a few minutes, with no public addresses.</li>
+    <li>Passwords are stored hashed. Administrative actions are recorded in an audit log.</li>
+    <li>If a personal data breach is likely to result in a high risk to you, we will tell you without undue delay, and the regulator within 72 hours (Articles 33–34 GDPR).</li>
+  </ol>
+</section>
+
+<section id="en-children">
+  <h2>§10. Children</h2>
+  <p>Ramvo is for people aged 16 and over. We do not knowingly collect data from younger people. If we learn that an account belongs to someone under 16, we will delete it. A parent or guardian can contact us about this.</p>
+</section>
+
+<section id="en-permissions">
+  <h2>§11. Notifications, permissions and e-mails</h2>
+  <ol>
+    <li>You switch push notifications, location, camera, photos and health data on and off in your phone's settings. You can also choose notification types in the app.</li>
+    <li>We send e-mails about your account and the service (for example trial reminders, payment confirmations, document changes). We do not send a marketing newsletter without your separate consent.</li>
+    <li>Cookies and similar technologies are described in the <a href="/legal/cookies/">Cookie Policy</a>.</li>
+  </ol>
+</section>
+
+<section id="en-changes">
+  <h2>§12. Changes to this policy</h2>
+  <p>We will tell you about material changes to this policy by e-mail and in the app at least 30 days beforehand, unless the change is required by law or is in your favour. The date and version at the top of the page show the current version.</p>
+</section>
+
+<section id="en-changelog">
+  <h2>Change log</h2>
+  <ul class="changelog">
+    <li><strong>2.0 (26 November 2026)</strong>: full rewrite; UK controller; table of data, purposes, legal bases and retention; separate health-data consent; full list of providers and locations; payments, Ramvo AI, analytics, website forms; rights with the ICO and UODO.</li>
+    <li><strong>1.0 (9 November 2026)</strong>: first version.</li>
+  </ul>
+</section>
+
+  </main>
+</div>
+</div>
+<footer class="foot"><span data-l="pl">Ramvo · info@ramvo.app</span><span data-l="en">Ramvo · info@ramvo.app</span></footer>
+<script>
+(function () {
+  // Old single-page links (/legal/#terms, /legal/#privacy) keep working.
+  var OLD = { '#terms': '/legal/terms/', '#privacy': '/legal/privacy/', '#regulamin': '/legal/terms/', '#polityka': '/legal/privacy/' };
+  if (/^\/legal\/?$/.test(location.pathname) && OLD[location.hash]) { location.replace(OLD[location.hash]); return; }
+
+  // Same language key as the rest of the landing ('ramvo-lang').
+  function detect() {
+    var q = new URLSearchParams(location.search).get('lang');
+    if (q === 'pl' || q === 'en') return q;
+    try { var s = localStorage.getItem('ramvo-lang'); if (s === 'pl' || s === 'en') return s; } catch (e) {}
+    return (navigator.language || '').toLowerCase().indexOf('en') === 0 ? 'en' : 'pl';
+  }
+  function apply(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.lang = lang;
+    var t = document.querySelector('.lang-block[data-l="' + lang + '"] h1');
+    if (t) document.title = t.textContent + ' · Ramvo';
+    document.querySelectorAll('.lang-switch button').forEach(function (b) {
+      var on = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', on);
+    });
+    try { localStorage.setItem('ramvo-lang', lang); } catch (e) {}
+  }
+  apply(detect());
+  document.querySelectorAll('.lang-switch button').forEach(function (b) {
+    b.addEventListener('click', function () { apply(b.getAttribute('data-lang')); });
+  });
+  // Section ids carry a language prefix (pl-/en-); a plain #id link
+  // (e.g. /legal/subscriptions/#withdrawal) scrolls to the visible one.
+  function jump() {
+    var h = location.hash.slice(1);
+    if (!h || /^(pl|en)-/.test(h)) return;
+    var el = document.getElementById(document.documentElement.getAttribute('data-lang') + '-' + h);
+    if (el) el.scrollIntoView();
+  }
+  setTimeout(jump, 0);
+  window.addEventListener('hashchange', jump);
+})();
+
+</script>
+</body>
+</html>

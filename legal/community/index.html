@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="pl" data-lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zasady społeczności · Ramvo</title>
+<meta name="description" content="Co jest zabronione w Ramvo, jak zgłosić treść lub osobę, jak podejmujemy decyzje i jak się od nich odwołać.">
+<meta name="theme-color" content="#0B0D10">
+<link rel="canonical" href="https://ramvo.app/legal/community/">
+<link rel="icon" href="/assets/brand/favicon/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/brand/favicon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/brand/favicon/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ramvo">
+<meta property="og:title" content="Zasady społeczności · Ramvo">
+<meta property="og:description" content="Co jest zabronione w Ramvo, jak zgłosić treść lub osobę, jak podejmujemy decyzje i jak się od nich odwołać.">
+<meta property="og:image" content="https://ramvo.app/assets/brand/ramvo-og-1200x630-1200.png">
+<meta property="og:url" content="https://ramvo.app/legal/community/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@800&family=Manrope:wght@400;600;700;800&display=swap">
+<style>
+:root {
+  --bg: #0B0D10; --bg-raised: #15181C; --bg-sunken: #1F242B;
+  --fg: #F4F6F8; --fg-muted: #8E97A3; --accent: #3EC6FF; --accent-soft: #122833;
+  --accent-2: #FF4D8D; --accent-2-soft: #3A1426; --success: #35D483; --success-soft: #13311F;
+  --warning: #FFB020; --border: #1F242B;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; min-width: 0; }
+html { scroll-behavior: smooth; }
+html, body { background: var(--bg); margin: 0; padding: 0; }
+body { font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--fg); line-height: 1.6; overflow-x: clip;
+  padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.top { position: sticky; top: 0; z-index: 5; max-width: 1180px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 14px;
+  background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(8px); }
+.wordmark img { display: block; height: 34px; width: auto; }
+.top-right { display: flex; align-items: center; gap: 10px; }
+.print { font: 600 0.78rem 'Manrope', sans-serif; color: var(--fg-muted); background: transparent; border: 1px solid var(--border); border-radius: 999px; padding: 6px 12px; cursor: pointer; }
+.print:hover { color: var(--fg); background: var(--bg-sunken); }
+.lang-switch { display: flex; gap: 3px; background: var(--bg-sunken); border-radius: 999px; padding: 3px; }
+.lang-switch button { font: 700 0.74rem 'Manrope', sans-serif; border: none; background: transparent; color: var(--fg-muted); padding: 5px 10px; border-radius: 999px; cursor: pointer; }
+.lang-switch button.active { background: var(--bg-raised); color: var(--fg); }
+.shell { max-width: 1180px; margin: 0 auto; padding-bottom: 40px; }
+.lang-block { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 44px; align-items: start; }
+[data-l] { display: none; }
+html[data-lang="pl"] [data-l="pl"], html[data-lang="en"] [data-l="en"] { display: revert; }
+html[data-lang="pl"] .lang-block[data-l="pl"], html[data-lang="en"] .lang-block[data-l="en"] { display: grid; }
+.side { position: sticky; top: 70px; max-height: calc(100vh - 90px); overflow: auto; padding-top: 18px; }
+.side-h { font: 800 0.7rem 'Manrope', sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-muted); margin: 0 0 8px; }
+.docs { display: flex; flex-direction: column; gap: 2px; }
+.docs a { font-size: 0.86rem; font-weight: 600; color: var(--fg-muted); text-decoration: none; padding: 8px 12px; border-radius: 10px; }
+.docs a:hover { color: var(--fg); background: var(--bg-sunken); }
+.docs a[aria-current] { color: var(--accent); background: var(--accent-soft); }
+.docs a.home { margin-top: 10px; font-weight: 500; }
+.doc { padding-top: 18px; max-width: 780px; }
+.doc h1 { font: 800 clamp(1.8rem, 4vw, 2.5rem) 'Archivo', 'Manrope', sans-serif; letter-spacing: -0.015em; line-height: 1.1; margin: 0 0 8px; }
+.updated { font-size: 0.82rem; color: var(--fg-muted); margin: 0 0 22px; }
+.lede { color: var(--fg-muted); font-size: 1.04rem; margin: 0 0 26px; max-width: 64ch; }
+.doc h2 { font: 800 1.2rem 'Archivo', 'Manrope', sans-serif; margin: 0 0 12px; scroll-margin-top: 80px; }
+.doc h3 { font: 800 1rem 'Manrope', sans-serif; margin: 1.4em 0 0.4em; }
+.doc section { padding: 26px 0 6px; border-top: 1px solid var(--border); scroll-margin-top: 70px; }
+.doc p, .doc li { font-size: 0.97rem; line-height: 1.7; }
+.doc ol, .doc ul { padding-left: 1.4em; }
+.doc li { margin-bottom: 0.45em; }
+.doc li::marker { color: var(--fg-muted); }
+.doc strong { font-weight: 700; }
+.doc .ref { font-size: 0.78rem; color: var(--fg-muted); white-space: nowrap; }
+.summary { background: linear-gradient(135deg, var(--accent-soft), var(--bg-raised)); border: 1px solid #1d4457; border-radius: 18px; padding: 18px 22px; margin: 0 0 22px; }
+.summary h2 { font-size: 1rem; margin: 0 0 8px; color: var(--accent); }
+.summary ul { margin: 0; }
+.summary li { font-size: 0.93rem; }
+.callout { border-radius: 14px; padding: 14px 18px; margin: 1.2em 0; font-size: 0.92rem; background: var(--bg-raised); border: 1px solid var(--border); }
+.callout.warn { background: #2a1f0a; border-color: #5a4210; }
+.callout.warn strong:first-child { color: var(--warning); }
+.callout.health { background: var(--accent-2-soft); border-color: #5a2140; }
+.callout.health strong:first-child { color: var(--accent-2); }
+.toc { background: var(--bg-raised); border: 1px solid var(--border); border-radius: 14px; padding: 10px 18px; margin: 0 0 18px; }
+.toc summary { cursor: pointer; font-weight: 800; font-size: 0.9rem; padding: 4px 0; }
+.toc ol { margin: 8px 0 6px; columns: 2; column-gap: 28px; }
+.toc li { font-size: 0.86rem; break-inside: avoid; margin-bottom: 4px; }
+.toc a { color: var(--fg-muted); text-decoration: none; }
+.toc a:hover { color: var(--fg); }
+@media (max-width: 640px) { .toc ol { columns: 1; } }
+table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 0.8em 0 1.4em; display: block; overflow-x: auto; }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { color: var(--fg-muted); font-weight: 700; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
+.form-box { background: var(--bg-raised); border: 1px dashed var(--fg-muted); border-radius: 14px; padding: 16px 20px; font-size: 0.92rem; }
+.changelog li { font-size: 0.88rem; color: var(--fg-muted); }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.card { display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: var(--fg); background: var(--bg-raised); border: 1px solid var(--border); border-radius: 18px; padding: 18px; transition: transform 0.2s ease, border-color 0.2s ease; }
+.card:hover { transform: translateY(-3px); border-color: #2c5a70; }
+.card .ico { width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); }
+.card .ico svg { width: 20px; height: 20px; }
+.card-t { font: 800 1.02rem 'Archivo', 'Manrope', sans-serif; margin-top: 4px; }
+.card-s { font-size: 0.86rem; color: var(--fg-muted); flex: 1; }
+.card-v { font-size: 0.74rem; color: var(--fg-muted); }
+.provider { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 30px; padding: 20px 22px; background: var(--bg-raised); border: 1px solid var(--border); border-radius: 18px; }
+.provider p { margin: 0 0 6px; font-size: 0.9rem; color: var(--fg-muted); }
+.provider p:first-of-type { color: var(--fg); }
+.foot { max-width: 1180px; margin: 0 auto; padding: 24px 0 40px; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--fg-muted); text-align: center; }
+@media (max-width: 860px) {
+  html[data-lang="pl"] .lang-block[data-l="pl"], html[data-lang="en"] .lang-block[data-l="en"] { display: block; }
+  .side { position: static; max-height: none; padding-top: 6px; }
+  .docs { flex-direction: row; overflow-x: auto; scrollbar-width: none; gap: 4px; }
+  .docs .side-h, .docs a.home { display: none; }
+  .docs a { white-space: nowrap; }
+}
+@media print {
+  :root { --bg: #fff; --bg-raised: #fff; --fg: #000; --fg-muted: #444; --border: #ccc; --accent: #000; --accent-soft: #f3f3f3; }
+  .top, .side, .toc, .foot { display: none !important; }
+  .lang-block { display: block !important; }
+  .summary, .callout { background: #f6f6f6 !important; border-color: #ccc !important; }
+  a { color: #000; }
+}
+
+</style>
+</head>
+<body>
+<!-- Generated by _tools/legal/build.py - edit the sources there, not this file. -->
+<header class="top">
+  <a href="/" class="wordmark"><img src="/assets/brand/ramvo-wordmark-ciemne-tlo.svg" alt="Ramvo" height="34"></a>
+  <div class="top-right">
+    <button type="button" class="print" onclick="window.print()"><span data-l="pl">Drukuj / zapisz PDF</span><span data-l="en">Print / save as PDF</span></button>
+    <div class="lang-switch" role="group" aria-label="Language"><button type="button" data-lang="pl">PL</button><button type="button" data-lang="en">EN</button></div>
+  </div>
+</header>
+<div class="shell">
+<div class="lang-block" data-l="pl" lang="pl">
+  <aside class="side">
+    <nav class="docs" aria-label="Dokumenty">
+      <div class="side-h">Dokumenty</div>
+      <a href="/legal/">Wszystkie dokumenty</a>
+      <a href="/legal/terms/">Regulamin</a><a href="/legal/subscriptions/">Subskrypcje i płatności</a><a href="/legal/trainers/">Warunki dla trenerów</a><a href="/legal/privacy/">Polityka prywatności</a><a href="/legal/ai/">Ramvo AI</a><a href="/legal/community/" aria-current="page">Zasady społeczności</a><a href="/legal/cookies/">Pliki cookie i podobne technologie</a>
+      <a href="/" class="home">← Strona główna</a>
+    </nav>
+  </aside>
+  <main class="doc">
+    <h1>Zasady społeczności</h1>
+    <p class="updated">Obowiązuje od 26 listopada 2026 · wersja 1.0</p>
+    <details class="toc" open><summary>Spis treści</summary><ol><li><a href="#pl-rules">§1. Czego nie wolno</a></li><li><a href="#pl-report">§2. Jak zgłosić treść lub osobę</a></li><li><a href="#pl-decisions">§3. Jak decydujemy</a></li><li><a href="#pl-appeal">§4. Odwołanie</a></li><li><a href="#pl-misuse">§5. Nadużywanie zgłoszeń</a></li><li><a href="#pl-changelog">Historia zmian</a></li></ol></details>
+<div class="summary">
+  <h2>W skrócie</h2>
+  <ul>
+    <li>Szanuj innych. Nie publikuj treści nielegalnych, obraźliwych ani niebezpiecznych dla zdrowia.</li>
+    <li>Treść lub osobę zgłosisz w aplikacji albo na info@ramvo.app. Zgłoszenia o zagrożeniu życia i treściach z udziałem nieletnich rozpatrujemy w pierwszej kolejności.</li>
+    <li>O decyzji informujemy z uzasadnieniem. Możesz się odwołać w ciągu 6 miesięcy.</li>
+  </ul>
+</div>
+
+<section id="pl-rules">
+  <h2>§1. Czego nie wolno</h2>
+  <ol>
+    <li><strong>Treści nielegalne</strong>, w tym materiały przedstawiające seksualne wykorzystywanie dzieci, groźby, nawoływanie do przemocy lub nienawiści, naruszenia praw autorskich, oszustwa.</li>
+    <li><strong>Nękanie</strong>: obrażanie, zastraszanie, niechciane treści seksualne, uporczywe pisanie wbrew woli drugiej osoby, ujawnianie cudzych danych.</li>
+    <li><strong>Treści groźne dla zdrowia</strong>: zachęcanie do samookaleczenia, skrajnych głodówek lub zaburzeń odżywiania, stosowania sterydów anabolicznych lub innych substancji zabronionych, niebezpiecznych „wyzwań”.</li>
+    <li><strong>Handel</strong> substancjami zabronionymi, lekami na receptę lub produktami wymagającymi zezwolenia.</li>
+    <li><strong>Wprowadzanie w błąd</strong>: fałszywe profile, podawanie się za kogoś, fałszywe kwalifikacje, fałszywe opinie, spam.</li>
+    <li><strong>Treści seksualne</strong> i nagość, z wyjątkiem zdjęć postępów sylwetki udostępnianych prywatnie własnemu Trenerowi.</li>
+    <li><strong>Nadużywanie Usługi</strong>: obchodzenie limitów i zabezpieczeń, automatyczne pobieranie danych, złośliwe oprogramowanie.</li>
+  </ol>
+</section>
+
+<section id="pl-report">
+  <h2>§2. Jak zgłosić treść lub osobę</h2>
+  <ol>
+    <li>W aplikacji użyj opcji „Zgłoś” przy profilu Trenera, opinii lub wiadomości. Możesz też napisać na <a href="mailto:info@ramvo.app">info@ramvo.app</a>. Zgłoszenia przyjmujemy od każdego, także od osób bez konta (art. 16 rozporządzenia UE 2022/2065, DSA).</li>
+    <li>Napisz, co zgłaszasz (link, zrzut ekranu lub opis, gdzie to jest), dlaczego uważasz to za nielegalne lub niezgodne z zasadami, i podaj swój e-mail, chyba że zgłaszasz materiały wykorzystywania dzieci; takie zgłoszenie może być anonimowe.</li>
+    <li>Potwierdzimy otrzymanie zgłoszenia. Zgłoszenia dotyczące zagrożenia życia, bezpieczeństwa dziecka lub przemocy rozpatrujemy niezwłocznie, zwykle w ciągu 24 godzin, a pozostałe w ciągu 7 dni.</li>
+    <li>Gdy treść może świadczyć o przestępstwie zagrażającym życiu lub bezpieczeństwu, zawiadamiamy właściwe organy. Materiały przedstawiające wykorzystywanie dzieci zgłaszamy do National Crime Agency lub Internet Watch Foundation (UK) albo Dyżurnet.pl (PL).</li>
+    <li>Jeśli jesteś w niebezpieczeństwie, dzwoń pod 112 (UE) lub 999 (UK). Wsparcie w kryzysie: w Polsce 116 123 (dorośli) i 116 111 (dzieci i młodzież), w UK Samaritans 116 123.</li>
+  </ol>
+</section>
+
+<section id="pl-decisions">
+  <h2>§3. Jak decydujemy</h2>
+  <ol>
+    <li>Zgłoszenia sprawdza człowiek. Oceniamy treść według prawa i tych zasad, biorąc pod uwagę kontekst, wagę i powtarzalność naruszenia.</li>
+    <li>Możliwe decyzje: brak działania, ukrycie lub usunięcie treści, ostrzeżenie, ograniczenie funkcji (np. czatu, widoczności profilu), zawieszenie lub usunięcie konta.</li>
+    <li>Osobie, której dotyczy decyzja, wysyłamy uzasadnienie: co zrobiliśmy, z jakiego powodu, na podstawie jakich faktów, czy treść uznaliśmy za nielegalną, czy za niezgodną z zasadami, i jak się odwołać (art. 17 DSA). Osobę zgłaszającą informujemy o wyniku.</li>
+    <li>Nie używamy zautomatyzowanego usuwania treści bez udziału człowieka.</li>
+  </ol>
+</section>
+
+<section id="pl-appeal">
+  <h2>§4. Odwołanie</h2>
+  <ol>
+    <li>Od decyzji możesz się odwołać w ciągu <strong>6 miesięcy</strong>, odpowiadając na maila z decyzją albo pisząc na <a href="mailto:info@ramvo.app">info@ramvo.app</a>. Odwołanie jest bezpłatne.</li>
+    <li>Odwołanie rozpatruje inna osoba niż ta, która wydała decyzję, zwykle w ciągu 14 dni. Jeśli przyznamy Ci rację, przywrócimy treść lub konto.</li>
+    <li>Niezależnie od tego możesz dochodzić swoich praw przed sądem. Osoby w UE mogą skorzystać z certyfikowanego pozasądowego organu rozstrzygania sporów (art. 21 DSA).</li>
+  </ol>
+</section>
+
+<section id="pl-misuse">
+  <h2>§5. Nadużywanie zgłoszeń</h2>
+  <p>Jeśli ktoś często wysyła zgłoszenia oczywiście bezzasadne, po ostrzeżeniu możemy na pewien czas przestać rozpatrywać jego zgłoszenia (art. 23 DSA).</p>
+</section>
+
+<section id="pl-changelog">
+  <h2>Historia zmian</h2>
+  <ul class="changelog">
+    <li><strong>1.0 (26 listopada 2026)</strong>: pierwsza wersja.</li>
+  </ul>
+</section>
+
+  </main>
+</div>
+<div class="lang-block" data-l="en" lang="en">
+  <aside class="side">
+    <nav class="docs" aria-label="Documents">
+      <div class="side-h">Documents</div>
+      <a href="/legal/">All documents</a>
+      <a href="/legal/terms/">Terms of Service</a><a href="/legal/subscriptions/">Subscriptions and payments</a><a href="/legal/trainers/">Trainer Terms</a><a href="/legal/privacy/">Privacy Policy</a><a href="/legal/ai/">Ramvo AI</a><a href="/legal/community/" aria-current="page">Community Guidelines</a><a href="/legal/cookies/">Cookies and similar technologies</a>
+      <a href="/" class="home">← Home</a>
+    </nav>
+  </aside>
+  <main class="doc">
+    <h1>Community Guidelines</h1>
+    <p class="updated">Effective from 26 November 2026 · version 1.0</p>
+    <details class="toc" open><summary>Contents</summary><ol><li><a href="#en-rules">§1. What is not allowed</a></li><li><a href="#en-report">§2. How to report content or a person</a></li><li><a href="#en-decisions">§3. How we decide</a></li><li><a href="#en-appeal">§4. Appeals</a></li><li><a href="#en-misuse">§5. Misuse of reporting</a></li><li><a href="#en-changelog">Change log</a></li></ol></details>
+<div class="summary">
+  <h2>In short</h2>
+  <ul>
+    <li>Respect others. Don't post content that is illegal, abusive or dangerous to health.</li>
+    <li>Report content or a person in the app or at info@ramvo.app. Reports about a risk to life or content involving minors come first.</li>
+    <li>We explain every decision. You can appeal within 6 months.</li>
+  </ul>
+</div>
+
+<section id="en-rules">
+  <h2>§1. What is not allowed</h2>
+  <ol>
+    <li><strong>Illegal content</strong>, including child sexual abuse material, threats, incitement to violence or hatred, copyright infringement, fraud.</li>
+    <li><strong>Harassment</strong>: insults, intimidation, unwanted sexual content, persistently messaging someone against their wishes, sharing other people's personal data.</li>
+    <li><strong>Content dangerous to health</strong>: encouraging self-harm, extreme fasting or eating disorders, the use of anabolic steroids or other prohibited substances, dangerous "challenges".</li>
+    <li><strong>Selling</strong> prohibited substances, prescription medicines or products that need a licence.</li>
+    <li><strong>Deception</strong>: fake profiles, impersonation, fake qualifications, fake reviews, spam.</li>
+    <li><strong>Sexual content</strong> and nudity, except body progress photos shared privately with your own Trainer.</li>
+    <li><strong>Abusing the Service</strong>: getting around limits and security, automated data collection, malware.</li>
+  </ol>
+</section>
+
+<section id="en-report">
+  <h2>§2. How to report content or a person</h2>
+  <ol>
+    <li>In the app, use "Report" on a Trainer's profile, a review or a message. You can also e-mail <a href="mailto:info@ramvo.app">info@ramvo.app</a>. Anyone can report, including people without an account (Article 16 of Regulation (EU) 2022/2065, the DSA).</li>
+    <li>Tell us what you are reporting (a link, screenshot or description of where it is), why you think it is illegal or against the rules, and your e-mail, unless you are reporting child sexual abuse material; such a report may be anonymous.</li>
+    <li>We confirm receipt. Reports about a risk to life, a child's safety or violence are handled without delay, usually within 24 hours, and others within 7 days.</li>
+    <li>Where content may show a crime threatening someone's life or safety, we tell the relevant authorities. We report child sexual abuse material to the National Crime Agency or the Internet Watch Foundation (UK) or Dyżurnet.pl (PL).</li>
+    <li>If you are in danger, call 999 (UK) or 112 (EU). Crisis support: in the UK Samaritans on 116 123; in Poland 116 123 (adults) and 116 111 (children and young people).</li>
+  </ol>
+</section>
+
+<section id="en-decisions">
+  <h2>§3. How we decide</h2>
+  <ol>
+    <li>A person reviews every report. We assess content against the law and these rules, taking into account context, severity and repetition.</li>
+    <li>Possible decisions: no action, hiding or removing content, a warning, restricting features (for example chat or profile visibility), suspending or deleting the account.</li>
+    <li>We send the person affected a statement of reasons: what we did, why, on which facts, whether we found the content illegal or against the rules, and how to appeal (Article 17 DSA). We tell the person who reported the outcome.</li>
+    <li>We do not remove content automatically without a person involved.</li>
+  </ol>
+</section>
+
+<section id="en-appeal">
+  <h2>§4. Appeals</h2>
+  <ol>
+    <li>You can appeal a decision within <strong>6 months</strong> by replying to the decision e-mail or writing to <a href="mailto:info@ramvo.app">info@ramvo.app</a>. Appeals are free.</li>
+    <li>An appeal is reviewed by a different person from the one who made the decision, usually within 14 days. If we agree with you, we restore the content or account.</li>
+    <li>You can also go to court. People in the EU can use a certified out-of-court dispute settlement body (Article 21 DSA).</li>
+  </ol>
+</section>
+
+<section id="en-misuse">
+  <h2>§5. Misuse of reporting</h2>
+  <p>If someone frequently sends reports that are obviously unfounded, after a warning we may stop handling their reports for a period (Article 23 DSA).</p>
+</section>
+
+<section id="en-changelog">
+  <h2>Change log</h2>
+  <ul class="changelog">
+    <li><strong>1.0 (26 November 2026)</strong>: first version.</li>
+  </ul>
+</section>
+
+  </main>
+</div>
+</div>
+<footer class="foot"><span data-l="pl">Ramvo · info@ramvo.app</span><span data-l="en">Ramvo · info@ramvo.app</span></footer>
+<script>
+(function () {
+  // Old single-page links (/legal/#terms, /legal/#privacy) keep working.
+  var OLD = { '#terms': '/legal/terms/', '#privacy': '/legal/privacy/', '#regulamin': '/legal/terms/', '#polityka': '/legal/privacy/' };
+  if (/^\/legal\/?$/.test(location.pathname) && OLD[location.hash]) { location.replace(OLD[location.hash]); return; }
+
+  // Same language key as the rest of the landing ('ramvo-lang').
+  function detect() {
+    var q = new URLSearchParams(location.search).get('lang');
+    if (q === 'pl' || q === 'en') return q;
+    try { var s = localStorage.getItem('ramvo-lang'); if (s === 'pl' || s === 'en') return s; } catch (e) {}
+    return (navigator.language || '').toLowerCase().indexOf('en') === 0 ? 'en' : 'pl';
+  }
+  function apply(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.lang = lang;
+    var t = document.querySelector('.lang-block[data-l="' + lang + '"] h1');
+    if (t) document.title = t.textContent + ' · Ramvo';
+    document.querySelectorAll('.lang-switch button').forEach(function (b) {
+      var on = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', on);
+    });
+    try { localStorage.setItem('ramvo-lang', lang); } catch (e) {}
+  }
+  apply(detect());
+  document.querySelectorAll('.lang-switch button').forEach(function (b) {
+    b.addEventListener('click', function () { apply(b.getAttribute('data-lang')); });
+  });
+  // Section ids carry a language prefix (pl-/en-); a plain #id link
+  // (e.g. /legal/subscriptions/#withdrawal) scrolls to the visible one.
+  function jump() {
+    var h = location.hash.slice(1);
+    if (!h || /^(pl|en)-/.test(h)) return;
+    var el = document.getElementById(document.documentElement.getAttribute('data-lang') + '-' + h);
+    if (el) el.scrollIntoView();
+  }
+  setTimeout(jump, 0);
+  window.addEventListener('hashchange', jump);
+})();
+
+</script>
+</body>
+</html>
