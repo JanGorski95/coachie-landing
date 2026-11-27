@@ -20,6 +20,8 @@
   function loadMatter() {
     return new Promise(function (res, rej) {
       if (window.Matter) return res(window.Matter);
+      var pending = document.querySelector('script[src="' + MATTER + '"]');
+      if (pending) { pending.addEventListener('load', function () { res(window.Matter); }); pending.addEventListener('error', rej); return; }
       var s = document.createElement('script'); s.src = MATTER; s.crossOrigin = 'anonymous';
       s.onload = function () { res(window.Matter); }; s.onerror = rej; document.head.appendChild(s);
     });
@@ -47,8 +49,8 @@
     var api = my.api, Engine = M.Engine, Bodies = M.Bodies, Composite = M.Composite, Body = M.Body;
     var stage = document.getElementById('phStage'), cv = document.getElementById('phCanvas'), ctx = cv.getContext('2d');
     var DPR = Math.min(2, window.devicePixelRatio || 1), W = 0, H = 0;
-    var engine = Engine.create({ enableSleeping: false }); engine.gravity.y = 1;
-    var digits = [], kettles = [], walls = [], mouseC = null, mouse = null, solvedOnce = false, stillT = 0, zoneT = {}, leaving = false;
+    var engine = Engine.create({ enableSleeping: false }); engine.gravity.y = 1; engine.gravity.scale = 0.00055; // about half of normal gravity
+    var digits = [], kettles = [], walls = [], queue = [], t0 = 0, mouseC = null, mouse = null, solvedOnce = false, stillT = 0, zoneT = {}, leaving = false;
 
     function on(t, type, fn, opt) { t.addEventListener(type, fn, opt); my.off.push(function () { t.removeEventListener(type, fn, opt); }); }
 
@@ -64,17 +66,19 @@
         Bodies.rectangle(W / 2, -H * 1.5, W * 2, t, { isStatic: true }),
       ];
       var dh = Math.min(150, Math.max(96, W * 0.17)), dw = dh * 0.66;
+      // drop one weight at a time, from just above the top edge
       digits = ['4', '0', '4'].map(function (ch, i) {
-        var b = Bodies.rectangle(W * (0.22 + i * 0.17) + (Math.random() - 0.5) * 40, -dh - i * 70, dw, dh, { chamfer: { radius: 16 }, restitution: 0.35, friction: 0.6, density: 0.004, label: 'digit' });
-        Body.setAngle(b, (Math.random() - 0.5) * 1.2); Body.setAngularVelocity(b, (Math.random() - 0.5) * 0.2);
-        b.ch = ch; b.w = dw; b.h = dh; return b;
+        var b = Bodies.rectangle(W * (0.24 + i * 0.16) + (Math.random() - 0.5) * 30, -dh / 2 - 8, dw, dh, { chamfer: { radius: 16 }, restitution: 0.22, friction: 0.7, frictionAir: 0.018, density: 0.004, label: 'digit' });
+        Body.setAngle(b, (Math.random() - 0.5) * 0.5);
+        b.ch = ch; b.w = dw; b.h = dh; b.at = 0.35 + i * 0.9; return b;
       });
       var kr = Math.max(22, Math.min(32, W * 0.045));
       kettles = KETTLES.map(function (k, i) {
-        var b = Bodies.circle(W * (0.72 + i * 0.07), -200 - i * 90, kr, { restitution: 0.5, friction: 0.4, density: 0.003, label: 'kettle' });
-        b.k = k; b.r = kr; return b;
+        var b = Bodies.circle(W * (0.66 + i * 0.08), -kr - 8, kr, { restitution: 0.3, friction: 0.5, frictionAir: 0.02, density: 0.003, label: 'kettle' });
+        b.k = k; b.r = kr; b.at = 3.4 + i * 0.8; return b;
       });
-      Composite.add(engine.world, walls.concat(digits, kettles));
+      Composite.add(engine.world, walls);
+      queue = digits.concat(kettles).slice(); t0 = performance.now();
       if (mouseC) Composite.add(engine.world, mouseC);
     }
 
@@ -99,7 +103,7 @@
     var rt = 0;
     on(window, 'resize', function () { clearTimeout(rt); rt = setTimeout(function () { if (Math.abs(stage.clientWidth - W) > 40) build(); }, 200); });
     on(document.getElementById('phShake'), 'click', function () {
-      digits.concat(kettles).forEach(function (b) { Body.setVelocity(b, { x: (Math.random() - 0.5) * 18, y: -12 - Math.random() * 10 }); Body.setAngularVelocity(b, (Math.random() - 0.5) * 0.5); });
+      digits.concat(kettles).forEach(function (b) { if (queue.indexOf(b) >= 0) return; Body.setVelocity(b, { x: (Math.random() - 0.5) * 9, y: -6 - Math.random() * 5 }); Body.setAngularVelocity(b, (Math.random() - 0.5) * 0.25); });
       api.vibrate([20, 30, 20]); api.beep(300, 0.15, 'sawtooth');
     });
     // tilt
@@ -122,6 +126,7 @@
     function checkGoal(dt) {
       if (solvedOnce) return;
       var sorted = digits.slice().sort(function (a, b) { return a.position.x - b.position.x; });
+      if (queue.length) return;
       var ok = sorted.map(function (b) { return b.ch; }).join('') === '404' && sorted.every(function (b) {
         var a = ((b.angle % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI); var dev = Math.min(a, 2 * Math.PI - a);
         return dev < 0.21 && b.position.y > H - b.h * 0.62 && b.speed < 0.6 && Math.abs(b.angularVelocity) < 0.02;
@@ -133,6 +138,7 @@
       if (leaving) return;
       var z = zone();
       kettles.forEach(function (b, i) {
+        if (queue.indexOf(b) >= 0) return;
         var inside = b.position.x > z.x && b.position.x < z.x + z.w && b.position.y > z.y && b.position.y < z.y + z.h && b.speed < 1.2 && !(mouseC.body === b);
         zoneT[i] = inside ? (zoneT[i] || 0) + dt : 0;
         if (zoneT[i] > 0.45) {
@@ -148,6 +154,10 @@
     function frame(now) {
       var dt = Math.min(1 / 30, (now - last) / 1000); last = now;
       if (!paused) {
+        if (queue.length) {
+          var el = (now - t0) / 1000;
+          queue = queue.filter(function (b) { if (el >= b.at) { Composite.add(engine.world, b); api.beep(b.label === 'digit' ? 220 : 330, 0.06); return false; } return true; });
+        }
         Engine.update(engine, dt * 1000);
         checkGoal(dt); checkZone(dt);
         draw(now);
@@ -171,6 +181,7 @@
       ctx.fillStyle = 'rgba(62,198,255,.85)'; ctx.font = '800 11px Manrope, sans-serif'; ctx.textAlign = 'center'; ctx.fillText(api.t('STREFA', 'ZONE'), z.x + z.w / 2, z.y + 16);
       // digits
       digits.forEach(function (b) {
+        if (queue.indexOf(b) >= 0) return;
         ctx.save(); ctx.translate(b.position.x, b.position.y); ctx.rotate(b.angle);
         ctx.shadowColor = 'rgba(0,0,0,.45)'; ctx.shadowBlur = 18; ctx.shadowOffsetY = 8;
         var gr = ctx.createLinearGradient(0, -b.h / 2, 0, b.h / 2); gr.addColorStop(0, b.ch === '0' ? '#ff7aa8' : '#5fd6ff'); gr.addColorStop(1, b.ch === '0' ? '#d1316a' : '#1f9ccc');
@@ -182,6 +193,7 @@
       });
       // kettlebells
       kettles.forEach(function (b) {
+        if (queue.indexOf(b) >= 0) return;
         var r = b.r;
         ctx.save(); ctx.translate(b.position.x, b.position.y); ctx.rotate(b.angle);
         ctx.strokeStyle = '#9aa4ae'; ctx.lineWidth = r * 0.28; ctx.beginPath(); ctx.arc(0, -r * 0.95, r * 0.55, Math.PI * 1.05, Math.PI * 1.95); ctx.stroke();

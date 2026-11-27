@@ -12,7 +12,28 @@
 <link rel="apple-touch-icon" href="/assets/brand/favicon/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=Manrope:wght@400;600;700;800&display=swap">
+<!-- fonts load in the background: the page shows at once with system fonts -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=Manrope:wght@400;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=Manrope:wght@400;600;700;800&display=swap"></noscript>
+<script>
+/* Pick the scene before anything else and start downloading it (and, for the
+   physics scene, matter-js) in parallel with the rest of the page. */
+(function () {
+  var all = ['barbell', 'physics', 'runner', 'gym'], calm = ['barbell', 'gym'];
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var forced = null, last = null;
+  try { forced = new URLSearchParams(location.search).get('v'); } catch (e) {}
+  try { last = localStorage.getItem('ramvo404-last'); } catch (e) {}
+  var pool = reduce ? calm : all, pick = all.indexOf(forced) >= 0 ? forced : null;
+  if (!pick) { var c = pool.filter(function (x) { return x !== last; }); if (!c.length) c = pool; pick = c[Math.floor(Math.random() * c.length)]; }
+  window.__R404 = { pick: pick, q: [], requested: {} };
+  window.Ramvo404 = { register: function (id, def) { window.__R404.q.push([id, def]); } };
+  function add(src, cors) { var s = document.createElement('script'); s.src = src; s.async = true; if (cors) s.crossOrigin = 'anonymous'; document.head.appendChild(s); }
+  if (pick === 'physics') add('https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js', true);
+  add('/assets/404/' + pick + '.js?v=3'); window.__R404.requested[pick] = true;
+})();
+</script>
+
 <style>
 /* Ramvo 404 shell. GitHub Pages serves this for every unknown path, so every
    asset path is absolute. One of four interactive scenes (assets/404/*.js)
@@ -32,9 +53,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 canvas.fx { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 #dust { z-index: 0; }
 #confetti { z-index: 30; }
-.glow { position: fixed; width: 620px; height: 620px; border-radius: 50%; filter: blur(110px); opacity: 0.16; pointer-events: none; z-index: 0; will-change: transform; left: 0; top: 0; }
-.glow.a { background: var(--accent); }
-.glow.b { background: var(--pink); opacity: 0.12; }
+/* soft glows: a radial gradient instead of a blur filter (much cheaper to paint) */
+.glow { position: fixed; width: 620px; height: 620px; border-radius: 50%; pointer-events: none; z-index: 0; will-change: transform; left: 0; top: 0; }
+.glow.a { background: radial-gradient(circle, rgba(62,198,255,0.16), rgba(62,198,255,0) 65%); }
+.glow.b { background: radial-gradient(circle, rgba(255,77,141,0.12), rgba(255,77,141,0) 65%); }
 .wrap { position: relative; z-index: 1; max-width: 1080px; margin: 0 auto; }
 .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 0; flex-wrap: wrap; }
 .top img { height: 34px; display: block; }
@@ -162,7 +184,7 @@ html[data-lang="pl"] [data-l="pl"], html[data-lang="en"] [data-l="en"] { display
 <script>
 (function () {
   'use strict';
-  var VERSION = '2';
+  var VERSION = '3';
   var root = document.documentElement;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var $ = function (id) { return document.getElementById(id); };
@@ -332,8 +354,10 @@ html[data-lang="pl"] [data-l="pl"], html[data-lang="en"] [data-l="en"] { display
     { id: 'runner', pl: 'Bieg po kalorie', en: 'Calorie run', calm: false },
     { id: 'gym', pl: 'Mapa siłowni', en: 'Gym map', calm: true },
   ];
-  var registry = {}, current = null, loading = {};
+  var registry = {}, current = null, loading = {}, early = window.__R404 || { q: [], requested: {} };
   window.Ramvo404 = { register: function (id, def) { registry[id] = def; if (loading[id]) { loading[id](def); delete loading[id]; } } };
+  // scenes that loaded before this script ran (requested early in <head>)
+  early.q.forEach(function (x) { registry[x[0]] = x[1]; });
   var api = {
     lang: function () { return LANG; }, t: function (pl, en) { return LANG === 'en' ? en : pl; }, reduce: reduce, store: store,
     beep: beep, vibrate: vibrate, confetti: confetti, solved: solved, announce: announce, toast: toast,
@@ -344,6 +368,7 @@ html[data-lang="pl"] [data-l="pl"], html[data-lang="en"] [data-l="en"] { display
     return new Promise(function (resolve, reject) {
       if (registry[id]) return resolve(registry[id]);
       loading[id] = resolve;
+      if (early.requested[id]) { early.requested[id] = false; setTimeout(function () { if (loading[id]) { delete loading[id]; reject(new Error('timeout ' + id)); } }, 12000); return; }
       var s = document.createElement('script');
       s.src = '/assets/404/' + id + '.js?v=' + VERSION;
       s.onerror = function () { delete loading[id]; reject(new Error('load ' + id)); };
@@ -368,6 +393,7 @@ html[data-lang="pl"] [data-l="pl"], html[data-lang="en"] [data-l="en"] { display
   }
   function pool() { return SCENES.filter(function (s) { return !reduce || s.calm; }); }
   function pick() {
+    if (early.pick) return early.pick;
     var forced = new URLSearchParams(location.search).get('v');
     if (forced && SCENES.some(function (s) { return s.id === forced; })) return forced;
     var p = pool(), last = store.get('ramvo404-last');

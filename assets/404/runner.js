@@ -28,14 +28,17 @@
       '<span><span data-l="pl">Skacz nad hantlami, zbieraj jedzenie. Tap, spacja albo ↑. Przytrzymaj = wyżej.</span><span data-l="en">Jump the dumbbells, grab the food. Tap, Space or ↑. Hold = higher.</span></span></div>' +
       '<div class="stage rn-stage" id="rnStage"><canvas id="rnCanvas"></canvas>' +
       '<div class="rn-hud"><span class="chip rn-kcal"><b id="rnKcal">0</b> / 404 kcal<span class="rn-track"><i id="rnBar"></i></span></span>' +
-      '<span class="chip"><span data-l="pl">Dystans</span><span data-l="en">Distance</span> <b id="rnDist">0</b> m · <span data-l="pl">rekord</span><span data-l="en">best</span> <b id="rnBest">0</b></span></div>' +
+      '<span class="chip"><span data-l="pl">Dystans</span><span data-l="en">Distance</span> <b id="rnDist">0</b> m</span>' +
+      '<span class="chip rn-best">★ <span data-l="pl">Rekordy:</span><span data-l="en">Records:</span> <b id="rnBest">0</b> m · <b id="rnBestK">0</b> kcal</span></div>' +
       '<div class="rn-msg" id="rnMsg"></div></div>';
     var my = { raf: 0, off: [], paused: false };
     S = my;
     var stage = document.getElementById('rnStage'), cv = document.getElementById('rnCanvas'), ctx = cv.getContext('2d');
     var DPR = Math.min(2, window.devicePixelRatio || 1), W = 0, H = 0, GY = 0;
     var best = parseInt(api.store.get('ramvo404-run-best') || '0', 10) || 0;
+    var bestK = parseInt(api.store.get('ramvo404-run-kcal') || '0', 10) || 0;
     document.getElementById('rnBest').textContent = best;
+    document.getElementById('rnBestK').textContent = bestK;
     var g = null, solvedOnce = false;
 
     function on(t, type, fn, opt) { t.addEventListener(type, fn, opt); my.off.push(function () { t.removeEventListener(type, fn, opt); }); }
@@ -123,6 +126,7 @@
         if (hit(px, py, pw, ph, f.x - f.r, fy - f.r, f.r * 2, f.r * 2)) {
           g.kcal += f.f.kcal; g.pops.push({ x: f.x, y: fy, t: 0, txt: '+' + f.f.kcal });
           api.beep(660 + Math.min(400, g.kcal), 0.07); api.vibrate(12);
+          if (g.kcal > bestK) { bestK = g.kcal; api.store.set('ramvo404-run-kcal', String(bestK)); document.getElementById('rnBestK').textContent = bestK; }
           if (!solvedOnce && g.kcal >= GOAL) { solvedOnce = true; api.solved('Brawo! <em>Masz kondycję</em>', 'Nice! <em>You have the stamina</em>'); }
           paintHud(); return false;
         }
