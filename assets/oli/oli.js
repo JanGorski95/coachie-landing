@@ -171,11 +171,13 @@
       ['The office water cooler', 0, 'Please stop teaching diving at the water cooler.'],
       ['Tottenham Hotspur Stadium', 0, 'That is where hope goes to drown, not where people dive.'],
       ['Khop khun krap', 0, 'That means thank you. Lovely manners, wrong answer.'] ] },
-    { q: 'Which club do you support?', opts: [
-      ['Tottenham Hotspur', 1, 'Correct. Our condolences.'],
-      ['Arsenal', 0, 'Security has been notified.'],
-      ['Whoever wins this weekend', 0, 'Then it is definitely not Spurs.'],
-      ['I prefer meetings', 0, 'MeetingSnore approves. HR is concerned.'] ] },
+    // forced question: only one answer moves you on, the rest are locked one by one
+    { q: 'Which club do you support?', force: true, opts: [
+      ['Tottenham Hotspur', 0, 'Incorrect. Ramvo: Oli Edition only supports clubs that have won something this century. Try again.'],
+      ['Arsenal', 0, 'Security has been notified. Try again.'],
+      ['Whoever wins this weekend', 0, 'Then it is definitely not Spurs. Try again.'],
+      ['I prefer meetings', 0, 'MeetingSnore approves. HR is concerned. Try again.'],
+      ['Manchester United', 1, 'Correct. Welcome to the right side of history, Oli. We will tell nobody at the office.'] ] },
     { q: 'How long have you been at MeetingSnore?', opts: [
       ['Exactly 3 months', 1, 'Correct. Long enough to ask 400 questions.'],
       ['Since the traffic started', 0, 'So, since forever.'],
@@ -200,6 +202,11 @@
     $('opts').onclick = function (e) {
       var b = e.target.closest('.opt'); if (!b) return;
       var o = it.opts[+b.dataset.k];
+      if (it.force && !o[1]) {
+        b.disabled = true; b.classList.add('wrong'); beep(200, 0.2); buzz(60);
+        $('fb').textContent = o[2];
+        return;
+      }
       [].forEach.call($('opts').children, function (x) { x.disabled = true; });
       b.classList.add(o[1] ? 'right' : 'wrong');
       if (o[1]) { S.score++; beep(880, 0.12); } else { beep(200, 0.2); buzz(60); }
@@ -291,7 +298,7 @@
       '<div class="muted">Head of Everything · MeetingSnore (employees: 1)</div>' +
       '<div class="day"><span class="tag">Diving</span><div>Qualified to teach others to breathe underwater. Not qualified to arrive on time.</div></div>' +
       '<div class="day"><span class="tag">Birthday</span><div>15 January <button class="link" id="bday">(probably)</button>. HR is checking.</div></div>' +
-      '<div class="day"><span class="tag">Club</span><div>Tottenham Hotspur. Trophy cabinet available on request.</div></div>' +
+      '<div class="day"><span class="tag">Club</span><div>Manchester United (declared under oath in the quiz). Previously Tottenham Hotspur, trophy cabinet available on request.</div></div>' +
       '<div class="day"><span class="tag">Previous</span><div>Distribution. Still treats every client like a pallet.</div></div></div>' +
       '<div class="eyebrow">Carpool</div><div class="card" style="margin-top:8px"><b>Rides with Oli</b>' + ride + '</div>' +
       '<div class="eyebrow">Subscriptions</div><div class="card" style="margin-top:8px">' +
