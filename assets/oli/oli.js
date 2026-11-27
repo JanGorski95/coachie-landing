@@ -71,7 +71,7 @@
     { id: 'thai', name: 'Thailand mode', hint: 'Up, up, down, down, left, right, left, right, B, A. Or swipe it on the screen.' },
     { id: 'dev', name: "Oli's question log", hint: 'Developers tap logos. A lot. Seven times, to be precise.' },
     { id: 'simmer', name: 'Simmer cancelled', hint: 'Some subscriptions do not want to be cancelled. Be persistent.' },
-    { id: 'coys', name: 'Trophy cabinet', hint: 'Type what Spurs fans shout. Four letters.' },
+    { id: 'gamer', name: 'Player 4jin8', hint: 'Your alter ego has a name. Letters and numbers. Type it.' },
     { id: 'contract', name: 'Contract renewed', hint: 'Tuesday. The contract. Tap it like your job depends on it.' },
     { id: 'traffic', name: 'Traffic report', hint: 'Type your favourite excuse.' },
     { id: 'clause', name: 'Clause 12', hint: 'Always read the fine print in the handbook.' },
@@ -80,6 +80,8 @@
     { id: 'carpool', name: 'Five-star ride', hint: 'Somebody needs a lift home. Offer one.' },
     { id: 'poem', name: 'The poem', hint: 'You wrote Janet a poem. Ask Coach Janet for one back and read it to the end.' },
   ];
+  // drop secrets that no longer exist (e.g. the old 'coys' one) from saved progress
+  S.found = S.found.filter(function (id) { return SECRETS.some(function (x) { return x.id === id; }); });
   function has(id) { return S.found.indexOf(id) >= 0; }
   function found(id) {
     if (has(id) || S.stage !== 'app') return false;
@@ -411,7 +413,7 @@
     if (S.stage !== 'app') return;
     buf = (buf + ch.toLowerCase()).slice(-12);
     if (/janet$/.test(buf)) { buf = ''; janetMode(); }
-    else if (/coys$/.test(buf)) { buf = ''; coys(); }
+    else if (/4jin8$/.test(buf)) { buf = ''; gamer(); }
     else if (/traffic$/.test(buf)) { buf = ''; traffic(); }
   }
   function janetMode() {
@@ -420,9 +422,16 @@
     else toast('Janet mode: every Jan is now Janet. As it should be.', 3200);
     renderApp();
   }
-  function coys() {
-    found('coys');
-    sheet('<div class="cabinet"><h3>Tottenham Hotspur trophy cabinet</h3><div class="shelf dust">Recent additions: none</div><div class="shelf dust">Coming soon™</div><p class="muted">Come on you Spurs. Someone has to.</p><button class="pill block" data-close>Close (gently)</button></div>');
+  function gamer() {
+    found('gamer');
+    document.body.classList.add('crt'); setTimeout(function () { document.body.classList.remove('crt'); }, 4000);
+    [523, 659, 784, 1047].forEach(function (f, i) { setTimeout(function () { beep(f, 0.09); }, i * 110); });
+    sheet('<div class="arcade"><div class="arcade-top">PLAYER 4JIN8 HAS JOINED THE GAME</div>' +
+      '<h3>Achievement unlocked</h3><p><b>Who am I?</b> Found your own gamertag. 10G.</p>' +
+      '<table class="stats"><tr><td>K/D ratio</td><td>0.4</td></tr><tr><td>Hours played</td><td>More than hours worked</td></tr>' +
+      '<tr><td>Rage quits</td><td>Every Spurs match</td></tr><tr><td>Lag excuse</td><td>"It was the traffic"</td></tr>' +
+      '<tr><td>Main</td><td>Head of Everything, MeetingSnore (solo queue)</td></tr></table>' +
+      '<p class="muted small">Press start to return to work.</p><button class="pill block" data-close>START</button></div>');
   }
   function traffic() {
     found('traffic');
@@ -457,7 +466,7 @@
     if (tag === 'textarea') return;
     var k = (e.key || '').toLowerCase();
     if (S.stage === 'app') konamiStep(k);
-    if (k.length === 1 && /[a-z]/.test(k) && !e.target.classList.contains('typebox')) typed(k);
+    if (k.length === 1 && /[a-z0-9]/.test(k) && !e.target.classList.contains('typebox')) typed(k);
   });
   var tx = null, ty = null;
   screen.addEventListener('touchstart', function (e) { var t = e.touches[0]; tx = t.clientX; ty = t.clientY; }, { passive: true });
@@ -509,10 +518,10 @@
       '<button class="pill block" data-close style="margin-top:12px">Back to work</button>');
     var tb = $('typebox');
     tb.addEventListener('input', function () {
-      var m = tb.value.toLowerCase().replace(/[^a-z]/g, '').match(/(janet|coys|traffic)$/);
+      var m = tb.value.toLowerCase().replace(/[^a-z0-9]/g, '').match(/(janet|4jin8|traffic)$/);
       if (!m) return;
       $('sheet').hidden = true; tb.value = ''; buf = '';
-      ({ janet: janetMode, coys: coys, traffic: traffic })[m[1]]();
+      ({ janet: janetMode, '4jin8': gamer, traffic: traffic })[m[1]]();
     });
   };
   function finale() {
