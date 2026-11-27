@@ -19,8 +19,12 @@ h1, h2, h3 { font-family: var(--head); font-weight: 800; letter-spacing: -.01em;
 .status { display: flex; justify-content: space-between; align-items: center; padding: 14px 28px 4px; font-size: 13px; font-weight: 700; z-index: 4; }
 .clock { background: none; border: 0; padding: 0; font-weight: 800; }
 .sig { color: var(--muted); font-size: 11px; letter-spacing: 1px; }
-.screen { flex: 1; overflow-y: auto; overflow-x: hidden; padding: 18px 18px 90px; scrollbar-width: none; position: relative; }
-.screen::-webkit-scrollbar { display: none; }
+.screen { flex: 1; overflow-y: auto; overflow-x: hidden; padding: 18px 14px 90px 18px; position: relative; scrollbar-width: thin; scrollbar-color: #3a424c transparent; }
+.screen::-webkit-scrollbar { width: 6px; }
+.screen::-webkit-scrollbar-thumb { background: #3a424c; border-radius: 6px; }
+.screen::-webkit-scrollbar-track { background: transparent; }
+body.in-app .screen { padding-bottom: 24px; }
+@media (max-width: 760px) { body.in-app .screen { padding-bottom: 90px; } }
 .side[hidden] { display: none !important; }
 .side { width: 240px; display: flex; flex-direction: column; gap: 12px; }
 .counter { display: flex; justify-content: space-between; align-items: baseline; }
@@ -34,7 +38,7 @@ h1, h2, h3 { font-family: var(--head); font-weight: 800; letter-spacing: -.01em;
   .phone { width: 100%; height: 100dvh; min-height: 0; border: 0; border-radius: 0; box-shadow: none; }
   .island { display: none; }
   .status { padding-top: max(12px, env(safe-area-inset-top)); }
-  .side { position: fixed; z-index: 30; left: 12px; right: 12px; bottom: calc(70px + env(safe-area-inset-bottom)); width: auto; flex-direction: row; align-items: center; gap: 8px; background: rgba(21,24,28,.92); backdrop-filter: blur(8px); border: 1px solid var(--border); border-radius: 14px; padding: 6px 8px 6px 12px; }
+  .side { position: fixed; z-index: 30; left: 12px; right: 12px; bottom: calc(76px + env(safe-area-inset-bottom)); width: auto; flex-direction: row; align-items: center; gap: 8px; background: rgba(21,24,28,.92); backdrop-filter: blur(8px); border: 1px solid var(--border); border-radius: 14px; padding: 6px 8px 6px 12px; }
   .side .meter, .side .side-row { display: none; }
   .counter { gap: 6px; flex: 1; }
   .counter span { font-size: 10px; }
@@ -87,11 +91,11 @@ h1, h2, h3 { font-family: var(--head); font-weight: 800; letter-spacing: -.01em;
 .feedback { margin-top: 14px; font-weight: 700; }
 
 /* ---------- app */
-.tabs { position: absolute; left: 0; right: 0; bottom: 0; display: flex; background: rgba(11,13,16,.96); border-top: 1px solid var(--border); padding: 8px 4px calc(10px + env(safe-area-inset-bottom)); z-index: 20; }
+.tabs { position: relative; flex: none; display: flex; background: var(--bg); border-top: 1px solid var(--border); padding: 8px 4px calc(10px + env(safe-area-inset-bottom)); z-index: 20; }
 .tabs button { flex: 1; background: none; border: 0; color: var(--muted); font-size: 10px; font-weight: 800; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 4px 0; }
 .tabs button span { font-size: 18px; line-height: 1; }
 .tabs button.on { color: var(--accent); }
-@media (max-width: 760px) { .tabs { position: fixed; } }
+
 .rings { display: flex; gap: 14px; }
 .ring { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font: 800 12px var(--head); text-align: center; }
 .day { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-top: 1px solid var(--border); }

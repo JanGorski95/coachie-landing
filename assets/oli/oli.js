@@ -309,12 +309,18 @@
 
   function renderApp() {
     var body = { home: home, plan: plan, contract: contract, chat: chat, more: more }[S.tab]();
-    screen.innerHTML = '<div class="fade-in" id="tabBody">' + body + '</div>' +
-      '<nav class="tabs" id="tabs">' + TABS.map(function (t) {
-        return '<button data-tab="' + t[0] + '" class="' + (S.tab === t[0] ? 'on' : '') + '"><span>' + t[1] + '</span>' + t[2] + '</button>';
-      }).join('') + '</nav>';
+    screen.innerHTML = '<div class="fade-in" id="tabBody">' + body + '</div>';
+    // the tab bar lives outside the scrolling screen, so it stays pinned to the bottom
+    var nav = $('tabs');
+    if (!nav) {
+      nav = document.createElement('nav'); nav.className = 'tabs'; nav.id = 'tabs';
+      $('phone').appendChild(nav);
+      nav.onclick = function (e) { var b = e.target.closest('button'); if (!b) return; S.tab = b.dataset.tab; save(); beep(520, 0.05); renderApp(); };
+    }
+    nav.innerHTML = TABS.map(function (t) {
+      return '<button data-tab="' + t[0] + '" class="' + (S.tab === t[0] ? 'on' : '') + '"><span>' + t[1] + '</span>' + t[2] + '</button>';
+    }).join('');
     screen.scrollTop = 0;
-    $('tabs').onclick = function (e) { var b = e.target.closest('button'); if (!b) return; S.tab = b.dataset.tab; save(); beep(520, 0.05); renderApp(); };
     wire();
   }
 
@@ -515,6 +521,8 @@
   // ------------------------------------------------------------------ boot
   function render() {
     side(); paintClock();
+    document.body.classList.toggle('in-app', S.stage === 'app');
+    if (S.stage !== 'app' && $('tabs')) $('tabs').remove();
     if (S.stage === 'login') renderLogin();
     else if (S.stage === 'quiz') renderQuiz();
     else renderApp();
