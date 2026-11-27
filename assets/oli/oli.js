@@ -71,7 +71,7 @@
     { id: 'thai', name: 'Thailand mode', hint: 'Up, up, down, down, left, right, left, right, B, A. Or swipe it on the screen.' },
     { id: 'dev', name: "Oli's question log", hint: 'Developers tap logos. A lot. Seven times, to be precise.' },
     { id: 'simmer', name: 'Simmer cancelled', hint: 'Some subscriptions do not want to be cancelled. Be persistent.' },
-    { id: 'gamer', name: 'Player 4jin8', hint: 'Your alter ego has a name. Letters and numbers. Type it.' },
+    { id: 'lanyard', name: 'Hello, my name is 4jin8', hint: 'At the trade show you signed in under a very special name and wore it on your lanyard all day. Type it.' },
     { id: 'contract', name: 'Contract renewed', hint: 'Tuesday. The contract. Tap it like your job depends on it.' },
     { id: 'traffic', name: 'Traffic report', hint: 'Type your favourite excuse.' },
     { id: 'clause', name: 'Clause 12', hint: 'Always read the fine print in the handbook.' },
@@ -298,7 +298,7 @@
     var ride = has('carpool')
       ? '<div class="tag green">★ 5/5</div><p style="margin:6px 0 0">"Smooth, punctual, great music, would ride again." (' + J() + ' was paid one coffee to write this.)</p>'
       : '<div class="tag pink">★ 1/5</div><p style="margin:6px 0 0">"Lasted longer than the working day. Asked 14 questions before the first roundabout."</p><button class="pill" id="ride" style="margin-top:10px">Request a ride from Oli</button>';
-    return '<div class="eyebrow">Profile</div><div class="card" style="margin-top:8px"><h3>Oliver "Oli" Hoskins</h3><div class="muted small">AKA 4jin8 · gamertag, alter ego, and the only one who reads his emails</div>' +
+    return '<div class="eyebrow">Profile</div><div class="card" style="margin-top:8px"><h3>Oliver "Oli" Hoskins</h3><div class="muted small">AKA 4jin8 · as signed at the trade show and worn on his lanyard all day</div>' +
       '<div class="muted">Head of Everything · MeetingSnore (employees: 1)</div>' +
       '<div class="day"><span class="tag">Diving</span><div>Qualified to teach others to breathe underwater. Not qualified to arrive on time.</div></div>' +
       '<div class="day"><span class="tag">Birthday</span><div>15 January <button class="link" id="bday">(probably)</button>. HR is checking.</div></div>' +
@@ -413,7 +413,7 @@
     if (S.stage !== 'app') return;
     buf = (buf + ch.toLowerCase()).slice(-12);
     if (/janet$/.test(buf)) { buf = ''; janetMode(); }
-    else if (/4jin8$/.test(buf)) { buf = ''; gamer(); }
+    else if (/4jin8$/.test(buf)) { buf = ''; lanyard(); }
     else if (/traffic$/.test(buf)) { buf = ''; traffic(); }
   }
   function janetMode() {
@@ -422,16 +422,19 @@
     else toast('Janet mode: every Jan is now Janet. As it should be.', 3200);
     renderApp();
   }
-  function gamer() {
-    found('gamer');
-    document.body.classList.add('crt'); setTimeout(function () { document.body.classList.remove('crt'); }, 4000);
-    [523, 659, 784, 1047].forEach(function (f, i) { setTimeout(function () { beep(f, 0.09); }, i * 110); });
-    sheet('<div class="arcade"><div class="arcade-top">PLAYER 4JIN8 HAS JOINED THE GAME</div>' +
-      '<h3>Achievement unlocked</h3><p><b>Who am I?</b> Found your own gamertag. 10G.</p>' +
-      '<table class="stats"><tr><td>K/D ratio</td><td>0.4</td></tr><tr><td>Hours played</td><td>More than hours worked</td></tr>' +
-      '<tr><td>Rage quits</td><td>Every Spurs match</td></tr><tr><td>Lag excuse</td><td>"It was the traffic"</td></tr>' +
-      '<tr><td>Main</td><td>Head of Everything, MeetingSnore (solo queue)</td></tr></table>' +
-      '<p class="muted small">Press start to return to work.</p><button class="pill block" data-close>START</button></div>');
+  function lanyard() {
+    found('lanyard');
+    [523, 659, 784].forEach(function (f, i) { setTimeout(function () { beep(f, 0.09); }, i * 120); });
+    sheet('<div class="badge-wrap"><div class="strap"></div><div class="badge">' +
+      '<div class="badge-head">AV EXPO · EXHIBITOR</div>' +
+      '<div class="badge-hello">HELLO, MY NAME IS</div><div class="badge-name">4jin8</div>' +
+      '<div class="badge-co">MeetingSnore · a 20th Century AV company</div><div class="badge-bar"></div></div></div>' +
+      '<h3 style="text-align:center;margin-top:14px">Trade show legend</h3>' +
+      '<p style="text-align:center">Asked to sign in at the trade show. Wrote <b>4jin8</b>. Wore it on his lanyard. All day. Nobody asked. Everybody noticed.</p>' +
+      '<table class="badge-stats"><tr><td>Hands shaken</td><td>47</td></tr><tr><td>People who called him "4jin8"</td><td>47</td></tr>' +
+      '<tr><td>People who called him Oli</td><td>0</td></tr><tr><td>Leads captured</td><td>3 (all asked about the badge)</td></tr>' +
+      '<tr><td>Free pens collected</td><td>a career-best 19</td></tr></table>' +
+      '<button class="pill block" data-close>Put the lanyard back on</button>');
   }
   function traffic() {
     found('traffic');
@@ -521,7 +524,7 @@
       var m = tb.value.toLowerCase().replace(/[^a-z0-9]/g, '').match(/(janet|4jin8|traffic)$/);
       if (!m) return;
       $('sheet').hidden = true; tb.value = ''; buf = '';
-      ({ janet: janetMode, '4jin8': gamer, traffic: traffic })[m[1]]();
+      ({ janet: janetMode, '4jin8': lanyard, traffic: traffic })[m[1]]();
     });
   };
   function finale() {
