@@ -178,11 +178,13 @@
       ['Whoever wins this weekend', 0, 'Then it is definitely not Spurs. Try again.'],
       ['I prefer meetings', 0, 'MeetingSnore approves. HR is concerned. Try again.'],
       ['Manchester United', 1, 'Correct. Welcome to the right side of history, Oli. We will tell nobody at the office.'] ] },
-    { q: 'How long have you been at MeetingSnore?', opts: [
-      ['Exactly 3 months', 1, 'Correct. Long enough to ask 400 questions.'],
-      ['Since the traffic started', 0, 'So, since forever.'],
-      ['Until Tuesday', 0, 'Bold. Let us see what Janet says.'],
-      ['What is MeetingSnore?', 0, 'Another question. You are on brand.'] ] },
+    // forced question: the only accepted answer is the one about Tuesday
+    { q: 'How long will you be at MeetingSnore?', force: true, opts: [
+      ['Exactly 3 months so far, and counting', 0, 'Counting what? The days until Tuesday? Try again.'],
+      ['Until retirement', 0, 'HR laughed so hard they had to take the afternoon off. Try again.'],
+      ['Since the traffic started', 0, 'Wrong tense, Oli. We asked how long you WILL be here. Try again.'],
+      ['What is MeetingSnore?', 0, 'Another question. You are on brand, but not for much longer. Try again.'],
+      ['Until Tuesday', 1, 'Correct. Please clear your desk by Tuesday 1 December. Leave the stapler. Janet will hold the door.'] ] },
   ];
   function renderQuiz() {
     var i = S.quiz, it = QUIZ[i];
