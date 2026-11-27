@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="pl" data-lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>404 · Ramvo</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Tej strony nie ma. Zrób 4 powtórzenia i wracaj do Ramvo.">
+<meta name="theme-color" content="#0B0D10">
+<link rel="icon" href="/assets/brand/favicon/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/brand/favicon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/brand/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=Manrope:wght@400;600;700;800&display=swap">
+<style>
+/* Ramvo 404: "Barbell 404". Served by GitHub Pages for every unknown path,
+   so every asset path is absolute. Everything works without the script:
+   the headline, the quick links and the e-mail are plain HTML. */
+:root {
+  --bg: #0B0D10; --raised: #15181C; --sunken: #1F242B; --fg: #F4F6F8; --muted: #8E97A3;
+  --accent: #3EC6FF; --accent-soft: #122833; --pink: #FF4D8D; --pink-soft: #3A1426; --green: #35D483; --gold: #FFC83D; --border: #1F242B;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; min-width: 0; }
+html, body { margin: 0; background: var(--bg); color: var(--fg); }
+body { font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.5; min-height: 100vh; overflow-x: clip;
+  padding: 0 max(18px, env(safe-area-inset-left)) 40px max(18px, env(safe-area-inset-right)); }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+canvas.fx { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+#dust { z-index: 0; }
+#confetti { z-index: 30; }
+.glow { position: fixed; width: 620px; height: 620px; border-radius: 50%; filter: blur(110px); opacity: 0.16; pointer-events: none; z-index: 0; will-change: transform; left: 0; top: 0; }
+.glow.a { background: var(--accent); }
+.glow.b { background: var(--pink); opacity: 0.12; }
+.wrap { position: relative; z-index: 1; max-width: 1080px; margin: 0 auto; }
+
+/* top bar */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 0; }
+.top img { height: 34px; display: block; }
+.tools { display: flex; align-items: center; gap: 8px; }
+.pillbtn { font: 700 0.76rem 'Manrope', sans-serif; color: var(--muted); background: var(--sunken); border: 0; border-radius: 999px; padding: 7px 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.pillbtn[aria-pressed="true"] { color: var(--fg); background: var(--raised); box-shadow: inset 0 0 0 1px var(--border); }
+.lang { display: flex; gap: 3px; background: var(--sunken); border-radius: 999px; padding: 3px; }
+.lang button { font: 700 0.74rem 'Manrope', sans-serif; border: 0; background: transparent; color: var(--muted); padding: 5px 10px; border-radius: 999px; cursor: pointer; }
+.lang button.on { background: var(--raised); color: var(--fg); }
+
+/* hero */
+.hero { text-align: center; padding: 10px 0 0; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font: 800 0.74rem 'Manrope', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--pink); background: var(--pink-soft); border-radius: 999px; padding: 6px 14px; }
+.eyebrow i { width: 7px; height: 7px; border-radius: 50%; background: var(--pink); animation: blink 1.4s ease-in-out infinite; }
+@keyframes blink { 50% { opacity: 0.25; } }
+h1 { font: 900 clamp(2rem, 5.5vw, 3.6rem)/1.04 'Archivo', 'Manrope', sans-serif; letter-spacing: -0.02em; margin: 16px auto 10px; max-width: 18ch; text-wrap: balance; transition: color 0.4s ease; }
+h1 em { font-style: normal; background: linear-gradient(90deg, var(--accent), var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.lede { color: var(--muted); margin: 0 auto; max-width: 56ch; font-size: 1.02rem; }
+.lede code { font: 600 0.9em ui-monospace, Menlo, Consolas, monospace; color: var(--fg); background: var(--sunken); padding: 2px 7px; border-radius: 6px; word-break: break-all; }
+
+/* gym stage */
+.stage { position: relative; margin: 26px auto 0; max-width: 860px; border-radius: 28px; border: 1px solid var(--border);
+  background: radial-gradient(70% 90% at 50% 0%, #142a36 0%, transparent 70%), linear-gradient(180deg, #101317, #0c0e11); overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none; cursor: grab; }
+.stage.holding { cursor: grabbing; }
+.stage::after { content: ''; position: absolute; inset: auto 0 0 0; height: 90px; background: linear-gradient(0deg, rgba(62,198,255,0.06), transparent); pointer-events: none; }
+.stage svg { display: block; width: 100%; height: auto; }
+.lbl { font: 800 11px 'Manrope', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; fill: #4a5561; }
+.lbl.lock { fill: var(--green); opacity: 0.75; }
+.plate-num { font: 900 92px 'Archivo', sans-serif; fill: #0B0D10; }
+.cnt { font: 900 46px 'Archivo', sans-serif; fill: var(--fg); }
+.cnt-sub { font: 800 10px 'Manrope', sans-serif; letter-spacing: 0.16em; fill: var(--muted); }
+.pop { animation: pop 0.38s cubic-bezier(.2,1.6,.4,1); transform-origin: center; transform-box: fill-box; }
+@keyframes pop { 0% { transform: scale(1); } 40% { transform: scale(1.22); } 100% { transform: scale(1); } }
+.gold .plate-face { fill: url(#goldg) !important; }
+.hud { position: absolute; left: 16px; right: 16px; top: 14px; display: flex; justify-content: space-between; gap: 10px; pointer-events: none; }
+.chip { font: 800 0.74rem 'Manrope', sans-serif; background: rgba(11,13,16,0.72); border: 1px solid var(--border); border-radius: 999px; padding: 6px 11px; display: inline-flex; gap: 6px; align-items: center; backdrop-filter: blur(6px); }
+.chip b { font-family: 'Archivo', sans-serif; font-size: 0.95rem; }
+.chip.pr { color: var(--gold); border-color: #5a4a10; opacity: 0; transform: translateY(-6px); transition: opacity 0.3s, transform 0.3s; }
+.chip.pr.show { opacity: 1; transform: none; }
+.cue { position: absolute; left: 0; right: 0; bottom: 14px; text-align: center; font: 800 0.95rem 'Manrope', sans-serif; color: var(--fg); pointer-events: none; text-shadow: 0 2px 12px #000; transition: opacity 0.3s; }
+
+/* controls */
+.controls { max-width: 860px; margin: 14px auto 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 14px; align-items: center; }
+@media (max-width: 640px) { .controls { grid-template-columns: minmax(0, 1fr); } }
+.press { font: 800 1rem 'Manrope', sans-serif; color: #04161F; background: var(--accent); border: 0; border-radius: 999px; padding: 15px 26px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 14px 30px -14px var(--accent); touch-action: none; user-select: none; -webkit-user-select: none; transition: transform 0.12s, box-shadow 0.2s; }
+.press.holding { transform: scale(0.97); box-shadow: 0 6px 18px -8px var(--accent); }
+.press kbd { font: 800 0.72rem 'Manrope', sans-serif; background: rgba(4,22,31,0.18); border-radius: 6px; padding: 2px 7px; }
+.meters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.meter { background: var(--raised); border: 1px solid var(--border); border-radius: 16px; padding: 10px 14px; }
+.meter span { display: block; font: 700 0.7rem 'Manrope', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.meter b { font: 900 1.45rem 'Archivo', sans-serif; font-variant-numeric: tabular-nums; }
+.fat { height: 6px; border-radius: 99px; background: var(--sunken); margin-top: 8px; overflow: hidden; }
+.fat i { display: block; height: 100%; width: 0%; background: linear-gradient(90deg, var(--green), var(--gold), var(--pink)); transition: width 0.25s ease; }
+
+/* help */
+.help { max-width: 860px; margin: 26px auto 0; display: grid; gap: 14px; }
+.suggest { display: none; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; border-radius: 20px; padding: 16px 18px; border: 1px solid #1d4457; background: linear-gradient(135deg, var(--accent-soft), var(--raised)); }
+.suggest.show { display: flex; }
+.suggest p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+.suggest p b { color: var(--fg); }
+.go { font: 800 0.92rem 'Manrope', sans-serif; text-decoration: none; color: #04161F; background: var(--accent); border-radius: 999px; padding: 11px 18px; white-space: nowrap; }
+.links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 720px) { .links { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.links a { --c: var(--accent); display: flex; gap: 12px; align-items: center; text-decoration: none; background: var(--raised); border: 1px solid var(--border); border-radius: 18px; padding: 14px; transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.4s ease; }
+.links a:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--c) 60%, transparent); }
+.links .ico { flex: 0 0 auto; width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center; background: color-mix(in srgb, var(--c) 16%, transparent); color: var(--c); }
+.links .ico svg { width: 20px; height: 20px; }
+.links b { display: block; font-size: 0.95rem; }
+.links small { display: block; color: var(--muted); font-size: 0.8rem; }
+.solved .links a { box-shadow: 0 0 0 1px color-mix(in srgb, var(--c) 45%, transparent), 0 16px 36px -22px var(--c); }
+.solved .suggest { box-shadow: 0 0 0 1px #2c6a85, 0 18px 40px -24px var(--accent); }
+.mail { text-align: center; color: var(--muted); font-size: 0.86rem; margin: 6px 0 0; }
+.mail a { color: var(--accent); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+[data-l] { display: none; }
+html[data-lang="pl"] [data-l="pl"], html[data-lang="en"] [data-l="en"] { display: revert; }
+@media (prefers-reduced-motion: reduce) {
+  .eyebrow i, .pop { animation: none; }
+  .links a, .press, .chip.pr { transition: none; }
+}
+</style>
+</head>
+<body>
+<div class="glow a" id="glowA" aria-hidden="true"></div>
+<div class="glow b" id="glowB" aria-hidden="true"></div>
+<canvas class="fx" id="dust" aria-hidden="true"></canvas>
+<canvas class="fx" id="confetti" aria-hidden="true"></canvas>
+
+<div class="wrap" id="app">
+  <header class="top">
+    <a href="/" aria-label="Ramvo"><img src="/assets/brand/ramvo-wordmark-ciemne-tlo.svg" alt="Ramvo" width="120" height="34"></a>
+    <div class="tools">
+      <button type="button" class="pillbtn" id="sound" aria-pressed="false" title="Dźwięk / Sound">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path id="waves" d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14" opacity="0.3"/></svg>
+        <span data-l="pl">Dźwięk</span><span data-l="en">Sound</span>
+      </button>
+      <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="pl">PL</button><button type="button" data-lang="en">EN</button></div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="eyebrow"><i></i><span data-l="pl">Błąd 404 · strony nie ma</span><span data-l="en">Error 404 · page not found</span></span>
+    <h1 id="title">
+      <span data-l="pl" id="tPl">Ta strona poszła na <em>dzień przerwy</em></span>
+      <span data-l="en" id="tEn">This page took a <em>rest day</em></span>
+    </h1>
+    <p class="lede">
+      <span data-l="pl">Nie znaleźliśmy <code id="pathPl">tego adresu</code>. Zrób 4 powtórzenia, a potem wybierz, dokąd wracasz.</span>
+      <span data-l="en">We could not find <code id="pathEn">this address</code>. Do 4 reps, then pick where to go back to.</span>
+    </p>
+  </section>
+
+  <div class="stage" id="stage" role="img" aria-label="Sztanga 404 / Barbell 404">
+    <svg viewBox="0 0 800 380" aria-hidden="true">
+      <defs>
+        <linearGradient id="plateg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5fd6ff"/><stop offset="1" stop-color="#1f9ccc"/></linearGradient>
+        <linearGradient id="plateg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff7aa8"/><stop offset="1" stop-color="#d1316a"/></linearGradient>
+        <linearGradient id="goldg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe27a"/><stop offset="1" stop-color="#d9a21b"/></linearGradient>
+        <linearGradient id="barg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8edf2"/><stop offset="0.5" stop-color="#9aa4ae"/><stop offset="1" stop-color="#5d6670"/></linearGradient>
+        <radialGradient id="ring" cx="0.5" cy="0.35" r="0.7"><stop offset="0" stop-color="#1c2b35"/><stop offset="1" stop-color="#0e1216"/></radialGradient>
+      </defs>
+      <!-- rack lines -->
+      <line x1="40" x2="760" y1="78" y2="78" stroke="#35d483" stroke-opacity="0.35" stroke-width="2" stroke-dasharray="6 8"/>
+      <text class="lbl lock" x="44" y="68">LOCKOUT</text>
+      <line x1="40" x2="760" y1="300" y2="300" stroke="#2a323b" stroke-width="2" stroke-dasharray="6 8"/>
+      <!-- J-hooks -->
+      <rect x="196" y="282" width="10" height="70" rx="3" fill="#20262d"/><rect x="594" y="282" width="10" height="70" rx="3" fill="#20262d"/>
+      <!-- shadow on the floor -->
+      <ellipse id="shadow" cx="400" cy="362" rx="300" ry="10" fill="#000" opacity="0.45"/>
+      <!-- the barbell -->
+      <g id="bar" transform="translate(0 300)">
+        <g id="shake">
+          <rect x="40" y="-7" width="720" height="14" rx="7" fill="url(#barg)"/>
+          <rect x="230" y="-8" width="60" height="16" rx="3" fill="#7b858f" opacity="0.6"/><rect x="510" y="-8" width="60" height="16" rx="3" fill="#7b858f" opacity="0.6"/>
+          <!-- left plates -->
+          <g id="plL">
+            <rect x="92" y="-104" width="58" height="208" rx="12" class="plate-face" fill="url(#plateg)"/>
+            <rect x="150" y="-74" width="24" height="148" rx="8" class="plate-face" fill="url(#plateg2)"/>
+            <rect x="174" y="-16" width="16" height="32" rx="4" fill="#cfd6dd"/>
+            <text class="plate-num" x="121" y="33" text-anchor="middle">4</text>
+          </g>
+          <!-- right plates -->
+          <g id="plR">
+            <rect x="650" y="-104" width="58" height="208" rx="12" class="plate-face" fill="url(#plateg)"/>
+            <rect x="626" y="-74" width="24" height="148" rx="8" class="plate-face" fill="url(#plateg2)"/>
+            <rect x="610" y="-16" width="16" height="32" rx="4" fill="#cfd6dd"/>
+            <text class="plate-num" x="679" y="33" text-anchor="middle">4</text>
+          </g>
+          <!-- the 0: rep counter -->
+          <g id="counter">
+            <circle cx="400" cy="0" r="58" fill="url(#ring)" stroke="#24313a" stroke-width="2"/>
+            <circle cx="400" cy="0" r="50" fill="none" stroke="#1f2a31" stroke-width="8"/>
+            <circle id="prog" cx="400" cy="0" r="50" fill="none" stroke="#3ec6ff" stroke-width="8" stroke-linecap="round" stroke-dasharray="0 315" transform="rotate(-90 400 0)"/>
+            <text id="cnt" class="cnt" x="400" y="14" text-anchor="middle">0</text>
+            <text class="cnt-sub" x="400" y="34" text-anchor="middle" id="cntSub">/ 4</text>
+          </g>
+        </g>
+      </g>
+    </svg>
+    <div class="hud">
+      <span class="chip"><span data-l="pl">Ciężar</span><span data-l="en">Load</span> <b>404</b> kg</span>
+      <span class="chip pr" id="prChip">★ <span data-l="pl">Nowy rekord!</span><span data-l="en">New PR!</span></span>
+    </div>
+    <div class="cue" id="cue"><span data-l="pl">Przytrzymaj, żeby wycisnąć</span><span data-l="en">Hold to press</span></div>
+  </div>
+
+  <div class="controls">
+    <button type="button" class="press" id="press">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 7v10M18 7v10M3 9v6M21 9v6M6 12h12"/></svg>
+      <span data-l="pl">Przytrzymaj i wyciskaj</span><span data-l="en">Hold and press</span> <kbd>Space</kbd>
+    </button>
+    <div class="meters">
+      <div class="meter"><span data-l="pl">Powtórzenia</span><span data-l="en">Reps</span><b id="mReps">0</b></div>
+      <div class="meter"><span data-l="pl">Rekord</span><span data-l="en">Record</span><b id="mBest">0</b></div>
+      <div class="meter"><span data-l="pl">Zmęczenie</span><span data-l="en">Fatigue</span><b id="mFat">0%</b><div class="fat"><i id="fatBar"></i></div></div>
+    </div>
+  </div>
+  <p class="sr" aria-live="polite" id="live"></p>
+
+  <section class="help" id="help">
+    <div class="suggest" id="suggest">
+      <p><span data-l="pl">Czy chodziło Ci o</span><span data-l="en">Did you mean</span> <b id="sugName"></b>?</p>
+      <a class="go" id="sugGo" href="/"><span data-l="pl">Przejdź</span><span data-l="en">Go there</span> →</a>
+    </div>
+    <nav class="links" aria-label="Ramvo">
+      <a href="/" style="--c: var(--accent)"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span><span><b><span data-l="pl">Dla Ciebie</span><span data-l="en">For you</span></b><small><span data-l="pl">Aplikacja i lista oczekujących</span><span data-l="en">The app and the waitlist</span></small></span></a>
+      <a href="/trainers/" style="--c: var(--pink)"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></span><span><b><span data-l="pl">Dla trenerów</span><span data-l="en">For trainers</span></b><small><span data-l="pl">Panel, klienci, płatności</span><span data-l="en">Panel, clients, payments</span></small></span></a>
+      <a href="/pricing/trainers/" style="--c: var(--green)"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8H6a2 2 0 0 1 0-4h12v4"/><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/><circle cx="18" cy="14" r="2"/></svg></span><span><b><span data-l="pl">Cennik dla trenerów</span><span data-l="en">Trainer pricing</span></b><small><span data-l="pl">Start, Pro, Studio</span><span data-l="en">Start, Pro, Studio</span></small></span></a>
+      <a href="/pricing/premium/" style="--c: var(--gold)"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2z"/></svg></span><span><b>Ramvo Premium</b><small><span data-l="pl">Trening z Ramvo AI</span><span data-l="en">Training with Ramvo AI</span></small></span></a>
+      <a href="/demo/" style="--c: #a78bfa"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><span><b><span data-l="pl">Demo panelu</span><span data-l="en">Panel demo</span></b><small><span data-l="pl">Klikalny panel trenera</span><span data-l="en">Clickable trainer panel</span></small></span></a>
+      <a href="/legal/" style="--c: var(--muted)"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span><b><span data-l="pl">Dokumenty prawne</span><span data-l="en">Legal documents</span></b><small><span data-l="pl">Regulamin, prywatność</span><span data-l="en">Terms, privacy</span></small></span></a>
+    </nav>
+    <p class="mail"><span data-l="pl">Coś nie działa? Napisz: </span><span data-l="en">Something broken? Write to </span><a href="mailto:info@ramvo.app">info@ramvo.app</a></p>
+  </section>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function (id) { return document.getElementById(id); };
+  function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } return null; }
+
+  // ---------------------------------------------------------------- language
+  var LANG = (function () { var s = store('ramvo-lang'); if (s === 'pl' || s === 'en') return s; return (navigator.language || '').toLowerCase().indexOf('en') === 0 ? 'en' : 'pl'; })();
+  var T = {
+    pl: { cue: 'Przytrzymaj, żeby wycisnąć', lift: 'Pchaj!', lower: 'Puść i opuść', fail: 'Ciężko… odpocznij chwilę', done: 'Brawo! Wracamy do formy', doneShort: 'Gotowe', title: document.getElementById('tPl').innerHTML,
+          lines: ['Jeszcze jedno!', 'Czysta technika', 'Kto to dźwiga?', 'Rekord blisko', 'Trener byłby dumny', 'Bestia', 'Oddychaj i pchaj'], rep: function (n) { return 'Powtórzenie ' + n; }, pr: function (n) { return 'Nowy rekord: ' + n + ' powtórzeń'; } },
+    en: { cue: 'Hold to press', lift: 'Push!', lower: 'Release to lower', fail: 'Heavy… rest a moment', done: 'Nice! Back in shape', doneShort: 'Done', title: document.getElementById('tEn').innerHTML,
+          lines: ['One more!', 'Clean technique', 'Who lifts this?', 'PR is close', 'Your coach would be proud', 'Beast mode', 'Breathe and push'], rep: function (n) { return 'Rep ' + n; }, pr: function (n) { return 'New record: ' + n + ' reps'; } },
+  };
+  function setLang(l) {
+    LANG = T[l] ? l : 'pl';
+    root.setAttribute('data-lang', LANG); root.lang = LANG;
+    document.querySelectorAll('.lang button').forEach(function (b) { var on = b.getAttribute('data-lang') === LANG; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
+    document.title = (LANG === 'en' ? '404 · page not found · Ramvo' : '404 · strony nie ma · Ramvo');
+    store('ramvo-lang', LANG);
+    renderSuggest(); setCue();
+  }
+  document.querySelectorAll('.lang button').forEach(function (b) { b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); }); });
+
+  // ---------------------------------------------------------------- the path and "did you mean"
+  var path = location.pathname || '/';
+  try { path = decodeURIComponent(path); } catch (e) {}
+  $('pathPl').textContent = path; $('pathEn').textContent = path;
+  var ROUTES = [
+    ['/', 'Ramvo', 'Ramvo'], ['/trainers/', 'Dla trenerów', 'For trainers'], ['/pricing/', 'Cennik', 'Pricing'],
+    ['/pricing/trainers/', 'Cennik dla trenerów', 'Trainer pricing'], ['/pricing/premium/', 'Ramvo Premium', 'Ramvo Premium'], ['/demo/', 'Demo panelu', 'Panel demo'],
+    ['/legal/', 'Dokumenty prawne', 'Legal documents'], ['/legal/terms/', 'Regulamin', 'Terms of Service'], ['/legal/privacy/', 'Polityka prywatności', 'Privacy Policy'],
+    ['/legal/subscriptions/', 'Subskrypcje i płatności', 'Subscriptions and payments'], ['/legal/trainers/', 'Warunki dla trenerów', 'Trainer Terms'],
+    ['/legal/ai/', 'Informacja o Ramvo AI', 'Ramvo AI notice'], ['/legal/community/', 'Zasady społeczności', 'Community Guidelines'], ['/legal/cookies/', 'Pliki cookie', 'Cookies'],
+    ['https://admin.ramvo.app/', 'Panel trenera', 'Trainer panel'],
+  ];
+  var ALIAS = {
+    trener: '/trainers/', trenerzy: '/trainers/', trainer: '/trainers/', coach: '/trainers/', coaches: '/trainers/', 'dla-trenerow': '/trainers/',
+    cennik: '/pricing/', ceny: '/pricing/', price: '/pricing/', prices: '/pricing/', plans: '/pricing/', plany: '/pricing/',
+    premium: '/pricing/premium/', ai: '/pricing/premium/', 'ramvo-ai': '/pricing/premium/',
+    regulamin: '/legal/terms/', terms: '/legal/terms/', tos: '/legal/terms/', warunki: '/legal/terms/',
+    polityka: '/legal/privacy/', privacy: '/legal/privacy/', prywatnosc: '/legal/privacy/', rodo: '/legal/privacy/', gdpr: '/legal/privacy/',
+    cookies: '/legal/cookies/', ciasteczka: '/legal/cookies/', subskrypcje: '/legal/subscriptions/', platnosci: '/legal/subscriptions/', zwroty: '/legal/subscriptions/',
+    zasady: '/legal/community/', community: '/legal/community/', zgloszenia: '/legal/community/',
+    panel: 'https://admin.ramvo.app/', admin: 'https://admin.ramvo.app/', login: 'https://admin.ramvo.app/', logowanie: 'https://admin.ramvo.app/', zaloguj: 'https://admin.ramvo.app/',
+    demo: '/demo/', prawne: '/legal/', legal: '/legal/', dokumenty: '/legal/',
+  };
+  function norm(p) {
+    return String(p || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ł/g, 'l')
+      .replace(/index\.html?$/, '').replace(/\.html?$/, '').replace(/\/+/g, '/').replace(/\/$/, '') || '/';
+  }
+  function lev(a, b) {
+    var m = a.length, n = b.length, d = [], i, j;
+    for (i = 0; i <= m; i++) d[i] = [i];
+    for (j = 0; j <= n; j++) d[0][j] = j;
+    for (i = 1; i <= m; i++) for (j = 1; j <= n; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    return d[m][n];
+  }
+  function suggest(p) {
+    var n = norm(p);
+    if (n === '/') return null;
+    var segs = n.split('/').filter(Boolean);
+    var local = ROUTES.filter(function (r) { return r[0].indexOf('http') !== 0 && r[0] !== '/'; });
+    function closest() {
+      var best = null, score = 1;
+      local.forEach(function (r) { var rn = norm(r[0]); var s = lev(n, rn) / Math.max(n.length, rn.length); if (s < score) { score = s; best = r[0]; } });
+      return { route: best, score: score };
+    }
+    // 1. a near-exact typo of a real route (e.g. /pricing/trainer, /legal/term)
+    var c = closest();
+    if (c.score <= 0.25) return c.route;
+    // 2. the deepest real route the path starts with (e.g. /legal/terms/old-link)
+    var pre = null;
+    local.forEach(function (r) { var rn = norm(r[0]); if ((n + '/').indexOf(rn + '/') === 0 && (!pre || rn.length > norm(pre).length)) pre = r[0]; });
+    if (pre) return pre;
+    // 3. a known word anywhere in the path (last segment wins): /trener, /cennik, /regulamin
+    for (var i = segs.length - 1; i >= 0; i--) if (ALIAS[segs[i]]) return ALIAS[segs[i]];
+    // 4. a looser typo match
+    return c.score <= 0.4 ? c.route : null;
+  }
+  var SUG = suggest(path);
+  function renderSuggest() {
+    var box = $('suggest');
+    if (!SUG) { box.classList.remove('show'); return; }
+    var r = ROUTES.filter(function (x) { return x[0] === SUG; })[0];
+    $('sugName').textContent = r ? (LANG === 'en' ? r[2] : r[1]) : SUG;
+    $('sugGo').href = SUG;
+    box.classList.add('show');
+  }
+  window.__ramvo404 = { suggest: suggest, norm: norm };
+
+  // ---------------------------------------------------------------- the lift
+  var stage = $('stage'), pressBtn = $('press'), bar = $('bar'), shake = $('shake'), plL = $('plL'), plR = $('plR');
+  var cnt = $('cnt'), cntSub = $('cntSub'), prog = $('prog'), counter = $('counter'), shadow = $('shadow');
+  var TOP = 78, BOTTOM = 300, CIRC = 2 * Math.PI * 50, GOAL = 4;
+  var y = 0, v = 0, holding = false, locked = false, reps = 0, fatigue = 0, wob = 0, wobV = 0, solved = false, lineIdx = 0, failing = 0;
+  var best = parseInt(store('ramvo404-best') || '0', 10) || 0;
+  $('mBest').textContent = best;
+
+  function setCue(txt) {
+    var c = $('cue');
+    if (txt) { c.textContent = txt; return; }
+    c.innerHTML = '';
+    var s = document.createElement('span'); s.textContent = solved ? T[LANG].done : T[LANG].cue; c.appendChild(s);
+  }
+  function hold(on) {
+    if (holding === on) return;
+    holding = on;
+    stage.classList.toggle('holding', on); pressBtn.classList.toggle('holding', on);
+    if (on) { audio(); if (reduce) reducedRep(); }
+  }
+  // pointer and touch on the stage and the button
+  [stage, pressBtn].forEach(function (el) {
+    el.addEventListener('pointerdown', function (e) { e.preventDefault(); try { el.setPointerCapture(e.pointerId); } catch (x) {} hold(true); });
+    el.addEventListener('pointerup', function () { hold(false); });
+    el.addEventListener('pointercancel', function () { hold(false); });
+    el.addEventListener('lostpointercapture', function () { hold(false); });
+  });
+  pressBtn.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); hold(true); } });
+  pressBtn.addEventListener('keyup', function (e) { if (e.key === 'Enter') hold(false); });
+  window.addEventListener('keydown', function (e) {
+    if (e.code === 'Space' && !e.repeat && !/input|textarea|select/i.test((e.target && e.target.tagName) || '')) { e.preventDefault(); hold(true); }
+    egg(e.key);
+  });
+  window.addEventListener('keyup', function (e) { if (e.code === 'Space') hold(false); });
+  window.addEventListener('blur', function () { hold(false); });
+
+  function countRep() {
+    reps++;
+    fatigue = Math.min(0.92, fatigue + 0.075);
+    $('mReps').textContent = reps;
+    var shown = Math.min(reps, GOAL);
+    cnt.textContent = reps >= GOAL ? '✓' : String(reps);
+    cntSub.textContent = reps >= GOAL ? (LANG === 'en' ? 'REPS ' + reps : 'POWT. ' + reps) : '/ ' + GOAL;
+    prog.setAttribute('stroke-dasharray', (CIRC * shown / GOAL).toFixed(1) + ' ' + CIRC.toFixed(1));
+    prog.setAttribute('stroke', reps >= GOAL ? '#35d483' : '#3ec6ff');
+    counter.classList.remove('pop'); void counter.getBBox(); counter.classList.add('pop');
+    $('live').textContent = T[LANG].rep(reps);
+    if (navigator.vibrate) { try { navigator.vibrate(reps === GOAL ? [40, 60, 40] : 25); } catch (x) {} }
+    beep(reps === GOAL ? 880 : 520 + reps * 18);
+    if (reps > best) {
+      best = reps; store('ramvo404-best', String(best)); $('mBest').textContent = best;
+      if (reps > GOAL) { var pr = $('prChip'); pr.classList.add('show'); clearTimeout(pr._t); pr._t = setTimeout(function () { pr.classList.remove('show'); }, 1600); $('live').textContent = T[LANG].pr(best); }
+    }
+    if (reps === GOAL) solve();
+    else setCue(T[LANG].lines[lineIdx++ % T[LANG].lines.length]);
+  }
+  function solve() {
+    solved = true;
+    document.body.classList.add('solved');
+    $('tPl').innerHTML = 'Brawo! <em>Wracamy do formy</em>'; $('tEn').innerHTML = 'Nice! <em>Back in shape</em>';
+    $('live').textContent = T[LANG].done;
+    setCue();
+    confetti();
+  }
+  // reduced motion: one press = one rep, no physics
+  function reducedRep() {
+    bar.setAttribute('transform', 'translate(0 ' + TOP + ')');
+    setTimeout(function () { bar.setAttribute('transform', 'translate(0 ' + BOTTOM + ')'); countRep(); }, 260);
+  }
+
+  var last = performance.now();
+  function step(now) {
+    var dt = Math.min(0.033, (now - last) / 1000); last = now;
+    if (!reduce) {
+      var strength = Math.max(0.28, 1 - fatigue * 0.78);
+      var a;
+      if (holding) a = 9.5 * strength - 3.2;          // net push up, weaker with fatigue
+      else a = -7.5;                                   // gravity when released
+      v += a * dt;
+      v *= Math.pow(0.18, dt);                         // damping
+      y += v * dt;
+      if (y >= 1) { y = 1; if (v > 0) { wobV += v * 9; v = -v * 0.18; } }
+      if (y <= 0) { y = 0; if (v < 0) { wobV += v * 6; v = 0; } }
+      if (!holding) fatigue = Math.max(0, fatigue - 0.05 * dt);
+      // rep logic: reach lockout, then come back down
+      if (!locked && y > 0.965) { locked = true; setCue(T[LANG].lower); }
+      if (locked && y < 0.06) { locked = false; countRep(); }
+      // stuck mid-way while holding = failing rep
+      failing = holding && !locked && y > 0.1 && v < 0.05 ? failing + dt : 0;
+      if (failing > 1.6) { setCue(T[LANG].fail); failing = -2; }
+      if (holding && !locked && y < 0.9 && failing >= 0 && $('cue').textContent !== T[LANG].lift && y > 0.04) setCue(T[LANG].lift);
+      // plate wobble (spring on velocity)
+      wobV += (-wob * 60 - wobV * 7 + v * 6) * dt; wob += wobV * dt;
+      var ty = BOTTOM - (BOTTOM - TOP) * y;
+      var trem = holding && y > 0.05 && y < 0.97 ? Math.pow(fatigue, 1.6) * 3.2 : 0;
+      var tx = trem ? (Math.random() - 0.5) * trem : 0, tr = trem ? (Math.random() - 0.5) * trem * 0.25 : 0;
+      bar.setAttribute('transform', 'translate(0 ' + ty.toFixed(2) + ')');
+      shake.setAttribute('transform', 'translate(' + tx.toFixed(2) + ' ' + ((Math.random() - 0.5) * trem * 0.6).toFixed(2) + ') rotate(' + tr.toFixed(2) + ' 400 0)');
+      plL.setAttribute('transform', 'rotate(' + (wob * 1.4).toFixed(2) + ' 140 0)');
+      plR.setAttribute('transform', 'rotate(' + (-wob * 1.4).toFixed(2) + ' 660 0)');
+      shadow.setAttribute('rx', (300 - y * 70).toFixed(1)); shadow.setAttribute('opacity', (0.45 - y * 0.22).toFixed(2));
+    }
+    var fp = Math.round(fatigue * 100);
+    $('mFat').textContent = fp + '%'; $('fatBar').style.width = fp + '%';
+    requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+
+  // ---------------------------------------------------------------- sound (off by default)
+  var soundOn = store('ramvo404-sound') === '1', actx = null;
+  function paintSound() { var b = $('sound'); b.setAttribute('aria-pressed', soundOn); $('waves').setAttribute('opacity', soundOn ? '1' : '0.3'); }
+  $('sound').addEventListener('click', function () { soundOn = !soundOn; store('ramvo404-sound', soundOn ? '1' : '0'); paintSound(); audio(); beep(660); });
+  paintSound();
+  function audio() { if (!soundOn || actx) return; try { actx = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { actx = null; } }
+  function beep(f) {
+    if (!soundOn || !actx) return;
+    try {
+      var o = actx.createOscillator(), g = actx.createGain(), t = actx.currentTime;
+      o.type = 'triangle'; o.frequency.setValueAtTime(f, t); o.frequency.exponentialRampToValueAtTime(f * 1.5, t + 0.08);
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.18, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.18);
+      o.connect(g); g.connect(actx.destination); o.start(t); o.stop(t + 0.2);
+    } catch (e) {}
+  }
+
+  // ---------------------------------------------------------------- easter egg: type "ramvo"
+  var buf = '';
+  function egg(k) {
+    if (!k || k.length !== 1) return;
+    buf = (buf + k.toLowerCase()).slice(-5);
+    if (buf === 'ramvo') { stage.classList.toggle('gold'); beep(1046); $('live').textContent = 'RAMVO'; }
+  }
+
+  // ---------------------------------------------------------------- background: glows that follow the pointer + chalk dust
+  var gA = $('glowA'), gB = $('glowB'), px = innerWidth / 2, py = innerHeight / 3, ax = px, ay = py, bx = px, by = py;
+  window.addEventListener('pointermove', function (e) { px = e.clientX; py = e.clientY; }, { passive: true });
+  var dust = $('dust'), dc = dust.getContext('2d'), DPR = Math.min(2, window.devicePixelRatio || 1), parts = [];
+  function size() { [dust, $('confetti')].forEach(function (c) { c.width = innerWidth * DPR; c.height = innerHeight * DPR; }); }
+  size(); window.addEventListener('resize', size);
+  if (!reduce) for (var i = 0; i < 70; i++) parts.push({ x: Math.random() * innerWidth, y: Math.random() * innerHeight, r: Math.random() * 1.8 + 0.4, s: Math.random() * 0.25 + 0.05, o: Math.random() * 0.35 + 0.05 });
+  function bg() {
+    ax += (px - ax) * 0.05; ay += (py - ay) * 0.05; bx += (innerWidth - px - bx) * 0.03; by += (innerHeight - py - by) * 0.03;
+    gA.style.transform = 'translate(' + (ax - 310) + 'px,' + (ay - 310) + 'px)';
+    gB.style.transform = 'translate(' + (bx - 310) + 'px,' + (by - 310) + 'px)';
+    if (!reduce) {
+      dc.setTransform(DPR, 0, 0, DPR, 0, 0); dc.clearRect(0, 0, innerWidth, innerHeight);
+      var lift = holding ? 2.2 : 1;
+      parts.forEach(function (p) {
+        p.y -= p.s * lift; p.x += Math.sin((p.y + p.r * 50) / 60) * 0.15;
+        if (p.y < -5) { p.y = innerHeight + 5; p.x = Math.random() * innerWidth; }
+        dc.globalAlpha = p.o; dc.fillStyle = '#cfe9f5'; dc.beginPath(); dc.arc(p.x, p.y, p.r, 0, 6.283); dc.fill();
+      });
+    }
+    requestAnimationFrame(bg);
+  }
+  requestAnimationFrame(bg);
+
+  // ---------------------------------------------------------------- confetti
+  function confetti() {
+    if (reduce) return;
+    var c = $('confetti'), cx = c.getContext('2d'), cols = ['#3ec6ff', '#ff4d8d', '#35d483', '#ffc83d', '#a78bfa', '#f4f6f8'], ps = [];
+    var r = stage.getBoundingClientRect(), ox = r.left + r.width / 2, oy = r.top + r.height * 0.45;
+    for (var k = 0; k < 170; k++) {
+      var ang = Math.random() * Math.PI * 2, sp = Math.random() * 9 + 4;
+      ps.push({ x: ox, y: oy, vx: Math.cos(ang) * sp, vy: Math.sin(ang) * sp - 6, w: Math.random() * 8 + 5, h: Math.random() * 5 + 3, rot: Math.random() * 6.28, vr: (Math.random() - 0.5) * 0.4, c: cols[k % cols.length], life: 1 });
+    }
+    var t0 = performance.now();
+    (function frame(now) {
+      cx.setTransform(DPR, 0, 0, DPR, 0, 0); cx.clearRect(0, 0, innerWidth, innerHeight);
+      var alive = false;
+      ps.forEach(function (p) {
+        p.vy += 0.32; p.vx *= 0.985; p.x += p.vx; p.y += p.vy; p.rot += p.vr; p.life -= 0.006;
+        if (p.life > 0 && p.y < innerHeight + 20) alive = true;
+        cx.save(); cx.globalAlpha = Math.max(0, p.life); cx.translate(p.x, p.y); cx.rotate(p.rot); cx.fillStyle = p.c; cx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h); cx.restore();
+      });
+      if (alive && now - t0 < 5000) requestAnimationFrame(frame); else cx.clearRect(0, 0, innerWidth, innerHeight);
+    })(t0);
+  }
+
+  setLang(LANG);
+})();
+</script>
+</body>
+</html>
