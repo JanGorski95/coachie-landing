@@ -30,7 +30,7 @@
   window.Ramvo404 = { register: function (id, def) { window.__R404.q.push([id, def]); } };
   function add(src, cors) { var s = document.createElement('script'); s.src = src; s.async = true; if (cors) s.crossOrigin = 'anonymous'; document.head.appendChild(s); }
   if (pick === 'physics') add('https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js', true);
-  add('/assets/404/' + pick + '.js?v=3'); window.__R404.requested[pick] = true;
+  add('/assets/404/' + pick + '.js?v=4'); window.__R404.requested[pick] = true;
 })();
 </script>
 
@@ -184,7 +184,7 @@ html[data-lang="pl"] [data-l="pl"], html[data-lang="en"] [data-l="en"] { display
 <script>
 (function () {
   'use strict';
-  var VERSION = '3';
+  var VERSION = '4';
   var root = document.documentElement;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var $ = function (id) { return document.getElementById(id); };

@@ -11,7 +11,7 @@
     '.gm-card{position:absolute;left:50%;bottom:14px;transform:translate(-50%,16px);opacity:0;transition:opacity .25s,transform .25s;display:flex;gap:10px;align-items:center;background:rgba(21,24,28,.94);border:1px solid #2a323b;border-radius:16px;padding:8px 8px 8px 14px;pointer-events:none;white-space:nowrap;max-width:calc(100% - 28px)}' +
     '.gm-card.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}.gm-card b{font-weight:800}' +
     '.gm-card .btn{padding:9px 14px;font-size:.85rem}' +
-    '.gm-hud{position:absolute;left:14px;top:12px;pointer-events:none}' +
+    '.gm-hud{display:inline-flex;margin:0 0 10px}' +
     '@keyframes gmPulse{0%{r:6;opacity:.8}100%{r:40;opacity:0}}.gm-pulse{animation:gmPulse 1.4s ease-out infinite}';
   var ZONES = [
     { id: 'trainers', x: 0, y: 0, w: 5, h: 3, href: '/trainers/', pl: 'Strefa trenerów', en: 'Trainer zone', spl: 'dla trenerów', sen: 'for trainers', c: '#FF4D8D', icon: 'M-7 -3h14v9h-14z M-3 -3v-3h6v3' },
@@ -22,7 +22,7 @@
     { id: 'legal', x: 12, y: 7, w: 4, h: 2, href: '/legal/', pl: 'Szatnia', en: 'Locker room', spl: 'regulamin', sen: 'legal', c: '#8E97A3', icon: 'M-6 -7h12v14h-12z M2 0h2' },
   ];
   // furniture: blocked cells [x, y, kind]
-  var BLOCK = [[6, 3, 'rack'], [7, 3, 'rack'], [8, 3, 'rack'], [9, 3, 'rack'], [3, 4, 'bench'], [11, 5, 'bench'], [6, 5, 'plate'], [9, 5, 'plate'], [12, 1, 'tread'], [13, 1, 'tread'], [14, 1, 'tread'], [1, 1, 'mat'], [2, 1, 'mat']];
+  var BLOCK = [[6, 3, 'rack'], [7, 3, 'rack'], [8, 3, 'rack'], [9, 3, 'rack'], [3, 4, 'bench'], [11, 5, 'bench'], [6, 5, 'plate'], [9, 5, 'plate'], [12, 2, 'tread'], [13, 2, 'tread'], [14, 2, 'tread'], [0, 1, 'mat'], [4, 1, 'mat']];
   var S = null;
 
   function mount(el, api) {
@@ -30,8 +30,8 @@
     el.innerHTML =
       '<div class="scene-head"><b><span data-l="pl">Znajdź zgubioną stronę</span><span data-l="en">Find the lost page</span></b>' +
       '<span><span data-l="pl">Klikaj, żeby chodzić (albo strzałki / WASD). Strefy prowadzą do stron Ramvo.</span><span data-l="en">Click to walk (or arrows / WASD). Zones lead to Ramvo pages.</span></span></div>' +
+      '<span class="chip gm-hud" id="gmHud" aria-live="polite"></span>' +
       '<div class="stage gm-stage" id="gmStage" tabindex="0" aria-label="Gym map"><svg id="gmSvg" viewBox="0 0 ' + COLS * C + ' ' + ROWS * C + '"></svg>' +
-      '<span class="chip gm-hud" id="gmHud"></span>' +
       '<div class="gm-card" id="gmCard"><span id="gmCardTxt"></span><button type="button" class="btn" id="gmGo"></button></div></div>';
     var my = { raf: 0, off: [] }; S = my;
     var svg = document.getElementById('gmSvg'), stage = document.getElementById('gmStage');
@@ -68,6 +68,7 @@
       else if (k === 'tread') { mk('rect', { x: x + 10, y: y + 6, width: C - 20, height: C - 12, rx: 6, fill: '#1c232a', stroke: '#2f3943' }); mk('rect', { x: x + 15, y: y + 12, width: C - 30, height: C - 24, rx: 3, fill: '#11161b' }); }
       else mk('rect', { x: x + 6, y: y + 8, width: C - 12, height: C - 16, rx: 5, fill: '#1b2430' });
     });
+    svg.appendChild(zoneG); // zone icons and labels stay above the furniture
     var stepsG = mk('g', {}), lostG = mk('g', { opacity: 0 }), pathG = mk('g', {});
     // the lost page: a random free cell outside zones, far from the start
     var start = { x: 2, y: 7 }, lost;
