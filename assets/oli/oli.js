@@ -194,7 +194,14 @@
       screen.innerHTML = '<div class="fade-in" style="padding-top:30px;text-align:center"><div class="eyebrow">Identity verified</div>' +
         '<div class="big" style="margin:14px 0;color:var(--accent)">Oli Score<br>' + (S.score * 2) + '/10</div>' +
         '<p>' + (S.score >= 5 ? 'Suspiciously Oli. Welcome in.' : 'Not very Oli, but nobody else would try this hard. Welcome in.') + '</p>' +
-        '<button class="pill block" id="enter">Open Ramvo: Oli Edition</button></div>';
+        '<div class="card mission"><div class="eyebrow">Your mission, should you choose to accept it</div>' +
+        '<h3 style="margin:6px 0 8px">Find all 12 secrets</h3>' +
+        '<div class="mrow"><span>👆</span><div><b>Tap things.</b> Buttons, badges, logos, the clock, small print. If it looks clickable, click it. If it looks unclickable, click it harder. Sometimes more than once.</div></div>' +
+        '<div class="mrow"><span>⌨️</span><div><b>Type things.</b> Some secrets are words you just type, anywhere in the app. On a phone, use the box under "Psst. Hints".</div></div>' +
+        '<div class="mrow"><span>🕔</span><div><b>Mind the time.</b> Some secrets depend on the day and the hour. Or on how hard you tap the clock.</div></div>' +
+        '<div class="mrow"><span>🤫</span><div><b>Stuck?</b> "Psst. Hints" has one clue per secret. The counter shows how many you have found.</div></div>' +
+        '<div class="mrow"><span>🏆</span><div><b>Reward:</b> an official certificate and a coupon for a free coffee, made by Jan. Find all 12 to claim it.</div></div></div>' +
+        '<button class="pill block" id="enter">Accept and open Ramvo: Oli Edition</button></div>';
       $('enter').onclick = function () { S.stage = 'app'; S.tab = 'home'; save(); confetti(70); beep(1200, 0.2); render(); };
       return;
     }

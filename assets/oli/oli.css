@@ -189,3 +189,9 @@ body.under .screen { background: linear-gradient(180deg, rgba(10,90,120,.25), rg
 .barista button { background: var(--card2); border: 1px solid var(--border); border-radius: 12px; padding: 11px; font-weight: 800; }
 .barista button:hover { border-color: var(--accent); }
 .barista .bin { grid-column: span 2; color: var(--pink); }
+
+/* mission briefing after the quiz */
+.mission { text-align: left; margin: 16px 0; }
+.mrow { display: flex; gap: 10px; align-items: flex-start; padding: 7px 0; border-top: 1px solid var(--border); font-size: 14px; }
+.mrow:first-of-type { border-top: 0; }
+.mrow span { font-size: 18px; line-height: 1.3; }
