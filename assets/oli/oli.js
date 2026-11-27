@@ -287,7 +287,7 @@
     var ride = has('carpool')
       ? '<div class="tag green">★ 5/5</div><p style="margin:6px 0 0">"Smooth, punctual, great music, would ride again." (' + J() + ' was paid one coffee to write this.)</p>'
       : '<div class="tag pink">★ 1/5</div><p style="margin:6px 0 0">"Lasted longer than the working day. Asked 14 questions before the first roundabout."</p><button class="pill" id="ride" style="margin-top:10px">Request a ride from Oli</button>';
-    return '<div class="eyebrow">Profile</div><div class="card" style="margin-top:8px"><h3>Oli</h3>' +
+    return '<div class="eyebrow">Profile</div><div class="card" style="margin-top:8px"><h3>Oliver "Oli" Hoskins</h3><div class="muted small">AKA 4jin8 · gamertag, alter ego, and the only one who reads his emails</div>' +
       '<div class="muted">Head of Everything · MeetingSnore (employees: 1)</div>' +
       '<div class="day"><span class="tag">Diving</span><div>Qualified to teach others to breathe underwater. Not qualified to arrive on time.</div></div>' +
       '<div class="day"><span class="tag">Birthday</span><div>15 January <button class="link" id="bday">(probably)</button>. HR is checking.</div></div>' +
@@ -501,7 +501,7 @@
   function finale() {
     var today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
     sheet('<div class="cert"><h2>Certificate of Excellence</h2><div class="small">in Being Oli</div>' +
-      '<div class="who">Oliver "Oli"</div><div class="small">has completed Ramvo: Oli Edition, found all 12 secrets and, against all odds, remains employed.</div>' +
+      '<div class="who">Oliver "Oli" Hoskins</div><div class="small" style="margin-top:-4px">AKA 4jin8</div><div class="small">has completed Ramvo: Oli Edition, found all 12 secrets and, against all odds, remains employed.</div>' +
       '<table><tr><td>Punctuality</td><td>2/10 (traffic)</td></tr><tr><td>Nutrition</td><td>Meal Deal/10</td></tr>' +
       '<tr><td>Questions asked</td><td>∞</td></tr><tr><td>Diving</td><td>Instructor</td></tr><tr><td>Spurs trophies witnessed</td><td>0 (not his fault)</td></tr>' +
       '<tr><td>Contract</td><td>Renewed (Jan vouched)</td></tr></table>' +
