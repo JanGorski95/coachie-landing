@@ -174,3 +174,18 @@ body.under .screen { background: linear-gradient(180deg, rgba(10,90,120,.25), rg
 .badge-stats td:last-child { text-align: right; font-weight: 800; color: var(--accent); }
 @keyframes drop { from { transform: translateY(-120%); opacity: 0; } to { transform: none; opacity: 1; } }
 @keyframes swing { 25% { transform: rotate(4deg); } 75% { transform: rotate(-4deg); } }
+
+/* coffee break */
+.coffee-card { width: 100%; text-align: left; color: inherit; font: inherit; border-color: rgba(62,198,255,.45); }
+.coffee-card:hover { border-color: var(--accent); }
+.cup-wrap { position: relative; width: 120px; margin: 14px auto 6px; }
+.cup { position: relative; width: 120px; height: 130px; border: 5px solid #e9edf1; border-top: 0; border-radius: 0 0 34px 34px; overflow: hidden; background: rgba(255,255,255,.03); }
+.liquid { position: absolute; left: 0; right: 0; bottom: 0; transition: height .5s, background .5s; }
+.swirl { position: absolute; left: 50%; bottom: 18%; width: 60px; height: 22px; margin-left: -30px; border: 3px solid rgba(255,255,255,.35); border-radius: 50%; animation: swirl 1.2s linear infinite; }
+@keyframes swirl { to { transform: rotate(360deg); } }
+.handle { position: absolute; right: -26px; top: 24px; width: 30px; height: 50px; border: 5px solid #e9edf1; border-left: 0; border-radius: 0 22px 22px 0; }
+.cup-info { text-align: center; font-size: 13px; color: var(--muted); font-weight: 700; margin: 8px 0; }
+.barista { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.barista button { background: var(--card2); border: 1px solid var(--border); border-radius: 12px; padding: 11px; font-weight: 800; }
+.barista button:hover { border-color: var(--accent); }
+.barista .bin { grid-column: span 2; color: var(--pink); }

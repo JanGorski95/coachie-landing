@@ -68,7 +68,7 @@
   // ------------------------------------------------------------------ secrets
   var SECRETS = [
     { id: 'janet', name: 'Janet mode', hint: 'Type what you call your recruiter. Anywhere. Just type it.' },
-    { id: 'thai', name: 'Thailand mode', hint: 'Up, up, down, down, left, right, left, right, B, A. Or swipe it on the screen.' },
+    { id: 'coffee', name: 'Barista of the month', hint: 'Jan needs a coffee. Home screen. You know exactly how he takes it.' },
     { id: 'dev', name: "Oli's question log", hint: 'Developers tap logos. A lot. Seven times, to be precise.' },
     { id: 'simmer', name: 'Simmer cancelled', hint: 'Some subscriptions do not want to be cancelled. Be persistent.' },
     { id: 'lanyard', name: 'Hello, my name is 4jin8', hint: 'At the trade show you signed in under a very special name and wore it on your lanyard all day. Type it.' },
@@ -239,6 +239,7 @@
       '<div class="card"><div class="eyebrow">Macros</div><div class="rings" style="margin-top:10px">' +
       ring('4 g', 'protein', 0.03, '--pink') + ring('3/3', 'Meal Deals', 1, '--green') + ring('2', 'sweeteners', 1, '--accent') + '</div></div>' +
       '<div class="card"><div class="row between"><div><div class="eyebrow">Weather</div><b>Cloudy, 9°C. UV index 2.</b><div class="muted small">Ginger warning: SPF 50 recommended. Yes, even in winter.</div></div><span style="font-size:30px">☁</span></div></div>' +
+      '<button class="card coffee-card" id="coffeeBtn"><div class="eyebrow">Break time</div><div class="row between"><b>Coffee break: make Jan a coffee</b><span style="font-size:26px">☕</span></div><div class="muted small">Mandatory. Clause 12 applies.</div></button>' +
       '<div class="card"><div class="eyebrow">Ramvo tip</div><p style="margin:4px 0 0">Your coach suggests: start training. Your car suggests: drive Janet home. Your Simmer box suggests: you never cancelled it.</p></div>';
   }
   function ring(v, l, pct, col) {
@@ -338,6 +339,7 @@
   // per-tab interactions (some are secrets)
   var logoTaps = 0, logoT, badgeTaps = 0, dodges = 0;
   function wire() {
+    var cb = $('coffeeBtn'); if (cb) cb.onclick = coffeeBreak;
     var logo = $('logo');
     if (logo) logo.onclick = function () {
       logoTaps++; clearTimeout(logoT); logoT = setTimeout(function () { logoTaps = 0; }, 2500);
@@ -407,7 +409,7 @@
     }
   }
 
-  // ------------------------------------------------------------------ global secrets: typing, konami, swipes, clock, URL, dates
+  // ------------------------------------------------------------------ global secrets: typing, coffee break, clock, URL, dates
   var buf = '';
   function typed(ch) {
     if (S.stage !== 'app') return;
@@ -445,40 +447,56 @@
     });
     toast('Excuse logged. Excuse rejected.', 3400);
   }
-  var KONAMI = ['arrowup', 'arrowup', 'arrowdown', 'arrowdown', 'arrowleft', 'arrowright', 'arrowleft', 'arrowright', 'b', 'a'];
-  var kpos = 0;
-  function konamiStep(k) {
-    kpos = k === KONAMI[kpos] ? kpos + 1 : (k === KONAMI[0] ? 1 : 0);
-    if (kpos === KONAMI.length) { kpos = 0; thailand(); }
-  }
-  var SWIPES = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right'];
-  var spos = 0;
-  function swipeStep(d) {
-    spos = d === SWIPES[spos] ? spos + 1 : (d === SWIPES[0] ? 1 : 0);
-    if (spos === SWIPES.length) { spos = 0; thailand(); }
-  }
-  function thailand() {
-    if (S.stage !== 'app') return;
-    S.under = !S.under; save(); bubbles(S.under);
-    if (!found('thai')) toast(S.under ? 'Diving again. Sawasdee krap.' : 'Back on dry land.');
-    else toast('Thailand mode: you are underwater. Sawasdee krap, instructor.', 3400);
+  // coffee break: make Jan a coffee (milk, exactly two sweeteners, stirred)
+  function coffeeBreak() {
+    var c = { coffee: false, milk: false, sweet: 0, stirred: false };
+    function paint(msg, bad) {
+      var fill = (c.coffee ? 45 : 0) + (c.milk ? 30 : 0);
+      var colour = c.coffee ? (c.milk ? '#c69c6d' : '#3b2414') : '#f1ece4';
+      sheet('<h3>Coffee break</h3><p class="muted small">Make Jan a coffee. He has standards. You know them.</p>' +
+        '<div class="cup-wrap"><div class="cup"><div class="liquid" style="height:' + fill + '%;background:' + colour + '"></div>' +
+        (c.stirred ? '<div class="swirl"></div>' : '') + '</div><div class="handle"></div></div>' +
+        '<div class="cup-info">' + (c.coffee ? 'Coffee ✓' : 'No coffee') + ' · ' + (c.milk ? 'Milk ✓' : 'No milk') + ' · Sweeteners: ' + c.sweet + (c.stirred ? ' · Stirred ✓' : '') + '</div>' +
+        '<div class="barista">' +
+        '<button data-b="coffee">Pour coffee</button><button data-b="milk">Add milk</button>' +
+        '<button data-b="sweet">Add sweetener</button><button data-b="stir">Stir</button>' +
+        '<button data-b="bin" class="bin">Pour it away</button></div>' +
+        '<div class="err" style="text-align:center;color:' + (bad ? 'var(--pink)' : 'var(--green)') + '">' + (msg || '') + '</div>' +
+        '<button class="pill block" data-b="serve">Serve to Jan</button>');
+      $('sheet').querySelector('.panel').onclick = act;
+    }
+    function act(e) {
+      var b = e.target.closest('[data-b]'); if (!b) return;
+      var k = b.dataset.b;
+      beep(500 + Math.random() * 300, 0.05);
+      if (k === 'coffee') { if (c.coffee) return paint('One shot is enough. Jan has to sleep at some point.', true); c.coffee = true; c.stirred = false; return paint(); }
+      if (k === 'milk') { if (c.milk) return paint('It is a coffee, not a milkshake.', true); c.milk = true; c.stirred = false; return paint(); }
+      if (k === 'sweet') { c.sweet++; c.stirred = false; return paint(c.sweet > 2 ? 'That is ' + c.sweet + ' sweeteners. This is now a Meal Deal in a cup.' : '', c.sweet > 2); }
+      if (k === 'stir') { if (!c.coffee && !c.milk) return paint('Stirring an empty cup. Very you.', true); c.stirred = true; return paint('Stirred. Not shaken.'); }
+      if (k === 'bin') { c = { coffee: false, milk: false, sweet: 0, stirred: false }; return paint('Poured away. Like Spurs\' title hopes.', true); }
+      if (k === 'serve') {
+        var why = !c.coffee ? 'That is a cup of ' + (c.milk ? 'warm milk' : 'nothing') + '. Jan looked at you for a long time.'
+          : !c.milk ? 'Black? Have you even met Jan?'
+          : c.sweet < 2 ? (c.sweet ? 'One sweetener. Jan can taste the disrespect.' : 'No sweeteners. Jan is now writing your contract review.')
+          : c.sweet > 2 ? 'Too sweet. Jan is now vibrating at a frequency only dogs can hear.'
+          : !c.stirred ? 'The sweeteners are sitting at the bottom, like Spurs in the table. Stir it.'
+          : null;
+        if (why) { buzz(80); return paint(why, true); }
+        $('sheet').hidden = true;
+        found('coffee');
+        toast('Jan: "Perfect. Your contract is extended by one day."', 3600);
+        confetti(40);
+      }
+    }
+    paint();
   }
   document.addEventListener('keydown', function (e) {
     var tag = (e.target.tagName || '').toLowerCase();
     if (tag === 'input' && !e.target.classList.contains('typebox')) return;
     if (tag === 'textarea') return;
     var k = (e.key || '').toLowerCase();
-    if (S.stage === 'app') konamiStep(k);
     if (k.length === 1 && /[a-z0-9]/.test(k) && !e.target.classList.contains('typebox')) typed(k);
   });
-  var tx = null, ty = null;
-  screen.addEventListener('touchstart', function (e) { var t = e.touches[0]; tx = t.clientX; ty = t.clientY; }, { passive: true });
-  screen.addEventListener('touchend', function (e) {
-    if (tx === null || S.stage !== 'app') return;
-    var t = e.changedTouches[0], dx = t.clientX - tx, dy = t.clientY - ty; tx = null;
-    if (Math.max(Math.abs(dx), Math.abs(dy)) < 60) return;
-    swipeStep(Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? 'right' : 'left') : (dy > 0 ? 'down' : 'up'));
-  }, { passive: true });
 
   // clock: real UK time; tapping it "fast-forwards" through the week
   // [status-bar time, Dynamic Island label]
@@ -557,7 +575,6 @@
     else renderApp();
   }
   setInterval(paintClock, 30000);
-  bubbles(S.under && S.stage === 'app');
   render();
   // URL secret and the real Friday evening, once inside the app
   if (S.stage === 'app') {
