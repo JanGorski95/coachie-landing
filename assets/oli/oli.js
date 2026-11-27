@@ -265,7 +265,7 @@
       '<div class="card"><div class="eyebrow">Your recruiter</div><p style="margin:4px 0 0">' + J() + ' ran your interview, gave the green light and has vouched for you ever since. ' + J() + ' would like that on the record. And a coffee.</p></div>' +
       '<div class="card"><div class="eyebrow">Performance review</div>' +
       '<div class="day"><span class="tag">Punctuality</span><div>2/10 (traffic, allegedly)</div></div>' +
-      '<div class="day"><span class="tag">Client care</span><div>Distribution grade. Replies in 3-5 working days, like a true TD Synnex professional.</div></div>' +
+      '<div class="day"><span class="tag">Client care</span><div>Distribution grade. Replies in 3-5 working days, like a true Westcoast professional.</div></div>' +
       '<div class="day"><span class="tag">Curiosity</span><div>Off the charts. Mostly questions that did not need asking.</div></div>' +
       '<div class="day"><span class="tag">Team size</span><div>1. You are the whole of MeetingSnore. Also its worst-performing and best-performing employee.</div></div></div>';
   }
@@ -284,7 +284,7 @@
   }
   var POEM = [
     'He drives to work through traffic jams that only he can see,',
-    'He tells his clients "three to five days", the TD Synnex way, for free.',
+    'He tells his clients "three to five days", the Westcoast way, for free.',
     'He taught the fish in Thailand how to breathe beneath the sea,',
     'But cannot find the meeting room that clearly says "Room B".',
     'His lunch is a Meal Deal, and his dinner is one too,',
