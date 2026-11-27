@@ -1,6 +1,6 @@
 /* Ramvo: Oli Edition. A joke page for Oli, from Jan (Janet).
    Flow: fake SSO login -> "are you the real Oli" quiz -> the app with
-   12 secrets. Answers live in this file on purpose: it's a joke, not a vault. */
+   13 secrets. Answers live in this file on purpose: it's a joke, not a vault. */
 (function () {
   'use strict';
 
@@ -79,6 +79,7 @@
     { id: 'friday', name: 'Weekend mode', hint: 'Time flies when you tap the clock. Aim for Friday after five.' },
     { id: 'carpool', name: 'Five-star ride', hint: 'Somebody needs a lift home. Offer one.' },
     { id: 'poem', name: 'The poem', hint: 'You wrote Janet a poem. Ask Coach Janet for one back and read it to the end.' },
+    { id: 'trained', name: 'Actually trained', hint: 'Your plan has a button you have never pressed. Press it, and do not take the easy way out.' },
   ];
   // drop secrets that no longer exist (e.g. the old 'coys' one) from saved progress
   S.found = S.found.filter(function (id) { return SECRETS.some(function (x) { return x.id === id; }); });
@@ -195,12 +196,12 @@
         '<div class="big" style="margin:14px 0;color:var(--accent)">Oli Score<br>' + (S.score * 2) + '/10</div>' +
         '<p>' + (S.score >= 5 ? 'Suspiciously Oli. Welcome in.' : 'Not very Oli, but nobody else would try this hard. Welcome in.') + '</p>' +
         '<div class="card mission"><div class="eyebrow">Your mission, should you choose to accept it</div>' +
-        '<h3 style="margin:6px 0 8px">Find all 12 secrets</h3>' +
+        '<h3 style="margin:6px 0 8px">Find all ' + SECRETS.length + ' secrets</h3>' +
         '<div class="mrow"><span>👆</span><div><b>Tap things.</b> Buttons, badges, logos, the clock, small print. If it looks clickable, click it. If it looks unclickable, click it harder. Sometimes more than once.</div></div>' +
         '<div class="mrow"><span>⌨️</span><div><b>Type things.</b> Some secrets are words you just type, anywhere in the app. On a phone, use the box under "Psst. Hints".</div></div>' +
         '<div class="mrow"><span>🕔</span><div><b>Mind the time.</b> Some secrets depend on the day and the hour. Or on how hard you tap the clock.</div></div>' +
         '<div class="mrow"><span>🤫</span><div><b>Stuck?</b> "Psst. Hints" has one clue per secret. The counter shows how many you have found.</div></div>' +
-        '<div class="mrow"><span>🏆</span><div><b>Reward:</b> an official certificate and a coupon for a free coffee, made by Jan. Find all 12 to claim it.</div></div></div>' +
+        '<div class="mrow"><span>🎁</span><div><b>Reward:</b> classified. Find all ' + SECRETS.length + ' and it is yours. All we can say is that Jan is involved, and that you will want a screenshot.</div></div></div>' +
         '<button class="pill block" id="enter">Accept and open Ramvo: Oli Edition</button></div>';
       $('enter').onclick = function () { S.stage = 'app'; S.tab = 'home'; save(); confetti(70); beep(1200, 0.2); render(); };
       return;
@@ -241,7 +242,7 @@
     return bday + weekend +
       '<div class="row between"><div><div class="muted small">' + todayLabel() + '</div><h2>Hi, Oli</h2></div><button class="logo" id="logo" aria-label="Ramvo">r</button></div>' +
       '<div class="card" style="margin-top:14px"><div class="eyebrow">Today</div><h3 style="margin:4px 0">Leg day</h3><div class="muted">Postponed. Reason: traffic.</div></div>' +
-      '<div class="card"><div class="row between"><div><div class="big" style="color:var(--pink)">0</div><div class="muted small">days at the gym</div></div>' +
+      '<div class="card"><div class="row between"><div><div class="big" style="color:var(--pink)">' + (has('trained') ? 1 : 0) + '</div><div class="muted small">' + (has('trained') ? 'day at the gym. Historic.' : 'days at the gym') + '</div></div>' +
       '<div style="text-align:right"><div class="big" style="color:var(--green)">63</div><div class="muted small">days of Meal Deals in a row</div></div></div></div>' +
       '<div class="card"><div class="eyebrow">Macros</div><div class="rings" style="margin-top:10px">' +
       ring('4 g', 'protein', 0.03, '--pink') + ring('3/3', 'Meal Deals', 1, '--green') + ring('2', 'sweeteners', 1, '--accent') + '</div></div>' +
@@ -255,8 +256,10 @@
   }
   function plan() {
     return '<div class="eyebrow">Plan by Coach Janet</div><h2 style="margin:4px 0 12px">Your 4-day split</h2>' +
+      (has('trained') ? '<div class="card"><span class="tag green">COMPLETED</span><h3 style="margin:8px 0 4px">Desk intervals done. 10 reps. Zero excuses.</h3><div class="muted">First in recorded history. The Meal Deal can wait.</div></div>'
+        : '<button class="pill block" id="workout" style="margin-bottom:12px">Start today’s workout: desk intervals</button>') +
       '<div class="card">' +
-      day('A', 'Cardio', 'Walk from the car park to your desk. Arrive before 9. Optional: arrive before 9:30.') +
+      day('A', 'Cardio', 'Laps of the office. Your favourite. Nobody knows where you are going, including you. Target: 12 laps, 0 destinations.') +
       day('B', 'Strength', 'Lift a coffee cup that ' + J() + ' made. 3 sets of "thank you". Rest 90 seconds between sips.') +
       day('C', 'Mobility', 'Ask one question without a question mark. Then think about it. Then do not ask it.') +
       day('D', 'Recovery', 'Cancel Simmer. (Advanced. Many have tried.)') +
@@ -347,6 +350,7 @@
   var logoTaps = 0, logoT, badgeTaps = 0, dodges = 0;
   function wire() {
     var cb = $('coffeeBtn'); if (cb) cb.onclick = coffeeBreak;
+    var wk = $('workout'); if (wk) wk.onclick = workout;
     var logo = $('logo');
     if (logo) logo.onclick = function () {
       logoTaps++; clearTimeout(logoT); logoT = setTimeout(function () { logoTaps = 0; }, 2500);
@@ -454,6 +458,45 @@
     });
     toast('Excuse logged. Excuse rejected.', 3400);
   }
+  // workout: 10 reps, excuses pop up; accepting any of them ends the session
+  function workout() {
+    var reps = 0;
+    var EXCUSES = {
+      3: ['You are standing. Go for a wander around the office instead?', 'Go for a wander', 'You wandered off. Nobody knows where. Neither do you. Workout over.'],
+      5: ['It is Meal Deal o\'clock. Quick break?', 'Take the break', 'The break became lunch. Lunch became the afternoon. Workout over.'],
+      7: ['Quick question: do warm-ups count as reps?', 'Ask the question', 'That was a question. Workout over, as per Handbook 4.2.'],
+      9: ['Simmer box delivered. Go and check it?', 'Check the box', 'It was risotto again. Workout over.'],
+    };
+    function paint(note) {
+      var ex = EXCUSES[reps];
+      sheet('<h3>Desk intervals</h3><p class="muted small">Your sit-stand desk, finally used for something. 10 reps. Coach Janet is watching.</p>' +
+        '<div class="desk-wrap"><div class="desk ' + (reps % 2 ? 'up' : '') + '"><div class="top"></div><div class="leg"></div></div><div class="desk-label">' + (reps % 2 ? 'Standing. Pace around the office now, as is tradition.' : 'Sitting.') + '</div></div>' +
+        '<div class="reps">' + Array.apply(null, Array(10)).map(function (_, i) { return '<i class="' + (i < reps ? 'on' : '') + '"></i>'; }).join('') + '</div>' +
+        '<div class="big" style="text-align:center;margin:10px 0">' + reps + ' / 10</div>' +
+        (ex ? '<div class="card excuse"><b>' + ex[0] + '</b><div class="row" style="margin-top:10px"><button class="pill ghost" data-w="excuse">' + ex[1] + '</button><button class="pill" data-w="push">Keep going</button></div></div>'
+            : '<button class="pill block" data-w="rep" style="font-size:20px;padding:18px">' + (reps % 2 ? 'Sit down' : 'Stand up') + '</button>') +
+        '<div class="err" style="text-align:center">' + (note || '') + '</div>');
+      $('sheet').querySelector('.panel').onclick = act;
+    }
+    function act(e) {
+      var b = e.target.closest('[data-w]'); if (!b) return;
+      var k = b.dataset.w;
+      if (k === 'excuse') {
+        var msg = EXCUSES[reps][2]; buzz(120); beep(180, 0.3);
+        sheet('<h3>Workout cancelled</h3><p>' + msg + '</p><p class="muted">Reps completed: ' + reps + '. Coach Janet is not angry, just disappointed.</p><button class="pill block" data-close>Try again tomorrow (today)</button>');
+        return;
+      }
+      if (k === 'push') { delete EXCUSES[reps]; beep(900, 0.08); return paint('Excuse rejected. Look at you.'); }
+      reps++; beep(400 + reps * 60, 0.06); buzz(15);
+      if (reps >= 10) {
+        $('sheet').hidden = true; found('trained'); toast('10 reps. Zero excuses. Who are you?', 3400); renderApp();
+        return;
+      }
+      paint();
+    }
+    paint();
+  }
+
   // coffee break: make Jan a coffee (milk, exactly two sweeteners, stirred)
   function coffeeBreak() {
     var c = { coffee: false, milk: false, sweet: 0, stirred: false };
@@ -555,7 +598,7 @@
   function finale() {
     var today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
     sheet('<div class="cert"><h2>Certificate of Excellence</h2><div class="small">in Being Oli</div>' +
-      '<div class="who">Oliver "Oli" Hoskins</div><div class="small" style="margin-top:-4px">AKA 4jin8</div><div class="small">has completed Ramvo: Oli Edition, found all 12 secrets and, against all odds, remains employed.</div>' +
+      '<div class="who">Oliver "Oli" Hoskins</div><div class="small" style="margin-top:-4px">AKA 4jin8</div><div class="small">has completed Ramvo: Oli Edition, found all ' + SECRETS.length + ' secrets and, against all odds, remains employed.</div>' +
       '<table><tr><td>Punctuality</td><td>2/10 (traffic)</td></tr><tr><td>Nutrition</td><td>Meal Deal/10</td></tr>' +
       '<tr><td>Questions asked</td><td>∞</td></tr><tr><td>Diving</td><td>Instructor</td></tr><tr><td>Spurs trophies witnessed</td><td>0 (not his fault)</td></tr>' +
       '<tr><td>Contract</td><td>Renewed (Jan vouched)</td></tr></table>' +
