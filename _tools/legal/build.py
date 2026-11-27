@@ -178,7 +178,7 @@ def page(title_pl, title_en, desc_pl, url, body_by_lang, active):
 </div>
 ''')
     foot = f'''</div>
-<footer class="foot"><span data-l="pl">© 2026 Ramvo Ltd · spółka zarejestrowana w Anglii i Walii, nr 17606223 · 53 Prospect Street, Reading RG4 8JN · info@ramvo.app</span><span data-l="en">© 2026 Ramvo Ltd · registered in England and Wales, company no. 17606223 · 53 Prospect Street, Reading RG4 8JN · info@ramvo.app</span></footer>
+<footer class="foot"><span data-l="pl">© 2026 Ramvo Ltd · spółka zarejestrowana w Anglii i Walii, nr 17606223 · info@ramvo.app</span><span data-l="en">© 2026 Ramvo Ltd · registered in England and Wales, company no. 17606223 · info@ramvo.app</span></footer>
 <script>
 {JS}
 </script>
