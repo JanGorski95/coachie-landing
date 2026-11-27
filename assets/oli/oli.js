@@ -469,7 +469,8 @@
   }, { passive: true });
 
   // clock: real UK time; tapping it "fast-forwards" through the week
-  var FAKE = ['Mon 09:47 (late)', 'Tue 10:00 (review)', 'Wed 13:05 (Meal Deal)', 'Thu 16:59', 'Fri 17:01'];
+  // [status-bar time, Dynamic Island label]
+  var FAKE = [['9:47', 'Mon · 9:47 · late (traffic)'], ['10:00', 'Tue · 10:00 · contract review'], ['13:05', "Wed · 13:05 · Meal Deal o'clock"], ['16:59', 'Thu · 16:59 · almost Friday'], ['17:01', 'Fri · 17:01 · weekend']];
   function ukNow() {
     try {
       var p = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(new Date());
@@ -480,11 +481,18 @@
   function isBirthday() {
     try { var d = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', day: 'numeric', month: 'numeric' }).format(new Date()); return d === '15/01'; } catch (e) { return false; }
   }
-  function todayLabel() { return S.clock >= 0 ? FAKE[S.clock] : 'Today'; }
-  function paintClock() { var n = ukNow(); $('clock').textContent = S.clock >= 0 ? FAKE[S.clock] : (+n.hour) + ':' + n.minute; }
+  function todayLabel() { return S.clock >= 0 ? FAKE[S.clock][1] : 'Today'; }
+  function paintClock() { var n = ukNow(); $('clock').textContent = S.clock >= 0 ? FAKE[S.clock][0] : (+n.hour) + ':' + n.minute; }
+  // the Dynamic Island grows for a moment with the full label, like a live activity
+  var islandT;
+  function island(text) {
+    var el = document.querySelector('.island');
+    el.textContent = text; el.classList.add('open');
+    clearTimeout(islandT); islandT = setTimeout(function () { el.classList.remove('open'); el.textContent = ''; }, 2600);
+  }
   $('clock').onclick = function () {
     if (S.stage !== 'app') return;
-    S.clock = (S.clock + 1) % FAKE.length; save(); paintClock(); beep(600, 0.04);
+    S.clock = (S.clock + 1) % FAKE.length; save(); paintClock(); island(FAKE[S.clock][1]); beep(600, 0.04);
     if (S.clock === FAKE.length - 1) { found('friday'); if (S.tab === 'home') renderApp(); }
   };
 

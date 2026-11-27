@@ -15,7 +15,8 @@ h1, h2, h3 { font-family: var(--head); font-weight: 800; letter-spacing: -.01em;
 /* ---------- layout: phone frame on desktop, full screen on phones */
 .stage { min-height: 100vh; display: flex; align-items: center; justify-content: center; gap: 40px; padding: 24px 16px; }
 .phone { position: relative; width: 390px; height: min(844px, calc(100vh - 48px)); min-height: 640px; background: var(--bg); border: 12px solid #000; border-radius: 52px; box-shadow: 0 0 0 2px #2a2f36, 0 30px 80px rgba(0,0,0,.6); overflow: hidden; display: flex; flex-direction: column; }
-.island { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 110px; height: 30px; background: #000; border-radius: 20px; z-index: 5; }
+.island { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 110px; height: 30px; background: #000; border-radius: 20px; z-index: 5; display: flex; align-items: center; justify-content: center; color: #fff; font: 800 12px var(--body); white-space: nowrap; overflow: hidden; transition: width .35s cubic-bezier(.2,.9,.3,1.2), height .35s; }
+.island.open { width: min(260px, 80%); height: 36px; }
 .status { display: flex; justify-content: space-between; align-items: center; padding: 14px 28px 4px; font-size: 13px; font-weight: 700; z-index: 4; }
 .clock { background: none; border: 0; padding: 0; font-weight: 800; }
 .sig { color: var(--muted); font-size: 11px; letter-spacing: 1px; }
@@ -36,7 +37,8 @@ body.in-app .screen { padding-bottom: 24px; }
 @media (max-width: 760px) {
   .stage { padding: 0; display: block; }
   .phone { width: 100%; height: 100dvh; min-height: 0; border: 0; border-radius: 0; box-shadow: none; }
-  .island { display: none; }
+  .island { display: none; position: fixed; top: max(8px, env(safe-area-inset-top)); z-index: 40; }
+  .island.open { display: flex; }
   .status { padding-top: max(12px, env(safe-area-inset-top)); }
   .side { position: fixed; z-index: 30; left: 12px; right: 12px; bottom: calc(76px + env(safe-area-inset-bottom)); width: auto; flex-direction: row; align-items: center; gap: 8px; background: rgba(21,24,28,.92); backdrop-filter: blur(8px); border: 1px solid var(--border); border-radius: 14px; padding: 6px 8px 6px 12px; }
   .side .meter, .side .side-row { display: none; }
