@@ -30,16 +30,16 @@ OUT = os.path.join(ROOT, 'legal')
 
 # slug, version, effective date (ISO), nav label pl/en, hub blurb pl/en, icon
 DOCS = [
-    ('terms', '2.0', '2026-11-26', 'Regulamin', 'Terms of Service',
+    ('terms', '2.1', '2026-11-27', 'Regulamin', 'Terms of Service',
      'Zasady korzystania z Ramvo dla wszystkich: konto, zdrowie, trenerzy, treści, odpowiedzialność, reklamacje.',
      'The rules for everyone using Ramvo: account, health, trainers, content, liability, complaints.', 'doc'),
-    ('subscriptions', '1.1', '2026-11-26', 'Subskrypcje i płatności', 'Subscriptions and payments',
+    ('subscriptions', '1.2', '2026-11-27', 'Subskrypcje i płatności', 'Subscriptions and payments',
      'Plany, okresy próbne, odnowienia, rezygnacja, 14 dni na odstąpienie, zwroty, zakupy w App Store i Google Play.',
      'Plans, trials, renewals, cancelling, the 14-day right to cancel, refunds, App Store and Google Play purchases.', 'card'),
-    ('trainers', '1.2', '2026-11-26', 'Warunki dla trenerów', 'Trainer Terms',
+    ('trainers', '1.3', '2026-11-27', 'Warunki dla trenerów', 'Trainer Terms',
      'Umowa B2B dla trenerów: plany i limity klientów, treści i filmy, obowiązki wobec danych klientów.',
      'The B2B agreement for trainers: plans and client limits, content and videos, duties for client data.', 'briefcase'),
-    ('privacy', '2.0', '2026-11-26', 'Polityka prywatności', 'Privacy Policy',
+    ('privacy', '2.1', '2026-11-27', 'Polityka prywatności', 'Privacy Policy',
      'Jakie dane zbieramy, po co, na jakiej podstawie, komu je powierzamy, jak długo trzymamy i jakie masz prawa.',
      'What data we collect, why, on what legal basis, who processes it, how long we keep it and your rights.', 'shield'),
     ('ai', '1.1', '2026-11-26', 'Ramvo AI', 'Ramvo AI',
@@ -178,7 +178,7 @@ def page(title_pl, title_en, desc_pl, url, body_by_lang, active):
 </div>
 ''')
     foot = f'''</div>
-<footer class="foot"><span data-l="pl">Ramvo · info@ramvo.app</span><span data-l="en">Ramvo · info@ramvo.app</span></footer>
+<footer class="foot"><span data-l="pl">© 2026 Ramvo Ltd · spółka zarejestrowana w Anglii i Walii, nr 17606223 · 53 Prospect Street, Reading RG4 8JN · info@ramvo.app</span><span data-l="en">© 2026 Ramvo Ltd · registered in England and Wales, company no. 17606223 · 53 Prospect Street, Reading RG4 8JN · info@ramvo.app</span></footer>
 <script>
 {JS}
 </script>

@@ -1,18 +1,18 @@
 {
-  "_comment": "Who provides Ramvo. When Ramvo Ltd is incorporated: set full/short to 'Ramvo Ltd', registration to 'Company registered in England and Wales, company number ...', address to the registered office, bump the document versions in build.py and announce the change of provider to users at least 30 days ahead.",
+  "_comment": "Who provides Ramvo. Ramvo Ltd (company number 17606223, England and Wales) took over from Jan Gorski (sole trader) on 2026-11-27. Keep this in step with Companies House; when the registered office or an ICO registration number changes, edit here, run build.py, bump the document versions and migrate legal_versions.",
   "email": "info@ramvo.app",
   "pl": {
-    "full": "Jan Gorski, przedsiębiorca prowadzący jednoosobową działalność gospodarczą w Zjednoczonym Królestwie (sole trader) pod nazwą handlową Ramvo",
-    "short": "Ramvo",
-    "address": "Adres do korespondencji: na życzenie, prześlij prośbę na info@ramvo.app. Adres geograficzny zostanie opublikowany przed uruchomieniem płatnych subskrypcji.",
-    "registration": "Wniosek o rejestrację spółki Ramvo Ltd (Anglia i Walia) jest w toku. Po rejestracji spółka przejmie świadczenie usługi, o czym poinformujemy z wyprzedzeniem.",
+    "full": "Ramvo Ltd, spółka z ograniczoną odpowiedzialnością (private limited company) zarejestrowana w Anglii i Walii pod numerem 17606223",
+    "short": "Ramvo Ltd",
+    "address": "Siedziba spółki (registered office): 53 Prospect Street, Reading RG4 8JN, Wielka Brytania. Najszybciej skontaktujesz się z nami e-mailem: info@ramvo.app.",
+    "registration": "Spółka jest wpisana do rejestru Companies House (Anglia i Walia) pod numerem 17606223. Od 27 listopada 2026 r. świadczy Usługę zamiast Jana Gorskiego, który wcześniej prowadził Ramvo jako przedsiębiorca (sole trader).",
     "response": "Odpowiadamy zwykle w ciągu 2 dni roboczych, a na reklamacje i wnioski dotyczące danych najpóźniej w terminach podanych w dokumentach."
   },
   "en": {
-    "full": "Jan Gorski, a sole trader in the United Kingdom trading as Ramvo",
-    "short": "Ramvo",
-    "address": "Postal address: available on request, write to info@ramvo.app. A geographic address will be published before paid subscriptions go live.",
-    "registration": "An application to incorporate Ramvo Ltd (England and Wales) is in progress. Once registered, the company will take over the service, and we will tell you in advance.",
+    "full": "Ramvo Ltd, a private limited company registered in England and Wales under company number 17606223",
+    "short": "Ramvo Ltd",
+    "address": "Registered office: 53 Prospect Street, Reading RG4 8JN, United Kingdom. The quickest way to reach us is by e-mail: info@ramvo.app.",
+    "registration": "The company is registered at Companies House (England and Wales) under number 17606223. Since 27 November 2026 it provides the Service in place of Jan Gorski, who previously ran Ramvo as a sole trader.",
     "response": "We usually reply within 2 working days, and to complaints and data requests no later than the deadlines set out in the documents."
   }
 }
