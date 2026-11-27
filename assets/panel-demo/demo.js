@@ -205,7 +205,13 @@
   function esc(s) { if (LANG === 'en' && typeof s === 'string' && EN[s]) s = EN[s]; return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function sum(a, f) { var s = 0; for (var i = 0; i < a.length; i++) s += Number(f ? f(a[i]) : a[i]) || 0; return s; }
   function grp(n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, LANG === 'pl' ? ' ' : ','); }
-  function zl(n) { return grp(n) + ' zł'; }
+  // Currency follows the language: PL shows zł, EN shows £ converted at a
+  // fixed display rate (demo data is stored in PLN).
+  var PLN_PER_GBP = 5;
+  function cv(n) { return LANG === 'en' ? Number(n) / PLN_PER_GBP : Number(n); }
+  function cvBack(n) { return LANG === 'en' ? Number(n) * PLN_PER_GBP : Number(n); }
+  function CUR() { return LANG === 'en' ? '£' : 'zł'; }
+  function zl(n) { return LANG === 'en' ? '£' + grp(cv(n)) : grp(n) + ' zł'; }
   function loc() { return LANG === 'pl' ? 'pl-PL' : 'en-GB'; }
   function fD(iso) { return new Intl.DateTimeFormat(loc(), { day: 'numeric', month: 'short', timeZone: 'UTC' }).format(new Date(iso.slice(0, 10) + 'T00:00:00Z')); }
   function fWD(iso) { return new Intl.DateTimeFormat(loc(), { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' }).format(new Date(iso.slice(0, 10) + 'T00:00:00Z')); }
@@ -378,7 +384,7 @@
     }
     var tagName = o.a ? 'button type="button" data-a="' + o.a + '" data-v="' + (o.v || '') + '"' : 'div';
     return '<' + tagName + ' class="rd-kpi"' + (o.tour ? ' data-tour="' + o.tour + '"' : '') + '><div class="l"><i style="background:' + o.color + '1f;color:' + o.color + '">' + ic(o.icon) + '</i>' + esc(o.label) + '</div>' +
-      '<div class="v"><span class="num" data-count="' + (o.count != null ? o.count : '') + '">' + o.value + '</span>' + (o.unit ? '<small>' + o.unit + '</small>' : '') + '</div><div class="s">' + (o.sub || '') + '</div>' + spark + '</' + (o.a ? 'button' : 'div') + '>';
+      '<div class="v">' + (o.unit === '£' ? '<small>£</small>' : '') + '<span class="num" data-count="' + (o.count != null ? o.count : '') + '">' + o.value + '</span>' + (o.unit && o.unit !== '£' ? '<small>' + o.unit + '</small>' : '') + '</div><div class="s">' + (o.sub || '') + '</div>' + spark + '</' + (o.a ? 'button' : 'div') + '>';
   }
   function card(title, body, opt) {
     opt = opt || {};
@@ -489,14 +495,14 @@
     var html = head(d.title, d.sub(todayS.length));
     html += '<div class="rd-grid rd-g4">' +
       kpi({ label: d.k[0], icon: 'clients', color: '#3ec6ff', value: S.clients.length, count: S.clients.length, sub: d.ks.newC(newC), a: 'nav', v: 'clients' }) +
-      kpi({ label: d.k[1], icon: 'budget', color: '#35d483', value: grp(mf.received), count: mf.received, unit: 'zł', sub: d.ks.ofGoal(zl(goal)), a: 'go', v: 'budget:0', spark: months.map(function (m) { return m.received; }).concat([mf.received]) }) +
+      kpi({ label: d.k[1], icon: 'budget', color: '#35d483', value: grp(cv(mf.received)), count: cv(mf.received), unit: CUR(), sub: d.ks.ofGoal(zl(goal)), a: 'go', v: 'budget:0', spark: months.map(function (m) { return m.received; }).concat([mf.received]) }) +
       kpi({ label: d.k[2], icon: 'sessions', color: '#ff4d8d', value: wk.length, count: wk.length, sub: d.ks.todayN(todayS.length), a: 'nav', v: 'sessions' }) +
       kpi({ label: d.k[3], icon: 'messages', color: '#ffb020', value: un.length, sub: d.ks.conv(this.st.threads.length), a: 'nav', v: 'messages' }) + '</div>';
     html += '<div class="rd-grid rd-g4 rd-mt">' +
-      kpi({ label: d.k[4], icon: 'alert', color: '#ff5c5c', value: grp(sum(ov, function (x) { return self.left(x); })), unit: 'zł', sub: d.ks.dues(ov.length), a: 'go', v: 'budget:1' }) +
+      kpi({ label: d.k[4], icon: 'alert', color: '#ff5c5c', value: grp(cv(sum(ov, function (x) { return self.left(x); }))), unit: CUR(), sub: d.ks.dues(ov.length), a: 'go', v: 'budget:1' }) +
       kpi({ label: d.k[5], icon: 'trend', color: '#35d483', value: avgComp, unit: '%', sub: d.ks.last14, a: 'nav', v: 'clients' }) +
       kpi({ label: d.k[6], icon: 'star', color: '#ffb020', value: dec(stars, 1), sub: d.ks.reviews(S.reviews.length), a: 'nav', v: 'profile' }) +
-      kpi({ label: d.k[7], icon: 'repeat', color: '#a78bfa', value: grp(S.budget.overview.mrr || 0), count: S.budget.overview.mrr, unit: 'zł', sub: d.ks.fc(S.clients.length), a: 'go', v: 'budget:3' }) + '</div>';
+      kpi({ label: d.k[7], icon: 'repeat', color: '#a78bfa', value: grp(cv(S.budget.overview.mrr || 0)), count: cv(S.budget.overview.mrr), unit: CUR(), sub: d.ks.fc(S.clients.length), a: 'go', v: 'budget:3' }) + '</div>';
 
     // goal + attention
     var pPaid = Math.min(100, (mf.received / goal) * 100), pFc = Math.min(100, (mf.total / goal) * 100);
@@ -624,7 +630,7 @@
     var html = head(se.title, se.sub, '<div style="display:flex;gap:6px;align-items:center"><button type="button" class="rd-btn ghost sm" data-a="week" data-v="-1" aria-label="‹">' + ic('left') + '</button><button type="button" class="rd-btn ghost sm" data-a="week" data-v="0">' + se.thisWeek + '</button><button type="button" class="rd-btn ghost sm" data-a="week" data-v="1" aria-label="›">' + ic('right') + '</button></div>');
     html += '<div class="rd-grid rd-g4" style="margin-bottom:12px">' +
       kpi({ label: se.k[0], icon: 'sessions', color: '#ff4d8d', value: conf.length, sub: se.ks[0] }) +
-      kpi({ label: se.k[1], icon: 'budget', color: '#35d483', value: grp(sum(conf, function (s) { return s.price; })), unit: 'zł', sub: se.ks[1] }) +
+      kpi({ label: se.k[1], icon: 'budget', color: '#35d483', value: grp(cv(sum(conf, function (s) { return s.price; }))), unit: CUR(), sub: se.ks[1] }) +
       kpi({ label: se.k[2], icon: 'check', color: '#3ec6ff', value: att, unit: '%', sub: se.ks[2] }) +
       kpi({ label: se.k[3], icon: 'alert', color: '#ffb020', value: unc.length, sub: se.ks[3] }) + '</div>';
     var nowW = new Date(nowWall()), tourSet = false;
@@ -685,7 +691,7 @@
       var cp = c ? this.comp(c) : null;
       conv += '<div class="rd-ctx"><div style="text-align:center">' + av(c, 'lg').replace('rd-av lg', 'rd-av lg" style="margin:0 auto 6px;background:' + (c ? c.color : '') + '') + '<b>' + esc(c ? c.name : '') + '</b><div style="margin-top:4px">' + (c ? pkgTag(c.plan, t) : '') + '</div></div>' +
         '<h5>' + m.next + '</h5>' + (next ? fWD(next.start) + ', ' + wall(next.start) : m.none) +
-        '<h5>' + m.dues + '</h5>' + (open.length ? zl(sum(open, function (d) { return self.left(d); })) : '0 zł') +
+        '<h5>' + m.dues + '</h5>' + (open.length ? zl(sum(open, function (d) { return self.left(d); })) : zl(0)) +
         (cp != null ? '<h5>' + m.comp + '</h5><div class="rd-comp">' + bar([[cp, 'var(--success)']]) + cp + '%</div>' : '') +
         '<div style="margin-top:14px"><button type="button" class="rd-btn ghost sm" data-a="client" data-v="' + th.c + '">' + t.cl.title + ' →</button></div></div>';
     }
@@ -704,10 +710,10 @@
     var recv = this.received(), costs = sum(this.costsIn(ms), function (e) { return e.amount_pln; });
     var ov = this.overdue(), open = this.st.dues.filter(function (d) { return self.dueState(d) === 'open'; });
     var html = '<div class="rd-grid rd-g4">' +
-      kpi({ label: b.k[0], icon: 'budget', color: '#35d483', value: grp(recv), unit: 'zł', sub: b.ks.goal(zl(S.trainer.goal || 6000)), a: 'btab', v: '1' }) +
-      kpi({ label: b.k[1], icon: 'clock', color: '#3ec6ff', value: grp(sum(open, function (d) { return self.left(d); })), unit: 'zł', sub: b.ks.upcoming, a: 'btab', v: '1' }) +
-      kpi({ label: b.k[2], icon: 'alert', color: '#ff5c5c', value: grp(sum(ov, function (d) { return self.left(d); })), unit: 'zł', sub: b.ks.overdue(ov.length), a: 'btab', v: '1' }) +
-      kpi({ label: b.k[3], icon: 'trend', color: '#a78bfa', value: grp(recv - costs), unit: 'zł', sub: b.ks.costs(zl(costs)), a: 'btab', v: '2' }) + '</div>';
+      kpi({ label: b.k[0], icon: 'budget', color: '#35d483', value: grp(cv(recv)), unit: CUR(), sub: b.ks.goal(zl(S.trainer.goal || 6000)), a: 'btab', v: '1' }) +
+      kpi({ label: b.k[1], icon: 'clock', color: '#3ec6ff', value: grp(cv(sum(open, function (d) { return self.left(d); }))), unit: CUR(), sub: b.ks.upcoming, a: 'btab', v: '1' }) +
+      kpi({ label: b.k[2], icon: 'alert', color: '#ff5c5c', value: grp(cv(sum(ov, function (d) { return self.left(d); }))), unit: CUR(), sub: b.ks.overdue(ov.length), a: 'btab', v: '1' }) +
+      kpi({ label: b.k[3], icon: 'trend', color: '#a78bfa', value: grp(cv(recv - costs)), unit: CUR(), sub: b.ks.costs(zl(costs)), a: 'btab', v: '2' }) + '</div>';
     var methods = S.budget.overview.methods || {}, mt = sum(Object.keys(methods).map(function (k) { return methods[k]; })) || 1;
     var mHtml = Object.keys(methods).sort(function (a, c) { return methods[c] - methods[a]; }).map(function (k) { return '<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between" class="rd-sm"><span>' + (t.method[k] || k) + '</span><b>' + zl(methods[k]) + '</b></div>' + bar([[methods[k] / mt * 100, 'var(--accent)']]) + '</div>'; }).join('');
     var mf = this.monthForecast(), goal = S.trainer.goal || 6000;
@@ -771,8 +777,8 @@
     var allTags = tr.tags.concat(['Mobilność', 'Dieta sportowa', 'Trening funkcjonalny', 'Zdrowy kręgosłup'].filter(function (x) { return tr.tags.indexOf(x) < 0; }));
     var editor = card(p.pub, '<label class="rd-label">' + p.bio + '</label><textarea class="rd-text" rows="6" data-in="bio">' + esc(pr.bio) + '</textarea>' +
       '<label class="rd-label" style="margin-top:12px">' + p.tags + '</label><div class="rd-chips">' + allTags.map(function (g) { var on = pr.tags.indexOf(g) >= 0; return '<button type="button" class="rd-chip' + (on ? ' on' : '') + '" data-a="tag" data-v="' + escA(g) + '">' + (on ? '✓ ' : '+ ') + esc(g) + '</button>'; }).join('') + '</div>', { icon: 'profile' }) +
-      card(p.prices, ['full', 'workout_only', 'meal_only'].map(function (k, i) { return '<div class="rd-price"><div><b class="rd-sm">' + t.pk[k] + '</b></div><input class="rd-input" type="number" min="0" step="10" inputmode="numeric" data-in="price" data-v="' + k + '" value="' + (pr.prices[k] || 0) + '"' + (i === 0 ? ' data-tour="price"' : '') + '></div>'; }).join('') +
-        ['online', 'gym'].map(function (k) { return '<div class="rd-price"><div><b class="rd-sm">' + p.session[k] + '</b></div><input class="rd-input" type="number" min="0" step="5" inputmode="numeric" data-in="price" data-v="' + k + '" value="' + (pr.prices[k] || 0) + '"></div>'; }).join(''), { icon: 'budget', sub: p.pricesSub, cls: 'rd-mt' });
+      card(p.prices, ['full', 'workout_only', 'meal_only'].map(function (k, i) { return '<div class="rd-price"><div><b class="rd-sm">' + t.pk[k] + '</b></div><input class="rd-input" type="number" min="0" step="10" inputmode="numeric" data-in="price" data-v="' + k + '" value="' + Math.round(cv(pr.prices[k] || 0)) + '"' + (i === 0 ? ' data-tour="price"' : '') + '></div>'; }).join('') +
+        ['online', 'gym'].map(function (k) { return '<div class="rd-price"><div><b class="rd-sm">' + p.session[k] + '</b></div><input class="rd-input" type="number" min="0" step="5" inputmode="numeric" data-in="price" data-v="' + k + '" value="' + Math.round(cv(pr.prices[k] || 0)) + '"></div>'; }).join(''), { icon: 'budget', sub: p.pricesSub, cls: 'rd-mt' });
     return head(p.title, p.sub, '<div style="display:flex;align-items:center;gap:8px"><svg class="rd-ring" viewBox="0 0 44 44"><circle cx="22" cy="22" r="18" stroke="#1f242b" stroke-width="5" fill="none"/><circle cx="22" cy="22" r="18" stroke="#35d483" stroke-width="5" fill="none" stroke-dasharray="113" stroke-dashoffset="' + (113 * 0.06).toFixed(1) + '" transform="rotate(-90 22 22)" stroke-linecap="round"/><text x="22" y="26" text-anchor="middle" fill="#f4f6f8" font-size="11" font-weight="800" font-family="Archivo">94%</text></svg><span class="rd-sm rd-muted">' + p.complete + '</span></div>') +
       '<div class="rd-grid rd-g2"><div>' + editor + '</div><div>' + this.vPreview() + '</div></div>';
   };
@@ -873,7 +879,7 @@
     var W = Math.max(280, svg.clientWidth || 560), H = 190, pb = 22, pt = 10, mx = Math.max.apply(null, ms.map(function (m) { return Math.max(m.received, m.expenses); }).concat([1])) * 1.1;
     var gw = (W - 20) / ms.length, bw = Math.min(26, gw / 3);
     var Y = function (v) { return H - pb - v / mx * (H - pb - pt); };
-    var out = [1, 2, 3].map(function (i) { var v = mx / 3 * i; return '<line x1="10" x2="' + (W - 10) + '" y1="' + Y(v).toFixed(1) + '" y2="' + Y(v).toFixed(1) + '" stroke="#242a31"/><text x="12" y="' + (Y(v) - 3).toFixed(1) + '">' + grp(Math.round(v / 100) * 100) + '</text>'; }).join('');
+    var out = [1, 2, 3].map(function (i) { var v = mx / 3 * i; return '<line x1="10" x2="' + (W - 10) + '" y1="' + Y(v).toFixed(1) + '" y2="' + Y(v).toFixed(1) + '" stroke="#242a31"/><text x="12" y="' + (Y(v) - 3).toFixed(1) + '">' + grp(Math.round(cv(v) / (LANG === 'en' ? 20 : 100)) * (LANG === 'en' ? 20 : 100)) + '</text>'; }).join('');
     ms.forEach(function (m, i) {
       var cx = 10 + gw * i + gw / 2;
       out += '<rect x="' + (cx - bw - 2).toFixed(1) + '" y="' + Y(m.received).toFixed(1) + '" width="' + bw.toFixed(1) + '" height="' + (H - pb - Y(m.received)).toFixed(1) + '" rx="4" fill="#35d483"/>' +
@@ -897,7 +903,7 @@
         out += '<rect x="' + (cx - bw / 2).toFixed(1) + '" y="' + (y0 - h).toFixed(1) + '" width="' + bw.toFixed(1) + '" height="' + h.toFixed(1) + '" fill="' + FC_COL[s] + '"' + (s === 'renewal' ? ' opacity=".7"' : '') + '/>';
         y0 -= h;
       });
-      out += '<text x="' + cx.toFixed(1) + '" y="' + (y0 - 6).toFixed(1) + '" text-anchor="middle" style="fill:#f4f6f8;font-weight:800">' + grp(x.total) + '</text>' +
+      out += '<text x="' + cx.toFixed(1) + '" y="' + (y0 - 6).toFixed(1) + '" text-anchor="middle" style="fill:#f4f6f8;font-weight:800">' + grp(cv(x.total)) + '</text>' +
         '<line x1="' + (cx - bw / 2 - 6).toFixed(1) + '" x2="' + (cx + bw / 2 + 6).toFixed(1) + '" y1="' + Y(x.costs).toFixed(1) + '" y2="' + Y(x.costs).toFixed(1) + '" stroke="#ff7a45" stroke-width="3" stroke-linecap="round"/>' +
         '<text x="' + cx.toFixed(1) + '" y="' + (H - 6) + '" text-anchor="middle" style="' + (on ? 'fill:#3ec6ff;font-weight:800' : '') + '">' + fMonth(F.months[i].month) + '</text>' +
         (on ? '<rect x="' + (cx - gw / 2 + 4).toFixed(1) + '" y="4" width="' + (gw - 8).toFixed(1) + '" height="' + (H - 8) + '" rx="8" fill="#3ec6ff0d" stroke="#3ec6ff33"/>' : '');
@@ -973,7 +979,7 @@
     else if (k === 'draft') st.draft = val;
     else if (k === 'bio') { st.prof.bio = val; this.rerenderPreview(); }
     else if (k === 'price') {
-      st.prof.prices[v] = Math.max(0, Number(val) || 0); st.prof.flash = true; this.rerenderPreview();
+      st.prof.prices[v] = Math.max(0, cvBack(Number(val) || 0)); st.prof.flash = true; this.rerenderPreview();
       this.later(700, function () { this.st.prof.flash = false; var b = this.el.querySelector('.rd-prev .from b'); if (b) b.classList.remove('flash'); });
       if (this.st.tour >= 0 && TOUR[this.st.tour].sel === '[data-tour=price]') this.tourNext();
     }
@@ -1196,7 +1202,7 @@
     var self = this, mods = this.o.cycle, i = 0;
     var notes = {
       pl: ['Kasia W.: trening ukończony', 'Zapisano wpłatę 400 zł', 'Nowa wiadomość od Tomka Z.', 'Sesja przeniesiona na czwartek 17:00'],
-      en: ['Kasia W.: workout completed', 'Payment of 400 zł recorded', 'New message from Tomek Z.', 'Session moved to Thursday 17:00']
+      en: ['Kasia W.: workout completed', 'Payment of £80 recorded', 'New message from Tomek Z.', 'Session moved to Thursday 17:00']
     };
     setInterval(function () {
       if (document.hidden) return;
