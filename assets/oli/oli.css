@@ -112,6 +112,7 @@ body.in-app .screen { padding-bottom: 24px; }
 .clause { padding: 10px 0; border-top: 1px solid var(--border); }
 .clause:first-child { border-top: 0; }
 .fine { font-size: 9px; color: #5c6470; line-height: 1.3; }
+.fine[role="button"] { cursor: pointer; padding: 8px 0; margin: -8px 0; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 .fine a { color: inherit; text-decoration: underline dotted rgba(142,151,163,0.35); text-underline-offset: 2px; cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation; position: relative; }
 /* bigger invisible tap target for the tiny fine-print link on phones */
 .fine a::after { content: ""; position: absolute; inset: -12px -6px; }
