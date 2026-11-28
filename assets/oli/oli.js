@@ -326,7 +326,11 @@
       '<div class="clause"><b>6.1 Lateness.</b> "Traffic" is accepted as an excuse a maximum of 250 times per year.</div>' +
       '<div class="clause"><b>7.3 Distribution Mindset.</b> Client emails must be answered within 3-5 working days, as is tradition.</div>' +
       '<div class="clause"><b>9.9 Nutrition.</b> The canteen recognises the Meal Deal as a food group. Specifically, Oli\'s only one.</div>' +
-      '<p class="fine" role="button" tabindex="0">By continuing to be employed you accept all clauses, sub-clauses and the <a id="clause" href="#" role="button">undisclosed clause 12</a>, which supersedes everything above and is enforced by Janet.</p></div>';
+      '<p class="fine" role="button" tabindex="0">By continuing to be employed you accept all clauses, sub-clauses and the <a id="clause" href="#" role="button">undisclosed clause 12</a>, which supersedes everything above and is enforced by Janet.</p></div>' +
+      // phones hide the side panel's sound/reset row, so both live here too
+      '<div class="eyebrow">Settings</div><div class="card row between" style="margin-top:8px">' +
+      '<button class="link" id="moreMute">Sound: ' + (S.mute ? 'off' : 'on') + '</button>' +
+      '<button class="pill ghost" id="moreReset">Start over</button></div>';
   }
 
   function renderApp() {
@@ -402,6 +406,8 @@
       found('clause');
       sheet('<h3>Clause 12 (undisclosed)</h3><p><b>Coffee made by Jan is a privilege, not a right.</b></p><p>Milk, two sweeteners. Stirred, not shaken. Jan reserves the right to withdraw coffee privileges if the word "traffic" is used before 10:00.</p><button class="pill block" data-close>I accept</button>');
     };
+    var mr = $('moreReset'); if (mr) mr.onclick = function () { $('reset').onclick(); };
+    var mm = $('moreMute'); if (mm) mm.onclick = function () { $('mute').onclick(); mm.textContent = 'Sound: ' + (S.mute ? 'off' : 'on'); };
     var ride = $('ride');
     if (ride) ride.onclick = function () { found('carpool'); renderApp(); };
     var cancel = $('cancel');
