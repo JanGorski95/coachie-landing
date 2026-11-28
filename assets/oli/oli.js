@@ -326,7 +326,7 @@
       '<div class="clause"><b>6.1 Lateness.</b> "Traffic" is accepted as an excuse a maximum of 250 times per year.</div>' +
       '<div class="clause"><b>7.3 Distribution Mindset.</b> Client emails must be answered within 3-5 working days, as is tradition.</div>' +
       '<div class="clause"><b>9.9 Nutrition.</b> The canteen recognises the Meal Deal as a food group. Specifically, Oli\'s only one.</div>' +
-      '<p class="fine">By continuing to be employed you accept all clauses, sub-clauses and the <a id="clause">undisclosed clause 12</a>, which supersedes everything above and is enforced by Janet.</p></div>';
+      '<p class="fine">By continuing to be employed you accept all clauses, sub-clauses and the <a id="clause" href="#" role="button">undisclosed clause 12</a>, which supersedes everything above and is enforced by Janet.</p></div>';
   }
 
   function renderApp() {
@@ -396,7 +396,8 @@
     var bday = $('bday');
     if (bday) bday.onclick = function () { found('birthday'); toast('Happy birthday. Probably. Somewhere around 15 January.', 3500); confetti(40); };
     var clause = $('clause');
-    if (clause) clause.onclick = function () {
+    if (clause) clause.onclick = function (e) {
+      if (e) e.preventDefault();
       found('clause');
       sheet('<h3>Clause 12 (undisclosed)</h3><p><b>Coffee made by Jan is a privilege, not a right.</b></p><p>Milk, two sweeteners. Stirred, not shaken. Jan reserves the right to withdraw coffee privileges if the word "traffic" is used before 10:00.</p><button class="pill block" data-close>I accept</button>');
     };
