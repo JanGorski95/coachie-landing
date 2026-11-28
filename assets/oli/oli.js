@@ -245,7 +245,7 @@
       '<div class="card"><div class="row between"><div><div class="big" style="color:var(--pink)">' + (has('trained') ? 1 : 0) + '</div><div class="muted small">' + (has('trained') ? 'day at the gym. Historic.' : 'days at the gym') + '</div></div>' +
       '<div style="text-align:right"><div class="big" style="color:var(--green)">63</div><div class="muted small">days of Meal Deals in a row</div></div></div></div>' +
       '<div class="card"><div class="eyebrow">Macros</div><div class="rings" style="margin-top:10px">' +
-      ring('4 g', 'protein', 0.03, '--pink') + ring('3/3', 'Meal Deals', 1, '--green') + ring('2', 'sweeteners', 1, '--accent') + '</div></div>' +
+      ring('4 g', 'protein', 0.03, '--pink') + ring('3/3', 'Meal Deals', 1, '--green') + ring('2/2', 'coffees', 1, '--orange') + ring('4', 'sweeteners', 1, '--accent') + '</div></div>' +
       '<div class="card"><div class="row between"><div><div class="eyebrow">Weather</div><b>Cloudy, 9°C. UV index 2.</b><div class="muted small">Ginger warning: SPF 50 recommended. Yes, even in winter.</div></div><span style="font-size:30px">☁</span></div></div>' +
       '<button class="card coffee-card" id="coffeeBtn"><div class="eyebrow">Break time</div><div class="row between"><b>Coffee break: make Jan a coffee</b><span style="font-size:26px">☕</span></div><div class="muted small">Mandatory. Clause 12 applies.</div></button>' +
       '<div class="card"><div class="eyebrow">Ramvo tip</div><p style="margin:4px 0 0">Your coach suggests: start training. Your car suggests: drive Janet home. Your Simmer box suggests: you never cancelled it.</p></div>';

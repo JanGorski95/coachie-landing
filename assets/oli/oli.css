@@ -98,7 +98,7 @@ body.in-app .screen { padding-bottom: 24px; }
 .tabs button span { font-size: 18px; line-height: 1; }
 .tabs button.on { color: var(--accent); }
 
-.rings { display: flex; gap: 14px; }
+.rings { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
 .ring { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font: 800 12px var(--head); text-align: center; }
 .day { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-top: 1px solid var(--border); }
 .day:first-child { border-top: 0; }
