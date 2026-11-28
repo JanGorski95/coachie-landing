@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="pl" data-lang="pl">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>404 · Ramvo</title>
 <meta name="robots" content="noindex">
-<meta name="description" content="Tej strony nie ma. Pobaw się chwilę i wracaj do Ramvo.">
+<meta name="description" content="This page doesn't exist. Play for a moment, then head back to Ramvo.">
 <meta name="theme-color" content="#0B0D10">
 <link rel="icon" href="/assets/brand/favicon/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/brand/favicon/favicon.svg" type="image/svg+xml">
@@ -194,7 +194,7 @@ html[data-lang="pl"] [data-l="pl"], html[data-lang="en"] [data-l="en"] { display
   };
 
   // ---------------------------------------------------------------- language
-  var LANG = (function () { var s = store.get('ramvo-lang'); if (s === 'pl' || s === 'en') return s; return (navigator.language || '').toLowerCase().indexOf('en') === 0 ? 'en' : 'pl'; })();
+  var LANG = (function () { var s = store.get('ramvo-lang'); if (s === 'pl' || s === 'en') return s; return (navigator.language || '').toLowerCase().indexOf('pl') === 0 ? 'pl' : 'en'; })();
   function setLang(l) {
     LANG = l === 'en' ? 'en' : 'pl';
     root.setAttribute('data-lang', LANG); root.lang = LANG;

@@ -8,7 +8,7 @@
     var q = new URLSearchParams(location.search).get('lang');
     if (q === 'pl' || q === 'en') return q;
     try { var s = localStorage.getItem('ramvo-lang'); if (s === 'pl' || s === 'en') return s; } catch (e) {}
-    return (navigator.language || '').toLowerCase().indexOf('en') === 0 ? 'en' : 'pl';
+    return (navigator.language || '').toLowerCase().indexOf('pl') === 0 ? 'pl' : 'en';
   }
   function apply(lang) {
     document.documentElement.setAttribute('data-lang', lang);

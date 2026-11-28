@@ -124,14 +124,14 @@ CSS = open(os.path.join(HERE, 'legal.css'), encoding='utf8').read()
 JS = open(os.path.join(HERE, 'legal.js'), encoding='utf8').read()
 
 
-def page(title_pl, title_en, desc_pl, url, body_by_lang, active):
+def page(title_pl, title_en, desc_en, url, body_by_lang, active):
     head = f'''<!doctype html>
-<html lang="pl" data-lang="pl">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{html.escape(title_pl)} · Ramvo</title>
-<meta name="description" content="{html.escape(desc_pl)}">
+<title>{html.escape(title_en)} · Ramvo</title>
+<meta name="description" content="{html.escape(desc_en)}">
 <meta name="theme-color" content="#0B0D10">
 <link rel="canonical" href="https://ramvo.app{url}">
 <link rel="icon" href="/assets/brand/favicon/favicon.ico" sizes="any">
@@ -139,8 +139,8 @@ def page(title_pl, title_en, desc_pl, url, body_by_lang, active):
 <link rel="apple-touch-icon" href="/assets/brand/favicon/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ramvo">
-<meta property="og:title" content="{html.escape(title_pl)} · Ramvo">
-<meta property="og:description" content="{html.escape(desc_pl)}">
+<meta property="og:title" content="{html.escape(title_en)} · Ramvo">
+<meta property="og:description" content="{html.escape(desc_en)}">
 <meta property="og:image" content="https://ramvo.app/assets/brand/ramvo-og-1200x630-1200.png">
 <meta property="og:url" content="https://ramvo.app{url}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -208,7 +208,7 @@ def main():
         out_dir = os.path.join(OUT, slug)
         os.makedirs(out_dir, exist_ok=True)
         with open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf8', newline='\n') as f:
-            f.write(page(metas['pl']['title'], metas['en']['title'], metas['pl']['description'], f'/legal/{slug}/', bodies, slug))
+            f.write(page(metas['pl']['title'], metas['en']['title'], metas['en']['description'], f'/legal/{slug}/', bodies, slug))
 
     # hub
     hub = {}
@@ -226,7 +226,7 @@ def main():
       <div><div class="side-h">{UI[lang]['hub.contact']}</div><p><a href="mailto:{op['email']}">{op['email']}</a></p><p>{o['response']}</p></div>
     </div>'''
     with open(os.path.join(OUT, 'index.html'), 'w', encoding='utf8', newline='\n') as f:
-        f.write(page('Dokumenty prawne', 'Legal documents', 'Regulamin, polityka prywatności, warunki subskrypcji i pozostałe dokumenty prawne Ramvo.', '/legal/', hub, 'hub'))
+        f.write(page('Dokumenty prawne', 'Legal documents', 'Terms, privacy policy, subscription terms and the other Ramvo legal documents.', '/legal/', hub, 'hub'))
     print('built', len(DOCS), 'documents + hub')
 
 

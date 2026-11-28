@@ -15,8 +15,9 @@
   var DAY = 86400000;
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var LANG = (function () {
+    try { var q = new URLSearchParams(location.search).get('lang'); if (q === 'pl' || q === 'en') return q; } catch (e) {}
     try { var s = localStorage.getItem('ramvo-lang'); if (s === 'pl' || s === 'en') return s; } catch (e) {}
-    return (navigator.language || '').toLowerCase().indexOf('en') === 0 ? 'en' : 'pl';
+    return (navigator.language || '').toLowerCase().indexOf('pl') === 0 ? 'pl' : 'en';
   })();
 
   // ------------------------------------------------------------------ copy

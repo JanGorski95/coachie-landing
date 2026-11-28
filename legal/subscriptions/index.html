@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="pl" data-lang="pl">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Subskrypcje i płatności · Ramvo</title>
-<meta name="description" content="Plany Ramvo, okresy próbne, odnowienia, rezygnacja, 14 dni na odstąpienie, zwroty, zakupy w App Store i Google Play, Founding Trainer i lista oczekujących.">
+<title>Subscriptions and payments · Ramvo</title>
+<meta name="description" content="Ramvo plans, trials, renewals, cancelling, the 14-day right to cancel, refunds, App Store and Google Play purchases, Founding Trainer and the waitlist.">
 <meta name="theme-color" content="#0B0D10">
 <link rel="canonical" href="https://ramvo.app/legal/subscriptions/">
 <link rel="icon" href="/assets/brand/favicon/favicon.ico" sizes="any">
@@ -12,8 +12,8 @@
 <link rel="apple-touch-icon" href="/assets/brand/favicon/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ramvo">
-<meta property="og:title" content="Subskrypcje i płatności · Ramvo">
-<meta property="og:description" content="Plany Ramvo, okresy próbne, odnowienia, rezygnacja, 14 dni na odstąpienie, zwroty, zakupy w App Store i Google Play, Founding Trainer i lista oczekujących.">
+<meta property="og:title" content="Subscriptions and payments · Ramvo">
+<meta property="og:description" content="Ramvo plans, trials, renewals, cancelling, the 14-day right to cancel, refunds, App Store and Google Play purchases, Founding Trainer and the waitlist.">
 <meta property="og:image" content="https://ramvo.app/assets/brand/ramvo-og-1200x630-1200.png">
 <meta property="og:url" content="https://ramvo.app/legal/subscriptions/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -509,7 +509,7 @@ th { color: var(--fg-muted); font-weight: 700; font-size: 0.72rem; text-transfor
     var q = new URLSearchParams(location.search).get('lang');
     if (q === 'pl' || q === 'en') return q;
     try { var s = localStorage.getItem('ramvo-lang'); if (s === 'pl' || s === 'en') return s; } catch (e) {}
-    return (navigator.language || '').toLowerCase().indexOf('en') === 0 ? 'en' : 'pl';
+    return (navigator.language || '').toLowerCase().indexOf('pl') === 0 ? 'pl' : 'en';
   }
   function apply(lang) {
     document.documentElement.setAttribute('data-lang', lang);

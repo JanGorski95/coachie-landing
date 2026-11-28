@@ -1,11 +1,14 @@
 <!doctype html>
-<html lang="pl">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ramvo</title>
-<meta name="description" content="Znajdź trenera personalnego albo zacznij od razu z Ramvo AI. Plany treningowe, jadłospis, rezerwacje i czat w jednej appce.">
+<meta name="description" content="Find a personal trainer or start right away with Ramvo AI. Training plans, meal plans, bookings and chat in one app.">
 <link rel="canonical" href="https://ramvo.app/">
+<link rel="alternate" hreflang="en" href="https://ramvo.app/">
+<link rel="alternate" hreflang="pl" href="https://ramvo.app/?lang=pl">
+<link rel="alternate" hreflang="x-default" href="https://ramvo.app/">
 <meta name="theme-color" content="#0B0D10">
 <link rel="icon" href="/assets/brand/favicon/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/brand/favicon/favicon.svg" type="image/svg+xml">
@@ -13,7 +16,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ramvo">
 <meta property="og:title" content="Ramvo">
-<meta property="og:description" content="Znajdź trenera personalnego albo zacznij od razu z Ramvo AI. Plany treningowe, jadłospis, rezerwacje i czat w jednej appce.">
+<meta property="og:description" content="Find a personal trainer or start right away with Ramvo AI. Training plans, meal plans, bookings and chat in one app.">
 <meta property="og:image" content="https://ramvo.app/assets/brand/ramvo-og-1200x630-1200.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -811,18 +814,18 @@ footer a { color: var(--fg-muted); }
   <nav class="nav" id="nav">
     <a href="/" class="wordmark"><img src="/assets/brand/ramvo-wordmark-ciemne-tlo.svg" alt="Ramvo" height="36"></a>
     <div class="nav-links">
-      <a href="#features" data-i18n="nav.features">Funkcje</a>
-      <a href="/pricing/premium/" data-i18n="nav.pricing">Cennik</a>
+      <a href="#features" data-i18n="nav.features">Features</a>
+      <a href="/pricing/premium/" data-i18n="nav.pricing">Pricing</a>
       <a href="#faq" data-i18n="nav.faq">FAQ</a>
-      <a href="/legal/" data-i18n="nav.legal">Polityka i Regulamin</a>
+      <a href="/legal/" data-i18n="nav.legal">Privacy & Terms</a>
     </div>
     <div class="nav-right">
       <div class="lang-switch" id="lang-switch">
         <button type="button" data-lang="pl">PL</button>
         <button type="button" data-lang="en">EN</button>
       </div>
-      <a href="/trainers/" class="nav-trainers" data-i18n="nav.trainers">Dla trenerów</a>
-      <a href="#signup-section" class="nav-cta" data-i18n="nav.cta">Zapisz się</a>
+      <a href="/trainers/" class="nav-trainers" data-i18n="nav.trainers">For trainers</a>
+      <a href="#signup-section" class="nav-cta" data-i18n="nav.cta">Sign up</a>
     </div>
   </nav>
 
@@ -830,15 +833,13 @@ footer a { color: var(--fg-muted); }
     <div class="hero-glow-wrap" data-parallax="0.08"><div class="hero-glow a"></div></div>
     <div class="hero-glow-wrap" data-parallax="0.05"><div class="hero-glow b"></div></div>
     <div class="hero-copy reveal-group">
-      <span class="eyebrow reveal blur-in" style="--i:0" data-i18n="hero.eyebrow">Start 1 stycznia 2027</span>
-      <h1 class="reveal blur-in" style="--i:1" data-i18n="hero.title">Znajdź trenera. <em>Albo</em> zadbaj o siebie z Ramvo AI.</h1>
-      <p class="sub reveal blur-in" style="--i:2" data-i18n="hero.sub">
-        Twój trener układa plan, Ramvo dostarcza go w sekundę. Bez trenera? Ramvo AI ułoży plan za Ciebie.
-      </p>
+      <span class="eyebrow reveal blur-in" style="--i:0" data-i18n="hero.eyebrow">Launching 1 January 2027</span>
+      <h1 class="reveal blur-in" style="--i:1" data-i18n="hero.title">Find a trainer. <em>Or</em> take care of yourself with Ramvo AI.</h1>
+      <p class="sub reveal blur-in" style="--i:2" data-i18n="hero.sub">Your trainer writes the plan, Ramvo delivers it in a second. No trainer? Ramvo AI builds the plan for you.</p>
       <div class="hero-ctas reveal" style="--i:3">
-        <a href="#signup-section" class="btn btn-primary" data-i18n="hero.ctaPrimary">Zapisz się na start</a>
-        <a href="#features" class="btn btn-ghost" data-i18n="hero.ctaGhost">Zobacz co potrafi</a>
-        <a href="/trainers/" class="btn btn-trainer" data-i18n="hero.ctaTrainer">Jestem trenerem &rarr;</a>
+        <a href="#signup-section" class="btn btn-primary" data-i18n="hero.ctaPrimary">Get early access</a>
+        <a href="#features" class="btn btn-ghost" data-i18n="hero.ctaGhost">See what it does</a>
+        <a href="/trainers/" class="btn btn-trainer" data-i18n="hero.ctaTrainer">I'm a trainer &rarr;</a>
       </div>
     </div>
     <!-- Hero loop: 12 s, Monday to Sunday (new plan, sets with the technique
@@ -849,9 +850,9 @@ footer a { color: var(--fg-muted); }
     <div class="hero-device reveal blur-in" style="--i:4">
       <div class="hero-phone">
         <div class="hero-screen">
-          <video class="hero-video" muted loop playsinline preload="none" poster="assets/hero-poster-pl.jpg" data-lang="pl" aria-hidden="true">
-            <source src="assets/hero-loop-pl.mp4" type="video/mp4">
-            <source src="assets/hero-loop-pl.webm" type="video/webm">
+          <video class="hero-video" muted loop playsinline preload="none" poster="assets/hero-poster-en.jpg" data-lang="en" aria-hidden="true">
+            <source src="assets/hero-loop-en.mp4" type="video/mp4">
+            <source src="assets/hero-loop-en.webm" type="video/webm">
           </video>
         </div>
       </div>
@@ -862,26 +863,26 @@ footer a { color: var(--fg-muted); }
     <div class="cards reveal-group">
       <div class="card reveal" style="--i:0">
         <div class="num">01</div>
-        <h3 data-i18n="cards.1.title">Prawdziwi trenerzy</h3>
-        <p data-i18n="cards.1.desc">Trener personalny prowadzi Cię krok po kroku, a tworzenie i wysyłanie planów zajmuje mu teraz minuty, nie godziny.</p>
+        <h3 data-i18n="cards.1.title">Real trainers</h3>
+        <p data-i18n="cards.1.desc">A personal trainer guides you step by step, and creating and sending plans now takes them minutes, not hours.</p>
       </div>
       <div class="card reveal" style="--i:1">
         <div class="num">02</div>
-        <h3 data-i18n="cards.2.title">Ramvo AI, Twój wirtualny trener</h3>
-        <p data-i18n="cards.2.desc">Nie masz jeszcze trenera? Ramvo AI wygeneruje Ci plan treningowy i jadłospis, żebyś mógł/mogła zadbać o siebie już dziś.</p>
+        <h3 data-i18n="cards.2.title">Ramvo AI, your virtual trainer</h3>
+        <p data-i18n="cards.2.desc">Don't have a trainer yet? Ramvo AI generates a workout plan and meal plan so you can start taking care of yourself today.</p>
       </div>
       <div class="card reveal" style="--i:2">
         <div class="num">03</div>
-        <h3 data-i18n="cards.3.title">Postępy pod kontrolą</h3>
-        <p data-i18n="cards.3.desc">Zdjęcia sylwetki, pomiary, kalorie i makroskładniki, passy i odznaki: wszystko w jednym miejscu, nie w pięciu różnych appkach.</p>
+        <h3 data-i18n="cards.3.title">Progress under control</h3>
+        <p data-i18n="cards.3.desc">Progress photos, measurements, calories and macros, streaks and badges: all in one place, not spread across five different apps.</p>
       </div>
     </div>
   </section>
 
   <section id="features">
     <div class="section-head reveal">
-      <h2 data-i18n="features.title">Wszystko, czego potrzebujesz do treningu</h2>
-      <p data-i18n="features.sub">Jedna aplikacja zamiast pięciu. Oto co dostajesz od pierwszego dnia.</p>
+      <h2 data-i18n="features.title">Everything you need to train</h2>
+      <p data-i18n="features.sub">One app instead of five. Here's what you get from day one.</p>
     </div>
     <!-- 8 features with a phone. From 900 px the phone on the right is sticky
          and swaps to the screen of the feature in the middle of the viewport
@@ -891,36 +892,36 @@ footer a { color: var(--fg-muted); }
       <div class="fx-list">
         <article class="fx-item">
           <div class="fx-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a5 5 0 0 0-5 5v1.6A4 4 0 0 0 5 13v2a4 4 0 0 0 2.3 3.6c.2 1.3 1.3 2.4 2.7 2.4h4c1.4 0 2.5-1.1 2.7-2.4A4 4 0 0 0 19 15v-2a4 4 0 0 0-2-3.4V8a5 5 0 0 0-5-5Z"/><path d="M9 11h.01M15 11h.01"/></svg></div>
-          <div class="fx-copy"><h3 data-i18n="features.1.title">Plan generowany przez AI</h3><p data-i18n="features.1.desc">Ramvo AI buduje Twój plan treningowy i jadłospis na podstawie celu, poziomu, dostępnego sprzętu i historii treningów, gotowy w kilkadziesiąt sekund.</p></div>
+          <div class="fx-copy"><h3 data-i18n="features.1.title">AI-generated plan</h3><p data-i18n="features.1.desc">Ramvo AI builds your workout plan and meal plan based on your goal, level, available equipment and training history, ready in seconds.</p></div>
           <div class="fx-shot"><div class="phone"><div class="screen mk">
             <div class="mk-title">Ramvo AI</div>
-            <div class="mk-chips"><span data-i18n="fx.ai.c1">Cel: redukcja</span><span data-i18n="fx.ai.c2">Średni poziom</span><span data-i18n="fx.ai.c3">Siłownia</span><span data-i18n="fx.ai.c4">3× w tygodniu</span></div>
-            <div class="mk-bubble" data-i18n="fx.ai.msg">Twój plan jest gotowy: 12 treningów na 4 tygodnie.</div>
+            <div class="mk-chips"><span data-i18n="fx.ai.c1">Goal: fat loss</span><span data-i18n="fx.ai.c2">Intermediate</span><span data-i18n="fx.ai.c3">Gym</span><span data-i18n="fx.ai.c4">3× a week</span></div>
+            <div class="mk-bubble" data-i18n="fx.ai.msg">Your plan is ready: 12 sessions over 4 weeks.</div>
             <div class="mk-card">
-              <span class="mk-tag on" data-i18n="fx.ai.planTag">Plan treningowy</span>
-              <b class="mk-when" data-i18n="fx.ai.plan">Redukcja, 4 tygodnie</b>
-              <div class="mk-li" data-i18n="fx.ai.d1"><span>Pn</span>Góra ciała · 6 ćwiczeń</div>
-              <div class="mk-li" data-i18n="fx.ai.d2"><span>Śr</span>Dół ciała · 5 ćwiczeń</div>
-              <div class="mk-li" data-i18n="fx.ai.d3"><span>Pt</span>Całe ciało · 6 ćwiczeń</div>
+              <span class="mk-tag on" data-i18n="fx.ai.planTag">Workout plan</span>
+              <b class="mk-when" data-i18n="fx.ai.plan">Fat loss, 4 weeks</b>
+              <div class="mk-li" data-i18n="fx.ai.d1"><span>Mon</span>Upper body · 6 exercises</div>
+              <div class="mk-li" data-i18n="fx.ai.d2"><span>Wed</span>Lower body · 5 exercises</div>
+              <div class="mk-li" data-i18n="fx.ai.d3"><span>Fri</span>Full body · 6 exercises</div>
             </div>
             <div class="mk-card">
-              <span class="mk-tag" data-i18n="fx.ai.mealTag">Jadłospis</span>
-              <b class="mk-when" data-i18n="fx.ai.meal">2000 kcal · 150 g białka</b>
+              <span class="mk-tag" data-i18n="fx.ai.mealTag">Meal plan</span>
+              <b class="mk-when" data-i18n="fx.ai.meal">2000 kcal · 150 g protein</b>
             </div>
-            <div class="mk-btn" data-i18n="fx.ai.save">Zapisz plan</div>
+            <div class="mk-btn" data-i18n="fx.ai.save">Save plan</div>
           </div></div></div>
         </article>
 
         <article class="fx-item">
           <div class="fx-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="10" height="15" rx="2" transform="rotate(-8 5 4)"/><rect x="8" y="5" width="11" height="15" rx="2"/></svg></div>
-          <div class="fx-copy"><h3 data-i18n="features.2.title">Dopasowanie do trenera</h3><p data-i18n="features.2.desc">Przesuwaj profile trenerów w pobliżu, jak w aplikacji randkowej. Widzisz oceny, specjalizację i odległość, zanim napiszesz pierwszą wiadomość.</p><p class="photo-credit" data-i18n="fx.credit">Zdjęcie: Samuel Girven / Unsplash</p></div>
+          <div class="fx-copy"><h3 data-i18n="features.2.title">Trainer matching</h3><p data-i18n="features.2.desc">Swipe through nearby trainer profiles, just like a dating app. You see ratings, specialty and distance before you send the first message.</p><p class="photo-credit" data-i18n="fx.credit">Photo: Samuel Girven / Unsplash</p></div>
           <div class="fx-shot"><div class="phone"><div class="screen" style="padding: 12px;">
             <div class="swipe-card">
               <img src="https://images.unsplash.com/photo-1704223523169-52feeed90365?w=400&h=500&fit=crop&auto=format&q=80" alt="" loading="lazy">
               <div class="swipe-gradient"></div>
               <div class="swipe-info">
                 <div class="swipe-name">Marek K. <span class="swipe-verified">✓</span></div>
-                <div class="swipe-meta" data-i18n="preview.phone2.meta">Trener personalny · 1.8 km</div>
+                <div class="swipe-meta" data-i18n="preview.phone2.meta">Personal trainer · 1.8 km</div>
                 <div class="swipe-stars">★★★★★ 4.9</div>
               </div>
             </div>
@@ -930,46 +931,46 @@ footer a { color: var(--fg-muted); }
 
         <article class="fx-item">
           <div class="fx-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
-          <div class="fx-copy"><h3 data-i18n="features.3.title">Rezerwacje sesji</h3><p data-i18n="features.3.desc">Umawiaj się z trenerem online, z automatycznym linkiem do Google Meet, albo stacjonarnie na siłowni, bez przerzucania się między aplikacjami.</p></div>
+          <div class="fx-copy"><h3 data-i18n="features.3.title">Session bookings</h3><p data-i18n="features.3.desc">Book sessions with your trainer online, with an automatic Google Meet link, or in person at the gym, without switching between apps.</p></div>
           <div class="fx-shot"><div class="phone"><div class="screen mk">
-            <div class="mk-title" data-i18n="mk.upcoming">Nadchodzące</div>
+            <div class="mk-title" data-i18n="mk.upcoming">Upcoming</div>
             <div class="mk-card">
-              <span class="mk-tag" data-i18n="mk.gym">Siłownia</span>
-              <b class="mk-when" data-i18n="mk.gymWhen">Środa, 14 października, 14:00</b>
-              <span class="mk-muted">Warszawa Fitness Club, ul. Puławska 42</span>
-              <div class="mk-btn" data-i18n="mk.map">Pokaż na mapie</div>
-              <div class="mk-btn ghost" data-i18n="mk.cancel">Odwołaj rezerwację</div>
+              <span class="mk-tag" data-i18n="mk.gym">Gym</span>
+              <b class="mk-when" data-i18n="mk.gymWhen">Wednesday 14 October, 14:00</b>
+              <span class="mk-muted" data-i18n="mk.place">Riverside Fitness, 12 Kings Road, Reading</span>
+              <div class="mk-btn" data-i18n="mk.map">Go to map</div>
+              <div class="mk-btn ghost" data-i18n="mk.cancel">Cancel booking</div>
             </div>
             <div class="mk-card">
               <span class="mk-tag on" data-i18n="mk.online">Online</span>
-              <b class="mk-when" data-i18n="mk.onlineWhen">Czwartek, 15 października, 12:00</b>
-              <div class="mk-btn ok" data-i18n="mk.meet">Dołącz przez Google Meet</div>
+              <b class="mk-when" data-i18n="mk.onlineWhen">Thursday 15 October, 12:00</b>
+              <div class="mk-btn ok" data-i18n="mk.meet">Join with Google Meet</div>
             </div>
           </div></div></div>
         </article>
 
         <article class="fx-item">
           <div class="fx-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></div>
-          <div class="fx-copy"><h3 data-i18n="features.4.title">Czat</h3><p data-i18n="features.4.desc">Pisz z trenerem albo z Ramvo AI, wysyłaj zdjęcia i dokumenty. Jedna rozmowa, zawsze pod ręką, z pełną historią w jednym miejscu.</p></div>
+          <div class="fx-copy"><h3 data-i18n="features.4.title">Chat</h3><p data-i18n="features.4.desc">Message your trainer or Ramvo AI, send photos and documents. One conversation, always at hand, with full history in one place.</p></div>
           <div class="fx-shot"><div class="phone"><div class="screen mk">
-            <div class="mk-chat-head"><span class="mk-av">MK</span><div><b>Marek K.</b><span class="mk-muted" data-i18n="fx.chat.role">Twój trener</span></div></div>
+            <div class="mk-chat-head"><span class="mk-av">MK</span><div><b>Marek K.</b><span class="mk-muted" data-i18n="fx.chat.role">Your trainer</span></div></div>
             <div class="mk-msgs">
-              <div class="mk-bubble" data-i18n="fx.chat.m1">Jak poszły przysiady w środę?</div>
-              <div class="mk-bubble me" data-i18n="fx.chat.m2">4 × 8 na 60 kg, ostatnia seria ciężko.</div>
+              <div class="mk-bubble" data-i18n="fx.chat.m1">How did Wednesday's squats go?</div>
+              <div class="mk-bubble me" data-i18n="fx.chat.m2">4 × 8 at 60 kg, the last set was tough.</div>
               <div class="mk-bubble me mk-file"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg>przysiad.mp4</div>
-              <div class="mk-bubble" data-i18n="fx.chat.m4">Głębokość jest dobra. W piątek zostań na 60 kg i dołóż serię.</div>
+              <div class="mk-bubble" data-i18n="fx.chat.m4">Depth looks good. Stay at 60 kg on Friday and add a set.</div>
             </div>
-            <div class="mk-input" data-i18n="fx.chat.input">Napisz wiadomość</div>
+            <div class="mk-input" data-i18n="fx.chat.input">Write a message</div>
           </div></div></div>
         </article>
 
         <article class="fx-item">
           <div class="fx-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-          <div class="fx-copy"><h3 data-i18n="features.5.title">Śledzenie postępów</h3><p data-i18n="features.5.desc">Zdjęcia sylwetki, pomiary ciała i wykresy w czasie. Widzisz realną zmianę sylwetki, nie tylko liczbę na wadze.</p></div>
+          <div class="fx-copy"><h3 data-i18n="features.5.title">Progress tracking</h3><p data-i18n="features.5.desc">Progress photos, body measurements and charts over time. You see a real change in your body, not just a number on the scale.</p></div>
           <div class="fx-shot"><div class="phone"><div class="screen mk">
-            <div class="mk-title" data-i18n="fx.prog.title">Postępy</div>
+            <div class="mk-title" data-i18n="fx.prog.title">Progress</div>
             <div class="mk-card">
-              <div class="mk-kv"><span class="mk-muted" data-i18n="fx.prog.weight">Waga</span><b class="mk-ok" data-i18n="fx.prog.weightV">−3,6 kg</b></div>
+              <div class="mk-kv"><span class="mk-muted" data-i18n="fx.prog.weight">Weight</span><b class="mk-ok" data-i18n="fx.prog.weightV">−3.6 kg</b></div>
               <svg class="mk-line" viewBox="0 0 160 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 8 L20 10 L40 15 L60 17 L80 24 L100 28 L120 33 L140 37 L160 40 L160 48 L0 48Z" fill="#35D48322"/><path d="M0 8 L20 10 L40 15 L60 17 L80 24 L100 28 L120 33 L140 37 L160 40" fill="none" stroke="#35D483" stroke-width="2"/></svg>
             </div>
             <div class="mk-two">
@@ -977,48 +978,48 @@ footer a { color: var(--fg-muted); }
               <div class="mk-photo b"><small>1.12</small></div>
             </div>
             <div class="mk-card">
-              <div class="mk-kv"><span class="mk-muted" data-i18n="fx.prog.waist">Talia</span><b>−4 cm</b></div>
-              <div class="mk-kv"><span class="mk-muted" data-i18n="fx.prog.hips">Biodra</span><b>−3 cm</b></div>
+              <div class="mk-kv"><span class="mk-muted" data-i18n="fx.prog.waist">Waist</span><b>−4 cm</b></div>
+              <div class="mk-kv"><span class="mk-muted" data-i18n="fx.prog.hips">Hips</span><b>−3 cm</b></div>
             </div>
           </div></div></div>
         </article>
 
         <article class="fx-item">
           <div class="fx-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="1"/><path d="M7 7v10M11 7v10M15 7v3M15 14v3M18 7v10"/></svg></div>
-          <div class="fx-copy"><h3 data-i18n="features.6.title">Kalorie i makra</h3><p data-i18n="features.6.desc">Skanuj kod kreskowy produktu albo wpisz posiłek ręcznie. Dziennik żywienia liczy kalorie i makroskładniki na bieżąco, sam.</p></div>
+          <div class="fx-copy"><h3 data-i18n="features.6.title">Calories and macros</h3><p data-i18n="features.6.desc">Scan a product's barcode or log a meal manually. Your food diary tracks calories and macros automatically, on its own.</p></div>
           <div class="fx-shot"><div class="phone"><div class="screen mk">
-            <div class="mk-title" data-i18n="mk.calPlan">Mój plan kalorii</div>
+            <div class="mk-title" data-i18n="mk.calPlan">My calorie plan</div>
             <div class="mk-card mk-center">
-              <span class="mk-muted" data-i18n="mk.net">Netto dziś</span>
+              <span class="mk-muted" data-i18n="mk.net">Net calories today</span>
               <div class="mk-kcal">1728 <small>kcal</small></div>
-              <span class="mk-muted" data-i18n="mk.eaten">Zjedzone 2240 · spalone 512</span>
+              <span class="mk-muted" data-i18n="mk.eaten">Eaten 2240 · burned 512</span>
               <div class="mk-rings">
                 <div><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="14" stroke="#1F242B"/><circle cx="18" cy="18" r="14" stroke="#3EC6FF" stroke-dasharray="88" stroke-dashoffset="4"/></svg><b>2240</b><small>kcal</small></div>
-                <div><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="14" stroke="#1F242B"/><circle cx="18" cy="18" r="14" stroke="#FF4D8D" stroke-dasharray="88" stroke-dashoffset="6"/></svg><b>168</b><small data-i18n="mk.protein">białko</small></div>
-                <div><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="14" stroke="#1F242B"/><circle cx="18" cy="18" r="14" stroke="#35D483" stroke-dasharray="88" stroke-dashoffset="12"/></svg><b>236</b><small data-i18n="mk.carbs">węgle</small></div>
-                <div><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="14" stroke="#1F242B"/><circle cx="18" cy="18" r="14" stroke="#F4F6F8" stroke-dasharray="88" stroke-dashoffset="14"/></svg><b>69</b><small data-i18n="mk.fat">tłuszcz</small></div>
+                <div><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="14" stroke="#1F242B"/><circle cx="18" cy="18" r="14" stroke="#FF4D8D" stroke-dasharray="88" stroke-dashoffset="6"/></svg><b>168</b><small data-i18n="mk.protein">protein</small></div>
+                <div><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="14" stroke="#1F242B"/><circle cx="18" cy="18" r="14" stroke="#35D483" stroke-dasharray="88" stroke-dashoffset="12"/></svg><b>236</b><small data-i18n="mk.carbs">carbs</small></div>
+                <div><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="14" stroke="#1F242B"/><circle cx="18" cy="18" r="14" stroke="#F4F6F8" stroke-dasharray="88" stroke-dashoffset="14"/></svg><b>69</b><small data-i18n="mk.fat">fat</small></div>
               </div>
             </div>
             <div class="mk-card">
               <div class="mk-bars" aria-hidden="true"><i style="--h:62%"></i><i style="--h:80%"></i><i style="--h:71%"></i><i style="--h:88%"></i><i style="--h:66%"></i><i style="--h:94%"></i><i style="--h:84%"></i><span class="mk-goal"></span></div>
-              <span class="mk-link" data-i18n="mk.history">Pełna historia makro &rarr;</span>
+              <span class="mk-link" data-i18n="mk.history">Full macro history &rarr;</span>
             </div>
           </div></div></div>
         </article>
 
         <article class="fx-item">
           <div class="fx-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-9.3-9.2C1.4 8.6 3 5 6.6 5c2 0 3.2 1 4.4 2.6C12.2 6 13.4 5 15.4 5 19 5 20.6 8.6 19.3 11.8 17 16.4 12 21 12 21Z"/></svg></div>
-          <div class="fx-copy"><h3 data-i18n="features.7.title">Passy i odznaki</h3><p data-i18n="features.7.desc">Licznik serii treningowej i posiłkowej, odznaki za konsekwencję i przypomnienie, zanim stracisz passę.</p></div>
+          <div class="fx-copy"><h3 data-i18n="features.7.title">Streaks and badges</h3><p data-i18n="features.7.desc">A workout and meal-logging streak counter, badges for consistency, and a reminder before you lose your streak.</p></div>
           <div class="fx-shot"><div class="phone"><div class="screen mk">
             <div class="mk-top">
-              <div><div class="mk-hi" data-i18n="mk.hi">Cześć, Alex</div><div class="mk-date" data-i18n="mk.date">Wtorek, 13 października</div></div>
+              <div><div class="mk-hi" data-i18n="mk.hi">Hey, Alex</div><div class="mk-date" data-i18n="mk.date">Tuesday, 13 October</div></div>
               <span class="mk-avatar" aria-hidden="true"></span>
             </div>
             <div class="mk-card">
-              <div class="mk-h" data-i18n="mk.streak">Twoja passa</div>
+              <div class="mk-h" data-i18n="mk.streak">Current streak</div>
               <div class="mk-two">
-                <div class="mk-box"><small data-i18n="mk.workouts">Treningi</small><b>3</b><small data-i18n="mk.best4">dni · rekord 4</small></div>
-                <div class="mk-box hot"><small data-i18n="mk.meals">Posiłki</small><b>1</b><small data-i18n="mk.best1">dzień · rekord 1</small><span class="mk-chip" data-i18n="mk.freeze">Zamroź dziś</span></div>
+                <div class="mk-box"><small data-i18n="mk.workouts">Workouts</small><b>3</b><small data-i18n="mk.best4">days · best 4</small></div>
+                <div class="mk-box hot"><small data-i18n="mk.meals">Meals</small><b>1</b><small data-i18n="mk.best1">day · best 1</small><span class="mk-chip" data-i18n="mk.freeze">Freeze today</span></div>
               </div>
               <div class="week-dots">
                 <span class="dot done" style="--d:0"></span><span class="dot done" style="--d:1"></span><span class="dot done" style="--d:2"></span><span class="dot" style="--d:3"></span><span class="dot done" style="--d:4"></span><span class="dot done" style="--d:5"></span><span class="dot done" style="--d:6"></span>
@@ -1026,23 +1027,23 @@ footer a { color: var(--fg-muted); }
             </div>
             <div class="mk-card mk-badge">
               <span class="mk-medal" aria-hidden="true">7</span>
-              <div><b data-i18n="fx.badge.title">Nowa odznaka</b><span class="mk-muted" data-i18n="fx.badge.desc">7 dni treningów z rzędu</span></div>
+              <div><b data-i18n="fx.badge.title">New badge</b><span class="mk-muted" data-i18n="fx.badge.desc">7 training days in a row</span></div>
             </div>
           </div></div></div>
         </article>
 
         <article class="fx-item">
           <div class="fx-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 9l5 3-5 3Z"/></svg></div>
-          <div class="fx-copy"><h3 data-i18n="features.8.title">Biblioteka ćwiczeń</h3><p data-i18n="features.8.desc">Każde ćwiczenie z krótkim instruktażem wideo, bez zgadywania, jak wygląda poprawna technika wykonania.</p></div>
+          <div class="fx-copy"><h3 data-i18n="features.8.title">Exercise library</h3><p data-i18n="features.8.desc">Every exercise comes with a short instructional video, no guessing what correct form looks like.</p></div>
           <div class="fx-shot"><div class="phone"><div class="screen mk">
-            <div class="mk-title" data-i18n="fx.lib.title">Biblioteka ćwiczeń</div>
-            <div class="mk-vid"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z" fill="#F4F6F8"/></svg><small data-i18n="fx.lib.now">Przysiad przedni · 0:42</small></div>
-            <div class="mk-search" data-i18n="fx.lib.search">Szukaj: nogi</div>
+            <div class="mk-title" data-i18n="fx.lib.title">Exercise library</div>
+            <div class="mk-vid"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z" fill="#F4F6F8"/></svg><small data-i18n="fx.lib.now">Front squat · 0:42</small></div>
+            <div class="mk-search" data-i18n="fx.lib.search">Search: legs</div>
             <div class="mk-card mk-list">
-              <div class="mk-ex"><i></i><div><b data-i18n="fx.lib.e1">Przysiad przedni</b><span class="mk-muted" data-i18n="fx.lib.m1">Nogi · sztanga</span></div></div>
-              <div class="mk-ex"><i></i><div><b>Hip thrust</b><span class="mk-muted" data-i18n="fx.lib.m2">Pośladki · sztanga</span></div></div>
-              <div class="mk-ex"><i></i><div><b data-i18n="fx.lib.e3">Przysiad bułgarski</b><span class="mk-muted" data-i18n="fx.lib.m3">Nogi · hantle</span></div></div>
-              <div class="mk-ex"><i></i><div><b data-i18n="fx.lib.e4">Uginanie nóg</b><span class="mk-muted" data-i18n="fx.lib.m4">Nogi · maszyna</span></div></div>
+              <div class="mk-ex"><i></i><div><b data-i18n="fx.lib.e1">Front squat</b><span class="mk-muted" data-i18n="fx.lib.m1">Legs · barbell</span></div></div>
+              <div class="mk-ex"><i></i><div><b>Hip thrust</b><span class="mk-muted" data-i18n="fx.lib.m2">Glutes · barbell</span></div></div>
+              <div class="mk-ex"><i></i><div><b data-i18n="fx.lib.e3">Bulgarian split squat</b><span class="mk-muted" data-i18n="fx.lib.m3">Legs · dumbbells</span></div></div>
+              <div class="mk-ex"><i></i><div><b data-i18n="fx.lib.e4">Leg curl</b><span class="mk-muted" data-i18n="fx.lib.m4">Legs · machine</span></div></div>
             </div>
           </div></div></div>
         </article>
@@ -1051,53 +1052,53 @@ footer a { color: var(--fg-muted); }
         <div class="fx-stage"><div class="phone fx-phone"></div></div>
       </div>
     </div>
-    <p class="fx-note" data-i18n="preview.footnote">Ekrany odwzorowują aplikację Ramvo. Imiona i dane są przykładowe.</p>
+    <p class="fx-note" data-i18n="preview.footnote">Screens mirror the Ramvo app. Names and data are examples.</p>
   </section>
 
   <section id="week">
     <div class="section-head reveal">
-      <h2 data-i18n="week.title">Tydzień z Ramvo</h2>
-      <p data-i18n="week.sub">Co robi trener, a co klient, dzień po dniu. Każda linijka to funkcja, która już działa w aplikacji.</p>
+      <h2 data-i18n="week.title">A week with Ramvo</h2>
+      <p data-i18n="week.sub">What the trainer does and what the client does, day by day. Every line is a feature already in the app.</p>
     </div>
-    <div class="wk-legend reveal"><span><i class="t"></i><span data-i18n="week.trainer">Trener</span></span><span><i class="c"></i><span data-i18n="week.client">Klient</span></span></div>
+    <div class="wk-legend reveal"><span><i class="t"></i><span data-i18n="week.trainer">Trainer</span></span><span><i class="c"></i><span data-i18n="week.client">Client</span></span></div>
     <div class="wk-scroll">
       <ol class="wk-track" id="wk-track">
-        <li class="wk-day" style="--i:0"><span class="wk-label" data-i18n="week.d1">Pon</span><div class="wk-card t"><small data-i18n="week.trainer">Trener</small><span data-i18n="week.t1">Przypisuje plan na miesiąc kilku klientom naraz</span></div><div class="wk-card c"><small data-i18n="week.client">Klient</small><span data-i18n="week.c1">Dostaje powiadomienie i widzi plan</span></div></li>
-        <li class="wk-day" style="--i:1"><span class="wk-label" data-i18n="week.d2">Wt</span><div class="wk-card t"><small data-i18n="week.trainer">Trener</small><span data-i18n="week.t2">Widzi na żywo, kto trenuje</span></div><div class="wk-card c"><small data-i18n="week.client">Klient</small><span data-i18n="week.c2">Trenuje z filmem techniki, odhacza serie</span></div></li>
-        <li class="wk-day" style="--i:2"><span class="wk-label" data-i18n="week.d3">Śr</span><div class="wk-card t"><small data-i18n="week.trainer">Trener</small><span data-i18n="week.t3">Odpisuje na czacie</span></div><div class="wk-card c"><small data-i18n="week.client">Klient</small><span data-i18n="week.c3">Skanuje kod kreskowy, makro liczy się samo</span></div></li>
-        <li class="wk-day" style="--i:3"><span class="wk-label" data-i18n="week.d4">Czw</span><div class="wk-card t"><small data-i18n="week.trainer">Trener</small><span data-i18n="week.t4">Widzi, kto od kilku dni nie trenuje</span></div><div class="wk-card c"><small data-i18n="week.client">Klient</small><span data-i18n="week.c4">Rezerwuje sesję online</span></div></li>
-        <li class="wk-day" style="--i:4"><span class="wk-label" data-i18n="week.d5">Pt</span><div class="wk-card t"><small data-i18n="week.trainer">Trener</small><span data-i18n="week.t5">Prowadzi sesję przez Google Meet</span></div><div class="wk-card c"><small data-i18n="week.client">Klient</small><span data-i18n="week.c5">Passa rośnie, odznaka</span></div></li>
-        <li class="wk-day" style="--i:5"><span class="wk-label" data-i18n="week.d6">Sob</span><div class="wk-card t off"><small data-i18n="week.trainer">Trener</small><span data-i18n="week.off">Wolne</span></div><div class="wk-card c"><small data-i18n="week.client">Klient</small><span data-i18n="week.c6">Dopisuje rower spoza planu</span></div></li>
-        <li class="wk-day" style="--i:6"><span class="wk-label" data-i18n="week.d7">Nd</span><div class="wk-card t off"><small data-i18n="week.trainer">Trener</small><span data-i18n="week.off">Wolne</span></div><div class="wk-card c"><small data-i18n="week.client">Klient</small><span data-i18n="week.c7">Dzień regeneracji zalicza się do passy</span></div></li>
-        <li class="wk-day next" style="--i:7"><span class="wk-label" data-i18n="week.d8">Pon, 9:00</span><div class="wk-card t"><small data-i18n="week.trainer">Trener</small><span data-i18n="week.t8">Ma postępy klientów w panelu</span></div><div class="wk-card c"><small data-i18n="week.client">Klient</small><span data-i18n="week.c8">Dostaje podsumowanie tygodnia</span></div></li>
+        <li class="wk-day" style="--i:0"><span class="wk-label" data-i18n="week.d1">Mon</span><div class="wk-card t"><small data-i18n="week.trainer">Trainer</small><span data-i18n="week.t1">Assigns a month's plan to several clients at once</span></div><div class="wk-card c"><small data-i18n="week.client">Client</small><span data-i18n="week.c1">Gets a notification and sees the plan</span></div></li>
+        <li class="wk-day" style="--i:1"><span class="wk-label" data-i18n="week.d2">Tue</span><div class="wk-card t"><small data-i18n="week.trainer">Trainer</small><span data-i18n="week.t2">Sees live who is training</span></div><div class="wk-card c"><small data-i18n="week.client">Client</small><span data-i18n="week.c2">Trains with a form video, ticks off sets</span></div></li>
+        <li class="wk-day" style="--i:2"><span class="wk-label" data-i18n="week.d3">Wed</span><div class="wk-card t"><small data-i18n="week.trainer">Trainer</small><span data-i18n="week.t3">Replies in chat</span></div><div class="wk-card c"><small data-i18n="week.client">Client</small><span data-i18n="week.c3">Scans a barcode, macros add up on their own</span></div></li>
+        <li class="wk-day" style="--i:3"><span class="wk-label" data-i18n="week.d4">Thu</span><div class="wk-card t"><small data-i18n="week.trainer">Trainer</small><span data-i18n="week.t4">Sees who has not trained for a few days</span></div><div class="wk-card c"><small data-i18n="week.client">Client</small><span data-i18n="week.c4">Books an online session</span></div></li>
+        <li class="wk-day" style="--i:4"><span class="wk-label" data-i18n="week.d5">Fri</span><div class="wk-card t"><small data-i18n="week.trainer">Trainer</small><span data-i18n="week.t5">Runs the session on Google Meet</span></div><div class="wk-card c"><small data-i18n="week.client">Client</small><span data-i18n="week.c5">Streak grows, badge unlocked</span></div></li>
+        <li class="wk-day" style="--i:5"><span class="wk-label" data-i18n="week.d6">Sat</span><div class="wk-card t off"><small data-i18n="week.trainer">Trainer</small><span data-i18n="week.off">Day off</span></div><div class="wk-card c"><small data-i18n="week.client">Client</small><span data-i18n="week.c6">Logs a bike ride outside the plan</span></div></li>
+        <li class="wk-day" style="--i:6"><span class="wk-label" data-i18n="week.d7">Sun</span><div class="wk-card t off"><small data-i18n="week.trainer">Trainer</small><span data-i18n="week.off">Day off</span></div><div class="wk-card c"><small data-i18n="week.client">Client</small><span data-i18n="week.c7">A rest day counts toward the streak</span></div></li>
+        <li class="wk-day next" style="--i:7"><span class="wk-label" data-i18n="week.d8">Mon, 9:00</span><div class="wk-card t"><small data-i18n="week.trainer">Trainer</small><span data-i18n="week.t8">Has clients' progress in the panel</span></div><div class="wk-card c"><small data-i18n="week.client">Client</small><span data-i18n="week.c8">Gets a weekly summary</span></div></li>
       </ol>
     </div>
   </section>
 
   <section id="compare">
     <div class="section-head reveal">
-      <h2 data-i18n="compare.title">Dlaczego nie 5 osobnych appek</h2>
-      <p data-i18n="compare.sub">Typowy zestaw do treningu wygląda tak dziś. Ramvo zamyka to w jednym miejscu.</p>
+      <h2 data-i18n="compare.title">Why not 5 separate apps</h2>
+      <p data-i18n="compare.sub">A typical training setup looks like this today. Ramvo brings it all into one place.</p>
     </div>
     <div class="compare-grid reveal-group">
       <div class="compare-col before reveal" style="--i:0">
-        <h3 data-i18n="compare.before.title">Dziś</h3>
+        <h3 data-i18n="compare.before.title">Today</h3>
         <ul>
-          <li><span class="compare-mark">-</span> <span data-i18n="compare.before.1">Apka do planu treningowego</span></li>
-          <li><span class="compare-mark">-</span> <span data-i18n="compare.before.2">Druga apka do liczenia kalorii</span></li>
-          <li><span class="compare-mark">-</span> <span data-i18n="compare.before.3">Kalendarz do umawiania sesji</span></li>
-          <li><span class="compare-mark">-</span> <span data-i18n="compare.before.4">Komunikator do kontaktu z trenerem</span></li>
-          <li><span class="compare-mark">-</span> <span data-i18n="compare.before.5">Notatnik albo arkusz do śledzenia postępów</span></li>
+          <li><span class="compare-mark">-</span> <span data-i18n="compare.before.1">An app for your workout plan</span></li>
+          <li><span class="compare-mark">-</span> <span data-i18n="compare.before.2">A second app for counting calories</span></li>
+          <li><span class="compare-mark">-</span> <span data-i18n="compare.before.3">A calendar for booking sessions</span></li>
+          <li><span class="compare-mark">-</span> <span data-i18n="compare.before.4">A messaging app to reach your trainer</span></li>
+          <li><span class="compare-mark">-</span> <span data-i18n="compare.before.5">A notebook or spreadsheet for tracking progress</span></li>
         </ul>
       </div>
       <div class="compare-col after reveal" style="--i:1">
-        <h3 data-i18n="compare.after.title">Z Ramvo</h3>
+        <h3 data-i18n="compare.after.title">With Ramvo</h3>
         <ul>
-          <li><span class="compare-mark">✓</span> <span data-i18n="compare.after.1">Jedna aplikacja, jedno logowanie</span></li>
-          <li><span class="compare-mark">✓</span> <span data-i18n="compare.after.2">Plan treningowy i jadłospis w tym samym miejscu</span></li>
-          <li><span class="compare-mark">✓</span> <span data-i18n="compare.after.3">Rezerwacje wbudowane, z linkiem do spotkania</span></li>
-          <li><span class="compare-mark">✓</span> <span data-i18n="compare.after.4">Czat z trenerem bez wychodzenia z appki</span></li>
-          <li><span class="compare-mark">✓</span> <span data-i18n="compare.after.5">Postępy, passy i zdjęcia zawsze pod ręką</span></li>
+          <li><span class="compare-mark">✓</span> <span data-i18n="compare.after.1">One app, one login</span></li>
+          <li><span class="compare-mark">✓</span> <span data-i18n="compare.after.2">Workout plan and meal plan in the same place</span></li>
+          <li><span class="compare-mark">✓</span> <span data-i18n="compare.after.3">Bookings built in, with a meeting link</span></li>
+          <li><span class="compare-mark">✓</span> <span data-i18n="compare.after.4">Chat with your trainer without leaving the app</span></li>
+          <li><span class="compare-mark">✓</span> <span data-i18n="compare.after.5">Progress, streaks and photos always at hand</span></li>
         </ul>
       </div>
     </div>
@@ -1106,32 +1107,32 @@ footer a { color: var(--fg-muted); }
   <section id="trainers">
     <div class="trainers-panel reveal">
       <div class="copy">
-        <h2 data-i18n="trainers.title">Jesteś trenerem personalnym?</h2>
-        <p data-i18n="trainers.body">Tworzenie i wysyłanie planów treningowych klientom ręcznie zajmuje mnóstwo czasu. Dołącz do Ramvo jako jeden z pierwszych trenerów i miej to wszystko w jednym miejscu, bez własnej strony, systemu rezerwacji czy aplikacji do kontaktu.</p>
+        <h2 data-i18n="trainers.title">Are you a personal trainer?</h2>
+        <p data-i18n="trainers.body">Creating and sending workout plans to clients by hand takes a huge amount of time. Join Ramvo as one of the first trainers and have it all in one place, without your own website, booking system or messaging app.</p>
         <ul>
-          <li data-i18n="trainers.item1">Wczesny dostęp za darmo, status „Founding Trainer"</li>
-          <li data-i18n="trainers.item2">Twórz i wysyłaj plany klientom w kilka minut, nie godzin</li>
-          <li data-i18n="trainers.item3">Rezerwacje, czat i postępy klientów w jednym miejscu</li>
+          <li data-i18n="trainers.item1">Free early access, "Founding Trainer" status</li>
+          <li data-i18n="trainers.item2">Create and send plans to clients in minutes, not hours</li>
+          <li data-i18n="trainers.item3">Bookings, chat and client progress in one place</li>
         </ul>
       </div>
       <div class="cta" style="display:flex; flex-direction:column; gap:10px; align-items:center;">
-        <a href="/trainers/#demo" class="btn btn-ghost" data-i18n="trainers.demo">Zobacz panel w akcji</a>
-        <button type="button" class="btn btn-primary" id="trainer-form-trigger" data-i18n="trainers.cta">Napisz do nas</button>
+        <a href="/trainers/#demo" class="btn btn-ghost" data-i18n="trainers.demo">See the panel in action</a>
+        <button type="button" class="btn btn-primary" id="trainer-form-trigger" data-i18n="trainers.cta">Get in touch</button>
       </div>
     </div>
   </section>
 
   <div class="modal-overlay" id="trainer-modal" hidden>
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="trainer-modal-title">
-      <button type="button" class="modal-close" id="trainer-modal-close" data-i18n-aria-label="trainerForm.close" aria-label="Zamknij">&times;</button>
-      <h3 id="trainer-modal-title" data-i18n="trainerForm.title">Zgłoś się jako trener</h3>
-      <p class="modal-lead" data-i18n="trainerForm.lead">Zostaw swoje dane, odezwiemy się najszybciej jak to możliwe.</p>
+      <button type="button" class="modal-close" id="trainer-modal-close" data-i18n-aria-label="trainerForm.close" aria-label="Close">&times;</button>
+      <h3 id="trainer-modal-title" data-i18n="trainerForm.title">Apply as a trainer</h3>
+      <p class="modal-lead" data-i18n="trainerForm.lead">Leave your details and we will get back to you as soon as possible.</p>
       <form id="trainer-form">
-        <input type="text" id="trainer-name" data-i18n-placeholder="trainerForm.namePlaceholder" placeholder="Imię i nazwisko" autocomplete="name" required>
-        <input type="email" id="trainer-email" data-i18n-placeholder="trainerForm.emailPlaceholder" placeholder="twoj@email.pl" autocomplete="email" required>
-        <input type="text" id="trainer-city" data-i18n-placeholder="trainerForm.cityPlaceholder" placeholder="Miasto (opcjonalnie)" autocomplete="address-level2">
-        <textarea id="trainer-message" data-i18n-placeholder="trainerForm.messagePlaceholder" placeholder="Kilka słów o sobie (opcjonalnie)" rows="3"></textarea>
-        <button type="submit" class="btn btn-primary" id="trainer-form-submit" data-i18n="trainerForm.submit">Wyślij zgłoszenie</button>
+        <input type="text" id="trainer-name" data-i18n-placeholder="trainerForm.namePlaceholder" placeholder="Full name" autocomplete="name" required>
+        <input type="email" id="trainer-email" data-i18n-placeholder="trainerForm.emailPlaceholder" placeholder="you@email.com" autocomplete="email" required>
+        <input type="text" id="trainer-city" data-i18n-placeholder="trainerForm.cityPlaceholder" placeholder="City (optional)" autocomplete="address-level2">
+        <textarea id="trainer-message" data-i18n-placeholder="trainerForm.messagePlaceholder" placeholder="A few words about yourself (optional)" rows="3"></textarea>
+        <button type="submit" class="btn btn-primary" id="trainer-form-submit" data-i18n="trainerForm.submit">Send application</button>
       </form>
       <div class="status" id="trainer-form-status" role="status" aria-live="polite"></div>
     </div>
@@ -1139,80 +1140,80 @@ footer a { color: var(--fg-muted); }
 
   <section id="faq">
     <div class="section-head reveal">
-      <h2 data-i18n="faq.title">Pytania i odpowiedzi</h2>
-      <p data-i18n="faq.sub">Jeśli czegoś tu brakuje, po prostu napisz do nas.</p>
+      <h2 data-i18n="faq.title">Frequently asked questions</h2>
+      <p data-i18n="faq.sub">If something's missing here, just get in touch.</p>
     </div>
     <div class="faq-list reveal-group" id="faq-list">
       <details class="faq-item reveal" style="--i:0">
-        <summary data-i18n="faq.1.q">Czy muszę mieć trenera, żeby korzystać z appki?</summary>
-        <p data-i18n="faq.1.a">Nie. Ramvo AI, wbudowany wirtualny trener, jest dostępny od pierwszej minuty i wystarcza, jeśli nigdy nie będziesz potrzebować trenera-człowieka. Prawdziwego trenera dobierasz tylko wtedy, gdy sam/a zechcesz.</p>
+        <summary data-i18n="faq.1.q">Do I need a trainer to use the app?</summary>
+        <p data-i18n="faq.1.a">No. Ramvo AI, the built-in virtual trainer, is available from the first minute and is enough if you never need a human trainer. You only pick a real trainer when you decide to.</p>
       </details>
       <details class="faq-item reveal" style="--i:1">
-        <summary data-i18n="faq.2.q">Ile to kosztuje?</summary>
-        <p data-i18n="faq.2.a">Dla osób, które zapiszą się na liście oczekujących już teraz, dostęp do Ramvo będzie darmowy na zawsze. Ceny dla pozostałych znajdziesz w <a href="/pricing/premium/">cenniku</a>.</p>
+        <summary data-i18n="faq.2.q">How much does it cost?</summary>
+        <p data-i18n="faq.2.a">For people who join the waitlist now, access to Ramvo will be free forever. Prices for everyone else are on the <a href="/pricing/premium/">pricing page</a>.</p>
       </details>
       <details class="faq-item reveal" style="--i:2">
-        <summary data-i18n="faq.3.q">Na jakie platformy wyjdzie appka i kiedy?</summary>
-        <p data-i18n="faq.3.a">iOS i Android razem, premiera planowana na grudzień.</p>
+        <summary data-i18n="faq.3.q">Which platforms will the app launch on, and when?</summary>
+        <p data-i18n="faq.3.a">iOS and Android together, launching 1 January 2027.</p>
       </details>
       <details class="faq-item reveal" style="--i:3">
-        <summary data-i18n="faq.4.q">Czy moje dane są bezpieczne?</summary>
-        <p data-i18n="faq.4.a">Tak. Pełne informacje o tym, jakie dane zbieramy i dlaczego, znajdziesz w naszej <a href="/legal/privacy/">Polityce prywatności</a>.</p>
+        <summary data-i18n="faq.4.q">Is my data safe?</summary>
+        <p data-i18n="faq.4.a">Yes. Full details on what data we collect and why are in our <a href="/legal/privacy/">Privacy Policy</a>.</p>
       </details>
       <details class="faq-item reveal" style="--i:4">
-        <summary data-i18n="faq.5.q">Czy mogę zostać trenerem w appce?</summary>
-        <p data-i18n="faq.5.a">Tak, szukamy pierwszych trenerów. Zobacz sekcję „Dla trenerów" powyżej albo napisz do nas bezpośrednio.</p>
+        <summary data-i18n="faq.5.q">Can I become a trainer in the app?</summary>
+        <p data-i18n="faq.5.a">Yes, we're looking for our first trainers. See the "For trainers" section above or get in touch directly.</p>
       </details>
       <details class="faq-item reveal" style="--i:5">
-        <summary data-i18n="faq.6.q">Jak dokładnie działa generowanie planu przez AI?</summary>
-        <p data-i18n="faq.6.a">Podajesz cel, poziom zaawansowania, dostępny sprzęt i ewentualne kontuzje, a Ramvo AI układa z tego konkretny plan treningowy i jadłospis, który możesz dowolnie edytować.</p>
+        <summary data-i18n="faq.6.q">How exactly does AI plan generation work?</summary>
+        <p data-i18n="faq.6.a">You provide your goal, experience level, available equipment and any injuries, and Ramvo AI turns that into a concrete workout and meal plan you can freely edit.</p>
       </details>
       <details class="faq-item reveal" style="--i:6">
-        <summary data-i18n="faq.7.q">Czy mogę później przejść z Ramvo AI na prawdziwego trenera?</summary>
-        <p data-i18n="faq.7.a">Tak, w dowolnym momencie. Twoja historia, postępy i czat zostają bez zmian.</p>
+        <summary data-i18n="faq.7.q">Can I later switch from Ramvo AI to a real trainer?</summary>
+        <p data-i18n="faq.7.a">Yes, at any time. Your history, progress and chat stay exactly as they are.</p>
       </details>
       <details class="faq-item reveal" style="--i:7">
-        <summary data-i18n="faq.8.q">W jakich językach jest dostępna appka?</summary>
-        <p data-i18n="faq.8.a">Angielski i polski.</p>
+        <summary data-i18n="faq.8.q">What languages is the app available in?</summary>
+        <p data-i18n="faq.8.a">English and Polish.</p>
       </details>
     </div>
   </section>
 
   <section id="founder">
     <div class="founder-note reveal">
-      <p data-i18n="founder.body">Zacząłem budować Ramvo, patrząc na trenerów personalnych, którzy tworzą plany treningowe dla swoich klientów. To zajmuje mnóstwo czasu, a samo wysyłanie gotowego planu bywa uciążliwe: PDF-y, wiadomości, arkusze. Chciałem, żeby trenerzy mieli jedną appkę do obsługi klientów i planów, która realnie oszczędza im czas i jest po prostu wygodniejsza. Ramvo AI to dodatek dla osób, które jeszcze nie mają trenera, ale chcą choć minimalnie zadbać o siebie. Buduję to sam, w pełni jawnie, krok po kroku, więc jeśli chcesz śledzić postępy albo masz pomysł, czego appce brakuje, po prostu napisz.</p>
-      <div class="sign" data-i18n="founder.sign">Jan, twórca Ramvo</div>
+      <p data-i18n="founder.body">I started building Ramvo by looking at personal trainers who create workout plans for their clients. That takes a lot of time, and just sending a finished plan is often a hassle: PDFs, messages, spreadsheets. I wanted trainers to have one app to manage their clients and plans that actually saves them time and is simply more convenient. Ramvo AI is an extra for people who don't have a trainer yet but still want to take at least minimal care of themselves. I'm building this alone, fully in the open, step by step, so if you want to follow along or have an idea for what the app is missing, just reach out.</p>
+      <div class="sign" data-i18n="founder.sign">Jan, founder of Ramvo</div>
     </div>
   </section>
 
   <section class="signup narrow" id="signup-section">
     <div class="store-strip reveal">
-      <div class="label" data-i18n="store.label">Wkrótce do pobrania</div>
+      <div class="label" data-i18n="store.label">Coming soon</div>
       <div class="store-badges">
         <span class="store-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 2h-11A2.5 2.5 0 0 0 4 4.5v15A2.5 2.5 0 0 0 6.5 22h11a2.5 2.5 0 0 0 2.5-2.5v-15A2.5 2.5 0 0 0 17.5 2ZM12 20.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM17 17H7V5h10Z"/></svg> App Store</span>
         <span class="store-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.5a1 1 0 0 0-.6.9v17.2a1 1 0 0 0 .6.9l9.9-9.5Zm11.2 9.5-2.6-2.6L4.5 2l10.9 6.3 2.1 1.3Zm1.4 1.4 2.9-1.7a1 1 0 0 0 0-1.7l-2.9-1.7L13.2 12Zm-1.4 1.4L4.5 22l7.7-7.1 2.6-2.5Z"/></svg> Google Play</span>
       </div>
     </div>
-    <div class="signup-counter reveal" id="signup-counter" hidden>🔥 <span id="counter-number">0</span> <span id="counter-label" data-i18n="counter.suffix">osób już czeka na start</span></div>
-    <h2 class="reveal" data-i18n="signup.title">Zapisz się na start</h2>
-    <p class="lead reveal" data-i18n="signup.lead">Damy znać, gdy Ramvo będzie do pobrania.</p>
+    <div class="signup-counter reveal" id="signup-counter" hidden>🔥 <span id="counter-number">0</span> <span id="counter-label" data-i18n="counter.suffix">people already waiting</span></div>
+    <h2 class="reveal" data-i18n="signup.title">Sign up for launch</h2>
+    <p class="lead reveal" data-i18n="signup.lead">We'll let you know when Ramvo is ready to download.</p>
     <form class="signup-form reveal" id="signup-form">
-      <input type="email" id="email-input" data-i18n-placeholder="signup.placeholder" placeholder="twoj@email.pl" autocomplete="email" required>
-      <button type="submit" class="submit" id="submit-btn" data-i18n="signup.button">Zapisz mnie</button>
+      <input type="email" id="email-input" data-i18n-placeholder="signup.placeholder" placeholder="you@email.com" autocomplete="email" required>
+      <button type="submit" class="submit" id="submit-btn" data-i18n="signup.button">Sign me up</button>
     </form>
     <div class="status" id="status" role="status" aria-live="polite"></div>
-    <p class="fine" data-i18n="signup.fine">Żadnego spamu. Tylko jedna wiadomość, gdy appka wystartuje.</p>
+    <p class="fine" data-i18n="signup.fine">No spam. Just one message, when the app launches.</p>
   </section>
 
   <footer>
     <div class="flinks">
-      <a href="#features" data-i18n="nav.features">Funkcje</a>
-      <a href="/trainers/" data-i18n="nav.trainers">Dla trenerów</a>
-      <a href="/pricing/premium/" data-i18n="nav.pricing">Cennik</a>
+      <a href="#features" data-i18n="nav.features">Features</a>
+      <a href="/trainers/" data-i18n="nav.trainers">For trainers</a>
+      <a href="/pricing/premium/" data-i18n="nav.pricing">Pricing</a>
       <a href="#faq" data-i18n="nav.faq">FAQ</a>
-      <a href="/legal/" data-i18n="footer.legal">Polityka prywatności i Regulamin</a>
+      <a href="/legal/" data-i18n="footer.legal">Privacy Policy & Terms</a>
     </div>
-    <span data-i18n="footer.tagline">© 2026 Ramvo Ltd &middot; zarejestrowana w Anglii i Walii, nr 17606223 &middot; info@ramvo.app</span>
+    <span data-i18n="footer.tagline">© 2026 Ramvo Ltd &middot; registered in England and Wales, company no. 17606223 &middot; info@ramvo.app</span>
   </footer>
 </div>
 
@@ -1245,13 +1246,14 @@ footer a { color: var(--fg-muted); }
   var hoverCapable = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   // ============================================================
-  // i18n: PL (default) + EN, auto-detected from navigator.language
-  // (same convention as the mobile app: exact "en" match -> English,
-  // everything else -> Polish), overridable via the nav switcher and
-  // remembered per-visitor in localStorage.
+  // i18n: EN (default) + PL, picked by ?lang=, then the saved choice,
+  // then navigator.language (a Polish browser -> Polish, everything else
+  // -> English; same convention as the mobile app), overridable via the
+  // nav switcher and remembered per-visitor in localStorage.
   // ============================================================
   var TRANSLATIONS = {
     pl: {
+      'mk.place': 'Warszawa Fitness Club, ul. Puławska 42',
       'nav.features': 'Funkcje',
       'nav.trainers': 'Dla trenerów',
       'nav.pricing': 'Cennik',
@@ -1445,6 +1447,7 @@ footer a { color: var(--fg-muted); }
       'status.error': 'Coś poszło nie tak. Spróbuj ponownie.'
     },
     en: {
+      'mk.place': 'Riverside Fitness, 12 Kings Road, Reading',
       'nav.features': 'Features',
       'nav.trainers': 'For trainers',
       'nav.pricing': 'Pricing',
@@ -1673,9 +1676,11 @@ footer a { color: var(--fg-muted); }
   }
 
   function applyLanguage(lang) {
-    if (!TRANSLATIONS[lang]) lang = 'pl';
+    if (!TRANSLATIONS[lang]) lang = 'en';
     currentLang = lang;
     document.documentElement.lang = lang;
+    var desc = document.querySelector('meta[name="description"]');
+    if (desc) desc.setAttribute('content', lang === 'pl' ? 'Znajdź trenera personalnego albo zacznij od razu z Ramvo AI. Plany treningowe, jadłospis, rezerwacje i czat w jednej appce.' : 'Find a personal trainer or start right away with Ramvo AI. Training plans, meal plans, bookings and chat in one app.');
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var t = TRANSLATIONS[lang][el.getAttribute('data-i18n')];
       if (t !== undefined) el.innerHTML = t;
@@ -1697,12 +1702,13 @@ footer a { color: var(--fg-muted); }
   }
 
   function detectLanguage() {
+    try { var q = new URLSearchParams(location.search).get('lang'); if (q === 'pl' || q === 'en') return q; } catch (e) {}
     try {
       var saved = localStorage.getItem('ramvo-lang');
       if (saved === 'pl' || saved === 'en') return saved;
     } catch (e) {}
     var navLang = (navigator.language || (navigator.languages && navigator.languages[0]) || '').toLowerCase();
-    return navLang.indexOf('en') === 0 ? 'en' : 'pl';
+    return navLang.indexOf('pl') === 0 ? 'pl' : 'en';
   }
 
   applyLanguage(detectLanguage());
